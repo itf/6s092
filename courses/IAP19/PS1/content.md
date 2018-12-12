@@ -97,7 +97,9 @@ csq_options =  ['$(n),\ (n+4),\ (5n)$',
 '$(2^{2^n}),\ (2^{2^{n+1}}),\ (2^{2^{n+2}})$']
 </question>
 
-## Recursion Tree
+## Recursions and recursion tree
+
+
 
 Consider the following recursion: 
 
@@ -110,13 +112,13 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = True
-csq_msg_function = lambda sub: sub
-csq_soln = ["6*a", "sqrt(2)"]
+csq_soln = ["6*a", "sqrt(2)", "T(n) + b"]
 csq_explanation = "DALASLDSALDLALDAL"
 csq_nsubmits = None
 csq_auto_viewanswer = True
 csq_render_result = True
 csq_display_name = "test"
+csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  r"%s(%s)" % ("T", ", ".join(c)) )}
 
 </question>
 
