@@ -4,10 +4,16 @@ corresponding webpage in the menu above.
 
 Websites for this course include:
 
+
 * [Code Checker (this!)](#)
 * [Stellar](#)
 * [Piazza](#)
 * [Gradescope](#)
+
+
+<center>
+<img src="/_static/IAP19/example-plot.svg" />
+</center>
 
 <!--
 Hello.  This is the main page.  Maybe it has a calendar, or weekly
