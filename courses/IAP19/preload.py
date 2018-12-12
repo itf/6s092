@@ -52,7 +52,7 @@ cs_top_menu = [
 
 # AUTHENTICATION
 
-if 'alg.mit.edu' in cs_url_root:
+if 's092.xvm.mit.edu' in cs_url_root:
     # on the server.  use openid_connect
     cs_auth_type = 'openid_connect'
     cs_openid_server = 'https://oidc.mit.edu'
