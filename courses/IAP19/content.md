@@ -15,6 +15,8 @@ Websites for this course include:
 <img src="/_static/IAP19/example-plot.svg" />
 </center>
 
+Under construction!
+
 <!--
 Hello.  This is the main page.  Maybe it has a calendar, or weekly
 announcements, and links to assignments.
