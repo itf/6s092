@@ -133,9 +133,9 @@ csq_nsubmits = None
 
 Consider the following recursion: 
 
-$$T(n) = 2T\left(\frac{n}{2}\right) + n$$ 
+$$T(n) = aT\left(\frac{n}{b}\right) + n^c$$ 
 
-We will represent it as a recursion tree. Answer the following questions
+Draw it as a recursion tree. Answer the following about the tree.
 
 <question expression>
 csq_prompt = "Number of nodes on the second level: "
@@ -143,10 +143,63 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["6*a", "sqrt(2)", "T(n) + b"]
-csq_explanation = "DALASLDSALDLALDAL"
+csq_soln = ["a"]
+csq_explanation = ""
 csq_nsubmits = None
 </question>
+
+<question expression>
+csq_prompt = "Number of elements in the nodes of the second level: "
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["n/b"]
+csq_explanation = ""
+csq_nsubmits = None
+</question>
+
+<question expression>
+csq_prompt = "Amount of work done in each node in the second level: "
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["a*(n/b)^c"]
+csq_explanation = ""
+csq_nsubmits = None
+</question>
+
+<question expression>
+csq_prompt = """Suppose the amount of work done in the first level is $x$ and the amount of work in the second level is $y$.
+
+What is $\\frac{y}{x}$?
+"""
+csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["a/(b^c)"]
+csq_explanation = ""
+csq_nsubmits = None
+</question>
+<question expression>
+csq_prompt = """Suppose the amount of work per level is constant, i.e. $\\frac{y}{x} =1$
+
+What is c?  To write $\log_x(y)$, please write $\log(y,x)$
+"""
+csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["log(a,b)", "log(a)/log(b)"]
+csq_explanation = ""
+csq_nsubmits = None
+
+</question>
+
 
 
 <question multiplechoice>
