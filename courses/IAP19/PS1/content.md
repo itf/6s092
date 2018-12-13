@@ -19,7 +19,7 @@ csq_renderer = "checkbox"
 csq_soln = [1,1,0]
 csq_options =  ['$(n),\ (n+4),\ (5n),\ (n^2),\ (n^2+n),\ (5n)^2$',
  '$(n+4),\ (5n),\ (n),\ (5n)^2,\ (n^2),\ (n^2+n)$',
- '$(n^2),\ (5n)^2,\ (5n),\ (n),\ (n+4),\ (n^2+n)$']
+ '$(n^2),\ (5n)^2,\ (n^2+n),\ (5n),\ (n),\ (n+4)$']
 </question>
 
 
@@ -55,10 +55,10 @@ csq_options =  ['$(n),\ (n+4),\ (5n)$',
 
 <question multiplechoice>
 csq_renderer = "checkbox"
-csq_soln = [0,0,0]
+csq_soln = [0,0,1]
 csq_options =  ['$(n),\ (n+4),\ (5n),\ (n^2),\ (n^2+n),\ (5n)^2$',
  '$(n+4),\ (5n),\ (n),\ (5n)^2,\ (n^2),\ (n^2+n)$',
- '$(n^2),\ (5n)^2,\ (5n),\ (n),\ (n+4),\ (n^2+n)$']
+ '$(n^2),\ (5n)^2,\ (n^2+n),\ (5n),\ (n),\ (n+4)$']
 </question>
 
 
@@ -100,27 +100,54 @@ csq_options =  ['$(n),\ (n+4),\ (5n)$',
 ## Recursions and recursion tree
 
 
+Which of the following recursions are equivalent?
 
-Consider the following recursion: 
+<question multiplechoice>
+csq_prompt = "$T(n) =$"
+csq_renderer = "checkbox"
+csq_soln = [1,0,0,0]
+csq_options =  ['$T({n\over 2}) + T({n\over 2}) + f(n)\ = 2T({n\over 2}) + f(n)$',
+'$T({n\over 2}) + T({n\over 2}) + f(n)\ = T({n}) + f(n)$',
+'$T({n}) + O(n)\ = T({n}) + n$',
+'$T({n}) + O(n)\ = T({n}) + \\theta(n)$']
+</question>
 
-$$T(n) = aT\left(\frac{n}{b}\right) + n^c$$ 
 
 
+
+
+
+Bob told me that he invented a sort algorithm that splits an array into 3 equal parts, sorts each one of them, and then merges in $O(n)$ the 3 parts.
+What is the recursion for the algorithm 
 <question expression>
-csq_prompt = "Upload your `search_sorted_2D_array.py`: "
+csq_prompt = "$T(n)=$ "
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["3*T(n/3)+O(n)"]
+csq_explanation = "3 parts of 1/3 of the size + the work to join"
+csq_nsubmits = None
+</question>
+
+
+Consider the following recursion: 
+
+$$T(n) = 2T\left(\frac{n}{2}\right) + n$$ 
+
+We will represent it as a recursion tree. Answer the following questions
+
+<question expression>
+csq_prompt = "Number of nodes on the second level: "
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
 csq_soln = ["6*a", "sqrt(2)", "T(n) + b"]
 csq_explanation = "DALASLDSALDLALDAL"
 csq_nsubmits = None
-csq_auto_viewanswer = True
-csq_render_result = True
-csq_display_name = "test"
-csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  r"%s(%s)" % ("T", ", ".join(c)) )}
-
 </question>
+
 
 <question multiplechoice>
 
