@@ -20,12 +20,12 @@ cs_markdown_ignore_tags = ('script', 'svg', 'textarea')
 cs_top_menu = [
     {'link': 'COURSE', 'text': 'Homepage'},
     {'text': 'Problem Sets', 'link': [
-            {'text': 'PS1', 'link': 'COURSE/PS1'},
-            {'text': 'PS2', 'link': 'COURSE/PS2'},
-            {'text': 'PS3', 'link': 'COURSE/PS3'},
-            {'text': 'PS4', 'link': 'COURSE/PS4'},
-            {'text': 'PS5', 'link': 'COURSE/PS5'},
-            {'text': 'PS6', 'link': 'COURSE/PS6'},
+            {'text': 'PS1', 'link': 'COURSE/PS/PS1'},
+  #          {'text': 'PS2', 'link': 'COURSE/PS/PS2'},
+  #          {'text': 'PS3', 'link': 'COURSE/PS/PS3'},
+  #          {'text': 'PS4', 'link': 'COURSE/PS/PS4'},
+  #          {'text': 'PS5', 'link': 'COURSE/PS/PS5'},
+  #          {'text': 'PS6', 'link': 'COURSE/PS/PS6'},
     #         {'text': 'PS7', 'link': 'COURSE/PS7'},
     #         {'text': 'PS8', 'link': 'COURSE/PS8'},
     #         {'text': 'PS9', 'link': 'COURSE/PS9'},
