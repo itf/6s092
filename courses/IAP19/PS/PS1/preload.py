@@ -7,7 +7,7 @@ csq_allow_viewexplanation = True
 #extra functions, to be able to do some of the problems:
 csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  r"%s(%s)" % ("T", ", ".join(c)) ),
 "O": (lambda c: c**3*1.6006-c**2, lambda  c:  r"%s(%s)" % ("O", ", ".join(c)) ),
-"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:  r"%s(%s)" % ("\\theta", ", ".join(c)) ),}
+"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:  r"%s(%s)" % ("\\theta", ", ".join(c)) )}
 
 
 # def csq_allow_submit(context):

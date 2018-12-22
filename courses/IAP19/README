@@ -1,0 +1,3 @@
+To access stats append: ?action=stats  at the end.
+
+More generally, to run any of the handlers on __HANDLERS__/default/default.py, simply write ?action=handler

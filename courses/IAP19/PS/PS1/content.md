@@ -4,6 +4,8 @@
 
 We say that $f(n) \in O(g(n)$ if there exists $n_0$ and c such that for all $n>n_0$, $f(n) \le cg(n)$, where c is a positive constant.
 
+It is common to write $f(n) = O(g(n))$ instead of $f(n) \in O(g(n))$. Both mean the same.
+
 Order the following functions such that if f is to the left of g, then $f(n) \in O(g(n))$. If more than one solution exists, mark all of them.
 
 <question multiplechoice>
@@ -39,6 +41,14 @@ csq_options =  ['$(n\log(n)),\ (n^{1.01}),\ (n^2)$',
  '$(n^{1.01}),\ (n^2),\ n\log(n)$']
 </question>
 
+<checkyourself>
+Is ${n \choose 3} \in O(n^3)$? What about  $n^3 \in O({n \choose 3})$
+
+<showhide>
+Yes and yes.
+</showhide>
+</checkyourself>
+
 ## Big $\Omega$
 
 We say that $f(n) \in \Omega(g(n)$ if there exists $n_0$ and c such that for all $n>n_0$, $cf(n) \ge g(n)$, where c is a positive constant.
@@ -72,7 +82,7 @@ csq_options =  ['$(n\log(n)),\ (n),\ (n^2)$',
 
 <question multiplechoice>
 csq_renderer = "checkbox"
-csq_soln = [1,0,0]
+csq_soln = [0,0,1]
 csq_options =  ['$(n\log(n)),\ (n^{1.01}),\ (n^2)$',
  '$(n^{1.01}),\ (n\log(n)),\ (n^2)$',
  '$(n^{2}),\ (n^{1.01}),\ n\log(n)$']
@@ -96,6 +106,7 @@ csq_options =  ['$(n),\ (n+4),\ (5n)$',
 '$(2^n),\ (2^{n+1}),\ (2^{n+2})$',
 '$(2^{2^n}),\ (2^{2^{n+1}}),\ (2^{2^{n+2}})$']
 </question>
+
 
 ## Recursions and recursion tree
 
@@ -165,6 +176,17 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
+csq_soln = ["(n/b)^c"]
+csq_explanation = ""
+csq_nsubmits = None
+</question>
+
+<question expression>
+csq_prompt = "Total work done in the second level: "
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
 csq_soln = ["a*(n/b)^c"]
 csq_explanation = ""
 csq_nsubmits = None
@@ -185,9 +207,9 @@ csq_explanation = ""
 csq_nsubmits = None
 </question>
 <question expression>
-csq_prompt = """Suppose the amount of work per level is constant, i.e. $\\frac{y}{x} =1$
+csq_prompt = """Suppose the amount of work per level is constant. 
 
-What is c?  To write $\log_x(y)$, please write $\log(y,x)$
+If  $\\frac{y}{x} =1$,  what is $c$ in terms of $a$ and $b$?  To write $\log_x(y)$, please write $\log(y,x)$
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
@@ -197,7 +219,7 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = ["log(a,b)", "log(a)/log(b)"]
 csq_explanation = ""
 csq_nsubmits = None
-
+csq_name="question"
 </question>
 
 
@@ -352,7 +374,7 @@ tests = (
     )
 )
 
-csq_interface = 'upload'
+csq_interface = 'ace'
 csq_prompt = "Upload your `search_sorted_2D_array.py`: "
 csq_show_skeleton = False
 csq_soln = """
