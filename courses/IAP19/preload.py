@@ -31,7 +31,7 @@ cs_top_menu = [
     #         {'text': 'PS9', 'link': 'COURSE/PS9'},
     #         {'text': 'PS10', 'link': 'COURSE/PS10'},
     ]},
-    # {'link': 'COURSE/Grades', 'text': 'Grades'},
+    {'link': 'COURSE/grades', 'text': 'Grades'},
     # {'text': 'Pages', 'link': [
     #         {'text': 'Structure', 'link': 'COURSE/structure'},
     #         {'text': 'Markdown', 'link': 'COURSE/markdown'},
