@@ -103,9 +103,9 @@ def cs_course_handle_custom_tags(text):
 csq_python3 = True
 csq_python_sandbox = "bwrap"
 if 's092.xvm.mit.edu' in cs_url_root:
-    csq_python_interpreter = '/home/ta/python3_sandbox/bin/python3'
+    csq_python_interpreter = '/home/ta/python36_sandbox/bin/python3'
     csq_bwrap_extra_ro_binds = [
-        ('/home/ta/python3_sandbox', '/home/ta/python3_sandbox'),
+        ('/home/ta/python36_sandbox', '/home/ta/python36_sandbox'),
         ('/home/ta/py365', '/home/ta/py365'),
     ]
 #if 'catsoop.csail.mit.edu' in cs_url_root:
