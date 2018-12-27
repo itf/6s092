@@ -236,15 +236,47 @@ def print_user_table(username, pset_full_scores, user_score_problemset):
         spoof = '?as={username}'.format(username=username)
 
 
+    user_total = sum([score for problemset,score in user_score_problemset.items()])
+    pset_total = sum([score for problemset, score in pset_full_scores.items()])
+
+
+
+
     soup = BeautifulSoup("", "html.parser")
     table = soup.new_tag("table")
     table["class"] = "table table-bordered"
     header = soup.new_tag("tr")
-    for heading in ["pset", "score"]:
+    for heading in ["Pset", "Score"]:
         th = soup.new_tag("th")
         th.string = heading
         header.append(th)
     table.append(header)
+
+
+
+    ## APPEND TOTAL POINTS
+    tr = soup.new_tag("tr")
+    td = soup.new_tag("td")
+    b = soup.new_tag(
+        "b"
+    )
+    b.string = "TOTAL" # link to user info
+
+    td.append(b)
+    td["class"] = "text-left"
+    tr.append(td)
+
+    td = soup.new_tag("td")
+    td.string = "{user_total}/{pset_total} ({percent:.2%})".format(
+            user_total=user_total,
+            pset_total=pset_total,
+            percent=(user_total / pset_total) if pset_total != 0 else 1,
+        )
+    td["class"] = "text-right"
+    tr.append(td)
+    table.append(tr)
+
+
 
     for name, score in sorted(user_score_problemset.items()):
         total = pset_full_scores[name]
