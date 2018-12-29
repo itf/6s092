@@ -42,11 +42,21 @@ def get_pset_from_path(path):
 def get_path_from_pset(pset):
     return pset.split('/')
 
-def get_pset_paths():
-    ## Get list of problems. Assume all of them are in folder PS
-    pset = sorted(csm_loader.get_subdirs(globals(), cs_course, ['PS']))
-    pset_paths = [['PS'] + [x] for x in pset]
-    return pset_paths
+
+def get_name_from_pset(pset):
+    path  = [cs_course] + get_path_from_pset(pset)
+    try:
+        data = csm_loader.spoof_early_load([cs_course, "PS", "PS1"])
+        name = data.get("cs_long_name", pset)
+    except:
+        name = pset
+    return name
+# This is now defined on the top level preload, so it can also be used for printing the pset list.
+# def get_pset_paths():
+#     ## Get list of problems. Assume all of them are in folder PS
+#     pset = sorted(csm_loader.get_subdirs(globals(), cs_course, ['PS']))
+#     pset_paths = [['PS'] + [x] for x in pset]
+#     return pset_paths
 
 def get_usernames():
     usernames = csm_util.list_all_users(globals(), cs_course)
@@ -194,7 +204,7 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
     table = soup.new_tag("table")
     table["class"] = "table table-bordered"
     header = soup.new_tag("tr")
-    for heading in ["pset", "score"]:
+    for heading in ["pset", "direct link", "score"]:
         th = soup.new_tag("th")
         th.string = heading
         header.append(th)
@@ -207,11 +217,22 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
         a = soup.new_tag(
             "a", href="?pset={}".format(name)
         )
+        a.string = get_name_from_pset(name) # link to user info
+
+        td.append(a)
+        td["class"] = "text-left"
+        tr.append(td)
+
+        td = soup.new_tag("td")
+        a = soup.new_tag(
+            "a", href="COURSE/{path}".format(path=name)
+        )
         a.string = name # link to user info
 
         td.append(a)
         td["class"] = "text-left"
         tr.append(td)
+
 
         td = soup.new_tag("td")
         td.string = "{score}/{total} ({percent:.2%})".format(
@@ -285,7 +306,7 @@ def print_user_table(username, pset_full_scores, user_score_problemset):
         a = soup.new_tag(
             "a", href="COURSE/{path}{spoof}".format(path=name, spoof=spoof)
         )
-        a.string = name # link to user info
+        a.string = get_name_from_pset(name) # link to user info
 
         td.append(a)
         td["class"] = "text-left"
@@ -368,9 +389,8 @@ def generate_summary_page_for_us():
     for user in sorted(students):
         users_score_problemsets[user] = get_user_score_psets(user, pset_paths)
 
-
-    print_user_summary_table(pset_full_scores, users_score_problemsets)
     print_pset_summary_table(pset_full_scores, users_score_problemsets)
+    print_user_summary_table(pset_full_scores, users_score_problemsets)
   
 
 def generate_page_for_user(user):

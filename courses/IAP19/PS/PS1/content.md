@@ -1,3 +1,7 @@
+# Readings 
+Asymptotic Notation and Efficiency sections of Recitation notes 1, 6.006 Fall 2018 on stellar.
+
+
 #Asymptotics
 
 ##Big O Notation

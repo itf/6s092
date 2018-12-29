@@ -1,6 +1,15 @@
 # preload.py at each level defines special variables and/or functions to be
 # inherited by pages farther down the tree.
 
+
+# Temporary function for generating the psets.
+def get_pset_paths():
+    ## Get list of problems. Assume all of them are in folder PS
+    pset = sorted(csm_loader.get_subdirs(globals(), cs_course, ['PS']))
+    pset_paths = [['PS'] + [x] for x in pset]
+    return pset_paths
+
+
 # LOOK AND FEEL
 
 cs_base_color = "#4286f4"  # the base color

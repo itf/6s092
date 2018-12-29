@@ -1,4 +1,4 @@
-cs_long_name = 'Problem Set 1'
+cs_long_name = 'Asymptotics'
 cs_release_date = '2018-09-07:23:00'
 cs_due_date = '2019-12-13:23:00'
 csq_allow_viewanswer = False
