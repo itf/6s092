@@ -28,8 +28,8 @@ cs_markdown_ignore_tags = ('script', 'svg', 'textarea')
 #  * link: the target of the link (either a URL or another list of this same form)
 cs_top_menu = [
     {'link': 'COURSE', 'text': 'Homepage'},
-    {'text': 'Problem Sets', 'link': [
-            {'text': 'PS1', 'link': 'COURSE/PS/PS1'},
+#    {'text': 'Problem Sets', 'link': [
+#            {'text': 'PS1', 'link': 'COURSE/PS/PS1'},
   #          {'text': 'PS2', 'link': 'COURSE/PS/PS2'},
   #          {'text': 'PS3', 'link': 'COURSE/PS/PS3'},
   #          {'text': 'PS4', 'link': 'COURSE/PS/PS4'},
@@ -39,8 +39,8 @@ cs_top_menu = [
     #         {'text': 'PS8', 'link': 'COURSE/PS8'},
     #         {'text': 'PS9', 'link': 'COURSE/PS9'},
     #         {'text': 'PS10', 'link': 'COURSE/PS10'},
-    ]},
-    {'link': 'COURSE/grades', 'text': 'Grades'},
+ #   ]},
+    {'link': 'COURSE/grades', 'text': 'Grades and Problem Sets'},
     # {'text': 'Pages', 'link': [
     #         {'text': 'Structure', 'link': 'COURSE/structure'},
     #         {'text': 'Markdown', 'link': 'COURSE/markdown'},
