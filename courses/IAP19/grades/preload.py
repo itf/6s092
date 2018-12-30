@@ -346,7 +346,7 @@ def print_pset_table(pset, pset_full_scores, user_score_problemset):
         if allow_spoof:
             spoof = '?as={username}'.format(username=name)
 
-        total = pset_full_scores[name]
+        total = pset_full_scores[pset]
         tr = soup.new_tag("tr")
         td = soup.new_tag("td")
         a = soup.new_tag(
