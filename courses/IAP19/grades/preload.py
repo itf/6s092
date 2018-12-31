@@ -46,7 +46,7 @@ def get_path_from_pset(pset):
 def get_name_from_pset(pset):
     path  = [cs_course] + get_path_from_pset(pset)
     try:
-        data = csm_loader.spoof_early_load([cs_course, "PS", "PS1"])
+        data = csm_loader.spoof_early_load(path)
         name = data.get("cs_long_name", pset)
     except:
         name = pset
@@ -188,15 +188,18 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
 def print_pset_summary_table(pset_full_scores, users_scores_problemset):
     #First get max_pset_score, i.e sum of points users could get
     total_users = len(users_scores_problemset)
-    pset_max_scores = {pset_name: score*total_users 
+    pset_max_scores = {pset_name: score
             for pset_name, score in pset_full_scores.items()}
 
     #now get sum of students score.
     pset_user_score_sum = defaultdict(lambda: 0)
-
+    pset_user_non_zero_sum = defaultdict(lambda: [0,0])
     for _, problemset_scores in users_scores_problemset.items():
         for pset_name, score in problemset_scores.items():
             pset_user_score_sum[pset_name] += score
+            if score != 0:
+                pset_user_non_zero_sum[pset_name][0] += score
+                pset_user_non_zero_sum[pset_name][1] += 1
 
 
 
@@ -204,7 +207,7 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
     table = soup.new_tag("table")
     table["class"] = "table table-bordered"
     header = soup.new_tag("tr")
-    for heading in ["pset", "direct link", "score"]:
+    for heading in ["pset", "direct link", "average score", "average non zero"]:
         th = soup.new_tag("th")
         th.string = heading
         header.append(th)
@@ -212,6 +215,7 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
 
     for name, score in sorted(pset_user_score_sum.items()):
         total = pset_max_scores[name]
+        non_zero_score, non_zero_people = pset_user_non_zero_sum[name]
         tr = soup.new_tag("tr")
         td = soup.new_tag("td")
         a = soup.new_tag(
@@ -235,12 +239,24 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
 
 
         td = soup.new_tag("td")
-        td.string = "{score}/{total} ({percent:.2%})".format(
-                score=score,
+        td.string = "{average_score:.2f}/{total} ({percent:.2%})".format(
+                average_score=score/total_users,
                 total=total,
-                percent=(score / total) if total != 0 else 1,
+                percent=(score / total_users / total) if total != 0 else 0,
             )
         td["class"] = "text-right"
+        tr.append(td)
+
+
+        td = soup.new_tag("td")
+        td.string = "{average_score:.2f}/{total} ({percent:.2%})".format(
+                average_score=non_zero_score/non_zero_people if non_zero_people != 0 else 0,
+                total=total,
+                percent=(non_zero_score/non_zero_people / total) if total != 0 and non_zero_people != 0 else 0,
+            )
+        td["class"] = "text-right"
+
+
         tr.append(td)
         table.append(tr)
 
