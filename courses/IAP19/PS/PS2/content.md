@@ -241,7 +241,7 @@ csq_nsubmits = None
 ### 2nd case of the weak version of the master theorem
 Now let's use the above to calculate the amount of work per level.
 
-If $\frac{a}{b^c} = 1$, i.e. $c = \log_b(a)$  What is the total amount of work done on the tree? Is it constant per level?
+If $\frac{a}{b^c} = 1$, i.e. $c = \log_b(a)$  What is the total amount of work done on the tree? Is it constant per level? Remember that the total work on the root is $n^c$.
 
  <question expression>
 csq_prompt = """What is the total amount of work done in the tree?
@@ -251,7 +251,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "n^c * n^log(a,b)"
+csq_soln = "n^c * log(n,b)"
 csq_nsubmits = None
 </question> 
 
