@@ -189,7 +189,7 @@ csq_nsubmits = None
 
 
 <question expression>
-csq_prompt = """Given that the root contains $n$ elements, and the second level contains $a n$ nodes. 
+csq_prompt = """Given that the root contains 1 node, and the second level contains $a$ nodes. 
 
 How many nodes will the $i_{th}$ level have?
 """
@@ -198,13 +198,13 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["a^i*n", "a^(i-1)*n"]
+csq_soln = ["a^i*n", "a^(i-1)"]
 csq_nsubmits = None
 </question> 
 
 
 <question expression>
-csq_prompt = """Given that the root contains $n$ elements, and the second level contains $a n$ nodes. 
+csq_prompt = """Given that the root contains 1 node, and the second level contains $a$ nodes. 
 
 How many nodes wil the last level have?
 """
