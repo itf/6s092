@@ -368,6 +368,6 @@ $$T(n) = aT\left(\frac{n}{b}\right) + O(n^c)$$
 
 What would be the total work on the tree?
 <showhide>
-$$\theta(n^\log_b(a))$$. Notice that since the total amount of work is only dependent on the number of leaves, the amount of work per node getting smaller, does not affect the asymptotic bound on the work. 
+$$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only dependent on the number of leaves, the amount of work per node getting smaller, does not affect the asymptotic bound on the work. 
 </showhide>
 </checkyourself>
