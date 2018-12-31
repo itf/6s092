@@ -287,7 +287,7 @@ $$n^c \sum_{i=0}^{\infty} \left(\frac{a}{b^c}\right)^i $$
 What does the sum converges to?
 
  <question expression>
-csq_prompt = """What is the total amount of work done in the tree?
+csq_prompt = """What does the sum that upper bounds the work on the tree converges to?
 """
 csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
 csq_show_check = True
@@ -349,7 +349,7 @@ $$n^{log_b(a)} \sum_{i=0}^{\infty} \left(\frac{b^c}{a}\right)^i$$</showhide>
 What does the sum converges to?
 
  <question expression>
-csq_prompt = """What is the total amount of work done in the tree?
+csq_prompt = """What does the sum that upper bounds the work on the tree converges to?
 """
 csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
 csq_show_check = True
