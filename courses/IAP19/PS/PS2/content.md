@@ -198,7 +198,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["a^i*n", "a^(i-1)"]
+csq_soln = ["a^i", "a^(i-1)"]
 csq_nsubmits = None
 </question> 
 
