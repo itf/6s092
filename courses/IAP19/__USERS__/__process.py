@@ -1,24 +1,29 @@
 staff = [
-    'edemaine',
-    'jasonku',
-    'zabel',
+#    'edemaine',
+#    'jasonku',
+#    'zabel',
     #
-    'mcoulomb',
+#    'mcoulomb',
     'ivanaf',
-    'vivekm',
+#    'vivekm',
     'asahoo',
     'stefren',
-    'mcoulomb',
+#    'mcoulomb',
     'ivanaf',
     'ckguo',
-    'alexkatz',
-    'vivekm',
+#    'alexkatz',
+#    'vivekm',
     'prekshan',
-    'pnoyola',
+#    'pnoyola',
     'stefren',
-    'asahoo',
     'rewang',
     'justinej',
+]
+
+awesomehelp = [
+'levyr',
+'aeg',
+'gschwind'
 ]
 
 # Add Staff
@@ -27,7 +32,15 @@ for s in staff:
     with open(s + '.py', 'w+') as g:
         g.write("role = 'Admin'")
 
+for s in awesomehelp:
+    with open(s + '.py', 'w+') as g:
+        g.write("role = 'Admin'")
+
+
+
 # Add Students
+
+
 
 if False:
     with open('students.csv', 'r') as f:
