@@ -1,5 +1,5 @@
-# Readings 
-Asymptotic Notation and Efficiency sections of Recitation notes 1, 6.006 Fall 2018 on stellar.
+# Readings
+Asymptotic Notation and Efficiency sections of Recitation notes 1, 6.006 Fall 2018 on Stellar.
 
 
 #Asymptotics
@@ -8,9 +8,9 @@ Asymptotic Notation and Efficiency sections of Recitation notes 1, 6.006 Fall 20
 
 We say that $f(n) \in O(g(n)$ if there exists $n_0$ and c such that for all $n>n_0$, $f(n) \le cg(n)$, where c is a positive constant.
 
-It is common to write $f(n) = O(g(n))$ instead of $f(n) \in O(g(n))$. Both mean the same.
+It is common to write $f(n) = O(g(n))$ instead of $f(n) \in O(g(n))$. Both expressions have the same meaning.
 
-Order the following functions such that if f is to the left of g, then $f(n) \in O(g(n))$. If more than one solution exists, mark all of them.
+Order the following functions such that if f is to the left of g, then $f(n) = O(g(n))$. Select all orderings that are correct (there may be more than one).
 
 <question multiplechoice>
 csq_renderer = "checkbox"
@@ -54,7 +54,7 @@ Is ${n \choose 3} \in O(n^3)$? What about  $n^3 \in O({n \choose 3})$
 
 We say that $f(n) \in \Omega(g(n)$ if there exists $n_0$ and c such that for all $n>n_0$, $cf(n) \ge g(n)$, where c is a positive constant.
 
-Order the following functions such that if f is to the left of g, then $f(n) \in \Omega(g(n))$. If more than one solution exists, mark all of them.
+Order the following functions such that if f is to the left of g, then $f(n) \in \Omega(g(n))$. Select all orderings that are correct.
 
 <question multiplechoice>
 csq_renderer = "checkbox"
@@ -113,9 +113,9 @@ csq_options =  ['$(n),\ (n+4),\ (5n)$',
 
 We say that $f(n) \in o(g(n))$ if there exists $n_0$ and c such that for all $n>n_0$, $f(n) < cg(n)$, where c is a positive constant.
 
-The only difference with $O$ is that now we have a strictly inequality. This is the same as saying $$f(n) \in o(g(n)) \iff  f(n) \not \in \Omega(g(n))$$
+The only difference with $O$ is that now we have a strict inequality. This is the same as saying $$f(n) \in o(g(n)) \iff  f(n) \not \in \Omega(g(n))$$
 
 
-Similarly
+Similarly,
 
 $$f(n) \in \omega(g(n)) \iff  f(n) \not \in O(g(n))$$
