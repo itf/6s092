@@ -356,7 +356,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "n^\log(a,b)*(1/(1-(b^c/a)))"
+csq_soln = "n^log(a,b)*(1/(1-(b^c/a)))"
 csq_nsubmits = None
 </question> 
 
