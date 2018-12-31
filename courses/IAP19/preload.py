@@ -55,7 +55,7 @@ cs_top_menu = [
     #     {'link': 'COURSE/grading', 'text': 'Grading Policies'},
     #     {'link': 'COURSE/collaboration', 'text': 'Collaboration Policy'},
     # ]},
-    # {'text': 'Piazza', 'link': 'https://piazza.com/mit/spring17/6036'},
+     {'text': 'Piazza', 'link': 'https://piazza.com/mit/other/6s092'},
 ]
 
 
