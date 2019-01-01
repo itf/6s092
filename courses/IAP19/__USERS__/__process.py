@@ -26,6 +26,34 @@ awesomehelp = [
 'gschwind'
 ]
 
+
+piazza = [
+'darnellg',
+'damianb',
+'skarnik',
+'skandera',
+'ckonicki',
+'dudo',
+'xmzhou',
+'zanderso',
+'himawan',
+'austein',
+'linx3',
+'mzarate',
+'digalaki',
+'aroot222'
+]
+
+questions = [
+'skarnik',
+'skandera',
+'ckonicki',
+'zanderso',
+'himawan',
+'austein',
+'digalaki',
+'aroot222'
+]
 # Add Staff
 
 for s in staff:
@@ -36,6 +64,16 @@ for s in awesomehelp:
     with open(s + '.py', 'w+') as g:
         g.write("role = 'Admin'")
 
+# Add cool. Cool can view all questions all the time,
+# can submit questions before and after deadlines.
+
+for s in piazza:
+    with open(s + '.py', 'w+') as g:
+        g.write("role = 'Cool'")
+
+for s in questions:
+    with open(s + '.py', 'w+') as g:
+        g.write("role = 'Cool'")
 
 
 # Add Students

@@ -149,7 +149,7 @@ cs_permissions = {'Admin': ['view_all', 'submit_all', 'impersonate', 'admin', 'w
                'TA': ['view_all', 'submit_all', 'impersonate', 'whdw', 'email', 'grade'],
                'UTA': ['view_all', 'submit_all', 'impersonate', 'grade'],
                'LA': ['view_all', 'submit_all','impersonate', 'grade'],
-               'Cool': ['view_all', 'impersonate'],
+               'Cool': ['view_all', 'submit_all'],
                'Student': ['view', 'submit'],
                'Guest': ['view']}
 
