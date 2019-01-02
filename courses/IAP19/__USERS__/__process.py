@@ -41,7 +41,8 @@ piazza = [
 'linx3',
 'mzarate',
 'digalaki',
-'aroot222'
+'aroot222',
+'ikdc'
 ]
 
 questions = [
@@ -52,7 +53,8 @@ questions = [
 'himawan',
 'austein',
 'digalaki',
-'aroot222'
+'aroot222',
+'ikdc'
 ]
 # Add Staff
 
