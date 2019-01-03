@@ -1,8 +1,8 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 13, 6.006 Fall 2018 on stellar.
 
-
-# Master Theorem
+Lecture notes 13, 6.006 Fall 2018 on stellar.
+# Bellman-Ford
 
 
 <question multiplechoice>

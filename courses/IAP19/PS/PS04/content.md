@@ -1,6 +1,7 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 1, algorithms section, 6.006 Fall 2018 on stellar.
 
+Lecture notes 1, 2,  6.006 Fall 2018 on stellar.
 
 # Algorithmic thinking
 

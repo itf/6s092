@@ -1,8 +1,8 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 15, 6.006 Fall 2018 on stellar.
 
-
-# Master Theorem
+Recitation notes 15, 6.006 Fall 2018 on stellar.
+# All pairs shortest paths
 
 
 <question multiplechoice>

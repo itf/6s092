@@ -1,5 +1,5 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 2, Master Theorem, 6.006 Fall 2018 on stellar.
 
 
 # Master Theorem

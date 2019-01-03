@@ -1,8 +1,8 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 12, 6.006 Fall 2018 on stellar.
 
 
-# Master Theorem
+# Topological Sort Relaxation
 
 
 <question multiplechoice>

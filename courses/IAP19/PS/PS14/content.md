@@ -1,8 +1,11 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+[Open addressing OCW notes](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec10.pdf)
 
+[Karp-rabin OCW notes](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec09_orig.pdf)
 
-# Master Theorem
+Search online! 
+
+# Hashing Extra
 
 
 <question multiplechoice>

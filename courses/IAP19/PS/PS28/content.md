@@ -1,8 +1,8 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 16, 17, 18, 19, 20 6.006 Fall 2018 on stellar.
 
-
-# Master Theorem
+Lecture notes 16, 17, 18, 19, 20 6.006 Fall 2018 on stellar.
+# Dynamic programming Extra
 
 
 <question multiplechoice>

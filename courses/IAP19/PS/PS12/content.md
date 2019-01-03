@@ -1,8 +1,8 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Recitation notes 8, 6.006 Fall 2018 on stellar.
 
 
-# Master Theorem
+# Radix Sort
 
 
 <question multiplechoice>

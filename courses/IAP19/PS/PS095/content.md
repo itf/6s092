@@ -1,8 +1,9 @@
 # Readings 
-Recitation notes 10, 6.006 Fall 2018 on stellar.
+Recitation notes 4, 6.006 Fall 2018 on stellar.
 
-Lecture notes 10, 6.006 Fall 2018 on stellar.
-# Breadth First Search
+Lecture notes 4, 6.006 Fall 2018 on stellar.
+
+# Linked Lists
 
 
 <question multiplechoice>
@@ -37,7 +38,15 @@ yeah
 
 
 
+
+
+<python>
+#tutor.init_random()
+</python>
+
 <question pythoncode>
+
+
 csq_interface = 'ace'
 csq_prompt = "Write your code to return a string with 4 repeated n times"
 

@@ -1,8 +1,9 @@
 # Readings 
-Recitation notes X, 6.006 Fall 2018 on stellar.
+Lecture notes 7, 6.006 Fall 2018 on stellar.
 
+Recitation notes 6, 6.006 Fall 2018 on stellar.
 
-# Master Theorem
+# AVL Trees
 
 
 <question multiplechoice>
