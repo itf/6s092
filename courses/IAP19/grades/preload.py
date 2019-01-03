@@ -207,7 +207,7 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
     table = soup.new_tag("table")
     table["class"] = "table table-bordered"
     header = soup.new_tag("tr")
-    for heading in ["pset", "direct link", "average score", "average non zero"]:
+    for heading in ["impersonate pset", "direct link", "average score", "average non zero"]:
         th = soup.new_tag("th")
         th.string = heading
         header.append(th)
