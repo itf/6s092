@@ -7,13 +7,13 @@ Lecture notes 1, 2,  6.006 Fall 2018 on stellar.
 
 
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "Choose the options that are algorithms? (Using the word ram model of computation)"
 csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
+csq_soln = [1,0,1,0]
+csq_options =  [' always return True',
+'What is the shortest path between points A and B?',
+'Add the input numbers together, divide by the number of input numbers',
+'A sorted binary tree']
 csq_name="qexample1"
 </question>
 
