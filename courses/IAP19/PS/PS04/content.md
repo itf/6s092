@@ -3,6 +3,7 @@ Recitation notes 1, algorithms section, 6.006 Fall 2018 on stellar.
 
 Lecture notes 1, 2,  6.006 Fall 2018 on stellar.
 
+[OCW algorithmic thinking](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec01.pdf)
 # Algorithmic thinking
 
 
