@@ -23,7 +23,8 @@ staff = [
 awesomehelp = [
 'levyr',
 'aeg',
-'gschwind'
+'gschwind',
+'ikdc'
 ]
 
 
@@ -42,7 +43,10 @@ piazza = [
 'mzarate',
 'digalaki',
 'aroot222',
-'ikdc'
+'ikdc',
+'vilhelm',
+'edwardf',
+'jeffery'
 ]
 
 questions = [
@@ -56,15 +60,6 @@ questions = [
 'aroot222',
 'ikdc'
 ]
-# Add Staff
-
-for s in staff:
-    with open(s + '.py', 'w+') as g:
-        g.write("role = 'Admin'")
-
-for s in awesomehelp:
-    with open(s + '.py', 'w+') as g:
-        g.write("role = 'Admin'")
 
 # Add cool. Cool can view all questions all the time,
 # can submit questions before and after deadlines.
@@ -76,6 +71,19 @@ for s in piazza:
 for s in questions:
     with open(s + '.py', 'w+') as g:
         g.write("role = 'Cool'")
+
+
+
+# Add Staff
+
+for s in staff:
+    with open(s + '.py', 'w+') as g:
+        g.write("role = 'Admin'")
+
+for s in awesomehelp:
+    with open(s + '.py', 'w+') as g:
+        g.write("role = 'Admin'")
+
 
 
 # Add Students

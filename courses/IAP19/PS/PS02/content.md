@@ -46,6 +46,20 @@ csq_nsubmits = None
 </question>
 
 
+Now Bob told me that he invented a sort algorithm that splits an array into 2 parts, the first third of the array and the other 2 thirds of the array. It sorts each one of them, and then merges  in $O(n)$ the 2 parts.
+What is the recursion for the algorithm 
+<question expression>
+csq_prompt = "$T(n)=$ "
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["T(n/3)+T(2*n/3)+O(n)"]
+csq_explanation = "2 parts. One of 1/3, one of 2/3 of the size + the work to join"
+csq_nsubmits = None
+</question>
+
+
 ## Proving the weak master theorem using recursion trees
 Consider the following recursion: 
 
