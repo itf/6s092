@@ -95,6 +95,19 @@ csq_options =  ['$(n),\ (n+4),\ (5n)$',
 csq_name="mc2"
 </question>
 
+
+<question multiplechoice>
+csq_prompt = "Second option is correct\n\n "
+#radio is much better than dropdown!
+csq_renderer = "radio"
+csq_soln = '$right$'
+csq_options =  ['$(n),\ (n+4),\ (5n)$',
+ '$right$',
+ 'this one is \\theta(wrong)']
+csq_name="mc2"
+</question>
+
+
 # Check yourself!
 
 Not much to be said. Just a checkyourself box. It is useful to use with the hide text for spoilers.

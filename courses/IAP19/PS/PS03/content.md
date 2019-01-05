@@ -8,7 +8,7 @@ Recitation notes 1, model of computation section, 6.006 Fall 2018 on stellar.
 
 <question expression>
 csq_prompt = """A student is doing additions by hand, using the standard base 10 \n
-How many operations does it take to sum 2 numbers $\\approx$ n ?\n
+How many operations does it take to sum n+n ? \n
 Suppose there are no "carry 1"s and that $\log(a, b) = \\lfloor \log_b(a) \\rfloor$  \n.
 """
 csq_show_check = True
@@ -90,7 +90,7 @@ csq_options =  ['$O(1)$',
 </question>
 
 
-Python is a language that use the word ram model. Write the run time of the following algorithms in terms of the size of the input.
+Python is a language that use the word ram model. Write the assymptotic run time of the following algorithms in terms of the size of the input.
 
 <question expression>
 csq_prompt = """
