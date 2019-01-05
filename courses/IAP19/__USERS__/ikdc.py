@@ -1,1 +1,1 @@
-role = 'Cool'
+role = 'Admin'
