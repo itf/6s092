@@ -172,8 +172,8 @@ Intuitively, "cost" can be thought of as runtime in nanoseconds, for instance.
 Let Algorithm A be the following:
 
 ```
-x = 0
-y = 0
+x = 0 + 0
+y = 0 + 0
 while (y < n) {
   z = mem[y]
   x = x + z
@@ -193,7 +193,7 @@ The sum of the first $n$ words in memory.
 </checkyourself>
 
 <question pythonliteral>
-csq_prompt = 'What is the runtime cost of Algorithm A when $n = 4$?
+csq_prompt = 'What is the runtime cost of Algorithm A when $n = 4$?'
 csq_soln = 55
 csq_explanation = "The initialization has cost 2.  The comparison has cost 1 and is run 5 times.  The loop body has cost 12 and is run 4 times."
 csq_nsubmits = None # infinite submissions
@@ -210,7 +210,7 @@ csq_name="algorithm_cost_An"
 
 <question multiplechoice>
 csq_prompt = 'What is the asymptotic complexity of Algorithm A in terms of $n$?'
-csq_renderer = 'checkbox'
+csq_renderer = 'radio'
 csq_options = ['$O(1)$', r'$O(\log n)$', '$O(n)$', '$O(n^2)$']
 csq_soln = '$O(n)$'
 csq_explanation = "follows from the previous question"
@@ -223,8 +223,8 @@ csq_name="algorithm_asymp_A"
 Let Algorithm B be the following:
 
 ```
-x = 0
-y = 0
+x = 0 + 0
+y = 0 + 0
 while (y < n) {
   y = y + 1
   x = x + y
@@ -253,7 +253,7 @@ The sum of the first $n$ positive integers.
 
 <question multiplechoice>
 csq_prompt = 'What is the asymptotic complexity of Algorithm B in $n$?'
-csq_renderer = 'checkbox'
+csq_renderer = 'radio'
 csq_options = ['$O(1)$', r'$O(\log n)$', '$O(n)$', '$O(n^2)$']
 csq_soln = '$O(n)$'
 csq_explanation = "Similar reasoning to Algorithm A - the body runs $n$ times"
@@ -263,7 +263,7 @@ csq_name="algorithm_asymp_B"
 
 <question multiplechoice>
 csq_prompt = 'What is the asymptotic complexity of Algorithm C in $n$?'
-csq_renderer = 'checkbox'
+csq_renderer = 'radio'
 csq_options = ['$O(1)$', r'$O(\log n)$', '$O(n)$', '$O(n^2)$']
 csq_soln = '$O(1)$'
 csq_explanation = "Fixed number of steps, each with fixed cost."
@@ -273,7 +273,7 @@ csq_name="algorithm_asymp_C"
 
 <question multiplechoice>
 csq_prompt = 'Which of the following descriptions is accurate?'
-csq_renderer = 'checkbox'
+csq_renderer = 'radio'
 csq_options = ['Algorithm B has lower cost than Algorithm C for all $n$',
                'Algorithm C has lower cost than Algorithm B for all $n$',
                'None of the above']
@@ -376,7 +376,7 @@ csq_name="parallel_cost_E"
 
 <question multiplechoice>
 csq_prompt = 'Which of the following descriptions is accurate?'
-csq_renderer = 'checkbox'
+csq_renderer = 'radio'
 csq_options = ['The sequential cost of any term is no greater than the parallel cost.',
                'The parallel cost of any term is no greater than the sequential cost.',
                'None of the above']
