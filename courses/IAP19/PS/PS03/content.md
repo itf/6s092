@@ -5,19 +5,6 @@ Recitation notes 1, model of computation section, 6.006 Fall 2018 on stellar.
 
 # Model of computation
 
-
-<question multiplechoice>
-csq_prompt = "Question?"
-csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
-</question>
-
-
 <question expression>
 csq_prompt = """A student is doing additions by hand, using the standard base 10 \n
 How many operations does it take to sum 2 numbers $\\approx$ n ?\n
@@ -51,4 +38,98 @@ How would the previous answers change if you were using base 2 instead of base 1
 The base of the log would be 2, i.e. there would be a constant mutlpliying the amount of work.
 </showhide>
 </checkyourself>
+
+
+## Word Ram
+
+From the notes:
+
+Model of Computation (Word-RAM)
+
+- Memory: Bit storage of 0 or 1
+- Word: chunk of w bits for some fixed w (word size)
+- Treat memory as a random access array of words
+- Stores data in a sequence of integer-labeled, equally-sized chunks
+- Supports read, write from any bucket in O(1) time (random access)
+- Data Structure: Way of storing data supporting set of operations
+
+For the following questions, suppose every number and the result of the operations we perfomr on them fit in a word in the ram.
+
+
+<question multiplechoice>
+csq_prompt = "Suppose we have 2 numbers, $x$, $y$. How many operations does it take to sum them?"
+csq_renderer = "checkbox"
+csq_soln = [1,0,0,0]
+csq_options =  ['$O(1)$',
+'$\omega(1)$',
+'$o(1)$',
+'$\\theta(n)$']
+</question>
+
+
+<question multiplechoice>
+csq_prompt = "How many operations does it take to multiply $x$ and $y$?"
+csq_renderer = "checkbox"
+csq_soln = [1,0,0,0]
+csq_options =  ['$O(1)$',
+'$\omega(1)$',
+'$o(1)$',
+'$\\theta(n)$']
+</question>
+
+
+<question multiplechoice>
+csq_prompt = "How long does it take to find the maximum element in a list of $n$ elements, by comparing the elements?"
+csq_renderer = "checkbox"
+csq_soln = [0,1,0,1]
+csq_options =  ['$O(1)$',
+'$\omega(1)$',
+'$o(1)$',
+'$\\theta(n)$']
+</question>
+
+
+Python is a language that use the word ram model. Write the run time of the following algorithms in terms of the size of the input.
+
+
+ <question expression>
+csq_prompt = """ 
+```python
+def average(myList):
+    n = len(myList)
+    return sum(myList)/n
+```
+"""
+csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(n)", "\\theta(n)"]
+csq_nsubmits = None
+</question> 
+
+
+
+ <question expression>
+csq_prompt = """ 
+```python
+def multiplication_triangle(n):
+    table = []
+    for i in range(1,n):
+        row = []
+        for j in range(1,i+1):
+            row.append(i*j)
+        table.append(row)
+    return table
+```
+"""
+csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(n^2)", "\\theta(n^2)"]
+csq_nsubmits = None
+</question> 
 

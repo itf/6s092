@@ -42,7 +42,10 @@ piazza = [
 'mzarate',
 'digalaki',
 'aroot222',
-'ikdc'
+'ikdc',
+'vilhelm',
+'edwardf',
+'jeffery'
 ]
 
 questions = [
