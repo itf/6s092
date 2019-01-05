@@ -11,6 +11,12 @@ csq_nsubmits = None
 
 # Data Structures Intuition
 
+<question multiplechoice>
+csq_renderer = "checkbox"
+csq_soln = [0, 1]
+csq_options = ['Interface', 'Data structure']
+</question>
+
 <checkyourself>
 Are you understanding?
 <showhide>

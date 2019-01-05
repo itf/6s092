@@ -11,6 +11,12 @@ csq_nsubmits = None
 
 # Sorting
 
+<question multiplechoice>
+csq_renderer = "checkbox"
+csq_soln = [1]
+csq_options =  ['merge sort']
+</question>
+
 <checkyourself>
 Are you understanding?
 <showhide>
