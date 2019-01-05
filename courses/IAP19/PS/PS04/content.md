@@ -9,30 +9,18 @@ Lecture notes 1, 2,  6.006 Fall 2018 on stellar.
 <question multiplechoice>
 csq_prompt = "Choose the options that are algorithms? (Using the word ram model of computation)"
 csq_renderer = "checkbox"
-csq_soln = [1,0,1,0]
+csq_soln = [1,0,1,0,1]
 csq_options =  [' always return True',
 'What is the shortest path between points A and B?',
 'Add the input numbers together, divide by the number of input numbers',
-'A sorted binary tree']
+'A sorted binary tree',
+'Generate a random number, 0 or 1, with 50% chance. If you generated 0, return True, if not return False.']
 csq_name="qexample1"
 </question>
 
 
-<question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
-</question>
-
 <checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
+You should have a clear understanding of what is an algorithm. A series of unambiguous instructions mapping an input to an output.
+
 </checkyourself>
 
