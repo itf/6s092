@@ -211,7 +211,7 @@ csq_name="algorithm_cost_An"
 <question multiplechoice>
 csq_prompt = 'What is the asymptotic complexity of Algorithm A in terms of $n$?'
 csq_renderer = 'radio'
-csq_options = ['$O(1)$', r'$O(\log n)$', '$O(n)$', '$O(n^2)$']
+csq_options = [r'$\Theta(1)$', r'$\Theta(\log n)$', r'$\Theta(n)$', r'$\Theta(n^2)$']
 csq_soln = '$O(n)$'
 csq_explanation = "follows from the previous question"
 csq_nsubmits = None # infinite submissions
@@ -254,7 +254,7 @@ The sum of the first $n$ positive integers.
 <question multiplechoice>
 csq_prompt = 'What is the asymptotic complexity of Algorithm B in $n$?'
 csq_renderer = 'radio'
-csq_options = ['$O(1)$', r'$O(\log n)$', '$O(n)$', '$O(n^2)$']
+csq_options = [r'$\Theta(1)$', r'$\Theta(\log n)$', r'$\Theta(n)$', r'$\Theta(n^2)$']
 csq_soln = '$O(n)$'
 csq_explanation = "Similar reasoning to Algorithm A - the body runs $n$ times"
 csq_nsubmits = None # infinite submissions
@@ -332,7 +332,7 @@ For instance, the term `((3 + 5) * (2 * 3))` has sequential cost 3.
 
 <question expression>
 csq_prompt = 'What is the sequential cost of term $D_n$, in terms of $n$?'
-csq_soln = '2**n - 1'
+csq_soln = '2^n - 1'
 csq_error_on_unknown_variable = True
 csq_nsubmits = None # infinite submissions
 csq_name="sequential_cost_D"
