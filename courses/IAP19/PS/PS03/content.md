@@ -105,7 +105,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O(n)", "\\theta(n)"]
+csq_soln = ["O(n)", "theta(n)"]
 csq_nsubmits = None
 </question> 
 
@@ -129,7 +129,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O(n^2)", "\\theta(n^2)"]
+csq_soln = ["O(n^2)", "theta(n^2)"]
 csq_nsubmits = None
 </question> 
 
