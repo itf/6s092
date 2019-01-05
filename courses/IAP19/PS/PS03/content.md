@@ -133,3 +133,21 @@ csq_soln = ["O(n^2)", "theta(n^2)"]
 csq_nsubmits = None
 </question> 
 
+Suppose that $\log(n)$ is calculated by repeated division, and that it always return an integer.
+
+ <question expression>
+csq_prompt = """ 
+```python
+def get_log(n):
+    return log(n)
+```
+"""
+csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(log(n))", "theta(log(n))"]
+csq_nsubmits = None
+</question> 
+
