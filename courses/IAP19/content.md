@@ -48,11 +48,6 @@ The class will meet on Monday and Wednesdays from 7-9 at 1-190. The dates are: W
 In the lectures we will very quickly cover an overview of the material, but you will be expected to read notes before and after lectures.
 
 
-<center>
-<img src="/_static/IAP19/example-plot.svg" />
-</center>
-
-Under construction!!!
 
 
 This class is sponsored by Course 6 and by SIPB, the student group that develops Debathena, XVM, Scripts, and many other services on campus. The website for SIPB is here: sipb.mit.edu.
