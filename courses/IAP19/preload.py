@@ -199,3 +199,35 @@ def cs_post_load(context):
 
 
 
+
+
+#Problemsets
+import cmath
+def _draw_log(x):
+    if len(x) == 0:
+        base = ""
+    elif len(x) == 1:
+        base = ""
+    else:
+        base = x[1]
+    if any((i in x[0]) for i in " -+"):
+        arg = r"\left(%s\right)" % x[0]
+    else:
+        arg = x[0]
+    out = r"\log_{%s}{%s}" % (base, arg)
+    if len(x) > 2:
+        return out, "log takes at most 2 arguments"
+    return out
+
+#csq_allow_viewanswer = False
+csq_allow_viewexplanation = True
+
+#extra functions, to be able to do some of the problems:
+csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  r"%s(%s)" % ("T", ", ".join(c)) ),
+"O": (lambda c: c**3*1.6006-c**2, lambda  c:  r"%s(%s)" % ("O", ", ".join(c)) ),
+"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
+"Theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
+"log": (cmath.log, _draw_log )
+}
+
+
