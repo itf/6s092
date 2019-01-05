@@ -1,0 +1,24 @@
+Which of the following applies to a sequence?
+- Interface
+- Data structure
+
+Which of these could be a valid data structure? We are using the Word-RAM model
+- An array (Yes, this is just a block of memory/words according to the Word-RAM model)
+- The prime numbers less than 300 (No, because this describes a set of data, and not how that data is stored)
+- An array with a
+- A pointer that points to itself..?
+- A punch card with the words written on it
+
+Many children are entering Wumpus's cave, and none of them ever leave. Wumpus wants to keep track of how many kids have entered so far, and how tall the tallest child seen so far is. This describes:
+- an interface
+- a data structure
+
+What are some valid data structures in the Word-RAM model that would solve Wumpus's problem?
+- keeping the childrens' heights in an array, with an associated length and max functions that iterate over the array (Y)
+- keep track of length and max, increment length every time and change max if we see a taller child (Y)
+- storing a linked list of tuples that have the form (height, pointer), where each pointer points at the next data point (N)
+- plot the childrens' heights on a cartesian plane and eyeball where the maximum height is (N)
+
+Now Wumpus doesn't just want the tallest kid, but occasionally some authorities will come by and ask if Wumpus has seen a kid of some height $h$. Wumpus never lies, so now Wumpus wants to modify the interface so that it can find whether any children of that height have entered the cave. Which of these would this describe?
+- A set interface (Y)
+- A sequence interface
