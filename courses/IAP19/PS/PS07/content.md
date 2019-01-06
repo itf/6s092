@@ -23,7 +23,7 @@ csq_name="ps7q1"
 <question multiplechoice>
 csq_prompt = "What would be a valid swap to make during insertion sort? Refer to the algorithm described in the recitation notes."
 csq_renderer = "checkbox"
-csq_solution = [0,1,0,1,0,0]
+csq_soln = [0,1,0,1,0,0]
 csq_options = ['$[1,\ 4,\ 2,\ 3] \\rightarrow [1,\ 2,\ 3,\ 4]$',
 '$[1,\ 4,\ 2,\ 3] \\rightarrow [1,\ 2,\ 4,\ 3]$',
 '$[2,\ 1,\ 4,\ 3] \\rightarrow [2,\ 1,\ 3,\ 4]$',
@@ -34,9 +34,9 @@ csq_name = 'ps7q2'
 </question>
 
 <checkyourself>
-Why can't we make the swap '$[2,\ 3,\ 1] \\rightarrow [1,\ 2,\ 3]$'?
+Why can't we make the swap $[2,\ 3,\ 1] \rightarrow [1,\ 2,\ 3]$?
 <showhide>
-While this might be a simple operation to do with physical objects like cards, arrays in the Word RAM model would require us to make two swaps to move both the '$2$' and the '$3$': '$[2,\ 3,\ 1] \\rightarrow [2,\ 1,\ 3] \\rightarrow [1,\ 2,\ 3]$'. Refer back to PS03 for more information.
+While this might be a simple operation to do with physical objects like cards, arrays in the Word RAM model would require us to make two swaps to move both the '$2$' and the '$3$': '$[2,\ 3,\ 1] \rightarrow [2,\ 1,\ 3] \rightarrow [1,\ 2,\ 3]$'. Refer back to PS03 for more information.
 </showhide>
 </checkyourself>
 
@@ -45,8 +45,8 @@ A swap is when we take two elements in an array and swap their positions. A comp
 <question multiplechoice>
 csq_prompt = "What is the minimum number of comparisons that we would make in insertion sort?"
 csq_renderer = "radio"
-csq_solution = '$O(n)$'
-csq_options = ['$1$', '$O(n)$', '$O(n log n)$', '$O(n^2)$']
+csq_soln = '$O(n)$'
+csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_name = 'ps7q3'
 </question>
 
@@ -55,7 +55,7 @@ csq_name = 'ps7q3'
 <question multiplechoice>
 csq_prompt = "What would be a valid swap to make during selection sort? Refer to the algorithm described in the recitation notes."
 csq_renderer = "checkbox"
-csq_solution = [1,0]
+csq_soln = [1,0]
 csq_options = ['$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [2,\ 1,\ 3,\ 4,\ 5]$',
 '$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [3,\ 1,\ 2,\ 4,\ 5]$']
 csq_name = 'ps7q4'
@@ -66,7 +66,7 @@ csq_name = 'ps7q4'
 <question multiplechoice>
 csq_prompt = "Reference the section on merge sort in the recitation notes for this section. When we say that merge sort takes up a linear amount of space, we mean that we set aside a linear amount of space for $temp$ in addition to the space being used to store the input of size $n$. How much space does temp take?"
 csq_renderer = "radio"
-csq_solution = '$O(n)$'
+csq_soln = '$O(n)$'
 csq_options = ['$O(1)$', '$O(log n)$', '$O(n)$', '$O(n^c)$ for any positive $c$', '$r-l$']
 csq_name = 'ps7q5'
 </question>
