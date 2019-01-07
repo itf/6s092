@@ -68,8 +68,7 @@ Read the section on Merge Sort in the Recitation notes. You don't need to unders
 Merge sort begins by breaking the original array into many pieces of size '$<2$'. Then we "merge" these small chunks into larger chunks. After we merge the smaller chunks of a particular size, we start merging the larger chunks. Each merge step of Merge Sort will merge two arrays of length '$n$' to form an array of length '$2n$'.
 
 <question multiplechoice>
-csq_prompt = "Here is an array in the middle of merge sort (we are about to merge a chunk of size $n$, containing the $1$, with an adjacent chunk of size $n$). What are possible values for $n$?
-'$[1,\ 5,\ 3,\ 8,\ 2,\ 4,\ 6,\ 7]$'."
+csq_prompt = "Here is an array in the middle of merge sort (we are about to merge a chunk of size $n$, containing the $1$, with an adjacent chunk of size $n$). What are possible values for $n$? $[1,\ 5,\ 3,\ 8,\ 2,\ 4,\ 6,\ 7]$"
 csq_renderer = "checkbox"
 csq_soln = [1,1,0,0]
 csq_options = ['$1$', '$2$', '$3$', '$4$']
@@ -78,8 +77,7 @@ csq_name='ps7q6'
 </question>
 
 <question multiplechoice>
-csq_prompt = "Here is another array also in the middle of merge sort (we are about to merge a chunk of size $n$, containing the $1$, with an adjacent chunk of size $n$). What are possible values for $n$?"
-'$[1,\ 3,\ 5,\ 8,\ 2,\ 4,\ 6,\ 7]$'".
+csq_prompt = "Here is another array also in the middle of merge sort (we are about to merge a chunk of size $n$, containing the $1$, with an adjacent chunk of size $n$). What are possible values for $n$? $[1,\ 3,\ 5,\ 8,\ 2,\ 4,\ 6,\ 7]$"
 csq_renderer = "checkbox"
 csq_soln = [1,1,0,1]
 csq_options = ['$1$', '$2$', '$3$', '$4$']
