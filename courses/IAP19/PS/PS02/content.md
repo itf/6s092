@@ -388,7 +388,9 @@ $$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only de
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. Do NOT use the \*\* operator (a**b), or any for loops. Use the idea that $a^b = a * a^{b-1}$"
+csq_prompt = """Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. 
+Do NOT use the \*\* operator (a**b), or any for loops. Instead, use the idea that $a^b = a * a^{b-1}$
+"""
 ## Define solution that will be printed to student.
 csq_soln = """
 def pow(a, b): 
@@ -469,7 +471,16 @@ The overall runtime is $O(n)$.
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Define the same function, but this time use the idea that if $b$ is even, then $a^b = a^{b//2} * a^{b//2}$, and if $b$ is odd, then $a^b = a * a^{b//2} * a^{b//2}$. Again DO NOT use the in-built power operator or a for loop."
+csq_prompt = """ Define the same function, but this time use 
+
+$$a^b = \begin{cases}
+  a^{b//2} * a^{b//2}, & \text{if b even}\\
+  a * a^{b//2} * a^{b//2} & \text{if b odd}. 
+  \end{cases}
+$$
+
+Again DO NOT use the in-built power operator or a for loop.
+"""
 ## Define solution that will be printed to student.
 csq_soln = """
 def pow(a, b): 
