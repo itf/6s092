@@ -389,7 +389,7 @@ $$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only de
 <question pythoncode>
 csq_interface = 'ace'
 csq_prompt = """Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. 
-Do NOT use the \*\* operator (a**b), or any for loops. Instead, use the idea that $a^b = a * a^{b-1}$
+Do NOT use the operator (a**b), or any for loops. Instead, use the idea that $a^b = a * a^{b-1}$
 """
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -444,7 +444,7 @@ csq_tests = []
 for i, t in enumerate(tests):
 
     def check(ans, soln, i = i):
-        a, b = t
+        a, b = tests[i]
         return is_correct(a, b, eval(ans))
         
     csq_tests.append({
@@ -460,7 +460,7 @@ ans = pow(a, b)
 </question> 
 
 <checkyourself>
-Write a recurrence for the runtime of the above code. Draw a tree to represent the work. What is the total asymptotic runtime?
+Write a recurrence for the runtime of the above code. Use the tree method or the master theorem to solve for the work. What is the total asymptotic runtime?
 
 <showhide>
 $$T(n) = T(n-1) + O(1)$$
@@ -513,7 +513,7 @@ csq_code_post = ""
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.10, 
+    'CLOCKTIME': 0.30, 
     # 'CPUTIME': 0.10, 
     'MEMORY':1e9
 }
@@ -554,7 +554,7 @@ ans = pow(a, b)
 </question> 
 
 <checkyourself>
-Write a recurrence for the runtime of the above code. Draw a tree to represent the work. What is the total asymptotic runtime?
+Write a recurrence for the runtime of the above code. What is the total asymptotic runtime?
 
 <showhide>
 $$T(n) = T(n/2) + O(1)$$
