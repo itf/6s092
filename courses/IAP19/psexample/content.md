@@ -273,7 +273,7 @@ csq_sandbox_options = {
 }
 
 
-## Now we define helped functions
+## Now we define helper functions
 tests = [cs_random.randint(1,20) for x in range(10)]
 
 def is_correct(n, sol):
