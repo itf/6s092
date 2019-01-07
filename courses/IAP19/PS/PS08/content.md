@@ -46,7 +46,7 @@ yeah
 
 <question pythoncode>
 
-
+csq_npoints = 1;
 csq_interface = 'ace'
 csq_prompt = "Write your code to return a string with 4 repeated n times"
 

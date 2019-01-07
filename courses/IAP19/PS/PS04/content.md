@@ -25,3 +25,7 @@ You should have a clear understanding of what is an algorithm. A series of unamb
 
 </checkyourself>
 
+
+## Understanding a simple algorithm
+
+We have the following problem: given an array, we want to find a peak, i.e. an element that is larger or equal to its neighbohrs. 
