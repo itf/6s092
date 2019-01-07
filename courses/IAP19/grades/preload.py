@@ -305,7 +305,7 @@ def print_user_table(username, pset_full_scores, user_score_problemset):
     tr.append(td)
 
     td = soup.new_tag("td")
-    td.string = "{user_total}/{pset_total} ({percent:.2%})".format(
+    td.string = "{user_total:.2f}/{pset_total} ({percent:.2%})".format(
             user_total=user_total,
             pset_total=pset_total,
             percent=(user_total / pset_total) if pset_total != 0 else 1,
