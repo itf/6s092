@@ -469,7 +469,7 @@ The overall runtime is $O(n)$.
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Define the same function, but this time use the idea that if $b$ is even, then $a^b = a^{b/2} * a^{b/2}$, and if $b$ is odd, then $a^b = a * a^{\floor{b/2}} * a^{\floor{b/2}}$. Again DO NOT use the in-built power operator or a for loop."
+csq_prompt = "Define the same function, but this time use the idea that if $b$ is even, then $a^b = a^{b//2} * a^{b//2}$, and if $b$ is odd, then $a^b = a * a^{b//2} * a^{b//2}$. Again DO NOT use the in-built power operator or a for loop."
 ## Define solution that will be printed to student.
 csq_soln = """
 def pow(a, b): 
