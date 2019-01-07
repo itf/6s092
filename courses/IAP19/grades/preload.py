@@ -126,7 +126,7 @@ def print_table_user(user, pset_full_scores, user_scores_problemset):
         tr.append(td)
 
         td = soup.new_tag("td")
-        td.string = "{score}/{total} ({percent:.2%})".format(
+        td.string = "{score.2f}/{total} ({percent:.2%})".format(
                 score=score,
                 total=total,
                 percent=(score / total) if total != 0 else 1,
@@ -173,7 +173,7 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
         tr.append(td)
 
         td = soup.new_tag("td")
-        td.string = "{score}/{total} ({percent:.2%})".format(
+        td.string = "{score.2f}/{total} ({percent:.2%})".format(
                 score=score,
                 total=total,
                 percent=(score / total) if total != 0 else 1,
