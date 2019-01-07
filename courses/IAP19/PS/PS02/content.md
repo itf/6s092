@@ -418,8 +418,8 @@ csq_code_post = ""
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.10, 
-    # 'CPUTIME': 0.10, 
+    #'CLOCKTIME': 0.30, 
+     'CPUTIME': 0.10, 
     'MEMORY':1e9
 }
 
@@ -427,8 +427,8 @@ csq_sandbox_options = {
 ## Now we define helper functions
 tests = [(0,0), (1, 5), (5, 4), (6, 3), (2, 24), (99, 7), (44, 53), (89, 4), (43, 23), (91, 86), (71, 44), (20, 72), (85, 4), (38, 44), (54, 82), (27, 48), (52, 21), (99, 89), (85, 12), (46, 21), (39, 63), (22, 69), (35, 20), (47, 59), (30, 33), (32, 17)]
 
-def is_correct(a, b, sol):
-    return (a**b == sol) 
+#def is_correct(a, b, sol):
+#    return (a**b == sol) 
 
 ## Now we need to write csq_tests, which defines what code to run
 ## As well as how to test it. 
@@ -442,9 +442,9 @@ def is_correct(a, b, sol):
 csq_tests = []
 for i, t in enumerate(tests):
 
-    def check(ans, soln, i = i):
-        a, b = tests[i]
-        return is_correct(a, b, eval(ans))
+#    def check(ans, soln, i = i):
+#        a, b = tests[i]
+#        return is_correct(a, b, eval(ans))
         
     csq_tests.append({
         'code': f"""
@@ -453,7 +453,7 @@ ans = pow(a, b)
 """ ,
         'show_code': i < 5,
         'grade': True,
-        'check_function': check
+        #'check_function': check
     })
 
 </question> 
@@ -504,8 +504,8 @@ csq_code_post = ""
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.30, 
-    # 'CPUTIME': 0.10, 
+    #'CLOCKTIME': 0.30, 
+     'CPUTIME': 0.10, 
     'MEMORY':1e9
 }
 
@@ -528,9 +528,9 @@ tests = [(0,0), (1, 5), (5, 4), (6, 3), (2, 24), (99, 7), (44, 53), (89, 4), (43
 csq_tests = []
 for i, t in enumerate(tests):
 
-    def check(ans, soln, i = i):
-        a, b = t
-        return is_correct(a, b, eval(ans))
+#    def check(ans, soln, i = i):
+#        a, b = t
+#        return is_correct(a, b, eval(ans))
         
     csq_tests.append({
         'code': f"""
