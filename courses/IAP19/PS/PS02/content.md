@@ -388,7 +388,7 @@ $$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only de
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write a recursive function \texttt{pow} to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. Do NOT use the \*\* operator (a**b), or any for loops. Use the idea that $a^b = a * a^{b-1}$"
+csq_prompt = "Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. Do NOT use the \*\* operator (a**b), or any for loops. Use the idea that $a^b = a * a^{b-1}$"
 ## Define solution that will be printed to student.
 csq_soln = """
 def pow(a, b): 
@@ -456,3 +456,99 @@ ans = pow(a, b)
     })
 
 </question> 
+
+<checkyourself>
+Write a recurrence for the runtime of the above code. Draw a tree to represent the work. What is the total asymptotic runtime?
+
+<showhide>
+$$T(n) = T(n-1) + O(1)$$
+The tree has height $n$ with $O(1)$ work per node.
+The overall runtime is $O(n)$.
+</showhide>
+</checkyourself>
+
+<question pythoncode>
+csq_interface = 'ace'
+csq_prompt = "Define the same function, but this time use the idea that if $b$ is even, then $a^b = a^{b/2} * a^{b/2}$, and if $b$ is odd, then $a^b = a * a^{\floor{b/2}} * a^{\floor{b/2}}$. Again DO NOT use the in-built power operator or a for loop."
+## Define solution that will be printed to student.
+csq_soln = """
+def pow(a, b): 
+	if b == 0:
+		return 1
+	else:
+		x = pow(a, b/2)
+		if b % 2 == 0:
+			return x * x
+		else: 
+			return a * x * x
+"""
+
+## Code that will be initially on the thingy
+csq_initial = """def pow(a, b): 
+    return 0
+"""
+csq_name= "ps2code1"
+
+## Code that will be written before the user code as well as solution
+## Particularly useful for defining classes and things that we don't want the user to modify
+## For example, define a DFS function.
+csq_code_pre = ""
+
+
+## Code that will be written after the user code as well as solution code
+## Seems quite useless to me.
+csq_code_post = ""
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.10, 
+    # 'CPUTIME': 0.10, 
+    'MEMORY':1e9
+}
+
+
+## Now we define helper functions
+tests = [(0,0), (1, 5), (5, 4), (6, 3), (2, 24), (99, 7), (44, 53), (89, 4), (43, 23), (91, 86), (71, 44), (20, 72), (85, 4), (38, 44), (54, 82), (27, 48), (52, 21), (99, 89), (85, 12), (46, 21), (39, 63), (22, 69), (35, 20), (47, 59), (30, 33), (32, 17)]
+
+def is_correct(a, b, sol):
+    return (a**b == sol) 
+
+## Now we need to write csq_tests, which defines what code to run
+## As well as how to test it. 
+## Each csq_tests is a dictionary of things (code, check, etc)
+
+## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
+## Code should define a string called ans, which is what will be tested.
+
+## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
+
+csq_tests = []
+for i, t in enumerate(tests):
+
+    def check(ans, soln, i = i):
+        a, b = t
+        return is_correct(a, b, eval(ans))
+        
+    csq_tests.append({
+        'code': f"""
+a, b = {tests[i]}
+ans = pow(a, b)
+""" ,
+        'show_code': i < 5,
+        'grade': True,
+        'check_function': check
+    })
+
+</question> 
+
+<checkyourself>
+Write a recurrence for the runtime of the above code. Draw a tree to represent the work. What is the total asymptotic runtime?
+
+<showhide>
+$$T(n) = T(n/2) + O(1)$$
+The tree has height $\log{n}$ with $O(1)$ work per node.
+The overall runtime is $O(\log{n})$.
+</showhide>
+</checkyourself>
+
