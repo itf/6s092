@@ -388,7 +388,8 @@ $$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only de
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = """Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. 
+csq_prompt = """
+Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. 
 Do NOT use the operator (a**b), or any for loops. Instead, use the idea that $a^b = a * a^{b-1}$
 """
 ## Define solution that will be printed to student.
@@ -433,7 +434,7 @@ def is_correct(a, b, sol):
 
 ## Now we need to write csq_tests, which defines what code to run
 ## As well as how to test it. 
-## Each csq_tests is a dictionary of things (code, check, etc)
+## Each csq_testsgi is a dictionary of things (code, check, etc)
 
 ## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
 ## Code should define a string called ans, which is what will be tested.
@@ -471,7 +472,8 @@ The overall runtime is $O(n)$.
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = """ Define the same function, but this time use 
+csq_prompt = """ 
+Define the same function, but this time use 
 
 $$a^b = \begin{cases}
   a^{b//2} * a^{b//2}, & \text{if b even}\\
