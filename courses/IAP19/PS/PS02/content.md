@@ -388,7 +388,7 @@ $$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only de
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write a recursive function $\ttt{pow}$ to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. Do NOT use the ** operator (a**b), or any for loops. Use the idea that $a^b = a * a^{b-1}$"
+csq_prompt = "Write a recursive function $\texttt{pow}$ to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. Do NOT use the \*\* operator (a**b), or any for loops. Use the idea that $a^b = a * a^{b-1}$"
 ## Define solution that will be printed to student.
 csq_soln = """
 def pow(a, b): 
