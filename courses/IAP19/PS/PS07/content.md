@@ -88,7 +88,7 @@ csq_explanation = "The maximum number of swaps we might have to make is $\\Theta
 csq_prompt = "Which of these would be a valid swap to make during selection sort? Refer to the algorithm described in the recitation notes."
 csq_renderer = "checkbox"
 csq_soln = [1,0, 0]
-csq_options = ['$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [2,\ 1,\ 3,\ 4,\ 5]$',
+csq_options = ['$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [1,\ 2,\ 3,\ 4,\ 5]$',
 '$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [3,\ 1,\ 2,\ 4,\ 5]$',
 '$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [2,\ 3,\ 1,\ 4,\ 5]$'
 ]
