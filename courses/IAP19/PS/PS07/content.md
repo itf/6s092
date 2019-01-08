@@ -71,7 +71,7 @@ Merge sort begins by breaking the original array into many pieces of size '$<2$'
 For the following two problems, you are given an array that is in the middle of merge sort. We are about to merge a chunk of size $n$, containing the first value in the array ($1$), with an adjacent chunk of size $n$. What are possible values for $n$?
 
 <question multiplechoice>
-csq_prompt = "[1,\ 5,\ 3,\ 8,\ 2,\ 4,\ 6,\ 7]$"
+csq_prompt = "$[1,\ 5,\ 3,\ 8,\ 2,\ 4,\ 6,\ 7]$"
 csq_renderer = "checkbox"
 csq_soln = [1,1,0,0]
 csq_options = ['$1$', '$2$', '$3$', '$4$']
@@ -87,6 +87,8 @@ csq_options = ['$1$', '$2$', '$3$', '$4$']
 csq_explanation = "The chunks of size $1$, $2$, and $4$ are sorted within themselves, so those are all possible candidates for merging. Because we double $n$ every time, $n$ will always be a power of $2$, and we will never merge chunks with $n = 3$."
 csq_name='ps7q7'
 </question>
+
+### Intuiting the Run-Time
 
 Recall from the reading that the runtime of merge-sort is $\theta(nlog(n))$. One way to get this run-time is by applying case 2 of (the special polynomial form of) the Master's Theorem to the recurrence equation that we have for the run-time: $T(n) = 2T(n/2) + \theta(n)$. However, we can derive this run-time in a more intuitive way!
 
@@ -114,7 +116,7 @@ csq_name = "ps7q9"
 csq_prompt = "At every 'level', we will be merging $n/2^i$ pairs of size $2^i$ into $n/2^i$ chunks of size $2^{i+1}$. How long does it take to merge two chunks of size $2^i$?"
 csq_renderer = "radio"
 csq_soln = '$\\theta(2^i)$' 
-csq_options = ['$\\theta(1)$', '$\\theta(i)$', $\\theta(n)$, $\\theta(2^i)$]
+csq_options = ['$\\theta(1)$', '$\\theta(i)$', '$\\theta(n)$', '$\\theta(2^i)$']
 csq_explanation = "Merging two chunks is linear in the sizes of the chunks."
 csq_name = "ps7q10"
 </question>
@@ -123,7 +125,7 @@ csq_name = "ps7q10"
 csq_prompt = "How long does it take to complete the level by merging all the chunks of size $2^i$?"
 csq_renderer = "radio"
 csq_soln = '$\\theta(n)$' 
-csq_options = ['$\\theta(1)$', '$\\theta(i)$', $\\theta(n)$, $\\theta(2^i)$]
+csq_options = ['$\\theta(1)$', '$\\theta(i)$', '$\\theta(n)$', '$\\theta(2^i)$']
 csq_explanation = "We perform $n/2^i$ merges, so all the merges together add up to $\\theta(n)$."
 csq_name = "ps7q11"
 </question>
@@ -132,10 +134,12 @@ csq_name = "ps7q11"
 csq_prompt = "How many levels are there in total?"
 csq_renderer = "radio"
 csq_soln = '$log(n)$' 
-csq_options = ['$1$', 'i', 'log(n, 2)', 'n', '$nlog(n)$']
+csq_options = ['$1$', '$i$', '$log(n, 2)$', '$n$', '$nlog(n)$']
 csq_explanation = "The number of distinct values that $i$ can take range from $0$ (when we have chunks of size $1$) to $log(n)$ when we have a single chunk of size $n$. Because each level takes $\\theta(n)$ work, and we have $log(n)$ levels, it follows that the entire Merge Sort algorithm will take $\\theta(n log(n))$ time."
 csq_name = "ps7q12"
 </question>
+
+### In-Place vs "Out of Place"
 
 <question multiplechoice>
 csq_prompt = "When we say that merge sort takes up a linear amount of space, we mean that we set aside a linear amount of space for $temp$ in addition to the space being used to store the input of size $n$. WHat do we know about the size of $temp$, given that it takes up a linear amount of space?"
