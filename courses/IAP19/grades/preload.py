@@ -249,10 +249,11 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
 
 
         td = soup.new_tag("td")
-        td.string = "{average_score:.2f}/{total} ({percent:.2%})".format(
+        td.string = "{average_score:.2f}/{total} ({percent:.2%}) ({n})".format(
                 average_score=non_zero_score/non_zero_people if non_zero_people != 0 else 0,
                 total=total,
                 percent=(non_zero_score/non_zero_people / total) if total != 0 and non_zero_people != 0 else 0,
+                n = non_zero_people,
             )
         td["class"] = "text-right"
 
