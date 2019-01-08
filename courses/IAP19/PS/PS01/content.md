@@ -92,7 +92,7 @@ csq_options =  ['$(n\log(n)),\ (n^{1.01}),\ (n^2)$',
 
 ## $\theta$
 
-We say that $f(n) \in \theta(g(n)$ if $f(n) \in O(g(n)$ and $f(n) \in \Omega(n)$
+We say that $f(n) \in \theta(g(n)$ if $f(n) \in O(g(n))$ and $f(n) \in \Omega(g(n)$
 
 Choose the groups such that for any 2 functions in the groups, $f(n)$, $g(n)$, we have $f(n) \in \theta(g(n)$
 
