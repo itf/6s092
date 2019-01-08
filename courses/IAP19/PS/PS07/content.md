@@ -79,7 +79,6 @@ csq_prompt = "What is the maximum number of comparisons that we would make in in
 csq_renderer = "radio"
 csq_soln = '$\\Theta(n^2)$'
 csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
-csq_name = 'ps7q3'
 csq_explanation = "The maximum number of swaps we might have to make is $\\Theta(n^2)$, i.e. when we are sorting $[n,\ n-1,\ ...,\ 2,\ 1]$ into increasing order. Since we make one comparison for each of those swaps, we would make $\\Theta(n^2)$ comparisons."
 </question>
 
@@ -93,7 +92,6 @@ csq_options = ['$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [2,\ 1,\ 3,\ 4,\ 5]$',
 '$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [3,\ 1,\ 2,\ 4,\ 5]$',
 '$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [2,\ 3,\ 1,\ 4,\ 5]$'
 ]
-csq_name = 'ps7q4'
 </question>
 
 <question multiplechoice>
@@ -102,7 +100,6 @@ csq_renderer = "radio"
 csq_soln = '$\\Theta(n^2)$'
 csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_explanation = "Every time we calculate the maximum value of an array of $i$ elements, we must make $i$ comparisons. The number of comparisons in selection sort would therefore be $n + (n-1) + ... + 1 = n(n+1)/2 = \\Theta(n^2)$."
-csq_name = 'ps7q3'
 </question>
 
 <question multiplechoice>
@@ -111,7 +108,6 @@ csq_renderer = "radio"
 csq_soln = '$\\Theta(n)$'
 csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_explanation = "At each step in selection sort, we keep track of the $i$ largest elements. Each swap we make increases $i$ by $1$. When $i = n$, we are done -- therefore the maximum number of swaps we ever make in selection sort is $\\Theta(n)$."
-csq_name = 'ps7q3'
 </question>
 
 
@@ -200,5 +196,4 @@ csq_prompt = "When we say that merge sort takes up a linear amount of space, we 
 csq_renderer = "radio"
 csq_soln = '$O(n)$'
 csq_options = ['$O(1)$', '$O(log n)$', '$O(n)$', '$O(n^c)$ for any positive $c$', '$r-l$']
-csq_name = 'ps7q5'
 </question>
