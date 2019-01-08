@@ -18,9 +18,9 @@ One of the most important things to remember about each algorithm is what $invar
 3. Merge Sort
 
 What algorithms are described by the following invariants?
-a. We have contiguous sorted chunks of the array, even though the whole array may not be sorted.
-b. At step $i$, we have the largest $i$ elements of the array at the end.
-c. Right before we place the $i$th element, the first $i$ elements of the array are sorted.
+* a. We have contiguous sorted chunks of the array, even though the whole array may not be sorted.
+* b. At step $i$, we have the largest $i$ elements of the array at the end.
+* c. Right before we place the $i$th element, the first $i$ elements of the array are sorted.
 
 <question expression>
 csq_prompt= "Write your answer as a string of three letters, i.e. 'abc', in the numerical order of the algorithms above."
