@@ -163,7 +163,7 @@ csq_name = "ps7q9"
 </question>
 
 <question multiplechoice>
-csq_prompt = "At every 'level', we will be merging $n/2^i$ pairs of size $2^i$ into $n/2^i$ chunks of size $2^{i+1}$. How long does it take to merge two chunks of size $2^i$?"
+csq_prompt = "At every 'step', we will be merging $n/2^i$ pairs of size $2^i$ into $n/2^i$ chunks of size $2^{i+1}$. How long does it take to merge two chunks of size $2^i$?"
 csq_renderer = "radio"
 csq_soln = '$\\Theta(2^i)$' 
 csq_options = ['$\\Theta(1)$', '$\\Theta(i)$', '$\\Theta(n)$', '$\\Theta(2^i)$']
@@ -172,7 +172,7 @@ csq_name = "ps7q10"
 </question>
 
 <question multiplechoice>
-csq_prompt = "How long does it take to complete the level by merging all the chunks of size $2^i$?"
+csq_prompt = "How long does it take to complete the step by merging all the chunks of size $2^i$?"
 csq_renderer = "radio"
 csq_soln = '$\\Theta(n)$' 
 csq_options = ['$\\Theta(1)$', '$\\Theta(i)$', '$\\Theta(n)$', '$\\Theta(2^i)$']
@@ -181,7 +181,7 @@ csq_name = "ps7q11"
 </question>
 
 <question multiplechoice>
-csq_prompt = "How many levels are there in total?"
+csq_prompt = "How many 'steps' are there in total?"
 csq_renderer = "radio"
 csq_soln = '$log(n)$' 
 csq_options = ['$1$', '$i$', '$log(n, 2)$', '$n$', '$nlog(n)$']
