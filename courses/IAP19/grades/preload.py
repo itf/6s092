@@ -421,7 +421,7 @@ def generate_page_for_pset(pset):
     pset_full_scores = get_total_score_psets(pset_paths)
     users_score_problemset = {}
 
-    students = get_usernames()
+    students = get_students()#get_usernames()
 
     for user in sorted(students):
         user_scores =  get_user_score_psets(user, pset_paths)
