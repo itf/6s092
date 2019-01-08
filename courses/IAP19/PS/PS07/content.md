@@ -26,9 +26,9 @@ What algorithms are described by the following invariants?
 * c. Right before we place the $i$th element, the first $i$ elements of the array are sorted.
 
 <question expression>
-csq_prompt= "Write your answer as a string of three letters, i.e. 'abc', in the numerical order of the algorithms above."
+csq_prompt= "Write your answer as a string of three letters, i.e. 'abc' means that you think 'a' applies to Insertion sort."
 csq_soln = "cba"
-csq_explanation = "TODO"
+csq_explanation = "Reread the recitation notes more closely to understand the invariants!"
 csq_name="pset7q10"
 </question>
 
