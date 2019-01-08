@@ -70,10 +70,9 @@ def get_students():
     ]
     no_section = globals().get("cs_whdw_no_section", False) 
     students = [
-        user
+        user.get('username')
         for user in users
         if user.get("role", None) in ["Student", "SLA"]
-        and (no_section or str(user.get("section", "default")) == section)
     ]
     return students
 
@@ -394,7 +393,7 @@ def generate_summary_page_for_us():
     pset_paths = get_pset_paths()
 
     ## Get list of students / usernames if debugging
-    students = get_usernames() #get_students() 
+    students = get_students() #get_usernames() #
 
 
     #Get full score of questions by accessing the questions available by the current user
