@@ -32,7 +32,7 @@ csq_options =  ["$T(n) = T'(n)$",
 
 
 Bob told me that he invented a sort algorithm that splits an array into 3 equal parts, sorts each one of them, and then merges in $O(n)$ the 3 parts.
-What is the recursion for the algorithm 
+What is the recursion for the algorithm?
 <question expression>
 csq_prompt = "$T(n)=$ "
 csq_show_check = True
@@ -46,7 +46,7 @@ csq_nsubmits = None
 
 
 Now Bob told me that he invented a sort algorithm that splits an array into 2 parts, the first third of the array and the other 2 thirds of the array. It sorts each one of them, and then merges  in $O(n)$ the 2 parts.
-What is the recursion for the algorithm 
+What is the recursion for the algorithm? 
 <question expression>
 csq_prompt = "$T(n)=$ "
 csq_show_check = True
@@ -126,7 +126,7 @@ csq_nsubmits = None
 <question expression>
 csq_prompt = """Suppose the amount of work done in the first level is $x$ and the amount of work in the second level is $y$.
 
-What is $\\frac{y}{x}$ In terms of $a, b, c$ and/or $n$?
+What is $\\frac{y}{x}$ In terms of $a, b, c, n$?
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
@@ -140,7 +140,7 @@ csq_nsubmits = None
 <question expression>
 csq_prompt = """Suppose the amount of work done in the first level is $x$ and the amount of work in the $i_{th}$ level is $y$.
 
-What is $\\frac{y}{x}$ in terms of $a, b, c, n$ and/or $i$?
+What is $\\frac{y}{x}$ in terms of $a, b, c, n, i$?
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
@@ -288,7 +288,7 @@ Decreases by $\frac{a}{b^c}$
 </showhide>
 </checkyourself>
 
-Since the amount of work per level decreases geometrically per level, take the bound of the sum to $\infty$.
+The amount of work per level decreases geometrically per level. We can find an upper bound for the total work done in the tree by taking the bound of the sum to $\infty$.
 
 <checkyourself>
 What is the new sum?
@@ -311,14 +311,14 @@ csq_soln = "n^c*(1/(1-(a/b^c)))"
 csq_nsubmits = None
 </question> 
 
-You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the root, $n^c$. Since we just showed that it is upperbounded by the value you calculated, you have that the total amount of work done on the tree is $\theta(n^c)$.
+You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the root, $n^c$. Since we just showed that it is upper bounded by the value you calculated, you have that the total amount of work done on the tree is $\theta(n^c)$.
 
 
 <checkyourself>
-Suppose the recursion was:
+Suppose we know that it's the 1st case of the weak version of the master theorem, and the recursion was:
 $$T(n) = aT\left(\frac{n}{b}\right) + O(n^c)$$
 Instead of:
-$$T(n) = aT\left(\frac{n}{b}\right) + O(n^c$$
+$$T(n) = aT\left(\frac{n}{b}\right) + n^c$$
 
 What would be the total work on the tree?
 <showhide>
@@ -340,7 +340,7 @@ Increases by $\frac{a}{b^c}$
 
 Since the amount of work per level increases, we will write the total amount of work done in the tree by writing a sum starting from the leaves.
 
-We previously calculated that the number of leaf nodes is $n^{log_b(a)}$. Since each leaf node has an input size of $\\theta(1)$, the amount of work we do for each leaf node is $\\theta(1)$. So the total work done on the leaf nodes is $n^{log_b(a)}$. Furthermore, we know that the total amount of work decreases by $\frac{b^c}{a}$ per level when going up the tree.
+We previously calculated that the number of leaf nodes is $n^{log_b(a)}$. Since each leaf node has an input size of $\theta(1)$, the amount of work we do for each leaf node is $\theta(1)$. So the total work done on the leaf nodes is $n^{log_b(a)}$. Furthermore, we know that the total amount of work decreases by $\frac{b^c}{a}$ per level when going up the tree.
 
 
 <checkyourself>
@@ -361,10 +361,8 @@ $$n^{log_b(a)} \sum_{i=0}^{\infty} \left(\frac{b^c}{a}\right)^i$$</showhide>
 
 
 
-What does the sum converges to?
-
  <question expression>
-csq_prompt = """What does the sum that upper bounds the work on the tree converges to?
+csq_prompt = """What does this sum (the upper bound on the total amount of work on the tree) converge to?
 """
 csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
 csq_show_check = True
@@ -375,10 +373,10 @@ csq_soln = "n^log(a,b)*(1/(1-(b^c/a)))"
 csq_nsubmits = None
 </question> 
 
-You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the leaves, $n^{\log_b(a)}$. Furthermore, you just calculated an upperbound for that total amount of work -- given both of these properties, you have that the total amount of work done on the tree is $\theta(n^{\log_b(a)})$
+You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the leaves, $n^{\log_b(a)}$. Furthermore, you just calculated an upper bound for that total amount of work. The two of them together shows that the total amount of work done on the tree is $\\theta(n^{\log_b(a)})$
 
 <checkyourself>
-Suppose the recursion was:
+Suppose that we know that it's the third case of the weak version of the master theorem, and the recursion was:
 $$T(n) = aT\left(\frac{n}{b}\right) + O(n^c)$$
 Instead of:
 $$T(n) = aT\left(\frac{n}{b}\right) + n^c$$
