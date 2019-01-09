@@ -197,3 +197,240 @@ csq_renderer = "radio"
 csq_soln = '$O(n)$'
 csq_options = ['$O(1)$', '$O(log n)$', '$O(n)$', '$O(n^c)$ for any positive $c$', '$r-l$']
 </question>
+
+
+## Coding portion!
+
+You need to sort the data on a super secret project. 
+
+Since the project is secret, they can't give you access to the data, they can only give you access to the ids of the data, and access to two functions:
+
+```python
+class array:
+	def isLarger(self, i,j):
+		#Returns True if the data in index[i] is larger than the data at index[j]
+
+	def swap(self, i,j):
+		# Swaps the data at index i with the data in index[j]
+```
+
+Using those two functions they ask you to sort the data
+### Selection sort
+The data is stored in different physical locations, so it is really expesive to move the data from one place to another. They need you to minimize the number of swaps.
+
+It is very cheap to perform comparisons however, so you can compare as many times as you want. 
+
+Knowing this, they ask you to implement the function selection sort.
+
+<question pythoncode>
+csq_interface = 'ace'
+
+csq_soln = '''
+def selectionSort(arr):
+    n = len(arr)
+    for i in range(n-1, -1, -1):
+        best = i
+        for j in range(i, -1, -1):
+            if arr.isLarger(j, best):
+                best = j
+        arr.swap(best, i)
+'''
+
+csq_initial = '''
+def selectionSort(arr):
+    n = len(arr)
+    if arr.isLarger(0, 1):
+        arr.swap(0, 1)
+'''
+
+
+def shuffle_all(arr):
+    cs_random.shuffle(arr)
+
+tests = [(5, 6, 50),
+		 (10, 11, 200),
+		 (20, 21, 800),
+		 (40, 41, 3200)]
+
+orders = []
+
+for n, _, _ in tests:
+     a = [x for x in range(n)]
+     shuffle_all(a)
+     orders.append(a)
+
+csq_code_pre = f'''
+
+class arrayToSort:
+    def __init__(self, n, swap_limit, comparison_limit):
+        self._a = [x for x in range(n)]
+        self._order = [x for x in range(n)]
+        self._swap_limit = swap_limit
+        self._swaps = 0
+        self._comparison = 0
+        self._comparison_limit = comparison_limit        
+
+    def __str__(self):
+        return self._a
+
+    def __repr__(self):
+        return str(self._a)
+
+    def swap(self, i, j):
+        self._a[i], self._a[j] = self._a[j], self._a[i]
+        self._swaps += 1
+        too_many_swaps = self._swaps > self._swap_limit
+        assert not too_many_swaps, "You performed too many swaps"
+
+    def isLarger(self, i, j):
+        self._comparison += 1
+        a = self._a
+        too_many_comps = self._comparison > self._comparison_limit
+        assert not too_many_comps, "You performed too many comparisons"
+        return self._order[a[i]] > self._order[a[j]]
+
+    def __len__(self):
+        return len(self._a)
+
+
+_arrays_to_sort = []
+
+tests = {tests}
+
+orders = {orders}
+
+for i, (n, swap, compare) in enumerate(tests):
+	a = arrayToSort(n, swap, compare)
+	a._order = orders[i]
+	_arrays_to_sort.append(a)
+
+'''
+
+
+
+
+csq_tests = []
+
+for i in range(len(tests)):
+    csq_tests.append({
+        'code': f"""
+arr = _arrays_to_sort[{i}]
+selectionSort(arr)
+ans = arr
+""" })
+
+csq_npoints = 2
+csq_name= "pcode1"
+</question> 
+
+
+# Insertion Sort
+
+Now, they tell you that the data is mostly sorted, i.e. at most 10 swaps between adjacency elements is needed to sort the data.
+
+ Instead of trying to minimize the number of swaps, they just want you to sort is as fast as possible knowing that the data is mostly sorted.
+
+<question pythoncode>
+csq_interface = 'ace'
+
+csq_soln = '''
+def insertionSort(arr):
+    n = len(arr)
+    for i in range(1, n):
+        for j in range(i, 0, -1):
+            if arr.isLarger(j-1, j):
+                arr.swap(j, j-1)
+            else:
+                break
+
+'''
+
+csq_initial = '''
+def insertionSort(arr):
+    n = len(arr)
+    if arr.isLarger(0, 1):
+        arr.swap(0, 1)
+'''
+
+def _swapBy1(arr, nSwaps):
+    l = len(arr)
+    for i in range(nSwaps):
+        el = cs_random.randint(0,l-2)
+        arr[el], arr[el+1] = arr[el+1], arr[el]
+
+tests = [(5, 20, 20),
+		 (10, 25, 25),
+		 (20, 35, 35),
+		 (40, 55, 55),
+		 (100, 115, 115)]
+
+orders = []
+
+for n, _, _ in tests:
+     a = [x for x in range(n)]
+     _swapBy1(a, 10)
+     orders.append(a)
+
+csq_code_pre = f'''
+
+class arrayToSort:
+    def __init__(self, n, swap_limit, comparison_limit):
+        self._a = [x for x in range(n)]
+        self._order = [x for x in range(n)]
+        self._swap_limit = swap_limit
+        self._swaps = 0
+        self._comparison = 0
+        self._comparison_limit = comparison_limit        
+
+    def __str__(self):
+        return self._a
+
+    def __repr__(self):
+        return str(self._a)
+
+    def swap(self, i, j):
+        self._a[i], self._a[j] = self._a[j], self._a[i]
+        self._swaps += 1
+        too_many_swaps = self._swaps > self._swap_limit
+        assert not too_many_swaps, "You performed too many swaps"
+
+    def isLarger(self, i, j):
+        self._comparison += 1
+        a = self._a
+        too_many_comps = self._comparison > self._comparison_limit
+        assert not too_many_comps, "You performed too many comparisons"
+        return self._order[a[i]] > self._order[a[j]]
+
+    def __len__(self):
+        return len(self._a)
+
+
+_arrays_to_sort = []
+
+tests = {tests}
+
+orders = {orders}
+
+for i, (n, swap, compare) in enumerate(tests):
+	a = arrayToSort(n, swap, compare)
+	a._order = orders[i]
+	_arrays_to_sort.append(a)
+
+'''
+
+
+
+
+csq_tests = []
+
+for i in range(len(tests)):
+    csq_tests.append({
+        'code': f"""
+arr = _arrays_to_sort[{i}]
+insertionSort(arr)
+ans = arr
+""" })
+
+csq_npoints = 2
+csq_name= "pcode2"
+</question> 
