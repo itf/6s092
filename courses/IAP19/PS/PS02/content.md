@@ -6,10 +6,9 @@ Recitation notes 2, 6.006 Fall 2018 on stellar.
 
 
 ## Recursions
-Which of the following recursions are equivalent?
 
 <question multiplechoice>
-csq_prompt = "$T(n) =$"
+csq_prompt = "Which of the following recursions are equivalent (i.e. we can always simplify the left to be the right)?"
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
 csq_options =  ['$T({n\over 2}) + T({n\over 2}) + f(n)\ = 2T({n\over 2}) + f(n)$',
@@ -127,7 +126,7 @@ csq_nsubmits = None
 <question expression>
 csq_prompt = """Suppose the amount of work done in the first level is $x$ and the amount of work in the second level is $y$.
 
-What is $\\frac{y}{x}$?
+What is $\\frac{y}{x}$ In terms of $a, b, c$ and/or $n$?
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
@@ -141,7 +140,7 @@ csq_nsubmits = None
 <question expression>
 csq_prompt = """Suppose the amount of work done in the first level is $x$ and the amount of work in the $i_{th}$ level is $y$.
 
-What is $\\frac{y}{x}$?
+What is $\\frac{y}{x}$ in terms of $a, b, c, n$ and/or $i$?
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
@@ -220,7 +219,7 @@ csq_nsubmits = None
 <question expression>
 csq_prompt = """Given that the root contains 1 node, and the second level contains $a$ nodes. 
 
-How many nodes wil the last level have?
+How many nodes will the last level have?
 """
 csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
 csq_show_check = True
@@ -239,9 +238,9 @@ $$ = C^{\log_B(A)}$$
 So rewrite the previous expression in the form $n^{exponent}$
 
 <question expression>
-csq_prompt = """Given that the root contains $n$ elements, and the second level contains $a n$ nodes. 
+csq_prompt = """Given that the root contains $n$ elements, and the second level contains $a$ nodes. 
 
-How many nodes wil the last level have?
+How many nodes will the last level have?
 """
 csq_error_on_unknown_variable = True  #make sure they get rid of a in the answer
 csq_show_check = True
@@ -312,12 +311,14 @@ csq_soln = "n^c*(1/(1-(a/b^c)))"
 csq_nsubmits = None
 </question> 
 
-And therefore, since you know that the total amount of work done in the tree is lower bounded by the amount of the work done on the root, $n^c$., and it is upperbounded by the value you calculated, you have that the total amount of work done on the tree is $\theta(n^c)$
+You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the root, $n^c$. Since we just showed that it is upperbounded by the value you calculated, you have that the total amount of work done on the tree is $\theta(n^c)$.
 
 
 <checkyourself>
-Suppose the recursion was instead:
+Suppose the recursion was:
 $$T(n) = aT\left(\frac{n}{b}\right) + O(n^c)$$
+Instead of:
+$$T(n) = aT\left(\frac{n}{b}\right) + O(n^c$$
 
 What would be the total work on the tree?
 <showhide>
@@ -339,18 +340,18 @@ Increases by $\frac{a}{b^c}$
 
 Since the amount of work per level increases, we will write the total amount of work done in the tree by writing a sum starting from the leaves.
 
-You know the amount of work done on the leaves is $n^{log_b(a)}$ as calculated previously, and that it decreases by $\frac{b^c}{a}$ per level when going up the tree.
+We previously calculated that the number of leaf nodes is $n^{log_b(a)}$. Since each leaf node has an input size of $\\theta(1)$, the amount of work we do for each leaf node is $\\theta(1)$. So the total work done on the leaf nodes is $n^{log_b(a)}$. Furthermore, we know that the total amount of work decreases by $\frac{b^c}{a}$ per level when going up the tree.
 
 
 <checkyourself>
-Write the total amount of work done in the tree as a sum, starting at the leaves? The total amount of work on the leaves is 1.
+What is the total amount of work done in the tree as a sum, starting at the leaves? The total amount of work on the leaves is $n^{log_b(a)}$.
 <showhide>
 $$n^{log_b(a)} \sum_{i=0}^{\log_b(n)} \left(\frac{b^c}{a}\right)^i$$
 </showhide>
 </checkyourself>
 
 
-Since the amount of work per level decreases geometrically per level, take the bound of the sum to $\infty$.
+Since the amount of work per level decreases geometrically per level, we can find an upper bound to this sum by taking the bound of the sum to $\infty$.
 
 <checkyourself>
 What is the new sum?
@@ -374,36 +375,39 @@ csq_soln = "n^log(a,b)*(1/(1-(b^c/a)))"
 csq_nsubmits = None
 </question> 
 
-And therefore, since you know that the total amount of work done in the tree is lower bounded by the amount of the work done on the leaves, $n^{\log_b(a)}$, and it is upperbounded by the value you calculated, you have that the total amount of work done on the tree is $\theta(n^{\log_b(a)})$
+You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the leaves, $n^{\log_b(a)}$. Furthermore, you just calculated an upperbound for that total amount of work -- given both of these properties, you have that the total amount of work done on the tree is $\theta(n^{\log_b(a)})$
 
 <checkyourself>
-Suppose the recursion was instead:
+Suppose the recursion was:
 $$T(n) = aT\left(\frac{n}{b}\right) + O(n^c)$$
+Instead of:
+$$T(n) = aT\left(\frac{n}{b}\right) + n^c$$
 
 What would be the total work on the tree?
 <showhide>
-$$\theta(n^{\log_b(a)})$$. Notice that since the total amount of work is only dependent on the number of leaves, the amount of work per node getting smaller, does not affect the asymptotic bound on the work. 
+$$\theta(n^{\log_b(a)})$$
+Notice that since the total amount of work is only dependent on the number of leaves, the amount of work per node getting smaller, does not affect the asymptotic bound on the work. 
 </showhide>
 </checkyourself>
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $b$, return $a^b$. Do NOT use the operator (a**b), or any for loops. Instead, use $a^b = a * a^{b-1}$"
+csq_prompt = "Write a recursive function to implement exponentiation. Given nonnegative integers $a$, $n$, return $a^n$. Do NOT use the operator (a**n), or any for loops. Instead, use $a^n = a * a^{n-1}$"
 
 csq_npoints = 2
 
 
 ## Define solution that will be printed to student.
 csq_soln = """
-def pow(a, b): 
-	if b == 0:
+def pow(a, n): 
+	if n == 0:
 		return 1
 	else:
-		return a * pow(a, b - 1)
+		return a * pow(a, n - 1)
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def pow(a, b): 
+csq_initial = """def pow(a, n): 
     return 0
 """
 csq_name= "ps2code0"
@@ -430,8 +434,8 @@ csq_sandbox_options = {
 ## Now we define helper functions
 tests = [(0,0), (1, 5), (5, 4), (6, 3), (2, 24), (99, 7), (44, 53), (89, 4), (43, 23), (91, 86), (71, 44), (20, 72), (85, 4), (38, 44), (54, 82), (27, 48), (52, 21), (99, 89), (85, 12), (46, 21), (39, 63), (22, 69), (35, 20), (47, 59), (30, 33), (32, 17)]
 
-#def is_correct(a, b, sol):
-#    return (a**b == sol) 
+#def is_correct(a, n, sol):
+#    return (a**n == sol) 
 
 ## Now we need to write csq_tests, which defines what code to run
 ## As well as how to test it. 
@@ -446,13 +450,13 @@ csq_tests = []
 for i, t in enumerate(tests):
 
 #    def check(ans, soln, i = i):
-#        a, b = tests[i]
-#        return is_correct(a, b, eval(ans))
+#        a, n = tests[i]
+#        return is_correct(a, n, eval(ans))
         
     csq_tests.append({
         'code': f"""
-a, b = {tests[i]}
-ans = pow(a, b)
+a, n = {tests[i]}
+ans = pow(a, n)
 """ ,
         'show_code': i < 5,
         'grade': True,
@@ -473,25 +477,25 @@ The overall runtime is $O(n)$.
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Define the same function, but this time use the following observation. If $b$ is even, then $a^b =  a^{b//2} * a^{b//2}$. If $b$ is odd, then $a^b = a * a^{b//2} * a^{b//2}$. Again DO NOT use the in-built power operator or a for loop."
+csq_prompt = "Define the same function, but this time use the following observation. If $n$ is even, then $a^n =  a^{n//2} * a^{n//2}$. If $n$ is odd, then $a^n = a * a^{n//2} * a^{n//2}$. Again DO NOT use the in-built power operator or a for loop."
 
 csq_npoints = 2
 
 ## Define solution that will be printed to student.
 csq_soln = """
-def pow(a, b): 
-	if b == 0:
+def pow(a, n): 
+	if n == 0:
 		return 1
 	else:
-		x = pow(a, b//2)
-		if b % 2 == 0:
+		x = pow(a, n//2)
+		if n % 2 == 0:
 			return x * x
 		else: 
 			return a * x * x
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def pow(a, b): 
+csq_initial = """def pow(a, n): 
     return 0
 """
 csq_name= "ps2code1"
@@ -518,8 +522,8 @@ csq_sandbox_options = {
 ## Now we define helper functions
 tests = [(0,0), (1, 5), (5, 4), (6, 3), (2, 24), (99, 7), (44, 53), (89, 4), (43, 23), (91, 86), (71, 44), (20, 72), (85, 4), (38, 44), (54, 82), (27, 48), (52, 21), (99, 89), (85, 12), (46, 21), (39, 63), (22, 69), (35, 20), (47, 59), (30, 33), (32, 17)]
 
-#def is_correct(a, b, sol):
-#    return (a**b == sol) 
+#def is_correct(a, n, sol):
+#    return (a**n == sol) 
 
 ## Now we need to write csq_tests, which defines what code to run
 ## As well as how to test it. 
@@ -534,13 +538,13 @@ csq_tests = []
 for i, t in enumerate(tests):
 
 #    def check(ans, soln, i = i):
-#        a, b = t
-#        return is_correct(a, b, eval(ans))
+#        a, n = t
+#        return is_correct(a, n, eval(ans))
         
     csq_tests.append({
         'code': f"""
-a, b = {tests[i]}
-ans = pow(a, b)
+a, n = {tests[i]}
+ans = pow(a, n)
 """ ,
         'show_code': i < 5,
         'grade': True,
