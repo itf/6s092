@@ -1,6 +1,6 @@
 # Readings
 
-Recitation notes 1, model of computation section, 6.006 Fall 2018 on stellar.
+[Recitation notes 1](https://learning-modules.mit.edu/service/materials/groups/238004/files/586e0399-eb6a-4695-882d-918b42c8aaa5/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Model of Computation, 6.006 Fall 2018 on stellar.
 
 [Lecture notes 2](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec02.pdf) on OCW
 
@@ -8,8 +8,8 @@ Recitation notes 1, model of computation section, 6.006 Fall 2018 on stellar.
 
 <question expression>
 csq_prompt = """A student is doing additions by hand, using the standard base 10 \n
-How many operations does it take to sum n+n ? \n
-Suppose there are no "carry 1"s and that $\log(a, b) = \\lfloor \log_b(a) \\rfloor$  \n.
+How many operations does it take to sum $n+n$ ? \n
+Suppose there are no "carry 1"s and that $\log(a, b) = \\lfloor \log_b(a) \\rfloor$  \n
 """
 csq_show_check = True
 csq_allow_check = True
@@ -21,7 +21,7 @@ csq_nsubmits = None
 </question>
 
 <question expression>
-csq_prompt = """ Now the student is performing multiplication. How many operations does it take, assymptotically to calculate $n^2$? Write it as $\\theta(f(n))$.  \n
+csq_prompt = """ Now the student is performing multiplication. How many operations does it take, asymptotically to calculate $n^2$? Write it as theta$(f(n))$.  \n
 \n \n
 """
 csq_show_check = True
@@ -36,7 +36,7 @@ csq_nsubmits = None
 <checkyourself>
 How would the previous answers change if you were using base 2 instead of base 10?
 <showhide>
-The base of the log would be 2, i.e. there would be a constant mutlpliying the amount of work.
+The base of the log would be 2. The second answer wouldn't change because there would be a constant multiplying the amount of work.
 </showhide>
 </checkyourself>
 
@@ -45,17 +45,16 @@ The base of the log would be 2, i.e. there would be a constant mutlpliying the a
 
 From the notes:
 
-Model of Computation (Word-RAM)
+The Model of Computation that we are using (and is commonly used in computers) is called Word-RAM. A quick run-down of some characteristics of this model:
 
-- Memory: Bit storage of 0 or 1
-- Word: chunk of w bits for some fixed w (word size)
-- Treat memory as a random access array of words
-- Stores data in a sequence of integer-labeled, equally-sized chunks
-- Supports read, write from any bucket in O(1) time (random access)
-- Data Structure: Way of storing data supporting set of operations
+- *Memory*: Bit storage of 0 or 1
+- *Word*: chunk of $w$ bits for some fixed $w$ (word size)
+- Treats memory as a random access array of words
+- Stores data in a sequence of integer-labeled (addressed), equally-sized chunks
+- Supports read and write from any address in O(1) time (random access)
+- *Data Structure*: Way of storing data supporting a set of operations
 
-For the following questions, suppose every number and the result of the operations we perform on them fit in a word in the ram.
-
+For the following questions, suppose every number (including the results of the operations we perform on them) fit in a word in the RAM. There may be multiple answers for each question.
 
 <question multiplechoice>
 csq_prompt = "Suppose we have 2 numbers, $x$, $y$. How many operations does it take to sum them?"
@@ -90,7 +89,7 @@ csq_options =  ['$O(1)$',
 </question>
 
 
-Python is a language that use the word ram model. Write the assymptotic run time of the following algorithms in terms of the size of the input.
+Python is a language that use the Word-RAM model. Write the asymptotic run time of the following algorithms in terms of the size of the input.
 
 <question expression>
 csq_prompt = """

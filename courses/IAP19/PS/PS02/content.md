@@ -1,6 +1,5 @@
 # Readings 
-Recitation notes 2, 6.006 Fall 2018 on stellar.
-
+[Recitation notes 2](https://learning-modules.mit.edu/service/materials/groups/238004/files/e32bf8b0-6f52-4813-af38-5b1664dda1eb/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
 
 # Recursions and recursion tree
 
