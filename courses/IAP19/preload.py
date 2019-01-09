@@ -222,12 +222,15 @@ def _draw_log(x):
 #csq_allow_viewanswer = False
 csq_allow_viewexplanation = True
 
+import math
 #extra functions, to be able to do some of the problems:
-csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  r"%s(%s)" % ("T", ", ".join(c)) ),
-"O": (lambda c: c**3*1.6006-c**2, lambda  c:  r"%s(%s)" % ("O", ", ".join(c)) ),
-"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
-"Theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
-"log": (cmath.log, _draw_log )
+csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda c:  r"%s(%s)" % ("T", ", ".join(c)) ),
+"O": (lambda c: c**3*1.6006-c**2, lambda c:  r"%s(%s)" % ("O", ", ".join(c)) ),
+"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
+"Theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
+"log": (cmath.log, _draw_log ),
+"fact": (math.factorial, lambda  c:  r"%s%s" % (", ".join(c), "!" )),
+"Omega": (lambda c: -c**3*0.16006+c**2*0.1, lambda c:  r"%s(%s)" % ("\\Omega", ", ".join(c)) )
 }
 
 
