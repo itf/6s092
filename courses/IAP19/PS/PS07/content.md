@@ -459,62 +459,76 @@ class array:
 
 Notice that there might be duplicated data, which should be kept duplicated.
 
+Write a function that merges the 2 arrays into a new array, sorted based on the isLarger(i,j) function.
 <question pythoncode>
 csq_interface = 'ace'
 
 csq_soln = '''
-def insertionSort(arr):
-    n = len(arr)
-    for i in range(1, n):
-        for j in range(i, 0, -1):
-            if arr.isLarger(j-1, j):
-                arr.swap(j, j-1)
-            else:
-                break
+def merge(arr1, arr2):
+    l =  len(arr1) + len(arr2)
+    i = 0
+    j = 0
+    newArray = []
+    for k in range(l):
+        if (i >= len(arr1)) or (j < len(arr2) and isLarger(arr1[i], arr2[j])):
+            newArray.append(arr2[j])
+            j += 1
+        else:
+            newArray.append(arr1[i])
+            i += 1
+    return newArray
 
 '''
 
 csq_initial = '''
 def merge(arr1, arr2):
-    n = len(arr)
-    if arr.isLarger(0, 1):
-        arr.swap(0, 1)
+    newArr = []
+    if isLarger(arr1[0], arr2[0]):
+        newArr.appen(arr2[0])
+    else:
+    	newArr.appen(arr1[0])
+    return newArr
 '''
 
 
-tests = [(3, 3),
-		 (6, 6),
-		 (1, 4),
-		 (4, 1),
-		 (100, 115),
-		 (115, 100)]
+def _shuffle_all(arr):
+    cs_random.shuffle(arr)
 
-orders = []
+tests = [(3, 3),
+	 (6, 6),
+	 (3, 4),
+	 (4, 1),
+	 (100, 115),
+	 (115, 100)]
+
+full_tests = []
 
 for n1, n2 in tests:
-	order = [x for x in range(n1+n2)]
-	for i in range(len(order)):
-		order2[order[i]] = i
+    order = [x for x in range(n1+n2+2)]
+    _shuffle_all(order)
 
     a1 = [x for x in range(n1)]
     a2 = [x for x in range(n1-2, n1+n2-2)]
 
-    sort(a1, key=lambda x: order[x])
-    sort(a2, key=lambda x: order[x])
+    a1.sort(key=lambda x: order[x])
+    a2.sort(key=lambda x: order[x])
+    
+    full_tests.append((a1, a2, order, n1+n2))
 
 csq_code_pre = f'''
+isLarger = lambda x,y: x>y 
+def _generate_isLarger(limit, order):
+    swaps = [0]
+    def _isLarger(i, j):
+        swaps[0] += 1
+        too_many_comps = swaps[0] > limit
+        assert not too_many_comps, "You performed too many comparisons"
+        return order[i] > order[j]
+    global isLarger
+    isLarger = _isLarger
 
+tests = {full_tests}
 
-_arrays_to_sort = []
-
-tests = {tests}
-
-orders = {orders}
-
-for i, (n, swap, compare) in enumerate(tests):
-	a = arrayToSort(n, swap, compare)
-	a._order = orders[i]
-	_arrays_to_sort.append(a)
 
 '''
 
@@ -526,11 +540,13 @@ csq_tests = []
 for i in range(len(tests)):
     csq_tests.append({
         'code': f"""
-arr = _arrays_to_sort[{i}]
-insertionSort(arr)
-ans = arr
+arr1 = tests[{i}][0] 
+arr2 = tests[{i}][1]
+_generate_isLarger(len(arr1) + len(arr2) + 3, tests[{i}][2] )
+ans = merge(arr1, arr2)
+
 """ })
 
-csq_npoints = 2
+csq_npoints = 1
 csq_name= "pcode3"
 </question> 
