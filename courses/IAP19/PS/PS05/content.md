@@ -16,7 +16,8 @@ csq_options =  ['1',
 csq_name="qexample1"
 </question>
 
-Calculate the recursions using the Master Theorem
+Calculate the recursions using the Master Theorem, and use the tightest asymptotic bound possible (i.e. if you can either put $O(n)$ or $\theta(n)$).
+
 <question expression>
 csq_prompt = """$T(n) = T(n/2) + \\theta(1)$
 
