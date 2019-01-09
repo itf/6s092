@@ -214,13 +214,19 @@ class array:
 		# Swaps the data at index i with the data in index[j]
 ```
 
+Please notice that isLarger compares data at location i, and at location j, rather than comparing elements of value i and value j.
+
 Using those two functions they ask you to sort the data
 ### Selection sort
 The data is stored in different physical locations, so it is really expesive to move the data from one place to another. They need you to minimize the number of swaps.
 
 It is very cheap to perform comparisons however, so you can compare as many times as you want. 
 
+You have no extra space to store the data, since data storage is very expensive.
+
 Knowing this, they ask you to implement the function selection sort.
+
+
 
 <question pythoncode>
 csq_interface = 'ace'
@@ -324,9 +330,11 @@ csq_name= "pcode1"
 </question> 
 
 
-# Insertion Sort
+### Insertion Sort
 
 Now, they tell you that the data is mostly sorted, i.e. at most 10 swaps between adjacency elements is needed to sort the data.
+
+You have no extra space to store the data, since data storage is very expensive.
 
  Instead of trying to minimize the number of swaps, they just want you to sort is as fast as possible knowing that the data is mostly sorted.
 
@@ -433,4 +441,96 @@ ans = arr
 
 csq_npoints = 2
 csq_name= "pcode2"
+</question> 
+
+
+### Merging!
+Now they finally got some extra memory, and they are asking you to merge 2 sorted arrays of data into a larger array!
+
+Again, they can't give you the data, so now they provide you another function:
+
+
+```python
+class array:
+	def isLarger(self, i,j):
+		#Returns True if the data with id i is larger than the data with id j
+
+```
+
+Notice that there might be duplicated data, which should be kept duplicated.
+
+<question pythoncode>
+csq_interface = 'ace'
+
+csq_soln = '''
+def insertionSort(arr):
+    n = len(arr)
+    for i in range(1, n):
+        for j in range(i, 0, -1):
+            if arr.isLarger(j-1, j):
+                arr.swap(j, j-1)
+            else:
+                break
+
+'''
+
+csq_initial = '''
+def merge(arr1, arr2):
+    n = len(arr)
+    if arr.isLarger(0, 1):
+        arr.swap(0, 1)
+'''
+
+
+tests = [(3, 3),
+		 (6, 6),
+		 (1, 4),
+		 (4, 1),
+		 (100, 115),
+		 (115, 100)]
+
+orders = []
+
+for n1, n2 in tests:
+	order = [x for x in range(n1+n2)]
+	for i in range(len(order)):
+		order2[order[i]] = i
+
+    a1 = [x for x in range(n1)]
+    a2 = [x for x in range(n1-2, n1+n2-2)]
+
+    sort(a1, key=lambda x: order[x])
+    sort(a2, key=lambda x: order[x])
+
+csq_code_pre = f'''
+
+
+_arrays_to_sort = []
+
+tests = {tests}
+
+orders = {orders}
+
+for i, (n, swap, compare) in enumerate(tests):
+	a = arrayToSort(n, swap, compare)
+	a._order = orders[i]
+	_arrays_to_sort.append(a)
+
+'''
+
+
+
+
+csq_tests = []
+
+for i in range(len(tests)):
+    csq_tests.append({
+        'code': f"""
+arr = _arrays_to_sort[{i}]
+insertionSort(arr)
+ans = arr
+""" })
+
+csq_npoints = 2
+csq_name= "pcode3"
 </question> 

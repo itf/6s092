@@ -7,13 +7,13 @@ Recursion and Recursion Trees problem set.
 
 
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "How many cases does the master theorem has?"
 csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
+csq_soln = [0,0,1,0]
+csq_options =  ['1',
+'2',
+'3',
+'4']
 csq_name="qexample1"
 </question>
 
