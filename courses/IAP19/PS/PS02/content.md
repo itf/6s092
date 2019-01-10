@@ -138,7 +138,7 @@ csq_nsubmits = None
 </question>
 
 <question expression>
-csq_prompt = """Let the amount of work done in the first level be $x$ and the amount of work in the $i_{th}$ level be $y$.
+csq_prompt = """Let the amount of work done in the first level be $x$ and the amount of work in the $(i+1)_{th}$ level be $y$.
 
 What is $\\frac{y}{x}$ in terms of $a, b, c, n, i$?
 """
