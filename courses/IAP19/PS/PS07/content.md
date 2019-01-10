@@ -16,7 +16,7 @@ csq_prompt = "Which of these describes a 'sequence'?"
 csq_renderer = "radio"
 csq_soln = 'Interface'
 csq_options = ['Interface', 'Algorithm', 'Data structure']
-</question>
+</question multiplechoice>
 
 <question multiplechoice>
 csq_prompt = "Which of these could be a valid data structure? Remember we are using the Word-RAM model of computation."
@@ -38,8 +38,8 @@ csq_prompt = "What are some valid data structures that would solve Wumpus's prob
 csq_renderer = "checkbox"
 csq_soln = [1, 1, 0, 0]
 csq_options = ["Keeping the childrens' heights in an array, with an associated length and max functions that iterate over the array",
-"Keep track of length and max of the inputs seen so far, increment length every time and change max if we see a taller child", (Y)
-"Store a linked list of tuples that have the form $(height, pointer)$, where each pointer points at the next data point", (N)
+"Keep track of length and max of the inputs seen so far, increment length every time and change max if we see a taller child",
+"Store a linked list of tuples that have the form $(height, pointer)$, where each pointer points at the next data point",
 "Plot the childrens' heights on a cartesian plane and use the horizontal line method to find where the maximum height is"]
 </question multiplechoice>
 
