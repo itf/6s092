@@ -60,7 +60,7 @@ csq_soln = [1,0,0]
 csq_options = ['$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 3,\ 4,\ 5,\ 2]$',
 '$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 2,\ 3,\ 5,\ 4]$',
 '$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 3,\ 5,\ 2,\ 4]$']
-csq_name = 'ps7q2.5'
+csq_name = 'ps7q25'
 csq_explanation = "The invariant must be true at all times -- if we're performing a swap on the $i$th element, it must be true that A[:i] have been sorted already. Furthermore, we will only ever be swapping two adjacent numbers."
 </question>
 
