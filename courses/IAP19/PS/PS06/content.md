@@ -11,7 +11,7 @@ csq_nsubmits = None
 # Sorting
 
 ## Invariants
-One of the most important things to remember about each algorithm is what $invariant$ it is trying to maintain. The invariant distinguishes different algorithms, allows you to demonstrates correctness, and is instrumental in how you design your code if/when you implement these algorithms. Skim the recitation notes and pay special attention to the invariant described for each algorithm.
+One of the most important things to remember about each algorithm is what $invariant$ it is trying to maintain. The invariant distinguishes different algorithms, allows you to demonstrates correctness, and is instrumental in how you design code implementing the algorithms. Skim the recitation notes, paying special attention to the invariant described for each algorithm.
 
 1. Insertion Sort
 2. Selection Sort
@@ -19,14 +19,14 @@ One of the most important things to remember about each algorithm is what $invar
 
 What algorithms are described by the following invariants?
 
-* a. We have contiguous sorted chunks of the array, even though the whole array may not be sorted.
+* a. We keep track of contiguous sorted chunks of the array.
 
 * b. At step $i$, we have the largest $i$ elements of the array at the end.
 
 * c. Right before we place the $i$th element, the first $i$ elements of the array are sorted.
 
 <question expression>
-csq_prompt= "Write your answer as a string of three letters, i.e. 'abc' means that you think 'a' applies to Insertion sort."
+csq_prompt= "Write your answer as a string of three letters, i.e. 'abc' means that you think 'a' applies to Insertion sort, 'b' applies to Selection Sort, and 'c' to Merge Sort."
 csq_soln = "cba"
 csq_explanation = "Reread the recitation notes more closely to understand the invariants!"
 csq_name="pset7q10"
@@ -45,21 +45,30 @@ csq_name="ps7q1"
 <question multiplechoice>
 csq_prompt = "Which of these (could be multiple answers) would be a valid swap to make during insertion sort? Refer to the algorithm described in the recitation notes."
 csq_renderer = "checkbox"
-csq_soln = [0,1,0,1,0,0]
+csq_soln = [0,1,0]
 csq_options = ['$[1,\ 4,\ 2,\ 3] \\rightarrow [1,\ 2,\ 3,\ 4]$',
 '$[1,\ 4,\ 2,\ 3] \\rightarrow [1,\ 2,\ 4,\ 3]$',
-'$[2,\ 1,\ 4,\ 3] \\rightarrow [2,\ 1,\ 3,\ 4]$',
-'$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 3,\ 4,\ 5,\ 2]$',
-'$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 2,\ 3,\ 5,\ 4]$',
-'$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 3,\ 5,\ 2,\ 4]$']
+'$[2,\ 1,\ 4,\ 3] \\rightarrow [2,\ 1,\ 3,\ 4]$']
 csq_name = 'ps7q2'
 csq_explanation = "The invariant must be true at all times -- if we're performing a swap on the $i$th element, it must be true that A[:i] have been sorted already. Furthermore, we will only ever be swapping two adjacent numbers."
 </question>
 
+<question multiplechoice>
+csq_prompt = "Which of these (could be multiple answers) would be a valid swap to make during insertion sort? Refer to the algorithm described in the recitation notes."
+csq_renderer = "checkbox"
+csq_soln = [1,0,0]
+csq_options = ['$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 3,\ 4,\ 5,\ 2]$',
+'$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 2,\ 3,\ 5,\ 4]$',
+'$[1,\ 3,\ 5,\ 4,\ 2] \\rightarrow [1,\ 3,\ 5,\ 2,\ 4]$']
+csq_name = 'ps7q2.5'
+csq_explanation = "The invariant must be true at all times -- if we're performing a swap on the $i$th element, it must be true that A[:i] have been sorted already. Furthermore, we will only ever be swapping two adjacent numbers."
+</question>
+
+
 <checkyourself>
 Why can't we make the swap $[2,\ 3,\ 1] \rightarrow [1,\ 2,\ 3]$?
 <showhide>
-While this might be a simple operation to do with physical objects like cards, arrays in the Word RAM model would require us to make two swaps to move both the '$2$' and the '$3$': '$[2,\ 3,\ 1] \rightarrow [2,\ 1,\ 3] \rightarrow [1,\ 2,\ 3]$'. Refer back to PS03 for more information.
+While this might be a simple operation to do with physical objects like cards, arrays in the Word RAM model are more like buckets that we would need to move data in and out of. We would need two swaps to move both the $2$ and the $3$, i.e. $[2,\ 3,\ 1] \rightarrow [2,\ 1,\ 3] \rightarrow [1,\ 2,\ 3]$. Refer to PS03 for more information.
 </showhide>
 </checkyourself>
 
@@ -69,7 +78,7 @@ A swap is when we take two elements in an array and swap their positions. A comp
 csq_prompt = "What is the minimum number of comparisons that we would make in insertion sort?"
 csq_renderer = "radio"
 csq_soln = '$\\Theta(n)$'
-csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
+csq_options = ['$\\Theta(1)$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_name = 'ps7q3'
 csq_explanation = "Even if the array starts out being completely sorted, we still would compare every element with its neighbor"
 </question>
@@ -78,7 +87,7 @@ csq_explanation = "Even if the array starts out being completely sorted, we stil
 csq_prompt = "What is the maximum number of comparisons that we would make in insertion sort?"
 csq_renderer = "radio"
 csq_soln = '$\\Theta(n^2)$'
-csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
+csq_options = ['$\\Theta(1)$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_explanation = "The maximum number of swaps we might have to make is $\\Theta(n^2)$, i.e. when we are sorting $[n,\ n-1,\ ...,\ 2,\ 1]$ into increasing order. Since we make one comparison for each of those swaps, we would make $\\Theta(n^2)$ comparisons."
 </question>
 
@@ -98,7 +107,7 @@ csq_options = ['$[3,\ 2,\ 1,\ 4,\ 5] \\rightarrow [1,\ 2,\ 3,\ 4,\ 5]$',
 csq_prompt = "What is the minimum number of comparisons that we would make in selection sort?"
 csq_renderer = "radio"
 csq_soln = '$\\Theta(n^2)$'
-csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
+csq_options = ['$\\Theta(1)$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_explanation = "Every time we calculate the maximum value of an array of $i$ elements, we must make $i$ comparisons. The number of comparisons in selection sort would therefore be $n + (n-1) + ... + 1 = n(n+1)/2 = \\Theta(n^2)$."
 </question>
 
@@ -106,7 +115,7 @@ csq_explanation = "Every time we calculate the maximum value of an array of $i$ 
 csq_prompt = "What is the maximum number of $swaps$ that we would make in selection sort?"
 csq_renderer = "radio"
 csq_soln = '$\\Theta(n)$'
-csq_options = ['$1$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
+csq_options = ['$\\Theta(1)$', '$\\Theta(n)$', '$\\Theta(n log n)$', '$\\Theta(n^2)$']
 csq_explanation = "At each step in selection sort, we keep track of the $i$ largest elements. Each swap we make increases $i$ by $1$. When $i = n$, we are done -- therefore the maximum number of swaps we ever make in selection sort is $\\Theta(n)$."
 </question>
 
