@@ -22,7 +22,7 @@ csq_options = ['Interface', 'Algorithm', 'Data structure']
 csq_prompt = "Which of these could be a valid data structure? Remember we are using the Word-RAM model of computation."
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,1]
-csq_options = ['An array', 'The prime numbers less than $300$', 'Afrequency table', 'An array with a counter for the total number of elements that gets updated with insertions/deletions']
+csq_options = ['An array', 'The prime numbers less than $300$', 'A frequency table', 'An array with a counter for the total number of elements that gets updated with insertions/deletions']
 csq_explanation = "Arrays are just blocks of words according to the Word-RAM model. The last one also provides an operation on the data that is stored by an array."
 </question>
 
