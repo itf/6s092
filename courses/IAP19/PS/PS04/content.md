@@ -50,7 +50,7 @@ csq_renderer = "radio"
 csq_soln = 'O(n)'
 csq_options =  ['O(n^2)',
 'O(n)',
-'O(\log(n))',
+'O(log n)',
 'O(1)']
 csq_name="peakfinding"
 </question>
@@ -76,7 +76,7 @@ csq_renderer = "radio"
 csq_soln = O(\log(n)''
 csq_options =  ['O(n^2)',
 'O(n)',
-'O(\log(n))',
+'O(log n)',
 'O(1)']
 csq_name="peakfinding"
 </question>
