@@ -191,6 +191,17 @@ The sum of the first $n$ words in memory.
 </showhide>
 </checkyourself>
 
+<question multiplechoice>
+csq_prompt = 'What is the runtime cost of Algorithm A when $n = 4$?'
+csq_renderer = 'radio'
+csq_soln = '55'
+csq_options =  ['45', '50', '55', '60']
+csq_explanation = "The initialization has cost 2.  The comparison has cost 1 and is run 5 times.  The loop body has cost 12 and is run 4 times."
+csq_nsubmits = None # infinite submissions
+csq_name="algorithm_cost_A4"
+</question>
+
+
 <question expression>
 csq_prompt = 'What is the runtime cost of Algorithm A in terms of $n$?'
 csq_soln = "13*n + 3"
