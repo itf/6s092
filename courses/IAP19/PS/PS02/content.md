@@ -8,7 +8,7 @@
 
 <question multiplechoice>
 csq_prompt = "Which of the following recursions are equivalent (i.e. we can always simplify the left to be the right)?"
-csq_renderer = "radio"
+csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
 csq_options =  ['$T({n\over 2}) + T({n\over 2}) + f(n)\ = 2T({n\over 2}) + f(n)$',
 '$T({n\over 2}) + T({n\over 2}) + f(n)\ = T({n}) + f(n)$',
@@ -18,7 +18,7 @@ csq_options =  ['$T({n\over 2}) + T({n\over 2}) + f(n)\ = 2T({n\over 2}) + f(n)$
 
 <question multiplechoice>
 csq_prompt = "If $T(n) = a T(n/b) + O(f(n))$ and $T'(n) = a T'(n/b) + \\Theta(f(n))$, which of the following is necessarily true?"
-csq_renderer = "radio"
+csq_renderer = "checkbox"
 csq_soln = [0,0,0,1]
 csq_options =  ["$T(n) = T'(n)$",
 "$T(n) = \\Theta(T'(n))$",

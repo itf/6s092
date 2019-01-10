@@ -52,6 +52,8 @@ In the lectures we will very quickly cover an overview of the material, but you 
 
 This class is sponsored by Course 6 and by SIPB, the student group that develops Debathena, XVM, Scripts, and many other services on campus. The website for SIPB is here: sipb.mit.edu.
 
+Thanks Jason Ku for allowing us to use the 6.006 notes for this class! 
+
 <!--
 Hello.  This is the main page.  Maybe it has a calendar, or weekly
 announcements, and links to assignments.
