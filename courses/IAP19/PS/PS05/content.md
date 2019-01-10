@@ -6,7 +6,7 @@
 # Master Theorem
 
 <question multiplechoice>
-csq_prompt = "How many cases does the master theorem has?"
+csq_prompt = "How many cases does the master theorem have?"
 csq_renderer = "checkbox"
 csq_soln = [0,0,1,0]
 csq_options =  ['1',
