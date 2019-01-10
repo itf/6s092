@@ -1,4 +1,5 @@
 account email, name, lastname, firstname, role, email, registration status, year, blocked
+ankuragarwal_ma@srmuniv.edu,Ankur Agarwal,Agarwal,Ankur,Guest,ankuragarwal_ma@srmuniv.edu,,,no
 aroot222@mit.edu,Alexander J Root,Root,Alexander,Guest,aroot222@mit.edu,,2,no
 austein@mit.edu,Matthew S Goldstein,Goldstein,Matthew,Guest,austein@mit.edu,,,no
 ckonicki@mit.edu,Christine J Konicki,Konicki,Christine,Guest,ckonicki@mit.edu,,G,no
@@ -19,6 +20,8 @@ y_liu@g.harvard.edu,Yingtong Liu,Liu,Yingtong,Guest,y_liu@g.harvard.edu,,,no
 zanderso@mit.edu,Zoe E Anderson,Anderson,Zoe,Guest,zanderso@mit.edu,,2,no
 efjepsen@mit.edu,Eric Fisher Jepsen,Jepsen,Eric,Learner,efjepsen@mit.edu,,4,no
 hoseasiu@mit.edu,Ho Chit Siu,Siu,Ho Chit,Learner,hoseasiu@mit.edu,,G,no
+jessamyn.liu@gmail.com,Jessamyn Liu,Liu,Jessamyn,Learner,jessamyn.liu@gmail.com,,,no
+yc_huang@mit.edu,Yu-Chien Huang,Huang,Yu-Chien,Learner,yc_huang@mit.edu,,G,no
 yingtong@mit.edu,Yingtong Liu,Liu,Yingtong,Learner,yingtong@mit.edu,,G,no
 abilal@mit.edu,Ahmed Bilal,Bilal,Ahmed,Student,abilal@mit.edu,Pre-registered,G,no
 abilashp@mit.edu,Abilash Prabhakaran,Prabhakaran,Abilash,Student,abilashp@mit.edu,Pre-registered,1,no
@@ -43,13 +46,13 @@ beryce@mit.edu,Beryce Kenlyn Garcia,Garcia,Beryce Kenlyn,Student,beryce@mit.edu,
 boomzaza@mit.edu,Krittamate Tiankanon,Tiankanon,Krittamate,Student,boomzaza@mit.edu,Pre-registered,1,no
 byue@mit.edu,Brandon W Yue,Yue,Brandon,Student,byue@mit.edu,Pre-registered,1,no
 c3141592@mit.edu,Cannon M Vogel,Vogel,Cannon,Student,c3141592@mit.edu,Pre-registered,4,no
-cdelano@mit.edu,Christian T Williams,Williams,Christian,Student,cdelano@mit.edu,Pre-registered,1,no
 cewarren@mit.edu,Christina E Warren,Warren,Christina,Student,cewarren@mit.edu,Pre-registered,2,no
 charvig@mit.edu,Charvi Gopal,Gopal,Charvi,Student,charvig@mit.edu,Pre-registered,2,no
 chuang2@mit.edu,Chuyan Huang,Huang,Chuyan,Student,chuang2@mit.edu,Pre-registered,G,no
 diana96@mit.edu,Diana Wofk,Wofk,Diana,Student,diana96@mit.edu,Pre-registered,G,no
 djvelez@mit.edu,Derek J Velez,Velez,Derek,Student,djvelez@mit.edu,Pre-registered,1,no
 dmejorad@mit.edu,David Mejorado,Mejorado,David,Student,dmejorad@mit.edu,Pre-registered,3,no
+doronh@mit.edu,Doron Hazan,Hazan,Doron,Student,doronh@mit.edu,Pre-registered,2,no
 emalison@mit.edu,Emily M Malison,Malison,Emily,Student,emalison@mit.edu,Pre-registered,3,no
 esr@mit.edu,Edward S Rivera,Rivera,Edward,Student,esr@mit.edu,Pre-registered,1,no
 fkhalif@mit.edu,Faduma B Khalif,Khalif,Faduma,Student,fkhalif@mit.edu,Pre-registered,1,no
@@ -66,7 +69,7 @@ ivyw@mit.edu,Ivy A Wang,Wang,Ivy,Student,ivyw@mit.edu,Pre-registered,1,no
 jameslin@mit.edu,James H Lin,Lin,James,Student,jameslin@mit.edu,Pre-registered,1,no
 jbseby@mit.edu,Jean-Baptiste Seby,Seby,Jean-Baptiste,Student,jbseby@mit.edu,Pre-registered,G,no
 jcruzmen@mit.edu,Jose A Cruz Mendoza,Cruz Mendoza,Jose,Student,jcruzmen@mit.edu,Pre-registered,2,no
-je25371@mit.edu,Jessamyn J. Liu,Liu,Jessamyn,Student,jessamyn.liu@ll.mit.edu,Pre-registered,G,no
+je25371@mit.edu,Jessamyn J. Liu,Liu,Jessamyn,Student,je25371@mit.edu,Pre-registered,G,no
 jiangs@mit.edu,Sharon Jiang,Jiang,Sharon,Student,jiangs@mit.edu,Pre-registered,1,no
 jixin@mit.edu,Jixin Wang,Wang,Jixin,Student,jixin@mit.edu,Pre-registered,G,no
 jkusters@mit.edu,Joseph M Kusters,Kusters,Joseph,Student,jkusters@mit.edu,Pre-registered,G,no
@@ -143,6 +146,7 @@ vsilkin@mit.edu,Veronika Silkin,Silkin,Veronika,Student,vsilkin@mit.edu,Pre-regi
 wangx19@mit.edu,Xiaoxi Wang,Wang,Xiaoxi,Student,wangx19@mit.edu,Pre-registered,4,no
 wendycwc@mit.edu,Wendy Chiang,Chiang,Wendy,Student,wendycwc@mit.edu,Pre-registered,G,no
 wertheis@mit.edu,Sarah R Wertheimer,Wertheimer,Sarah,Student,wertheis@mit.edu,Pre-registered,1,no
+wynnera@mit.edu,Raymond A Wynne,Wynne,Raymond,Student,wynnera@mit.edu,Pre-registered,2,no
 yujing6@mit.edu,Yu Jing Chen,Chen,Yu Jing,Student,yujing6@mit.edu,Pre-registered,1,no
 yunfeim@mit.edu,Yunfei Ma,Ma,Yunfei,Student,yunfeim@mit.edu,Pre-registered,1,no
 zhadley@mit.edu,Zion M Hadley,Hadley,Zion,Student,zhadley@mit.edu,Pre-registered,1,no
