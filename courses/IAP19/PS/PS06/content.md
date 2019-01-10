@@ -192,8 +192,8 @@ csq_name = "ps7q11"
 <question multiplechoice>
 csq_prompt = "How many 'steps' are there in total?"
 csq_renderer = "radio"
-csq_soln = '$log(n)$' 
-csq_options = ['$1$', '$i$', '$log(n, 2)$', '$n$', '$nlog(n)$']
+csq_soln = '$log_2(n)$' 
+csq_options = ['$1$', '$i$', '$log_2(n)$', '$n$', '$nlog(n)$']
 csq_explanation = "The number of distinct values that $i$ can take range from $0$ (when we have chunks of size $1$) to $log(n)$ when we have a single chunk of size $n$. Because each level takes $\\Theta(n)$ work, and we have $log(n)$ levels, it follows that the entire Merge Sort algorithm will take $\\Theta(n log(n))$ time."
 csq_name = "ps7q12"
 </question>
