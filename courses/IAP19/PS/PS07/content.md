@@ -37,15 +37,12 @@ csq_options = ['An interface', 'A data structure']
 csq_prompt = "What are some valid data structures that would solve Wumpus's problem?"
 csq_renderer = "checkbox"
 csq_soln = [1, 1, 0, 0]
-csq_options = ["Keeping the childrens' heights in an array, with an associated length and max functions that iterate over the array",
-"Keep track of length and max of the inputs seen so far, increment length every time and change max if we see a taller child",
-"Store a linked list of tuples that have the form $(height, pointer)$, where each pointer points at the next data point",
-"Plot the childrens' heights on a cartesian plane and use the horizontal line method to find where the maximum height is"]
+csq_options = ["Keeping the childrens' heights in an array, with an associated length and max functions that iterate over the array", "Keep track of length and max of the inputs seen so far, increment length every time and change max if we see a taller child", "Store a linked list of tuples that have the form $(height, pointer)$, where each pointer points at the next data point", "Plot the childrens' heights on a cartesian plane and use the horizontal line method to find where the maximum height is"]
 </question multiplechoice>
 
 <question multiplechoice>
 csq_prompt = "Now Wumpus doesn't just want the tallest kid, but occasionally some authorities will come by and ask if Wumpus has seen a kid of some height $h$. Wumpus never lies, so now Wumpus wants to modify the interface so that it can find whether any children of that height have entered the cave. Is this a set interface or a sequence interface?"
 csq_renderer = "radio"
-csq_soln = "set"
+csq_soln = "Set"
 csq_options = ["Set", "Sequence"]
 </question multiplechoice>
