@@ -21,14 +21,14 @@ csq_nsubmits = None
 </question>
 
 <question expression>
-csq_prompt = """ Now the student is performing multiplication. How many operations does it take, asymptotically to calculate $n^2$? Write it as theta$(f(n))$.  \n
+csq_prompt = """ Now the student is performing multiplication. How many operations does it take, asymptotically to calculate $n^2$? Write it as Theta$(f(n))$.  \n
 \n \n
 """
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["theta(log(n)^2)", "theta(log(n,10)^2)"]
+csq_soln = ["Theta(log(n)^2)", "Theta(log(n,10)^2)"]
 csq_explanation = "The base of the log doesn't matter"
 csq_nsubmits = None
 </question>
@@ -63,7 +63,7 @@ csq_soln = [1,0,0,0]
 csq_options =  ['$O(1)$',
 '$\omega(1)$',
 '$o(1)$',
-'$\\theta(n)$']
+'$\\Theta(n)$']
 </question>
 
 
@@ -74,7 +74,7 @@ csq_soln = [1,0,0,0]
 csq_options =  ['$O(1)$',
 '$\omega(1)$',
 '$o(1)$',
-'$\\theta(n)$']
+'$\\Theta(n)$']
 </question>
 
 
@@ -85,7 +85,7 @@ csq_soln = [0,1,0,1]
 csq_options =  ['$O(1)$',
 '$\omega(1)$',
 '$o(1)$',
-'$\\theta(n)$']
+'$\\Theta(n)$']
 </question>
 
 
@@ -104,7 +104,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O(n)", "theta(n)"]
+csq_soln = ["O(n)", "Theta(n)"]
 csq_nsubmits = None
 </question>
 
@@ -126,7 +126,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O(n^2)", "theta(n^2)"]
+csq_soln = ["O(n^2)", "Theta(n^2)"]
 csq_nsubmits = None
 </question>
 
@@ -144,7 +144,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O(log(n))", "theta(log(n))"]
+csq_soln = ["O(log(n))", "Theta(log(n))"]
 csq_nsubmits = None
 </question>
 

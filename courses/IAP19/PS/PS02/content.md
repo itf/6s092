@@ -13,15 +13,15 @@ csq_soln = [1,0,0,0]
 csq_options =  ['$T({n\over 2}) + T({n\over 2}) + f(n)\ = 2T({n\over 2}) + f(n)$',
 '$T({n\over 2}) + T({n\over 2}) + f(n)\ = T({n}) + f(n)$',
 '$T({n}) + O(n)\ = T({n}) + n$',
-'$T({n}) + O(n)\ = T({n}) + \\theta(n)$']
+'$T({n}) + O(n)\ = T({n}) + \\Theta(n)$']
 </question>
 
 <question multiplechoice>
-csq_prompt = "If $T(n) = a T(n/b) + O(f(n))$ and $T'(n) = a T'(n/b) + \\theta(f(n))$, which of the following is necessarily true?"
+csq_prompt = "If $T(n) = a T(n/b) + O(f(n))$ and $T'(n) = a T'(n/b) + \\Theta(f(n))$, which of the following is necessarily true?"
 csq_renderer = "checkbox"
 csq_soln = [0,0,0,1]
 csq_options =  ["$T(n) = T'(n)$",
-"$T(n) = \\theta(T'(n))$",
+"$T(n) = \\Theta(T'(n))$",
 "$T'(n) = O(T(n))$",
 "$T(n) = O(T'(n)) $"]
 </question>
@@ -310,7 +310,7 @@ csq_soln = "n^c*(1/(1-(a/b^c)))"
 csq_nsubmits = None
 </question> 
 
-You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the root, $n^c$. Since we just showed that it is upper bounded by the value you calculated, you have that the total amount of work done on the tree is $\theta(n^c)$.
+You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the root, $n^c$. Since we just showed that it is upper bounded by the value you calculated, you have that the total amount of work done on the tree is $\Theta(n^c)$.
 
 
 <checkyourself>
@@ -339,7 +339,7 @@ Increases by $\frac{a}{b^c}$
 
 Since the amount of work per level increases, we will write the total amount of work done in the tree by writing a sum starting from the leaves.
 
-We previously calculated that the number of leaf nodes is $n^{log_b(a)}$. Since each leaf node has an input size of $\theta(1)$, the amount of work we do for each leaf node is $\theta(1)$. So the total work done on the leaf nodes is $n^{log_b(a)}$. Furthermore, we know that the total amount of work decreases by $\frac{b^c}{a}$ per level when going up the tree.
+We previously calculated that the number of leaf nodes is $n^{log_b(a)}$. Since each leaf node has an input size of $\Theta(1)$, the amount of work we do for each leaf node is $\Theta(1)$. So the total work done on the leaf nodes is $n^{log_b(a)}$. Furthermore, we know that the total amount of work decreases by $\frac{b^c}{a}$ per level when going up the tree.
 
 
 <checkyourself>
@@ -372,7 +372,7 @@ csq_soln = "n^log(a,b)*(1/(1-(b^c/a)))"
 csq_nsubmits = None
 </question> 
 
-You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the leaves, $n^{\log_b(a)}$. Furthermore, you just calculated an upper bound for that total amount of work. The two of them together shows that the total amount of work done on the tree is $\\theta(n^{\log_b(a)})$
+You know that the total amount of work done in the tree is lower bounded by the amount of the work done on the leaves, $n^{\log_b(a)}$. Furthermore, you just calculated an upper bound for that total amount of work. The two of them together shows that the total amount of work done on the tree is $\\Theta(n^{\log_b(a)})$
 
 <checkyourself>
 Suppose that we know that it's the third case of the weak version of the master theorem, and the recursion was:
@@ -382,7 +382,7 @@ $$T(n) = aT\left(\frac{n}{b}\right) + n^c$$
 
 What would be the total work on the tree?
 <showhide>
-$$\theta(n^{\log_b(a)})$$
+$$\Theta(n^{\log_b(a)})$$
 Notice that since the total amount of work is only dependent on the number of leaves, the amount of work per node getting smaller, does not affect the asymptotic bound on the work. 
 </showhide>
 </checkyourself>
