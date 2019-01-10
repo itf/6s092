@@ -195,7 +195,7 @@ The sum of the first $n$ words in memory.
 csq_prompt = 'What is the runtime cost of Algorithm A when $n = 4$?'
 csq_renderer = "radio"
 csq_soln = [0,0,1,0]
-csq_options =  [45, 50, 55, 60]
+csq_options =  ['45', '50', '55', '60']
 csq_explanation = "The initialization has cost 2.  The comparison has cost 1 and is run 5 times.  The loop body has cost 12 and is run 4 times."
 csq_nsubmits = None # infinite submissions
 csq_name="algorithm_cost_A4"
