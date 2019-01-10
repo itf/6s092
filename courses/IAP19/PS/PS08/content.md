@@ -5,40 +5,45 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 
 # Arrays
 
+<question multiplechoice>
+csq_prompt = "Given an unsorted array, how long does it take to find the maximum?"
+csq_renderer = "radio"
+csq_soln = [0,1,0]
+csq_options =  ['O(n^2)',
+'O(n)',
+'O(1)']
+csq_name="array1"
+</question>
 
 <question multiplechoice>
-csq_prompt = "Question?"
-csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
+csq_prompt = "Given an unsorted array, how long does it take to delete the last element?"
+csq_renderer = "radio"
+csq_soln = [0,0,1]
+csq_options =  ['O(n^2)',
+'O(n)',
+'O(1)']
+csq_name="array2"
 </question>
 
-
-<question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
+<question multiplechoice>
+csq_prompt = "Given an unsorted array, how long does it take to delete the first element?"
+csq_renderer = "radio"
+csq_soln = [0,1,0]
+csq_options =  ['O(n^2)',
+'O(n)',
+'O(1)']
+csq_name="array3"
 </question>
 
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
-
-
-
-
+<question multiplechoice>
+csq_prompt = "Given an unsorted array, how long does it take to delete the middle element?"
+csq_renderer = "radio"
+csq_soln = [0,1,0]
+csq_options =  ['O(n^2)',
+'O(n)',
+'O(1)']
+csq_name="array4"
+</question>
 
 <python>
 #tutor.init_random()
@@ -46,9 +51,11 @@ yeah
 
 <question pythoncode>
 
-csq_npoints = 1;
+csq_npoints = 4;
 csq_interface = 'ace'
-csq_prompt = "Write your code to return a string with 4 repeated n times"
+csq_prompt = """
+Write a function to simulate the \\texttt{uniq} function in Linux, which takes an array of items, and removes consecutive duplicates. \n
+"""
 
 ## Define solution that will be printed to student.
 csq_soln = """
