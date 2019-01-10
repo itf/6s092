@@ -7,7 +7,7 @@
 # Model of computation
 
 <question expression>
-csq_prompt = """A student is doing additions by hand, using the standard base 10 \n
+csq_prompt = """A student is doing additions by hand in base 10. \n
 How many operations does it take to sum $n+n$ ? \n
 Suppose there are no "carry 1"s and that $\log(a, b) = \\lfloor \log_b(a) \\rfloor$  \n
 """
@@ -21,7 +21,7 @@ csq_nsubmits = None
 </question>
 
 <question expression>
-csq_prompt = """ Now the student is performing multiplication. How many operations does it take, asymptotically to calculate $n^2$? Write it as Theta$(f(n))$.  \n
+csq_prompt = """ Now the student is performing multiplication. How many operations does it take, asymptotically, to calculate $n^2$? Express your answer in the format Theta$(f(n))$.  \n
 \n \n
 """
 csq_show_check = True
@@ -34,7 +34,7 @@ csq_nsubmits = None
 </question>
 
 <checkyourself>
-How would the previous answers change if you were using base 2 instead of base 10?
+How would the previous answers be different if you were using base 2 instead of base 10?
 <showhide>
 The base of the log would be 2. The second answer wouldn't change because there would be a constant multiplying the amount of work.
 </showhide>
@@ -89,7 +89,7 @@ csq_options =  ['$O(1)$',
 </question>
 
 
-Python is a language that use the Word-RAM model. Write the asymptotic run time of the following algorithms in terms of the size of the input.
+Python is a language that uses the Word-RAM model. Write the asymptotic run time of the following algorithms in terms of the size of the input.
 
 <question expression>
 csq_prompt = """
@@ -130,7 +130,7 @@ csq_soln = ["O(n^2)", "Theta(n^2)"]
 csq_nsubmits = None
 </question>
 
-Suppose that $\log(n)$ is calculated by repeated division, and that it always return an integer.
+Suppose that $\log(n)$ is calculated by repeated division, and that it always returns an integer.
 
  <question expression>
 csq_prompt = """
@@ -191,9 +191,11 @@ The sum of the first $n$ words in memory.
 </showhide>
 </checkyourself>
 
-<question pythonliteral>
+<question multiplechoice>
 csq_prompt = 'What is the runtime cost of Algorithm A when $n = 4$?'
-csq_soln = 55
+csq_renderer = "radio"
+csq_soln = [0,0,1,0]
+csq_options =  [45, 50, 55, 60]
 csq_explanation = "The initialization has cost 2.  The comparison has cost 1 and is run 5 times.  The loop body has cost 12 and is run 4 times."
 csq_nsubmits = None # infinite submissions
 csq_name="algorithm_cost_A4"

@@ -28,4 +28,56 @@ You should have a clear understanding of what is an algorithm. An algorithm is a
 
 ## Understanding a simple algorithm
 
-We have the following problem: given an array, we want to find a peak, i.e. an element that is larger or equal to its neighbohrs. 
+We have the following problem: given an one-dimensional array, we want to find a peak, i.e. an element that is larger or equal to its neighbors. 
+
+<checkyourself>
+Does a peak always exist?
+
+<showhide>
+Yes. Because the peak can also be equal to its neighbors, a peak will always exist in a non-empty array.
+</showhide>
+</checkyourself>
+
+<question multiplechoice>
+csq_prompt = """
+A brute-force algorithm is a general problem-solving technique which enumerates all possibilities and checks whether they are a solution to the problem. A straightforward, brute-force algorithm for this problem is as follows: \n
+\n
+Iterate over the array, and check whether each element is a peak by checking it against both of its neighbors. \n
+What is the runtime of this algorithm?
+"""
+
+csq_renderer = "radio"
+csq_soln = 'O(n)'
+csq_options =  ['O(n^2)',
+'O(n)',
+'O(log n)',
+'O(1)']
+csq_name="peakfinding"
+</question>
+
+We can get a faster algorithm using a divide-and-conquer approach as follows:
+
+Check the middle element of the array and compare it to its neighbors. If it is a peak, then we are done. If it is not a peak, than either its left neighbor is greater than it, or its right neighbor is greater than it. If its left neighbor is greater, recurse on the left half of the array. Otherwise, recurse on the right half.
+
+<checkyourself>
+Try to explain why this algorithm always works.
+
+<showhide>
+We start with an array that has a peak. We want to show that our recursive step always preserves this invariant. If the left neighbor is greater than the middle element, then the global maximum of the left side must be a peak. Thus, the subarray that we are recursing on must have a peak.
+</showhide>
+</checkyourself>
+
+<question multiplechoice>
+csq_prompt = """
+What is the runtime of this algorithm?
+"""
+
+csq_renderer = "radio"
+csq_soln = O(\log(n)''
+csq_options =  ['O(n^2)',
+'O(n)',
+'O(log n)',
+'O(1)']
+csq_name="peakfinding"
+</question>
+
