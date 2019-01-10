@@ -47,7 +47,7 @@ What is the runtime of this algorithm?
 """
 
 csq_renderer = "radio"
-csq_soln = [0,1,0,0]
+csq_soln = 'O(n)'
 csq_options =  ['O(n^2)',
 'O(n)',
 'O(log(n))',
