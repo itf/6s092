@@ -68,16 +68,14 @@ We start with an array that has a peak. We want to show that our recursive step 
 </checkyourself>
 
 <question multiplechoice>
-csq_prompt = """
-What is the runtime of this algorithm?
-"""
+csq_prompt = "What is the runtime of this algorithm?"
 
 csq_renderer = "radio"
-csq_soln = O(\log(n)''
+csq_soln = 'O(log(n)'
 csq_options =  ['O(n^2)',
 'O(n)',
 'O(log n)',
 'O(1)']
-csq_name="peakfinding"
+csq_name="peakfinding2"
 </question>
 
