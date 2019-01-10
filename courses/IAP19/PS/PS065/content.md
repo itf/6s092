@@ -1,5 +1,5 @@
 # Readings 
-Recitation notes x, lower bounds, 6.006 Fall 2018 on stellar.
+[Recitation notes 7](https://learning-modules.mit.edu/service/materials/groups/238004/files/4ced90b7-63e9-453c-9f10-4e8c51a94d67/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Comparison Model, 6.006 Fall 2018 on stellar.
 
 <python>
 csq_allow_check = True
@@ -8,13 +8,11 @@ csq_allow_submit_after_answer_viewed = False
 csq_nsubmits = None
 </python>
 
-# Decision Trees and informational theoretic lowerbound
+# Decision Trees and Informational Theoretic Lower Bound
 
-A  decision tree can be used to show how the input of an algorithm is mapped to the output. 
+A decision tree can be used to show how the input of an algorithm is mapped to the output. We start at the root, and for every "decision" made in the algorithm, we pick a branch to travel down. The algorithm then returns a solution when we reach a leaf. The decision tree displays all of these decisions that we make when running the algorithm on a generic input.
 
-It displays all the decisions we make when running the algorithms on a generic input.
-
-## Example with sorting
+## Example with Sorting
 For example, suppose we are sorting an array with 3 elements, $a,b,c$ by doing **pairwise comparisons**
 
 The decision tree could be the following:
@@ -88,24 +86,24 @@ csq_nsubmits = None
 </question>
 
 
-The height of a decision tree is the minimum number of decisions we have to take before we can be sure that we have reached a leaf node. For our example above, this is the minimum number of comparisons we need to perform to be sure that we can sort an arbitrary input.
+The height of a decision tree is the minimum number of decisions we have to take before we can be sure that we have reached a leaf node. For our example above, this is the minimum number of comparisons we need to perform to be sure that we have sorted an arbitrary input.
 
 
-Since 
-$$\left(\frac{n}{2}\right)^{\frac{n}{2}} \le n!\le \left(n \right)^{n}$$
+We have $n!$ different possible orderings to an array. Therefore we can calculate the height of the decision tree of sorting the array to be at least $\log(n!)$.
 
-We have that:
-
-$$\log \left(\left(\frac{n}{2}\right)^{\frac{n}{2}}\right) \le \log(n!)\le \log  \left(\left(n \right)^{n}\right)$$
-
-
-$$ \frac{n}{2} \log \left(\frac{n}{2}\right) \le \log(n!)\le n \log\left(n \right)$$
-
-So
-
+We know that:
 $$ \log(n!) = \Theta(n\log(n))$$
 
-Therefore we know that a lower bound on the number of pairwise comparisons we need to make to sort an array of n elements is:
+<checkyourself>
+Can you think of why this is true?
+<showhide>
+$$\left(\frac{n}{2}\right)^{\frac{n}{2}} \le n!\le \left(n \right)^{n}$$
+$$\log \left(\left(\frac{n}{2}\right)^{\frac{n}{2}}\right) \le \log(n!)\le \log  \left(\left(n \right)^{n}\right)$$
+$$ \frac{n}{2} \log \left(\frac{n}{2}\right) \le \log(n!)\le n \log\left(n \right)$$
+</showhide>
+</checkyourself>
+
+So the height of our decision tree (and the lower bound on the number of pairwise comparisons we need to make to sort an array of $n$ elements) is:
 
 $$ \Omega(n \log(n))$$
 
@@ -114,7 +112,7 @@ This is the information theoretic lower bound for comparison sort. It is not pos
 #### Extra
 Another way of describing this, is to say that every comparisons gives us at most 1 bit of information, and we need at least $\log_2(n!)$ bits on average to identify what is the correct output. 
 
-It is common to get less than 1 bit of information per comparison. That is why selection sort needs so many comparisons for example. 
+It is common to get less than 1 bit of information per comparison. That is why some sorting algorithms such as selection sort (see PS07) needs so many comparisons. 
 
 
 ### Binary search
@@ -143,15 +141,15 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = ["Omega(log(n))", "Omega(log(n,2))"]
-csq_explanation = "the number of different indexes"
+csq_explanation = "the minimum height of the decision tree for binary search"
 csq_nsubmits = None
 </question>
 
 
 ## Improving find
-Since we cannot decrease the number of leaves of our decision tree, in order to make its height smaller we need to increase its branching factor.
+Since we cannot decrease the number of leaves of our decision tree, in order to make its height smaller  than the lower bound that you just calculated, we need to increase its branching factor.
 
-Suppose you are looking for an element in an array, given their id. Suppose you can jump to location array[id] is 1 step. Suppose there is at most one element of each id, and that if an element has id = k, they are at location $k$ in the array.
+Suppose you are looking for an element in an array, given their id number. Suppose you can jump to location array[id] in 1 step, there is at most one element of each id, and that if an element has $id = k$, they are at location $k$ in the array.
 
 
 <question expression>
@@ -185,13 +183,13 @@ As you see, if you know exactly where to look, you can find an element much fast
 
 
 ## Improving sort
-Similarly, since we cannot decrease the number of leaves of our decision tree, in order to make its height smaller we need to increase its branching factor.
+Similarly, since we cannot decrease the number of leaves of our decision tree, in order to make its height smaller than $n \log(n)$, we need to increase its branching factor.
 
 Suppose that when you look at an element in your input array, you know exactly in which location it should go in your output array.
 
 <question expression>
 csq_prompt = """
-Supposing our array has length $n$, what is the branching factor of our decision tree, when we put an element from the input array into our output array, Give your answer in terms of $n$
+Supposing our array has length $n$, what is the branching factor of our decision tree? Let's say we are sorting elements from an input array and placing them into a sorted output array. What are the possible values when we put an element from the input array into our output array, Give your answer in terms of $n$
 """
 csq_show_check = True
 csq_allow_check = True
@@ -216,4 +214,4 @@ csq_explanation = "$n \\log_n(n) = n$"
 csq_nsubmits = None
 </question>
 
-Such an algorithm is possible when we are performing integer sorting and we have and upper bound. See radix sort.
+It is possible to use this idea (with some restrictions on the input) in order to improve the run-time of sort to $\\Theta(n)$. This is called radix sort, and requires the input to be an array of integers with some upper-bound in terms of $n$.
