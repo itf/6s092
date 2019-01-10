@@ -19,9 +19,9 @@ csq_name="array1"
 csq_prompt = "Given an unsorted array, how long does it take to delete the last element?"
 csq_renderer = "radio"
 csq_soln = [0,0,1]
-csq_options =  ['O(n^2)',
-'O(n)',
-'O(1)']
+csq_options =  ['$O(n^2)$',
+'$O(n)$',
+'$O(1)$']
 csq_name="array2"
 </question>
 
@@ -29,9 +29,9 @@ csq_name="array2"
 csq_prompt = "Given an unsorted array, how long does it take to delete the first element?"
 csq_renderer = "radio"
 csq_soln = [0,1,0]
-csq_options =  ['O(n^2)',
-'O(n)',
-'O(1)']
+csq_options =  ['$O(n^2)$',
+'$O(n)$',
+'$O(1)$']
 csq_name="array3"
 </question>
 
@@ -39,9 +39,9 @@ csq_name="array3"
 csq_prompt = "Given an unsorted array, how long does it take to delete the middle element?"
 csq_renderer = "radio"
 csq_soln = [0,1,0]
-csq_options =  ['O(n^2)',
-'O(n)',
-'O(1)']
+csq_options =  ['$O(n^2)$',
+'$O(n)$',
+'$O(1)$']
 csq_name="array4"
 </question>
 
@@ -54,18 +54,26 @@ csq_name="array4"
 csq_npoints = 4;
 csq_interface = 'ace'
 csq_prompt = """
-Write a function to simulate the \\texttt{uniq} function in Linux, which takes an array of items, and removes consecutive duplicates. \n
+Write a function to simulate the $uniq$ function in Linux, which takes an array of items, and removes consecutive duplicates. \n
+
+For example, $uniq([1 1 4 2 5 1 1 1 5 5 5])$ should return $[1 4 2 5 1 5]$.
+
+Note that the original order is preserved, and that only the consecutive duplicates are removed.
 """
 
 ## Define solution that will be printed to student.
 csq_soln = """
-def print_4_ntimes(n): 
-    return 'Solution will be posted to Stellar'
+def uniq(A): 
+    result = [A[0]]              # first element
+    for i in range(1, len(A)):
+        if A[i] != result[-1]:   # not the same as the last element added
+            result.append(A[i])
+    return result
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
-    return '4'
+csq_initial = """def uniq(A): 
+    return A
 """
 csq_name= "pcode2"
 
@@ -90,7 +98,7 @@ csq_sandbox_options = {
 }
 
 
-## Now we define helped functions
+## Now we define helper functions
 tests = [cs_random.randint(1,20) for x in range(10)]
 
 def is_correct(n, sol):
