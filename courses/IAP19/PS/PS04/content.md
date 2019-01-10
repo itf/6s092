@@ -40,8 +40,7 @@ Yes. Because the peak can also be equal to its neighbors, a peak will always exi
 
 <question multiplechoice>
 csq_prompt = """
-A brute-force algorithm is a general problem-solving technique which enumerates all possibilities and checks whether they are a solution to the problem. \n
-A straightforward, brute-force algorithm for this problem is as follows: \n
+A brute-force algorithm is a general problem-solving technique which enumerates all possibilities and checks whether they are a solution to the problem. A straightforward, brute-force algorithm for this problem is as follows: \n
 \n
 Iterate over the array, and check whether each element is a peak by checking it against both of its neighbors. \n
 What is the runtime of this algorithm?
@@ -49,7 +48,7 @@ What is the runtime of this algorithm?
 
 csq_renderer = "radio"
 csq_soln = [0,1,0,0]
-csq_options =  ['O(n^2)'
+csq_options =  ['O(n^2)',
 'O(n)',
 'O(log(n))',
 'O(1)']
