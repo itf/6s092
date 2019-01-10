@@ -194,7 +194,7 @@ The sum of the first $n$ words in memory.
 <question multiplechoice>
 csq_prompt = 'What is the runtime cost of Algorithm A when $n = 4$?'
 csq_renderer = "radio"
-csq_soln = [0,0,1,0]
+csq_soln = 55
 csq_options =  [45, 50, 55, 60]
 csq_explanation = "The initialization has cost 2.  The comparison has cost 1 and is run 5 times.  The loop body has cost 12 and is run 4 times."
 csq_nsubmits = None # infinite submissions
@@ -378,10 +378,10 @@ csq_name="parallel_cost_E"
 <question multiplechoice>
 csq_prompt = 'Which of the following descriptions is accurate?'
 csq_renderer = 'radio'
+csq_soln = 'The parallel cost of any term is no greater than the sequential cost.'
 csq_options = ['The sequential cost of any term is no greater than the parallel cost.',
                'The parallel cost of any term is no greater than the sequential cost.',
                'None of the above']
-csq_soln = 'The parallel cost of any term is no greater than the sequential cost.'
 csq_nsubmits = None # infinite submissions
 csq_name="comparison_parallel_sequential"
 </question>
