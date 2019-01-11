@@ -35,7 +35,7 @@ def uniq(A):
 csq_initial = """def uniq(A): 
     return A
 """
-csq_name= "pcode2"
+csq_name= "pcode1"
 
 ## Code that will be written before the user code as well as solution
 ## Particularly useful for defining classes and things that we don't want the user to modify
@@ -213,7 +213,7 @@ def uniq(A):
 csq_initial = """def uniq(A): 
     return A
 """
-csq_name= "pcode2"
+csq_name= "pcode3"
 
 ## Code that will be written before the user code as well as solution
 ## Particularly useful for defining classes and things that we don't want the user to modify
@@ -302,7 +302,7 @@ def uniq(A):
 csq_initial = """def uniq(A): 
     return A
 """
-csq_name= "pcode2"
+csq_name= "pcode4"
 
 ## Code that will be written before the user code as well as solution
 ## Particularly useful for defining classes and things that we don't want the user to modify
@@ -391,7 +391,7 @@ def uniq(A):
 csq_initial = """def uniq(A): 
     return A
 """
-csq_name= "pcode2"
+csq_name= "pcode5"
 
 ## Code that will be written before the user code as well as solution
 ## Particularly useful for defining classes and things that we don't want the user to modify
