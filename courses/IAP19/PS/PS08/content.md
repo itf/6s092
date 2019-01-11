@@ -53,7 +53,7 @@ csq_code_post = ""
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
     # 'CLOCKTIME': 0.15, 
-    'CPUTIME': 0.16, 
+    'CPUTIME': 0.10, 
     'MEMORY':1e9
 }
 
