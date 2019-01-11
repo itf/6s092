@@ -460,11 +460,13 @@ Again, they can't give you the data, so now they provide you another function:
 
 
 ```python
-class array:
-	def isLarger(self, i,j):
-		#Returns True if the data with id i is larger than the data with id j
+
+def isLarger(self, i,j):
+    #Returns True if the data with id i is larger than the data with id j
 
 ```
+
+Notice that this is now a global function, and not associated with the array anymore.
 
 Notice that there might be duplicated data, which should be kept duplicated.
 
