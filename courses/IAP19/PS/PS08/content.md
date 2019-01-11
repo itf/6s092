@@ -5,6 +5,7 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 
 # Arrays
 
+<!-- Consider moving these to PS09 about dynamic arrays
 <question multiplechoice>
 csq_prompt = "Given an unsorted array, how long does it take to find the maximum?"
 csq_renderer = "radio"
@@ -44,7 +45,7 @@ csq_options =  ['$O(n^2)$',
 '$O(1)$']
 csq_name="array4"
 </question>
-
+ -->
 <python>
 #tutor.init_random()
 </python>
