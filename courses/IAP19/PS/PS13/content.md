@@ -3,8 +3,53 @@ Recitation notes 7, 6.006 Fall 2018 on stellar.
 
 Lecture notes 8, 6.006 Fall 2018 on stellar.
 
-# Hashing
+# Hashtables and Hashing
 
+For the following questions, write $\Theta(f(n), a, e, w)$ to mean f(n) Amortized, Expected, Worst-case run time. 
+
+For example, $\Theta(n, e, a)$ would mean $\underbrace{\Theta(n)}_\text{expected, amortized}$
+
+Assume that the size of the hashtable is $\Theta(n)$, where $n$ is the number of elements we are inserting on the hashtable.
+
+
+If something runs in worst-case $f(n)$, only the worst case solution will be accepted, even though worst-case also implies expected and amortized.
+<question expression>
+csq_prompt = """What is the assymptotic run time to find an element by its key on a hashtable?
+
+\n"""
+csq_soln = ["O(1,e)", "Theta(1,e)"]
+csq_explanation = "Because the expected number of collisions is $O(1)$"
+csq_nsubmits = None
+</question>
+
+
+<question expression>
+csq_prompt = """What is the assymptotic run time to find an element by its value on a hashtable?  
+"""
+csq_soln = ["O(n,w)", "Theta(n,w)"]
+csq_explanation = "There is no efficient way "
+csq_nsubmits = None
+</question>
+
+<question expression>
+csq_prompt = """If we use a 2-universal hash function (usually called universal hash function), in the worst case, what is the maximum number of elements that share the same hash? 
+
+i.e. the maximum number of elements colliding at the same bucket in the hastable?
+
+\n"""
+csq_soln = ["O(n)", "Theta(n)", "Theta(n, w)", "O(n,w)", "n"]
+csq_explanation = "Every element might collide"
+csq_nsubmits = None
+</question>
+
+
+<question expression>
+csq_prompt = """What is the assymptotic run time to find an element by its value on a hashtable?  
+"""
+csq_soln = ["O(n,w)", "Theta(n,w)"]
+csq_explanation = "There is no efficient way "
+csq_nsubmits = None
+</question>
 
 <question multiplechoice>
 csq_prompt = "Question?"
