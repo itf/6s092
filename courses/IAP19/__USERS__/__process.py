@@ -39,7 +39,8 @@ awesomehelp = [
 'levyr',
 'aeg',
 'gschwind',
-'ikdc'
+'ikdc',
+'wphu'
 ]
 
 
