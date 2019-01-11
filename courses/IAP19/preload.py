@@ -219,18 +219,60 @@ def _draw_log(x):
         return out, "log takes at most 2 arguments"
     return out
 
-#csq_allow_viewanswer = False
-csq_allow_viewexplanation = True
+
+def _draw_assymptotics(letter, x):
+    if len(x) == 0:
+        return letter
+    else:
+        func = f"{letter}\\left({x[0]}\\right)"
+
+    e, a, w = '', '', ''
+    if ('e' in x):
+        e = ' expected'
+    if ('a' in x):
+        a = ' amortized'
+    if ('w' in x):
+        w= ' worst-case'
+
+
+    if any([e,a,w]):
+        return f"{{\\color{{black}} \\underbrace{{{func}}}_{{\\text{{{e}{a}{w}}} }} }}"
+
+
+
+    return func
+
+
+def _calc_assymptotics(letter):
+    #random funcs
+    calc_func = lambda x: 1 
+    if letter == "O":
+        calc_func = lambda c: c**3*1.6006-c**2
+    elif letter == "Theta":
+        calc_func = lambda c: -c**3*0.06006+c**2*0.2
+    elif letter == "Omega":
+        calc_func = lambda c: -c**3*0.16006+c**2*0.1
+    def f(*args):
+        if len(args) >= 1:
+            x = args[0]
+            result = calc_func(x + sum(args[1:])) 
+            # only the order of the first term matters
+            # Theta(n,a,e) = Theta(n, e, a)
+            #So we just sum a and e, which are given random values
+            return result 
+    return f
 
 import math
 #extra functions, to be able to do some of the problems:
-csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda c:  r"%s(%s)" % ("T", ", ".join(c)) ),
-"O": (lambda c: c**3*1.6006-c**2, lambda c:  r"%s(%s)" % ("O", ", ".join(c)) ),
-"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
-"Theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda c:  r"%s(%s)" % ("\\Theta", ", ".join(c)) ),
+csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda c:  f"T\\left({c[0]}\\right)"),
+"O": (_calc_assymptotics("O"), lambda c:  _draw_assymptotics("O", c) ),
+"theta": (_calc_assymptotics("Theta"), lambda c:  _draw_assymptotics("\\Theta", c)),
+"Theta": (_calc_assymptotics("Theta"), lambda c:  _draw_assymptotics("\\Theta", c)),
 "log": (cmath.log, _draw_log ),
 "fact": (math.factorial, lambda  c:  r"%s%s" % (", ".join(c), "!" )),
-"Omega": (lambda c: -c**3*0.16006+c**2*0.1, lambda c:  r"%s(%s)" % ("\\Omega", ", ".join(c)) )
+"Omega": (_calc_assymptotics("Omega"), lambda c:  _draw_assymptotics("\\Omega", c) ),
 }
 
-
+#csq_allow_viewanswer = False
+csq_allow_viewexplanation = True
+csq_allow_check = True
