@@ -495,9 +495,9 @@ csq_initial = '''
 def merge(arr1, arr2):
     newArr = []
     if isLarger(arr1[0], arr2[0]):
-        newArr.appen(arr2[0])
+        newArr.append(arr2[0])
     else:
-    	newArr.appen(arr1[0])
+    	newArr.append(arr1[0])
     return newArr
 '''
 
