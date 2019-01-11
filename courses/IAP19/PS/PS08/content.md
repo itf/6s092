@@ -5,47 +5,6 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 
 # Arrays
 
-<!-- Consider moving these to PS09 about dynamic arrays
-<question multiplechoice>
-csq_prompt = "Given an unsorted array, how long does it take to find the maximum?"
-csq_renderer = "radio"
-csq_soln = [0,1,0]
-csq_options =  ['O(n^2)',
-'O(n)',
-'O(1)']
-csq_name="array1"
-</question>
-
-<question multiplechoice>
-csq_prompt = "Given an unsorted array, how long does it take to delete the last element?"
-csq_renderer = "radio"
-csq_soln = [0,0,1]
-csq_options =  ['$O(n^2)$',
-'$O(n)$',
-'$O(1)$']
-csq_name="array2"
-</question>
-
-<question multiplechoice>
-csq_prompt = "Given an unsorted array, how long does it take to delete the first element?"
-csq_renderer = "radio"
-csq_soln = [0,1,0]
-csq_options =  ['$O(n^2)$',
-'$O(n)$',
-'$O(1)$']
-csq_name="array3"
-</question>
-
-<question multiplechoice>
-csq_prompt = "Given an unsorted array, how long does it take to delete the middle element?"
-csq_renderer = "radio"
-csq_soln = [0,1,0]
-csq_options =  ['$O(n^2)$',
-'$O(n)$',
-'$O(1)$']
-csq_name="array4"
-</question>
- -->
 <python>
 #tutor.init_random()
 </python>
@@ -57,7 +16,7 @@ csq_interface = 'ace'
 csq_prompt = """
 Write a function to simulate the $uniq$ function in Linux, which takes an array of items, and removes consecutive duplicates. \n
 
-For example, $uniq([1 1 4 2 5 1 1 1 5 5 5])$ should return $[1 4 2 5 1 5]$.
+For example, $uniq([1, 1, 4, 2, 5, 1, 1, 1, 5, 5, 5])$ should return $[1, 4, 2, 5, 1, 5]$.
 
 Note that the original order is preserved, and that only the consecutive duplicates are removed.
 """
