@@ -52,8 +52,8 @@ csq_code_post = ""
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.15, 
-    # 'CPUTIME': 0.36, 
+    # 'CLOCKTIME': 0.15, 
+    'CPUTIME': 0.16, 
     'MEMORY':1e9
 }
 
