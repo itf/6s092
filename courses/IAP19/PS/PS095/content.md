@@ -62,7 +62,7 @@ csq_nsubmits = None
 csq_name="LLOp5"
 </question>
 
-#Using Linked Lists
+# Using Linked Lists
 <question multiplechoice>
 csq_prompt = "In which of these scenarios could you use a linked list?"
 csq_renderer = "checkbox"
@@ -74,3 +74,369 @@ csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recentl
 'Finding the smallest value of $n$ elements in $O(n)$ time.']
 csq_name="ULLmc1"
 </question>
+
+# Coding Problems
+
+We have defined a class called LinkedList with the following functions:
+- addPerson(person): adds a Person object to the LinkedList
+- left: the leftmost Person in the LinkedList, is None when there is no one in the list
+- right: the rightmost Person in the LinkedList, is None when there is no one in the list
+
+We have defined the Person object to have the following functions:
+- name(): returns a string
+- height(): returns an integer
+- setNext(person): takes in an input of type Person and sets it as the next Person
+- setPrev(person): takes in an input of type Person and sets it as the previous Person
+- getNext(): if we read the LinkedList from left to right, returns the next Person
+- getPrev(): if we read the LinkedList from left to right, returns the previous Person
+
+<question pythoncode>
+csq_interface = 'ace'
+csq_prompt = "Write a function called secondName that returns the second person's name in the LinkedList (remember we are reading from left to right"
+
+## Define solution that will be printed to student.
+csq_soln = """
+def secondName(ll): 
+    return ll.left.getNext().name()
+"""
+
+## Code that will be initially on the thingy
+csq_initial = """def secondName(ll):
+    return ll.right.name()
+"""
+csq_name= "pcode1"
+
+## Code that will be written before the user code as well as solution
+## Particularly useful for defining classes and things that we don't want the user to modify
+## For example, define a DFS function.
+csq_code_pre = """
+class LinkedList:
+    def __init__(self, people = None):
+        self.n = 0 # Length
+        self.left = None
+        self.right = None
+        if people:
+            for (name, height) in people:
+                self.addPerson(Person(name, height))
+
+    def addPerson(self, person):
+        if self.right is None:
+            self.left = person
+            self.right = person
+        else:
+            self.right.setNext(person)
+            person.setPrev(self.right)
+            self.right = person
+
+        self.n += 1
+
+class Person:
+    def __init__(self, name, height):
+        self._name = name
+        self._height = height
+        self._prev123 = None
+        self._next123 = None
+
+    def name(self):
+        return self._name
+
+    def height(self):
+        return self._height
+
+    def setNext(self, person):
+        self._next123 = person
+        return
+
+    def setPrev(self, person):
+        self._prev123 = person
+        return
+
+    def getPrev(self):
+        return self._prev123
+
+    def getNext(self):
+        return self._next123
+"""
+
+
+## Code that will be written after the user code as well as solution code
+## Seems quite useless to me.
+csq_code_post = ""
+
+
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
+
+## Now we define helped functions
+
+## Now we need to write csq_tests, which defines what code to run
+## As well as how to test it. 
+## Each csq_tests is a dictionary of things (code, check, etc)
+
+## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
+## Code should define a string called ans, which is what will be tested.
+
+## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
+
+names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
+tests = [2, 2, 4, 10]
+
+csq_tests = []
+for i, t in enumerate(tests):
+    test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t)]
+    print(test_case)
+    csq_tests.append({
+        'code': f"""
+ll = LinkedList({test_case})
+ans = secondName(ll)
+""" ,
+        'show_code': i < 5,
+        'grade': True,
+    })
+
+</question> 
+
+<question pythoncode>
+csq_interface = 'ace'
+csq_prompt = "Implement the function length(ll), which takes a LinkedList object as input and returns the integer length of the LinkedList."
+
+## Define solution that will be printed to student.
+csq_soln = """
+def length(ll): 
+    ans = 0
+    curr_person = ll.left
+    while curr_person:
+        ans += 1
+        curr_person = curr_person.getNext()
+    return ans
+"""
+
+## Code that will be initially on the thingy
+csq_initial = """def length(ll):
+    return 0
+"""
+csq_name= "pcode2"
+
+## Code that will be written before the user code as well as solution
+## Particularly useful for defining classes and things that we don't want the user to modify
+## For example, define a DFS function.
+csq_code_pre = """
+class LinkedList:
+    def __init__(self, people = None):
+        self.n = 0 # Length
+        self.left = None
+        self.right = None
+        if people:
+            for (name, height) in people:
+                self.addPerson(Person(name, height))
+
+    def addPerson(self, person):
+        if self.right is None:
+            self.left = person
+            self.right = person
+        else:
+            self.right.setNext(person)
+            person.setPrev(self.right)
+            self.right = person
+
+        self.n += 1
+
+class Person:
+    def __init__(self, name, height):
+        self._name = name
+        self._height = height
+        self._prev123 = None
+        self._next123 = None
+
+    def name(self):
+        return self._name
+
+    def height(self):
+        return self._height
+
+    def setNext(self, person):
+        self._next123 = person
+        return
+
+    def setPrev(self, person):
+        self._prev123 = person
+        return
+
+    def getPrev(self):
+        return self._prev123
+
+    def getNext(self):
+        return self._next123
+"""
+
+
+## Code that will be written after the user code as well as solution code
+## Seems quite useless to me.
+csq_code_post = ""
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
+
+## Now we define helped functions
+
+## Now we need to write csq_tests, which defines what code to run
+## As well as how to test it. 
+## Each csq_tests is a dictionary of things (code, check, etc)
+
+## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
+## Code should define a string called ans, which is what will be tested.
+
+## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
+
+names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
+tests = [2, 2, 4, 10]
+
+csq_tests = []
+for i, t in enumerate(tests):
+    test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t)]
+    print(test_case)
+    csq_tests.append({
+        'code': f"""
+ll = LinkedList({test_case})
+ans = length(ll)
+""" ,
+        'show_code': i < 5,
+        'grade': True,
+    })
+
+</question> 
+
+
+
+<question pythoncode>
+csq_interface = 'ace'
+csq_prompt = "Implement the function find(ll, name), which takes a LinkedList object and a name as input and returns the integer height of the first person in the list with that name. Assume that the input will always contain that name."
+
+## Define solution that will be printed to student.
+csq_soln = """
+def find(ll, name):
+    curr_person = ll.left
+    while curr_person:
+        if curr_person.name() == name:
+            return curr_person.height()
+        curr_person = curr_person.getNext()
+    return ans
+"""
+
+## Code that will be initially on the thingy
+csq_initial = """def find(ll, name):
+    return 0
+"""
+csq_name= "pcode3"
+
+## Code that will be written before the user code as well as solution
+## Particularly useful for defining classes and things that we don't want the user to modify
+## For example, define a DFS function.
+csq_code_pre = """
+class LinkedList:
+    def __init__(self, people = None):
+        self.n = 0 # Length
+        self.left = None
+        self.right = None
+        if people:
+            for (name, height) in people:
+                self.addPerson(Person(name, height))
+
+    def addPerson(self, person):
+        if self.right is None:
+            self.left = person
+            self.right = person
+        else:
+            self.right.setNext(person)
+            person.setPrev(self.right)
+            self.right = person
+
+        self.n += 1
+
+class Person:
+    def __init__(self, name, height):
+        self._name = name
+        self._height = height
+        self._prev123 = None
+        self._next123 = None
+
+    def name(self):
+        return self._name
+
+    def height(self):
+        return self._height
+
+    def setNext(self, person):
+        self._next123 = person
+        return
+
+    def setPrev(self, person):
+        self._prev123 = person
+        return
+
+    def getPrev(self):
+        return self._prev123
+
+    def getNext(self):
+        return self._next123
+"""
+
+
+## Code that will be written after the user code as well as solution code
+## Seems quite useless to me.
+csq_code_post = ""
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
+
+## Now we define helped functions
+
+## Now we need to write csq_tests, which defines what code to run
+## As well as how to test it. 
+## Each csq_tests is a dictionary of things (code, check, etc)
+
+## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
+## Code should define a string called ans, which is what will be tested.
+
+## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
+
+names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
+tests = [(2, "Patricia"),
+         (2, "Michael"), 
+         (4, "Ivan"),
+         (10, "Preksha")]
+
+csq_tests = []
+for i, t in enumerate(tests):
+    test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t[0])]
+    test_case = test_case + (t[1], cs_random.randint(40,80))
+    cs_random.shuffle(test_case)
+    csq_tests.append({
+        'code': f"""
+ll = LinkedList({test_case})
+ans = length(ll)
+""" ,
+        'show_code': i < 5,
+        'grade': True,
+    })
+
+</question> 
