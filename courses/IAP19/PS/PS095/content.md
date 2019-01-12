@@ -450,8 +450,10 @@ def removePerson(ll, name):
         if curr_person.name() == name:
             prev_person = curr_person.getPrev()
             next_person = curr_person.getNext()
-            prev_person.setNext(next_person)
-            next_person.setPrev(prev_person)
+            if prev_person:
+                prev_person.setNext(next_person)
+            if next_person != None:
+                next_person.setPrev(prev_person)
             return
         curr_person = curr_person.getNext()
     return
@@ -479,7 +481,7 @@ class LinkedList:
         curr_person = self.left
         string_repr = "["
         while curr_person:
-            string_repr = string_repr + "({curr_person.name()}, {str(curr_person.height())}), "
+            string_repr = string_repr + f"({curr_person.name()}, {curr_person.height()}), "
             curr_person = curr_person.getNext()
         return string_repr[:-2] + "]"
 
