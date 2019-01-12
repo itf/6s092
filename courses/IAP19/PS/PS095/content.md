@@ -75,7 +75,7 @@ csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recentl
 csq_name="ULLmc1"
 </question>
 
-# Coding Problems
+# Coding: Implementing A Doubly Linked List
 
 Wumpus has implemented most of a doubly linked list to keep track of a bunch of his friends and their heights! Now he need your help to implement some important functions to complete his code.
 
@@ -327,7 +327,7 @@ ans = length(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by implementing the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the input will always contain that name."
+csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by implementing the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the linked list will always contain at least one person with that name."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -437,7 +437,134 @@ for i, t in enumerate(tests):
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
-ans = length(ll)
+ans = find(ll, t[1])
+""" ,
+        'show_code': i < 5,
+        'grade': True,
+    })
+
+</question> 
+
+
+
+<question pythoncode>
+csq_interface = 'ace'
+csq_prompt = "Sometimes Wumpus gets into a big argument with a friend because of arguing over the ethics of eating children. Afterwards, Wumpus is unhappy and doesn't really care about that friend's height anymore. Help Wumpus out by implementing the function `removePerson(ll, name)`, which takes a `LinkedList` object and a name as input, and removes the first `Person` seen with that name from the linked list. Remember that we are reading the list from left to right. Assume that the linked list will always contain at least one person with that name."
+
+## Define solution that will be printed to student.
+csq_soln = """
+def removePerson(ll, name):
+    curr_person = ll.left
+    while curr_person:
+        if curr_person.name() == name:
+            prev_person = curr_person.getPrev()
+            next_person = curr_person.getNext()
+            prev_person.setNext(next_person)
+            next_person.setPrev(prev_person)
+            return
+        curr_person = curr_person.getNext()
+    return
+"""
+
+## Code that will be initially on the thingy
+csq_initial = """def removePerson(ll, name):
+    return 0
+"""
+csq_name= "pcode4"
+
+## Code that will be written before the user code as well as solution
+## Particularly useful for defining classes and things that we don't want the user to modify
+## For example, define a DFS function.
+csq_code_pre = """
+class LinkedList:
+    def __init__(self, people = None):
+        self.n = 0 # Length
+        self.left = None
+        self.right = None
+        if people:
+            for (name, height) in people:
+                self.addPerson(Person(name, height))
+
+    def addPerson(self, person):
+        if self.right is None:
+            self.left = person
+            self.right = person
+        else:
+            self.right.setNext(person)
+            person.setPrev(self.right)
+            self.right = person
+
+        self.n += 1
+
+class Person:
+    def __init__(self, name, height):
+        self._name = name
+        self._height = height
+        self._prev123 = None
+        self._next123 = None
+
+    def name(self):
+        return self._name
+
+    def height(self):
+        return self._height
+
+    def setNext(self, person):
+        self._next123 = person
+        return
+
+    def setPrev(self, person):
+        self._prev123 = person
+        return
+
+    def getPrev(self):
+        return self._prev123
+
+    def getNext(self):
+        return self._next123
+"""
+
+
+## Code that will be written after the user code as well as solution code
+## Seems quite useless to me.
+csq_code_post = ""
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
+
+## Now we define helped functions
+
+## Now we need to write csq_tests, which defines what code to run
+## As well as how to test it. 
+## Each csq_tests is a dictionary of things (code, check, etc)
+
+## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
+## Code should define a string called ans, which is what will be tested.
+
+## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
+
+names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
+tests = [(2, "Patricia"),
+         (2, "Michael"), 
+         (4, "Ivan"),
+         (10, "Preksha")]
+
+csq_tests = []
+for i, t in enumerate(tests):
+    test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t[0])]
+    test_case = test_case + [(t[1], cs_random.randint(40,80))] # Make sure `name` is in the test_case
+    cs_random.shuffle(test_case)
+    csq_tests.append({
+        'code': f"""
+ll = LinkedList({test_case})
+removePerson(ll, t[1]) 
+ans = ll
 """ ,
         'show_code': i < 5,
         'grade': True,
