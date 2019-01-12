@@ -28,8 +28,10 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
     csq_name = "exp2"
 </question>
 
+Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional spaces. We will run an analysis to ensure that his array actually achieves the amortized constant bound for insertions.
+
 <question expression>
-    csq_prompt = "Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional memory. On average, how many insertions can $ALO$ perform for every new allocation of the array?"
+    csq_prompt = "How many insertions can $ALO$ perform in constant $O(1)$ time for every new allocation of the array? Assume that $n/4$ is an integer value, and that the final insertion also takes a constant amount of work (it is the last element that can be placed into the array). Give a specific value, ie $2$, $n/10$, not an asymptotic bound."
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -40,14 +42,58 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
 </question>
 
 <question expression>
-    csq_prompt = "Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional memory. On average, how many insertions can $ALO$ perform for every new allocation of the array?"
+    csq_prompt = "How long does it take for Wumpus's array, of $n$ elements to perform a new allocation? Give a specific value."
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["n"]
+    csq_nsubmits = None
+    csq_name = "exp4"
+</question>
+
+<question expression>
+    csq_prompt = "Per allocation, how many times does Wumpus' dynamic array perform an $O(n)$ operation?"
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["1"]
+    csq_nsubmits = None
+    csq_name = "exp5"
+</question>
+
+<question expression>
+    csq_prompt = "Assume that the insertions that happen before a new space allocation takes 1 unit of work (can be done in constant time). What is the total amount of work of those insertions? Give a specific value."
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
     csq_soln = ["n/4"]
     csq_nsubmits = None
-    csq_name = "exp4"
+    csq_name = "exp6"
+</question>
+
+<question expression>
+    csq_prompt = "How much work is done per allocation cycle, in terms of insertions and the creation of a larger array? Give a specific value."
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["n+n/4", "5*n/4"]
+    csq_nsubmits = None
+    csq_name = "exp7"
+</question>
+
+<question expression>
+    csq_prompt = "By dividing the total work done per allocation cycle by the number of of insertions per allocation cycle, we can get the average amount of work done per insertion. What is this value? Give a specific value."
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["5"]
+    csq_nsubmits = None
+    csq_name = "exp8"
 </question>
 
 <question multiplechoice>
