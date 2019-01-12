@@ -28,7 +28,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "O(1)"
 csq_nsubmits = None
-csq_name"=LLOp2"
+csq_name="LLOp2"
 </question>
 
 
@@ -40,7 +40,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = [["None", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "None"]]
 csq_nsubmits = None
-csq_name"=LLOp3"
+csq_name="LLOp3"
 </question>
 
 
