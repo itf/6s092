@@ -54,7 +54,7 @@ csq_name="LLOp4"
 </question>
 
 <question expression>
-csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$ (not in order). How long does it take for Wumpus to find a specific number? Give an asymptotic bound: O(something) \n \n"
+csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$. What is the asymptotic runtime of finding the $j$th elment, where $j$ is a number between $0$ and $n$ How long does it take for Wumpus to find a specific number? Give an asymptotic bound: O(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
@@ -64,40 +64,18 @@ csq_nsubmits = None
 csq_name="LLOp5"
 </question>
 
-
-#
+#Using Linked Lists
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "In which of these scenarios could you use a linked list?"
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
+csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recently inserted element and the first stored element in $O(1)$ time.',
+'Finding the 6th, 10, and $n$th element in $O(1)$ time.',
+'Implementing a FIFO (first in, first out) queue, where new elements are inserted at one end, and elements are removed in the order that they are inserted into the queue.',
+'Finding the smallest value in $O(1) time.',
+'Finding the smallest value of $n$ elements in $O(n) time.]
+csq_name="ULLmc1"
 </question>
-
-
-<question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
-</question>
-
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
-
-
-
 
 
 <python>
