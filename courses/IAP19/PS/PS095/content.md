@@ -73,7 +73,7 @@ csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recentl
 'Finding the 6th, 10, and $n$th element in $O(1)$ time.',
 'Implementing a FIFO (first in, first out) queue, where new elements are inserted at one end, and elements are removed in the order that they are inserted into the queue.',
 'Finding the smallest value in $O(1) time.',
-'Finding the smallest value of $n$ elements in $O(n) time.]
+'Finding the smallest value of $n$ elements in $O(n) time.']
 csq_name="ULLmc1"
 </question>
 
