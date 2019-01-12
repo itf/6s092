@@ -139,10 +139,9 @@ csq_sandbox_options = {
 names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
 tests = [2, 2, 4, 10]
 
-# cs_random.randint(1,20) for x in range(10)]
 csq_tests = []
 for i, t in enumerate(tests):
-    test_case = [(names[cs_random.randint(0, len(names), 1)], cs_random.randint(40, 80, 1)) for x in range(t)]
+    test_case = [(names[cs_random.randint(0, len(names))], cs_random.randint(40, 80)) for x in range(t)]
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
