@@ -141,7 +141,8 @@ tests = [2, 2, 4, 10]
 
 csq_tests = []
 for i, t in enumerate(tests):
-    test_case = [(names[cs_random.randint(0, len(names))], cs_random.randint(40, 80)) for x in range(t)]
+    test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t)]
+    print(test_case)
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
