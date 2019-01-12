@@ -48,14 +48,14 @@ csq_code_pre = ""
 ## Seems quite useless to me.
 csq_code_post = """
 import resource
-assert resource.getrusage(resource.RUSAGE_SELF)[0]<0.42, "you used too much cpu!"
+assert resource.getrusage(resource.RUSAGE_SELF)[0]<0.5, "you used too much cpu!"
 """
 
 
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-     'CLOCKTIME': 1.8,
+     'CLOCKTIME': 2.5,
     #'CPUTIME': 0.10, 
     'MEMORY':1e9
 }
