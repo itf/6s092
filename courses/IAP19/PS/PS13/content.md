@@ -1,7 +1,7 @@
 # Readings 
 Recitation notes 7, 6.006 Fall 2018 on stellar.
 
-Lecture notes 8, 6.006 Fall 2018 on stellar.
+Lecture notes 8 6.006 Fall 2018 on stellar.
 
 # Hashtables and Hashing
 
@@ -31,17 +31,6 @@ csq_explanation = "There is no efficient way "
 csq_nsubmits = None
 </question>
 
-<question expression>
-csq_prompt = """If we use a 2-universal hash function (usually called universal hash function), in the worst case, what is the maximum number of elements that share the same hash? 
-
-i.e. the maximum number of elements colliding at the same bucket in the hastable?
-
-\n"""
-csq_soln = ["O(n)", "Theta(n)", "Theta(n, w)", "O(n,w)", "n"]
-csq_explanation = "Every element might collide"
-csq_nsubmits = None
-</question>
-
 
 <question expression>
 csq_prompt = """What is the assymptotic run time to find an element by its value on a hashtable?  
@@ -51,28 +40,133 @@ csq_explanation = "There is no efficient way "
 csq_nsubmits = None
 </question>
 
+
+## 2-Universal hashing
+In 2-universal hashing, we randomly select a function from a family of hash functions that maps elements from $\mathbb{M} \to \{0 \dots N-1\}$ , such that the probability of two elements from $\mathbb{M}$ having the same hash is $\le \frac{1}{N}$.
+
+A hash family with those properties is called a 2-universal hash family. More generally, if the probability of $k$ elements having the same hash was  $\le \frac{1}{N^{k-1}}$, we would have a $k$-universal hash family.
+
+When someone says universal hashing without specifying $k$, it means 2-universal hashing.
+
+<question expression>
+csq_prompt = """If we use 2-universal hashing in the worst case, what is the maximum number of elements that share the same hash? 
+
+\n"""
+csq_soln = ["O(n)", "Theta(n)", "Theta(n, w)", "O(n,w)", "n"]
+csq_explanation = "Every element might collide"
+csq_nsubmits = None
+</question>
+
+Suppose our universe $\mathbb{M} = \{\alpha, \beta, \gamma, \delta\}$ 
+
+
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = """Suppose $\\mathbb{H} = \{f,g,h,l\}$ where
+ 
+$$f(\\alpha) = f(\\beta) = f(\\gamma) = f(\\delta) = 0$$
+ $$g(\\alpha) = 0,\  g(\\beta) = 1,\ g(\\gamma) =2, \ g(\\delta) = 3$$
+ $$h(\\alpha) = 1,\  h(\\beta) = 2,\ h(\\gamma) =3, \ h(\\delta) = 0$$
+ $$l(\\alpha) = 2,\  l(\\beta) = 3,\ l(\\gamma) =0, \ l(\\delta) = 2$$
+
+In other words, either all elements collide or none of them collide.
+
+Is $\\mathbb{H}$ a 2-universal hash family from $ \\{\\alpha, \\beta, \\gamma, \\delta\\} \\to \\{0,1,2,3\\}$?
+"""
+csq_renderer = "radio"
+csq_soln = "yes"
+csq_options =  ['yes', 'no']
+csq_explanation = "What is the probability of 2 elements colliding?"
+</question>
+
+
+
+<question multiplechoice>
+csq_prompt = """Now, suppose $\\mathbb{H} = \{f,g,h,l\}$ where
+ 
+$$f(\\alpha) =3,\ f(\\beta) =0,\ f(\\gamma) = 1,\ f(\\delta) = 2$$
+ $$g(\\alpha) = 0,\  g(\\beta) = 1,\ g(\\gamma) =2, \ g(\\delta) = 3$$
+ $$h(\\alpha) = 1,\  h(\\beta) = 2,\ h(\\gamma) =3, \ h(\\delta) = 0$$
+ $$l(\\alpha) = 2,\  l(\\beta) = 3,\ l(\\gamma) =0, \ l(\\delta) = 2$$
+
+In other words, they never collide.
+
+Is $\\mathbb{H}$ a 2-universal hash family from $ \\{\\alpha, \\beta, \\gamma, \\delta\\} \\to \\{0,1,2,3\\}$?
+"""
+csq_renderer = "radio"
+csq_soln = "yes"
+csq_options =  ['yes', 'no']
+csq_explanation = "What is the probability of 2 elements colliding?"
+</question>
+
+## Hashtable with collisions solved by chaining
+
+Suppose we now have a hashtable where collisions are resolved by chaining, where we always keep the most recent value.
+
+<question multiplechoice>
+csq_prompt = """We run the following code on our hashtable:
+```
+A = hashtable()
+A.insert(a:3)
+A.insert(a:2)
+```
+What will A.get(a) return?
+"""
+csq_renderer = "checkbox"
+csq_soln = [0,1,0,0]
+csq_options =  ['3',
+'2',
+'[3,2]',
+'[2,3]']
+</question>
+
+
+
+<question multiplechoice>
+csq_prompt = """Suppose hash(a) = hash(b), i.e. there is a collision on our hashtable for those 2 keys.
+We run the following code on our hashtable:
+```
+A = hashtable()
+A.insert(a:3)
+A.insert(b:2)
+```
+What will A.get(a) return?
+
+"""
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
+csq_options =  ['3',
+'2',
+'[3,2]',
+'[2,3]']
 </question>
+
 
 
 <question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
+csq_prompt = """Suppose we insert $n$ elements, all with different keys, in our hashtable $A$.
+
+By bad luck, all $n$ of them collided with the element that had `key = a` 
+
+How many elements will be returned when we run `A.get(a)`?"""
+csq_soln = "1"
+csq_explanation = "It doesn't matter what is happening how the hashtable is handling collisions. It will only return the element with key=a"
 csq_nsubmits = None
 </question>
+
+<question expression>
+csq_prompt = "Still in the case where all $n$ elements collided, how long will it take to run `A.get(a)`"
+csq_soln = ["O(n,w)", "Theta(n,w)", "O(n)", "Theta(n,w)"]
+csq_explanation = "In the worst case we will have to look at all elements in the chain before we find the one with key=$a$"
+csq_nsubmits = None
+</question>
+
+<question expression>
+csq_prompt = "Still in the case where all $n$ elements collided, how long will it take to run `A.insert(a: (new value) )`"
+csq_soln = ["O(n,w)", "Theta(n,w)", "O(n)", "Theta(n,w)"]
+csq_explanation = "We first have to find $a$ before updating its value"
+csq_nsubmits = None
+</question>
+
 
 <checkyourself>
 Are you understanding?
