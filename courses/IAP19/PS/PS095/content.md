@@ -116,7 +116,6 @@ csq_name= "pcode1"
 csq_code_pre = """
 class LinkedList:
     def __init__(self, people = None):
-        self.n = 0 # Length
         self.left = None
         self.right = None
         if people:
@@ -131,8 +130,6 @@ class LinkedList:
             self.right.setNext(person)
             person.setPrev(self.right)
             self.right = person
-
-        self.n += 1
 
 class Person:
     def __init__(self, name, height):
@@ -234,7 +231,6 @@ csq_name= "pcode2"
 csq_code_pre = """
 class LinkedList:
     def __init__(self, people = None):
-        self.n = 0 # Length
         self.left = None
         self.right = None
         if people:
@@ -249,8 +245,6 @@ class LinkedList:
             self.right.setNext(person)
             person.setPrev(self.right)
             self.right = person
-
-        self.n += 1
 
 class Person:
     def __init__(self, name, height):
@@ -352,7 +346,6 @@ csq_name= "pcode3"
 csq_code_pre = """
 class LinkedList:
     def __init__(self, people = None):
-        self.n = 0 # Length
         self.left = None
         self.right = None
         if people:
@@ -367,8 +360,6 @@ class LinkedList:
             self.right.setNext(person)
             person.setPrev(self.right)
             self.right = person
-
-        self.n += 1
 
 class Person:
     def __init__(self, name, height):
@@ -478,12 +469,18 @@ csq_name= "pcode4"
 csq_code_pre = """
 class LinkedList:
     def __init__(self, people = None):
-        self.n = 0 # Length
         self.left = None
         self.right = None
         if people:
             for (name, height) in people:
                 self.addPerson(Person(name, height))
+
+    def __str__(self):
+        curr_person = self.left
+        string_repr = "["
+        while curr_person:
+            string_repr = string_repr + "({curr_person.name()}, {str(curr_person.height())}), "
+        return string_repr[:-2] + "]"
 
     def addPerson(self, person):
         if self.right is None:
@@ -493,8 +490,6 @@ class LinkedList:
             self.right.setNext(person)
             person.setPrev(self.right)
             self.right = person
-
-        self.n += 1
 
 class Person:
     def __init__(self, name, height):
@@ -564,7 +559,7 @@ for i, t in enumerate(tests):
         'code': f"""
 ll = LinkedList({test_case})
 removePerson(ll, {t}[1]) 
-ans = ll
+ans = str(ll)
 """ ,
         'show_code': i < 5,
         'grade': True,
