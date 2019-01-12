@@ -39,17 +39,17 @@ yeah
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Return twice the length of the LinkedList"
+csq_prompt = "Print out the second person's name in the LinkedList"
 
 ## Define solution that will be printed to student.
 csq_soln = """
-def doublelength(ll): 
-    return ll.length() * 2
+def secondName(ll): 
+    return ll.left.getNext().name()
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def doublelength(ll):
-    return ll.length()
+csq_initial = """def secondName(ll):
+    return ll.left.name()
 """
 csq_name= "pcode2"
 
@@ -84,8 +84,8 @@ class Person:
     def __init__(self, name, height):
         self.name = name
         self.height = height
-        self.prev = None
-        self.next = None
+        self.prev123 = None
+        self.next123 = None
 
     def name(self):
         return self.name
@@ -94,12 +94,18 @@ class Person:
         return self.height
 
     def setNext(self, person):
-        self.next = person
+        self.next123 = person
         return
 
     def setPrev(self, person):
-        self.prev = person
+        self.prev123 = person
         return
+
+    def getPrev(self, person):
+        return self.prev123
+
+    def getNext(self, person):
+        return self.next123
 """
 
 
@@ -138,7 +144,7 @@ for i, t in enumerate(tests):
     csq_tests.append({
         'code': f"""
 ll = LinkedList({t})
-ans = doublelength(ll)
+ans = secondName(ll)
 """ ,
         'show_code': i < 5,
         'grade': True,
