@@ -1,7 +1,6 @@
 # Readings 
-Recitation notes 4, 6.006 Fall 2018 on stellar.
 
-Lecture notes 4, 6.006 Fall 2018 on stellar.
+[Lecture Notes 4](https://learning-modules.mit.edu/service/materials/groups/238004/files/aad7a820-c5b5-4eba-aff2-79bbdc1355e4/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Linked Lists, 6.006 Fall 2018 on stellar.
 
 # Linked List Operations
 
@@ -28,7 +27,6 @@ csq_soln = "O(1)"
 csq_nsubmits = None
 csq_name="LLOp2"
 </question>
-
 
 <question pythonliteral>
 csq_prompt= "Wumpus now deletes the first element. What does the linked list look like now? Give the entire linked list, represented as above. \n \n"
@@ -76,4 +74,3 @@ csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recentl
 'Finding the smallest value of $n$ elements in $O(n)$ time.']
 csq_name="ULLmc1"
 </question>
-
