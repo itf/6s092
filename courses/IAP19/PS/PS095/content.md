@@ -437,7 +437,7 @@ for i, t in enumerate(tests):
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
-ans = find(ll, t[1])
+ans = find(ll, {t}[1])
 """ ,
         'show_code': i < 5,
         'grade': True,
@@ -563,7 +563,7 @@ for i, t in enumerate(tests):
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
-removePerson(ll, t[1]) 
+removePerson(ll, {t}[1]) 
 ans = ll
 """ ,
         'show_code': i < 5,
