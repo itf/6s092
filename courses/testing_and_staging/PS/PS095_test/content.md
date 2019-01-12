@@ -99,7 +99,7 @@ for i, t in enumerate(tests):
 
     csq_tests.append({
         'code': f"""
-ll = LinkedList(tests[{i}])
+ll = LinkedList({t}])
 ans = doublelength(ll)
 """ ,
         'show_code': i < 5,
