@@ -44,8 +44,7 @@ csq_prompt = "Print out the second person's name in the LinkedList"
 ## Define solution that will be printed to student.
 csq_soln = """
 def secondName(ll): 
-    return ll.left.getNext().name
-    # .getNext().name()
+    return ll.left.getNext().name()
 """
 
 ## Code that will be initially on the thingy
@@ -83,30 +82,30 @@ class LinkedList:
 
 class Person:
     def __init__(self, name, height):
-        self.name = name
-        self.height = height
-        self.prev123 = None
-        self.next123 = None
+        self._name = name
+        self._height = height
+        self._prev123 = None
+        self._next123 = None
 
     def name(self):
-        return self.name
+        return self._name
 
     def height(self):
-        return self.height
+        return self._height
 
     def setNext(self, person):
-        self.next123 = person
+        self._next123 = person
         return
 
     def setPrev(self, person):
-        self.prev123 = person
+        self._prev123 = person
         return
 
     def getPrev(self):
-        return self.prev123
+        return self._prev123
 
     def getNext(self):
-        return self.next123
+        return self._next123
 """
 
 
