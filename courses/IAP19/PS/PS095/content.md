@@ -10,7 +10,7 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 Let us represent a linked list as an array of arrays that contains "<-" which represents a left pointer, a number, and a right pointer represented by "->". If there is no left, or right pointer, let the string be replaced by "None". For example, if we were to represent the numbers 1, 2, and 3 in order as a linked list, it would look like this: [["None", 1, "->"], ["<-", 2, "->"], ["<-", 3, "None"]].
 
 <question expression>
-csq_prompt= "Wumpus has a linked list storing the numbers 100, 101, 102, and 103, in order. Wumpus adds 105 to the end of his linked list. What does the linked list look like now? Give the entire linked list, represented as above."
+csq_prompt= "Wumpus has a linked list storing the numbers 100, 101, 102, and 103, in order. Wumpus adds 105 to the end of his linked list. What does the linked list look like now? Give the entire linked list, represented as above. \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
