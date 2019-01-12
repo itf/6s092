@@ -3,8 +3,6 @@ Recitation notes 4, 6.006 Fall 2018 on stellar.
 
 Lecture notes 4, 6.006 Fall 2018 on stellar.
 
-# Linked Lists
-
 # Linked List Operations
 
 Let us represent a linked list as an array of arrays that contains "<-" which represents a left pointer, a number, and a right pointer represented by "->". If there is no left, or right pointer, let the string be replaced by "None". For example, if we were to represent the numbers 1, 2, and 3 in order as a linked list, it would look like this: [["None", 1, "->"], ["<-", 2, "->"], ["<-", 3, "None"]].
