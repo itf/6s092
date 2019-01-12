@@ -59,7 +59,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
     'Allocating $n/1000$ addional spaces',
     'Allocating $c*n$ additional space, where $c$ is some constant number',
     'Allocating 2*x, where x is a random number between 1 and 100']
-    csq_name="qexample1"
+    csq_name="mc1"
 </question>
 
 <checkyourself>
@@ -67,7 +67,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
     <showhide>
         No, because there is no additional space allocated at the beginning of the array. If we want to insert an element at the beginning, we will have to move all elements right, which takes $O(n)$ time.
     </showhide>
-<checkyourself>
+</checkyourself>
 
 <question multiplechoice>
 csq_prompt = "Question?"
