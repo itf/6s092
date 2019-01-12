@@ -29,8 +29,45 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
 </question>
 
 <question expression>
-    csq_prompt = "next question"
+    csq_prompt = "Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional memory. On average, how many insertions can $ALO$ perform for every new allocation of the array?"
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["n/4"]
+    csq_nsubmits = None
+    csq_name = "exp3"
 </question>
+
+<question expression>
+    csq_prompt = "Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional memory. On average, how many insertions can $ALO$ perform for every new allocation of the array?"
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["n/4"]
+    csq_nsubmits = None
+    csq_name = "exp4"
+</question>
+
+<question multiplechoice>
+    csq_prompt = "Which of these space allocations will allow dynamic arrays to achieve an amortized constant insertion operation?"
+    csq_renderer = "checkbox"
+    csq_soln = [1,0,1,1,0]
+    csq_options =  ['Allocating $2n$ space',
+    'Allocating 2 addtional spaces',
+    'Allocating $n/1000$ addional spaces',
+    'Allocating $c*n$ additional space, where $c$ is some constant number',
+    'Allocating 2*x, where x is a random number between 1 and 100']
+    csq_name="qexample1"
+</question>
+
+<checkyourself>
+    Does a dynamic array, as discussed in lecture, support $O(1)$ insertions at the beginning of the array?
+    <showhide>
+        No, because there is no additional space allocated at the beginning of the array. If we want to insert an element at the beginning, we will have to move all elements right, which takes $O(n)$ time.
+    </showhide>
+<checkyourself>
 
 <question multiplechoice>
 csq_prompt = "Question?"
