@@ -63,7 +63,8 @@ piazza = [
 'vilhelm',
 'edwardf',
 'jeffery',
-'bricelw'
+'bricelw',
+'taliab'
 ]
 
 questions = [
