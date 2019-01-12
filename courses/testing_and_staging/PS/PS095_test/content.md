@@ -58,12 +58,48 @@ csq_name= "pcode2"
 ## For example, define a DFS function.
 csq_code_pre = """
 class LinkedList:
-    def __init__(self, n):
-        self.n = n # Length
+    def __init__(self, people = None):
+        self.n = 0 # Length
+        self.left = None
+        self.right = None
+        if people:
+            for (name, height) in people:
+                self.addPerson(Person(name, height))
+
     def length(self):
         return self.n
 
+    def addPerson(self, person):
+        if self.right is None:
+            self.left = person
+            self.right = person
+        else:
+            self.right.setNext(person)
+            person.setPrev(self.right)
+            self.right = person
 
+        self.n += 1
+
+class Person:
+    def __init__(self, name, height):
+        self.name = name
+        self.height = height
+        self.prev = None
+        self.next = None
+
+    def name(self):
+        return self.name
+
+    def height(self):
+        return self.height
+
+    def setNext(self, person):
+        self.next = person
+        return
+
+    def setPrev(self, person):
+        self.prev = person
+        return
 """
 
 
@@ -93,7 +129,9 @@ csq_sandbox_options = {
 
 ## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
 
-tests = [cs_random.randint(1,20) for x in range(10)]
+tests = [ [("Rose", 59), ("Isaac", 2)] ]
+
+# cs_random.randint(1,20) for x in range(10)]
 csq_tests = []
 for i, t in enumerate(tests):
 
