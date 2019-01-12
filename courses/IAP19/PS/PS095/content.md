@@ -55,6 +55,17 @@ csq_nsubmits = None
 csq_name="LLOp4"
 </question>
 
+<question expression>
+csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$ (not in order). How long does it take for Wumpus to find a specific number? Give an asymptotic bound: O(something) \n \n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "O(n)"
+csq_nsubmits = None
+csq_name="LLOp5"
+</question>
+
 
 #
 <question multiplechoice>
