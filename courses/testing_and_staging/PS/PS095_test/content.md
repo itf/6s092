@@ -139,8 +139,6 @@ csq_sandbox_options = {
 names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
 tests = [2, 2, 4, 10]
 
-[("Rose", 59), ("Isaac", 2)] ]
-
 # cs_random.randint(1,20) for x in range(10)]
 csq_tests = []
 for i, t in enumerate(tests):
