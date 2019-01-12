@@ -480,6 +480,7 @@ class LinkedList:
         string_repr = "["
         while curr_person:
             string_repr = string_repr + "({curr_person.name()}, {str(curr_person.height())}), "
+            curr_person = curr_person.getNext()
         return string_repr[:-2] + "]"
 
     def addPerson(self, person):
