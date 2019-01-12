@@ -101,10 +101,10 @@ class Person:
         self.prev123 = person
         return
 
-    def getPrev(self, person):
+    def getPrev(self):
         return self.prev123
 
-    def getNext(self, person):
+    def getNext(self):
         return self.next123
 """
 
