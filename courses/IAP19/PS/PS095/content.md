@@ -52,7 +52,7 @@ csq_name="LLOp4"
 </question>
 
 <question expression>
-csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$. What is the asymptotic runtime of finding the $j$th elment, where $j$ is a number between $0$ and $n$ How long does it take for Wumpus to find a specific number? Give an asymptotic bound: O(something) \n \n"
+csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$. What is the asymptotic runtime of finding the $j$th elment, where $j$ is a number between $0$ and $n$? How long does it take for Wumpus to find a specific number? Give an asymptotic bound: O(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
