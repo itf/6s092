@@ -44,7 +44,7 @@ csq_prompt = "Print out the second person's name in the LinkedList"
 ## Define solution that will be printed to student.
 csq_soln = """
 def secondName(ll): 
-    return ll.left.name
+    return type(ll.left.getNext())
     # .getNext().name()
 """
 
