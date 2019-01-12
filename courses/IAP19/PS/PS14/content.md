@@ -59,19 +59,39 @@ csq_name= "pcode2"
 ## Code that will be written before the user code as well as solution
 ## Particularly useful for defining classes and things that we don't want the user to modify
 ## For example, define a DFS function.
-csq_code_pre = ""
+csq_code_pre = """
+import threading
+import os
+import signal
+import resource
+import time as _time
+_cpu_timer_check = True
+def limit_cpu(time_seconds):
+    while(_cpu_timer_check):
+        if  resource.getrusage(resource.RUSAGE_SELF)[0] > time_seconds:
+            os.kill(os.getpid(), signal.SIGXCPU)
+            assert False, "force exit"
+        else:
+            _time.sleep(0.001)
+            
+cpu_time_limit = 2
+t = threading.Thread(target=limit_cpu, args = [cpu_time_limit])
+t.start()
+"""
 
 
 ## Code that will be written after the user code as well as solution code
 ## Seems quite useless to me.
-csq_code_post = ""
+csq_code_post = """
+_cpu_timer_check = False
+"""
 
 
 
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
+    'CLOCKTIME': 2.36, 
     # 'CPUTIME': 0.36, 
     'MEMORY':1e9
 }
@@ -112,7 +132,7 @@ for i, t in enumerate(tests):
 n = {tests[i]}
 ans = print_4_ntimes(n)
 """ ,
-        'show_code': i < 5,
+        'show_code': i < 10,
         'grade': True,
         'check_function': check
     })
