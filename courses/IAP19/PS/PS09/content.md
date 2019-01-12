@@ -42,6 +42,17 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <question expression>
+    csq_prompt = "What is the total amount of work of those insertions? Give a specific value."
+    csq_show_check = True
+    csq_allow_check = True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["n/4"]
+    csq_nsubmits = None
+    csq_name = "exp4"
+</question>
+
+<question expression>
     csq_prompt = "How long does it take for Wumpus's array, of $n$ elements to perform a new allocation? Give a specific value."
     csq_show_check = True
     csq_allow_check = True
@@ -49,7 +60,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_submit_after_answer_viewed = False
     csq_soln = ["n"]
     csq_nsubmits = None
-    csq_name = "exp4"
+    csq_name = "exp5"
 </question>
 
 <question expression>
@@ -59,17 +70,6 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
     csq_soln = ["1"]
-    csq_nsubmits = None
-    csq_name = "exp5"
-</question>
-
-<question expression>
-    csq_prompt = "Assume that the insertions that happen before a new space allocation takes 1 unit of work (can be done in constant time). What is the total amount of work of those insertions? Give a specific value."
-    csq_show_check = True
-    csq_allow_check = True
-    csq_allow_submit = True
-    csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["n/4"]
     csq_nsubmits = None
     csq_name = "exp6"
 </question>
