@@ -10,13 +10,37 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 Let us represent a linked list as an array of arrays that contains "<-" which represents a left pointer, a number, and a right pointer represented by "->". If there is no left, or right pointer, let the string be replaced by "None". For example, if we were to represent the numbers 1, 2, and 3 in order as a linked list, it would look like this: [["None", 1, "->"], ["<-", 2, "->"], ["<-", 3, "None"]].
 
 <question pythonliteral>
-csq_prompt= "Wumpus has a linked list storing the numbers 100, 101, 102, and 103, in order. Wumpus adds 105 to the end of his linked list. What does the linked list look like now? Give the entire linked list, represented as above. \n \n"
+csq_prompt= "Wumpus has a linked list storing the numbers 100, 101, 102, and 103, in order. Wumpus adds 105 to the end. What does the linked list look like now? Give the entire linked list, represented as above. \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = [["None", 100, "->"], ["<-", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "->"]]
+csq_soln = [["None", 100, "->"], ["<-", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "None"]]
 csq_nsubmits = None
+csq_name"LLOp1"
+</question>
+
+<question expression>
+csq_prompt= "How long does it take to insert an element at the end of a linked list with $$n$$ elements? Give the asymptotic runtime: "O(something)"  \n \n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "O(1)"
+csq_nsubmits = None
+csq_name"LLOp2"
+</question>
+
+
+<question pythonliteral>
+csq_prompt= "Wumpus now deletes the first element. What does the linked list look like now? Give the entire linked list, represented as above. \n \n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = [["None", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "None"]]
+csq_nsubmits = None
+csq_name"LLOp3"
 </question>
 
 
