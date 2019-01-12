@@ -63,6 +63,7 @@ class LinkedList:
     def length(self):
         return self.n
 
+
 """
 
 
@@ -98,7 +99,7 @@ for i, t in enumerate(tests):
 
     csq_tests.append({
         'code': f"""
-ll = {LinkedList(tests[i])}
+ll = LinkedList(tests[{i}])
 ans = doublelength(ll)
 """ ,
         'show_code': i < 5,
