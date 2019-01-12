@@ -45,7 +45,7 @@ csq_name="LLOp3"
 
 
 <question expression>
-csq_prompt= "How long does it take to inesert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
+csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
