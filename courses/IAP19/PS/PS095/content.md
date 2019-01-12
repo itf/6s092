@@ -78,17 +78,19 @@ csq_name="ULLmc1"
 # Coding Problems
 
 We have defined a class called LinkedList with the following functions:
-- addPerson(person): adds a Person object to the LinkedList
-- left: the leftmost Person in the LinkedList, is None when there is no one in the list
-- right: the rightmost Person in the LinkedList, is None when there is no one in the list
+
+* **addPerson(person):** adds a Person object to the LinkedList
+* **left:** the leftmost Person in the LinkedList, is None when there is no one in the list
+* **right:** the rightmost Person in the LinkedList, is None when there is no one in the list
 
 We have defined the Person object to have the following functions:
-- name(): returns a string
-- height(): returns an integer
-- setNext(person): takes in an input of type Person and sets it as the next Person
-- setPrev(person): takes in an input of type Person and sets it as the previous Person
-- getNext(): if we read the LinkedList from left to right, returns the next Person
-- getPrev(): if we read the LinkedList from left to right, returns the previous Person
+
+* **name():** returns a string
+* **height():** returns an integer
+* **setNext(person):** takes in another Person object and sets it as our current person's "next Person"
+* **setPrev(person):** takes in another Person object and sets it as our current perons's "previous Person"
+* **getNext():** if we read the LinkedList from left to right, returns the next Person
+* **getPrev():** if we read the LinkedList from left to right, returns the previous Person
 
 <question pythoncode>
 csq_interface = 'ace'
@@ -428,7 +430,7 @@ tests = [(2, "Patricia"),
 csq_tests = []
 for i, t in enumerate(tests):
     test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t[0])]
-    test_case = test_case + (t[1], cs_random.randint(40,80))
+    test_case = test_case + [(t[1], cs_random.randint(40,80))] # Make sure `name` is in the test_case
     cs_random.shuffle(test_case)
     csq_tests.append({
         'code': f"""
