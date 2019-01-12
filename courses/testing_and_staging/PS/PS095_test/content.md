@@ -63,8 +63,6 @@ class LinkedList:
     def length(self):
         return self.n
 
-tests = [cs_random.randint(1,20) for x in range(10)]
-
 """
 
 
@@ -94,6 +92,7 @@ csq_sandbox_options = {
 
 ## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
 
+tests = [cs_random.randint(1,20) for x in range(10)]
 csq_tests = []
 for i, t in enumerate(tests):
 
