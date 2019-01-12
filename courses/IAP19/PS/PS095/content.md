@@ -77,20 +77,20 @@ csq_name="ULLmc1"
 
 # Coding Problems
 
-We have defined a class called LinkedList with the following functions:
+We have defined a class called `LinkedList` with the following functions:
 
-* **addPerson(person):** adds a Person object to the LinkedList
-* **left:** the leftmost Person in the LinkedList, is None when there is no one in the list
-* **right:** the rightmost Person in the LinkedList, is None when there is no one in the list
+* `addPerson(person):` adds a `Person` object to the LinkedList
+* `left:` the leftmost `Person` in the LinkedList, is None when there is no one in the list
+* `right:` the rightmost `Person` in the LinkedList, is None when there is no one in the list
 
-We have defined the Person object to have the following functions:
+We have defined the `Person` object to have the following functions:
 
-* **name():** returns a string
-* **height():** returns an integer
-* **setNext(person):** takes in another Person object and sets it as our current person's "next Person"
-* **setPrev(person):** takes in another Person object and sets it as our current perons's "previous Person"
-* **getNext():** if we read the LinkedList from left to right, returns the next Person
-* **getPrev():** if we read the LinkedList from left to right, returns the previous Person
+* `name():` returns a string
+* `height():` returns an integer
+* `setNext(person):` takes in another `Person` object and sets it as our current person's next `Person`
+* `setPrev(person):` takes in another `Person` object and sets it as our current perons's previous `Person`
+* `getNext():` if we read the LinkedList from left to right, returns the next `Person`
+* `getPrev():` if we read the LinkedList from left to right, returns the previous `Person`
 
 <question pythoncode>
 csq_interface = 'ace'
