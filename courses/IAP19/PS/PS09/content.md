@@ -7,7 +7,7 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 Recall that arrays are blocks of memory allocated by the computer to store elements.
 
 <question expression>
-    csq_prompt = "Wumpus has an array that has been allocated enough memory to store $n$ elements. There are currently $n-1$ elements in the array. How long does it take to store the $n$th element? Give an asympotic runtime: O(something)."
+    csq_prompt = "Wumpus has an array that has been allocated enough memory to store $n$ elements. There are currently $n-1$ elements in the array. How long does it take to store the $n$th element? Give an asympotic runtime: O(something). \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -18,7 +18,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
 </question>
 
 <question expression>
-    csq_prompt = "Wumpus now wants to add an $n+1$th element to the array. How long does that take? Give an asympotic runtime: O(something)."
+    csq_prompt = "Wumpus now wants to add an $n+1$th element to the array. How long does that take? Give an asympotic runtime: O(something). \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
