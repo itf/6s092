@@ -80,8 +80,8 @@ csq_name="ULLmc1"
 We have defined a class called `LinkedList` with the following functions:
 
 * `addPerson(person):` adds a `Person` object to the LinkedList
-* `left:` the leftmost `Person` in the LinkedList, is None when there is no one in the list
-* `right:` the rightmost `Person` in the LinkedList, is None when there is no one in the list
+* `left:` the leftmost `Person` in the LinkedList, is `None` when there is no one in the list
+* `right:` the rightmost `Person` in the LinkedList, is `None` when there is no one in the list
 
 We have defined the `Person` object to have the following functions:
 
@@ -94,7 +94,7 @@ We have defined the `Person` object to have the following functions:
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write a function called secondName that returns the second person's name in the LinkedList (remember we are reading from left to right"
+csq_prompt = "Write a function called `secondName` that takes an input of a `LinkedList` and returns the second person's name in the (remember we are reading from left to right)."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -207,7 +207,7 @@ ans = secondName(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Implement the function length(ll), which takes a LinkedList object as input and returns the integer length of the LinkedList."
+csq_prompt = "Implement the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -325,7 +325,7 @@ ans = length(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Implement the function find(ll, name), which takes a LinkedList object and a name as input and returns the integer height of the first person in the list with that name. Assume that the input will always contain that name."
+csq_prompt = "Implement the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the input will always contain that name."
 
 ## Define solution that will be printed to student.
 csq_soln = """
