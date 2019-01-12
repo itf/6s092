@@ -21,7 +21,7 @@ csq_name="LLOp1"
 </question>
 
 <question expression>
-csq_prompt= "How long does it take to insert an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
+csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
@@ -41,6 +41,18 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = [["None", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "None"]]
 csq_nsubmits = None
 csq_name="LLOp3"
+</question>
+
+
+<question expression>
+csq_prompt= "How long does it take to inesert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "O(1)"
+csq_nsubmits = None
+csq_name="LLOp4"
 </question>
 
 
