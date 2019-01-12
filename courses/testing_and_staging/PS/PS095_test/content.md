@@ -135,15 +135,19 @@ csq_sandbox_options = {
 
 ## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
 
-tests = [ [("Rose", 59), ("Isaac", 2)] ]
+
+names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
+tests = [2, 2, 4, 10]
+
+[("Rose", 59), ("Isaac", 2)] ]
 
 # cs_random.randint(1,20) for x in range(10)]
 csq_tests = []
 for i, t in enumerate(tests):
-
+    test_case = [(names[cs_random.randint(0, len(names), 1)], cs_random.randint(40, 80, 1), for x in range(t)]
     csq_tests.append({
         'code': f"""
-ll = LinkedList({t})
+ll = LinkedList({test_case})
 ans = secondName(ll)
 """ ,
         'show_code': i < 5,
