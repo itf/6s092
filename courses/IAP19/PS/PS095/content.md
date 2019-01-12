@@ -68,7 +68,7 @@ csq_name="LLOp5"
 <question multiplechoice>
 csq_prompt = "In which of these scenarios could you use a linked list?"
 csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
+csq_soln = [1,0,1,0,1]
 csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recently inserted element and the first stored element in $O(1)$ time.',
 'Finding the 6th, 10, and $n$th element in $O(1)$ time.',
 'Implementing a FIFO (first in, first out) queue, where new elements are inserted at one end, and elements are removed in the order that they are inserted into the queue.',
