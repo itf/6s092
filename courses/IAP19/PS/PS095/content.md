@@ -15,7 +15,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "[["None", 100, "->"], ["<-", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "->"]]"
+csq_soln = [["None", 100, "->"], ["<-", 101, "->"], ["<-", 102, "->"], ["<-", 103, "->"], ["<-", 105, "->"]]
 csq_nsubmits = None
 </question>
 
