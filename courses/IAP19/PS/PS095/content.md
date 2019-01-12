@@ -77,7 +77,9 @@ csq_name="ULLmc1"
 
 # Coding Problems
 
-We have defined a class called `LinkedList` with the following functions:
+Wumpus has implemented most of a doubly linked list to keep track of a bunch of his friends and their heights! Now he need your help to implement some important functions to complete his code.
+
+Right now we have a class called `LinkedList` with the following functions:
 
 * `addPerson(person):` adds a `Person` object to the LinkedList
 * `left:` the leftmost `Person` in the LinkedList, is `None` when there is no one in the list
@@ -207,7 +209,7 @@ ans = secondName(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Implement the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)."
+csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)!"
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -304,7 +306,7 @@ csq_sandbox_options = {
 ## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
 
 names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Maria", "Charles", "Richard", "Jennifer", "Daniel", "Thomas", "Linda", "Patricia", "Barbara", "Joseph", "Mark", "Elizabeth", "Rose", "Ivan", "Justine", "Preksha", "Stef", "Courtney", "Lily"]
-tests = [2, 2, 4, 10]
+tests = [0, 1, cs_random.randint(2,4), cs_random.randint(3,5), cs_random.randint(10,20), cs_random.randint(500,600)]
 
 csq_tests = []
 for i, t in enumerate(tests):
@@ -325,7 +327,7 @@ ans = length(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Implement the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the input will always contain that name."
+csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by implementing the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the input will always contain that name."
 
 ## Define solution that will be printed to student.
 csq_soln = """
