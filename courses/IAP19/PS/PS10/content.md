@@ -28,14 +28,35 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
 </question>
 
 <question expression>
+    csq_prompt = "Wumpus defeats a hero that has wandered into his cave. He wants to store the information about that hero in his array, or make a note about the number of times he has deteated that hero if the hero's information already exists. How long does it take to determine whether or not he has encountered a hero with a specific ID? Give an asymptotic bound, O(something). \n \n"
+    csq_show_check= True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = "O(1)"
+    csq_nsubmits = None
+    csq_name = "exp3"
+</question>
+
+<question expression>
     csq_prompt = "Wumpus overhears a rumour that a powerful hero named Bob is coming to hunt him. How long does it take for Wumpus to determine if Wumpus has encountered a hero named Bob before, given that there are $u$ indexes in his direct access array, and he is using the same method to assign IDs to indexes as in the statement above the first question? Give an asymptotic bound: O(something). \n \n"
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
     csq_soln = "O(u)"
     csq_nsubmits = None
-    csq_name = "exp3"
+    csq_name = "exp4"
 </question>
+
+<question expression>
+    csq_prompt = "Oh no! The computer that Wumpus' array was stored on suffered a memory failure due to the humidity in the cave. Most of the entries in Wumpus' array have been deleted, leaving him with only the data from a few entries; he doesn't even know which entries he still has. Wumpus now has to transfer the data onto a new drive. How long does it take for the computer to find the next populated entry, if there are $u$ possible indexes? Give an asympotic bound, O(something). \n \n"
+    csq_show_check= True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = "O(u)"
+    csq_nsubmits = None
+    csq_name = "exp5"
+</question>
+
 
 <question multiplechoice>
 csq_prompt = "In which scenarios could using a direct access array be useful?"
