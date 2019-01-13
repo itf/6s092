@@ -13,7 +13,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["theta(1)"]
+    csq_soln = "theta(1)"
     csq_nsubmits = None
     csq_name = "exp1"
     csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
@@ -29,7 +29,7 @@ Assume that when we have a full array of size $n$, and we need to perform a new 
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["theta(n)"]
+    csq_soln = "theta(n)"
     csq_nsubmits = None
     csq_name = "exp2"
     csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
@@ -45,7 +45,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["n/4"]
+    csq_soln = "n/4"
     csq_nsubmits = None
     csq_name = "exp3"
 </question>
@@ -56,7 +56,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["n/4"]
+    csq_soln = "n/4"
     csq_nsubmits = None
     csq_name = "exp4"
 </question>
@@ -67,7 +67,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["1"]
+    csq_soln = "1"
     csq_nsubmits = None
     csq_name = "exp5"
 </question>
@@ -89,7 +89,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["5"]
+    csq_soln = "5"
     csq_nsubmits = None
     csq_name = "exp7"
 </question>
