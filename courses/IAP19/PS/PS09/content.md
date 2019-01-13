@@ -78,7 +78,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["n+n/4", "5*n/4"]
+    csq_soln = "5*n/4"
     csq_nsubmits = None
     csq_name = "exp6"
 </question>
