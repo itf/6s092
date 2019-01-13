@@ -102,7 +102,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     'Allocating 2 addtional spaces',
     'Allocating $n/1000$ addional spaces',
     'Allocating c*n additional space, where c is some constant non-zero number',
-    'Allocating 2x, where x is a random number between 1 and 100']
+    'Allocating $2x$, where $x$ is a random number between 1 and 100']
     csq_name="mc1"
 </question>
 
