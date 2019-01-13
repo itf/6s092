@@ -8,7 +8,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
 
 
 <question expression>
-    csq_prompt = "Wumpus has an array that has been allocated enough memory to store $n$ elements. There are currently $n-1$ elements in the array. How long does it take to store the $n$th element? Give an asympotic runtime: O(something). \n \n \n"
+    csq_prompt = "Wumpus has an array that has been allocated enough memory to store $n$ elements. There are currently $n-1$ elements in the array. How long does it take to store the $n$th element? Give an asympotic runtime: $\\theta(something)$. Use $theta$ to denote the theta symbol. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -24,7 +24,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
 Assume that when we have a full array of size $n$, and we need to perform a new array allocation, it takes $n$ operations to copy the $n$ values (there are also additional operations like creating a new array, and deleting the old one, but let us consider that to be overhead).
 
 <question expression>
-    csq_prompt = "Wumpus now wants to add an $n+1$th element to the array. How long does that take? Give an asympotic runtime: $\\theta(something)$. \n \n \n"
+    csq_prompt = "Wumpus now wants to add an $n+1$th element to the array. How long does that take? GGive an asympotic runtime: $\\theta(something)$. Use $theta$ to denote the theta symbol. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -62,7 +62,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <question expression>
-    csq_prompt = "Per allocation, how many times does Wumpus' dynamic array perform an $O(n)$ operation? \n \n \n"
+    csq_prompt = "Per allocation, how many times does Wumpus' dynamic array perform an $\\theta(n)$ operation? \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -107,7 +107,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <checkyourself>
-    Does a dynamic array, as discussed in lecture, support $O(1)$ insertions at the beginning of the array?
+    Does a dynamic array, as discussed in lecture, support $\\theta(1)$ insertions at the beginning of the array?
     <showhide>
         No, because there is no additional space allocated at the beginning of the array. If we want to insert an element at the beginning, we will have to move all elements right, which takes $O(n)$ time.
     </showhide>
