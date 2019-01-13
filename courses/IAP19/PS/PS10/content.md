@@ -7,7 +7,7 @@ Lecture notes 8, 6.006 Fall 2018 on stellar.
 
 Wumpus has encountered many different heros (and heroines) that have tried to hunt him down. None of the heroes have been successful, but Wumpus wants to keep the upperhand. The hero agency has given each hero a unique 5 element long alpha-numeric (each element can be a number 0-9 or a letter in the alphabet) ID, so Wumpus stores info related to their stats, such as their name, speed, weapon of choice, stamina, and order encountered in a direct access array where each index is the unique id of the hero, in sorted order, in case they come back.
 
-<question pythoneliteral>
+<question pythonliteral>
     csq_prompt = "How many different IDs (and thus indexes) are there in Wumpus's direct access array?"
     csq_show_check= True
     csq_allow_submit = True
