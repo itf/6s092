@@ -6,6 +6,7 @@ Lecture notes 4, 6.006 Fall 2018 on stellar.
 
 Recall that arrays are blocks of memory allocated by the computer to store elements.
 
+
 <question expression>
     csq_prompt = "Wumpus has an array that has been allocated enough memory to store $n$ elements. There are currently $n-1$ elements in the array. How long does it take to store the $n$th element? Give an asympotic runtime: O(something). \n \n \n"
     csq_show_check = True
@@ -15,6 +16,9 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
     csq_soln = ["O(1)"]
     csq_nsubmits = None
     csq_name = "exp1"
+    csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
+"O": (lambda c: c**3*1.6006-c**2, lambda  c:  f"O({', '.join(c)})" ),
+"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:   f"\\theta({', '.join(c)})")}
 </question>
 
 Assume that when we have a full array of size $n$, and we need to perform a new array allocation, it takes $n$ operations to copy the $n$ values (there are also additional operations like creating a new array, and deleting the old one, but let us consider that to be overhead).
@@ -28,6 +32,9 @@ Assume that when we have a full array of size $n$, and we need to perform a new 
     csq_soln = ["$\theta(n)$"]
     csq_nsubmits = None
     csq_name = "exp2"
+    csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
+"O": (lambda c: c**3*1.6006-c**2, lambda  c:  f"O({', '.join(c)})" ),
+"theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:   f"\\theta({', '.join(c)})")}
 </question>
 
 Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional spaces. We will run an analysis to ensure that his array actually achieves the amortized constant bound for insertions.
