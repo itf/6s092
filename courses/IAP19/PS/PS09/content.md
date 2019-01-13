@@ -20,7 +20,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
 Assume that when we have a full array of size $n$, and we need to perform a new array allocation, it takes $n$ operations to copy the $n$ values (there are also additional operations like creating a new array, and deleting the old one, but let us consider that to be overhead).
 
 <question expression>
-    csq_prompt = "Wumpus now wants to add an $n+1$th element to the array. How long does that take? Give an asympotic runtime: $\theta(something)$. \n \n \n"
+    csq_prompt = "Wumpus now wants to add an $n+1$th element to the array. How long does that take? Give an asympotic runtime: $\\theta(something)$. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
