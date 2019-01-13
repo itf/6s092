@@ -98,11 +98,11 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_prompt = "Which of these space allocations will allow dynamic arrays to achieve an amortized constant insertion operation?"
     csq_renderer = "checkbox"
     csq_soln = [1,0,1,1,0]
-    csq_options =  ['Allocating $2*n$ space',
+    csq_options =  ['Allocating 2n space',
     'Allocating 2 addtional spaces',
     'Allocating $n/1000$ addional spaces',
     'Allocating c*n additional space, where c is some constant non-zero number',
-    'Allocating $2x$, where $x$ is a random number between 1 and 100']
+    'Allocating 2x, where x is a random number between 1 and 100']
     csq_name="mc1"
 </question>
 
