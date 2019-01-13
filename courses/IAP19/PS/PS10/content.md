@@ -12,7 +12,7 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["36**5"]
+    csq_soln = ["36^5"]
     csq_nsubmits = None
     csq_name = "exp1"
 </question>
