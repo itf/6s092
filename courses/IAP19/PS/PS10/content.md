@@ -5,7 +5,7 @@ Lecture notes 8, 6.006 Fall 2018 on stellar.
 
 # Direct Access Array
 
-Wumpus has encountered many different heros (and heroines) that have tried to hunt him down. None of the heroes have been successful, but Wumpus wants to keep the upperhand. The hero agency has given each hero a unique 5 element long alpha-numeric (each element can be a number 0-9 or a letter in the alphabet) ID, so Wumpus stores info related to their stats, such as their name, speed, weapon of choice, stamina, and order encountered in a direct access array where each index is the unique id of the hero, in sorted order, in case they come back.
+Wumpus has encountered many different heros (and heroines) that have tried to hunt him down. None of the heroes have been successful, but Wumpus wants to keep the upperhand. The hero agency has given each hero a unique 5 element long alpha-numeric (each element can be a number 0-9 or a letter in the alphabet) ID, so Wumpus stores info related to the hero, such as their name, ID, speed, weapon of choice, and stamina in a direct access array, where the ID corresponds to an index in his array, in case they come back. Assume that there is some order to the IDs, and so that the first ID can be accessed at the 0th index.
 
 <question expression>
     csq_prompt = "How many different IDs (and thus indexes) are there in Wumpus's direct access array? Use the carat (^) to denote exponentiation. \n \n"
@@ -18,17 +18,17 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
 </question>
 
 <question expression>
-    csq_prompt = "The hero association is constantly assigning new heros. Wumpus generalizes his direct access array to store n-element alphanumeric IDs. How many different IDs are in Wumpus' direct access array? Assume that Wumpus has created indexes for every ID, even if the hero association has not given a specific ID to a hero yet. \n \n"
+    csq_prompt = "The hero association is constantly assigning new heros. Wumpus generalizes his direct access array to store $k$-element alphanumeric IDs. How many different IDs are in Wumpus' direct access array? Assume that Wumpus has created indexes for every ID, even if the hero association has not given a specific ID to a hero yet. \n \n"
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = "36^n"
+    csq_soln = "36^k"
     csq_nsubmits = None
     csq_name = "exp2"
 </question>
 
 <question expression>
-    csq_prompt = "Assume that there are $n$ elements in Wumpus's direct access array. How long does it take for him to find the 4th hero he encountered? Give an asymptotic bound, O(something). \n \n"
+    csq_prompt = "Wumpus overhears a rumour that a powerful hero named "Bob" is coming to hunt him. How long does it take for Wumpus to determine if Wumpus has encountered a hero named "Bob" before, given that there are $n$ indexes in his direct access array, and he is using the same method to assign IDs to indexes as in the statement above the first question? Give an asymptotic bound: O(something). \n \n"
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
@@ -38,113 +38,13 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
 </question>
 
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "In which scenarios could using a direct access array be useful?"
 csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
+csq_soln = [1,0,0,1]
+csq_options =  ['Given a list of (10 digit lottery ticket numbers, name) pairs, determine if there are duplicate tickets, which would indicate fraud, and report the names that have the same number.',
+'Record the stats on $n$ players, where the $j$th player is indexed at location $10^{j-1}-1$.',
+'Record the frequency of each number (including irrational numbers) randomly stated by a 5-year-old.'
+'Return the number of items a user sells on emirp-nonzama (a new company that is inverting the current marketplace), where each user has a unique 6 digit user ID, which can be represented in some order, assuming that there are as many users as possible IDs.']
+csq_name="mc1"
 </question>
-
-
-<question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
-</question>
-
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
-
-
-
-<question pythoncode>
-csq_interface = 'ace'
-csq_prompt = "Write your code to return a string with 4 repeated n times"
-
-## Define solution that will be printed to student.
-csq_soln = """
-def print_4_ntimes(n): 
-    return 'Solution will be posted to Stellar'
-"""
-
-## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
-    return '4'
-"""
-csq_name= "pcode2"
-
-## Code that will be written before the user code as well as solution
-## Particularly useful for defining classes and things that we don't want the user to modify
-## For example, define a DFS function.
-csq_code_pre = ""
-
-
-## Code that will be written after the user code as well as solution code
-## Seems quite useless to me.
-csq_code_post = ""
-
-
-
-## Sandbox options to block libraries or decide how long to run thingy
-csq_sandbox_options = {
-    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
-    'MEMORY':1e9
-}
-
-
-## Now we define helped functions
-tests = [cs_random.randint(1,20) for x in range(10)]
-
-def is_correct(n, sol):
-    if not(type(sol) == type('44')):
-       return False
-    if len(sol)==n:
-        for i in range(n):
-           if sol[i]!='4':
-               return False
-        return True
-    return False
-
-## Now we need to write csq_tests, which defines what code to run
-## As well as how to test it. 
-## Each csq_tests is a dictionary of things (code, check, etc)
-
-## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
-## Code should define a string called ans, which is what will be tested.
-
-## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
-
-csq_tests = []
-for i, t in enumerate(tests):
-
-    def check(ans, soln, i = i):
-        n = tests[i]
-        print(ans)
-        return is_correct(n, eval(ans))
-        
-    csq_tests.append({
-        'code': f"""
-n = {tests[i]}
-ans = print_4_ntimes(n)
-""" ,
-        'show_code': i < 5,
-        'grade': True,
-        'check_function': check
-    })
-
-</question> 
 
