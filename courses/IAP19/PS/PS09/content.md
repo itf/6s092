@@ -33,7 +33,7 @@ Assume that when we have a full array of size $n$, and we need to perform a new 
 Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional spaces. We will run an analysis to ensure that his array actually achieves the amortized constant bound for insertions.
 
 <question expression>
-    csq_prompt = "Wumpus' array just performed a space allocaiton. It now has $n/4$ additional spaces, compared to the original $n$ spaces before allocation, (for a total of ${5*n}/4$ total spaces). How many insertions can $ALO$ perform in constant $O(1)$ time for every new allocation of the array? Assume space allocation is a separate operation, and we can place the last element in constant time. Give a specific value, ie $2$, $n/10$, not an asymptotic bound."
+    csq_prompt = "Wumpus' array just performed a space allocaiton. It now has $n/4$ additional spaces, compared to the original $n$ spaces before allocation, (for a total of ${5*n}/4$ total spaces). How many insertions can $ALO$ perform in constant $O(1)$ time for every new allocation of the array? Assume space allocation is a separate operation, and we can place the last element in constant time. Give a specific value, ie $2$, $n/10$, not an asymptotic bound. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -44,7 +44,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <question expression>
-    csq_prompt = "What is the total number of operations of those insertions? Give a specific value."
+    csq_prompt = "What is the total number of operations of those insertions? Give a specific value. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -55,7 +55,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <question expression>
-    csq_prompt = "Per allocation, how many times does Wumpus' dynamic array perform an $O(n)$ operation?"
+    csq_prompt = "Per allocation, how many times does Wumpus' dynamic array perform an $O(n)$ operation? \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -66,7 +66,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <question expression>
-    csq_prompt = "How many operations are done per allocation, in terms of insertions and the creation of a larger array? Give a specific value."
+    csq_prompt = "How many operations are done per allocation, in terms of insertions and the creation of a larger array? Give a specific value. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -77,7 +77,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <question expression>
-    csq_prompt = "By dividing the total number of operations done per allocation cycle by the number of of insertions per allocation cycle, we can get the average amount of operations done per insertion. If each operation takes a constant amount of work and the average number of operations done per insertion is constant, then we can prove our constant amortized bound for insertions. Find the average number of operations done per insertion. Give a specific value."
+    csq_prompt = "By dividing the total number of operations done per allocation cycle by the number of of insertions per allocation cycle, we can get the average amount of operations done per insertion. If each operation takes a constant amount of work and the average number of operations done per insertion is constant, then we can prove our constant amortized bound for insertions. Find the average number of operations done per insertion. Give a specific value. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
