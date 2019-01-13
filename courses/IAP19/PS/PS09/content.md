@@ -13,7 +13,7 @@ Recall that arrays are blocks of memory allocated by the computer to store eleme
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["O(1)"]
+    csq_soln = ["$\\theta(1)$"]
     csq_nsubmits = None
     csq_name = "exp1"
     csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
