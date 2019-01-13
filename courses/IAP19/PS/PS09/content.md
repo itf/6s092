@@ -107,7 +107,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
 </question>
 
 <checkyourself>
-    Does a dynamic array, as discussed in lecture, support $theta(1)$ insertions at the beginning of the array?
+    Does a dynamic array, as discussed in lecture, support $\\theta(1)$ insertions at the beginning of the array?
     <showhide>
         No, because there is no additional space allocated at the beginning of the array. If we want to insert an element at the beginning, we will have to move all elements right, which takes $O(n)$ time.
     </showhide>
