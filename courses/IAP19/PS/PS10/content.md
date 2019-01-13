@@ -64,7 +64,7 @@ csq_renderer = "checkbox"
 csq_soln = [1,0,0,1]
 csq_options =  ['Given a list of (10 digit lottery ticket numbers, name) pairs, determine if there are duplicate tickets, which would indicate fraud, and report the names that have the same number.',
 'Record the stats on $n$ players, where the $j$th player is indexed at location $10^{j-1}-1$.',
-'Record the frequency of each number (including irrational numbers) randomly stated by a 5-year-old.'
+'Record the frequency of each number (including irrational numbers) randomly stated by a 5-year-old.',
 'Return the number of items a user sells on emirp-nonzama (a new company that is inverting the current marketplace), where each user has a unique 6 digit user ID, which can be represented in some order, assuming that there are as many users as possible IDs.']
 csq_name="mc1"
 </question>
