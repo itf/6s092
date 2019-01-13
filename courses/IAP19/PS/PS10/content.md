@@ -5,6 +5,37 @@ Lecture notes 8, 6.006 Fall 2018 on stellar.
 
 # Direct Access Array
 
+Wumpus has encountered many different heros (and heroines) that have tried to hunt him down. None of the heroes have been successful, but Wumpus wants to keep the upperhand. The hero agency has given each hero a unique 5 element long alpha-numeric (each element can be a number 0-9 or a letter in the alphabet) ID, so Wumpus stores info related to their stats, such as their name, speed, weapon of choice, stamina, and order encountered in a direct access array where each index is the unique id of the hero, in sorted order, in case they come back.
+
+<question pythonexpression>
+    csq_prompt = "How many different IDs (and thus indexes) are there in Wumpus's direct access array?"
+    csq_show_check= True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = [36**5]
+    csq_nsubmits = None
+    csq_name = "exp1"
+</question>
+
+<question expression>
+    csq_prompt = "The hero association is constantly assigning new heros. Wumpus generalizes his direct access array to store n-element alphanumeric IDs. How many different IDs are in Wumpus' direct access array? Assume that Wumpus has created indexes for every ID, even if the hero association has not given a specific ID to a hero yet."
+    csq_show_check= True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["36^n"]
+    csq_nsubmits = None
+    csq_name = "exp2"
+</question>
+
+<question expression>
+    csq_prompt = "Assume that there are $n$ elements in Wumpus's direct access array. How long does it take for him to find the 4th hero he encountered? Give an asymptotic bound, O(something)."
+    csq_show_check= True
+    csq_allow_submit = True
+    csq_allow_submit_after_answer_viewed = False
+    csq_soln = ["O(n)"]
+    csq_nsubmits = None
+    csq_name = "exp3"
+</question>
 
 <question multiplechoice>
 csq_prompt = "Question?"
