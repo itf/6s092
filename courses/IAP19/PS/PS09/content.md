@@ -1,7 +1,7 @@
 # Readings 
-Recitation notes 4 (https://learning-modules.mit.edu/service/materials/groups/238004/files/aad7a820-c5b5-4eba-aff2-79bbdc1355e4/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
+[Recitation notes 4] (https://learning-modules.mit.edu/service/materials/groups/238004/files/aad7a820-c5b5-4eba-aff2-79bbdc1355e4/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
 
-Lecture notes 4 (https://learning-modules.mit.edu/service/materials/groups/229217/files/a78ef148-8b86-4ef1-bcf1-bd99fd961120/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
+[Lecture notes 4] (https://learning-modules.mit.edu/service/materials/groups/229217/files/a78ef148-8b86-4ef1-bcf1-bd99fd961120/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
 # Dynamic Arrays
 
 Recall that arrays are blocks of memory allocated by the computer to store elements.
