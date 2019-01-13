@@ -29,7 +29,7 @@ Assume that when we have a full array of size $n$, and we need to perform a new 
     csq_allow_check = True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
-    csq_soln = ["$\theta(n)$"]
+    csq_soln = ["theta(n)"]
     csq_nsubmits = None
     csq_name = "exp2"
     csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
