@@ -111,4 +111,7 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     <showhide>
         No, because there is no additional space allocated at the beginning of the array. If we want to insert an element at the beginning, we will have to move all elements right, which takes $O(n)$ time.
     </showhide>
+    csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda  c:  f"T({', '.join(c)})" ),
+    "O": (lambda c: c**3*1.6006-c**2, lambda  c:  f"O({', '.join(c)})" ),
+    "theta": (lambda c: -c**3*0.06006+c**2*0.2, lambda  c:   f"\\theta({', '.join(c)})")}
 </checkyourself>
