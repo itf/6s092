@@ -446,7 +446,7 @@ csq_prompt = "Sometimes Wumpus gets into a big argument with a friend because of
 csq_soln = """
 def removePerson(ll, name):
     if name == ll.left.name():
-        ll.left = curr_person.getNext()
+        ll.left = ll.left.getNext()
         return
 
     curr_person = ll.left
@@ -470,7 +470,7 @@ def removePerson(ll, name):
     # 1. We remove the first person, in which case we can just
     #    update ll.left
     if name == ll.left.name():
-        ll.left = curr_person.getNext()
+        ll.left = ll.left.getNext()
         return
 
     # 2. We remove someone who is not first
@@ -565,7 +565,10 @@ names = ["James", "Michael", "Robert", "David", "William", "Mary", "John", "Mari
 tests = [(2, "Patricia"),
          (2, "Michael"), 
          (4, "Ivan"),
-         (10, "Preksha")]
+         (10, "William"),
+         (10, "Justine"),
+         (15, "Stef"),
+         (20, "Preksha")]
 
 csq_tests = []
 for i, t in enumerate(tests):
