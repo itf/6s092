@@ -29,7 +29,7 @@ csq_options =  [
 ,
 '''
           10
-        /   \\
+        /   
       5
        \\
          15
@@ -41,11 +41,16 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 
 
 <question multiplechoice>
-csq_prompt = "We have the following BST: \n \
-\n   12   \n\
- 7   16   \n\
-A B C D\n\
-\n We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?"
+csq_prompt = '''
+We have the following BST:
+              12
+            /   \\
+          7       16
+        /  \\   /   \\
+      A    B   C      D
+
+We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?
+'''
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
 csq_options =  ["A", "B", "C", "D"]
@@ -148,6 +153,6 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = [2,4,5,8,10,14,16]
-csq_explanation = "explanation"
+csq_explanation = "For each node, we go to the min of its subtree (all the way left), if it has a left subtree, and append that one to the sorted list. From there, we add the parent and then go to the right subtree. We repeat this process throughout the tree."
 csq_nsubmits = None
 </question>
