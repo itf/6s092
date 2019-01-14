@@ -17,17 +17,6 @@ csq_nsubmits = None
 csq_name="LLOp1"
 </question>
 
-<question expression>
-csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = "O(1)"
-csq_nsubmits = None
-csq_name="LLOp2"
-</question>
-
 <question pythonliteral>
 csq_prompt= "Wumpus now deletes the first element. What does the linked list look like now? Give the entire linked list, represented as above. \n \n"
 csq_show_check = True
@@ -39,25 +28,36 @@ csq_nsubmits = None
 csq_name="LLOp3"
 </question>
 
-
 <question expression>
-csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: O(something) \n \n"
+csq_prompt= "How long does it take to insert or delete an element at the end of a direct access array with $n$ elements? Give the asymptotic runtime: \theta(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "O(1)"
+csq_soln = "\theta(n)"
+csq_nsubmits = None
+csq_name="LLOp2"
+</question>
+
+
+<question expression>
+csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: \theta(something) \n \n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "\theta(1)"
 csq_nsubmits = None
 csq_name="LLOp4"
 </question>
 
 <question expression>
-csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$. What is the asymptotic runtime of finding the $j$th elment, where $j$ is a number between $0$ and $n$? How long does it take for Wumpus to find a specific number? Give an asymptotic bound: O(something) \n \n"
+csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$, in no particular order. What is the asymptotic runtime of finding the number $j$? Give an asymptotic bound: \theta(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "O(n)"
+csq_soln = "\theta(n)"
 csq_nsubmits = None
 csq_name="LLOp5"
 </question>

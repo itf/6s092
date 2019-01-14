@@ -40,7 +40,7 @@ Assume that when we have a full array of size $n$, and we need to perform a new 
 Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-often) which allocates $n/4$ additional spaces. We will run an analysis to ensure that his array actually achieves the amortized constant bound for insertions.
 
 <question expression>
-    csq_prompt = "Wumpus' array just performed a space allocaiton. It now has $n/4$ additional spaces, compared to the original $n$ spaces before allocation, (for a total of ${5*n}/4$ total spaces). How many insertions can $ALO$ perform in constant $O(1)$ time for every new allocation of the array? Assume space allocation is a separate operation, and we can place the last element in constant time. Give a specific value, ie $2$, $n/10$, not an asymptotic bound. \n \n \n"
+    csq_prompt = "Wumpus' array just performed a space allocation. It now has $n/4$ additional spaces, compared to the original $n$ spaces before allocation, (for a total of ${5*n}/4$ total spaces). How many insertions can $ALO$ perform in constant $O(1)$ time for every new allocation of the array? Assume space allocation is a separate operation, and we can place the last element in constant time. Give a specific value, ie $2$, $n/10$, not an asymptotic bound. \n \n \n"
     csq_show_check = True
     csq_allow_check = True
     csq_allow_submit = True
@@ -48,17 +48,6 @@ Wumpus has implemented a dynamic array that he calls $ALO^{TM}$(allocate-less-of
     csq_soln = "n/4"
     csq_nsubmits = None
     csq_name = "exp3"
-</question>
-
-<question expression>
-    csq_prompt = "What is the total number of operations of those insertions? Give a specific value. \n \n \n"
-    csq_show_check = True
-    csq_allow_check = True
-    csq_allow_submit = True
-    csq_allow_submit_after_answer_viewed = False
-    csq_soln = "n/4"
-    csq_nsubmits = None
-    csq_name = "exp4"
 </question>
 
 <question expression>
