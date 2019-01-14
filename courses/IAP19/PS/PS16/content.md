@@ -147,12 +147,12 @@ csq_explanation = "We are in the case where the node being deleted has two child
 
 
 <question expression>
-csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list where the keys are integers (not strings)"
+csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list of strings."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = [2,4,5,8,10,14,16]
+csq_soln = ['2','4','5','8','10','14','16']
 csq_explanation = "For each node, we go to the min of its subtree (all the way left), if it has a left subtree, and append that one to the sorted list. From there, we add the parent and then go to the right subtree. We repeat this process throughout the tree."
 csq_nsubmits = None
 </question>
