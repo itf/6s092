@@ -29,12 +29,12 @@ csq_name="LLOp3"
 </question>
 
 <question expression>
-csq_prompt= "How long does it take to insert or delete an element at the end of a direct access array with $n$ elements? Give the asymptotic runtime: \theta(something) \n \n"
+csq_prompt= "How long does it take to insert or delete an element at the end of a direct access array with $n$ elements? Give the asymptotic runtime: theta(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "\theta(n)"
+csq_soln = "$\Theta(n)$"
 csq_nsubmits = None
 csq_name="LLOp2"
 </question>
@@ -68,7 +68,7 @@ csq_prompt = "In which of these scenarios could you use a linked list?"
 csq_renderer = "checkbox"
 csq_soln = [1,0,1,0,1]
 csq_options =  ['Storing elements in $O(1)$ time, and accessing the most recently inserted element and the first stored element in $O(1)$ time.',
-'Finding the 6th, 10, and $n$th element in $O(1)$ time.',
+'Finding the 6th, 10, and $n/2$th element in $O(1)$ time.',
 'Implementing a FIFO (first in, first out) queue, where new elements are inserted at one end, and elements are removed in the order that they are inserted into the queue.',
 'Finding the smallest value in $O(1)$ time.',
 'Finding the smallest value of $n$ elements in $O(n)$ time.']
@@ -106,7 +106,7 @@ def secondName(ll):
 
 ## Code that will be initially on the thingy
 csq_initial = """def secondName(ll):
-    return ll.right.name()
+    return None
 """
 csq_name= "pcode1"
 
@@ -206,7 +206,7 @@ ans = secondName(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)!"
+csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)! Note: normally we can store the length of a linked list as a variable and return it in $O(1)$ time. It just so happens that Wumpus has not included that in this implementation. :("
 
 ## Define solution that will be printed to student.
 csq_soln = """
