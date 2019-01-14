@@ -89,29 +89,12 @@ csq_renderer = "checkbox"
 csq_soln = [1,1,0,0]
 csq_options =  [
 '''
-        8 \n
-      /   \\ \n
-     4      10 \n
-             \\ \n
-                 16 \n
-''',
+          10 \n
+        /     \\ \n
+      4        14 \n
+     /  \\        \\ \n
+    2     5         16 \n
 '''
-         8 \n
-       /    \\ \n
-     4       16 \n
-            /     \n
-          10     
-''',
-'''
-        8 \n
-     /     \n
-    4       
-''',
-'''
-        8 \n
-      /   \\ \n
-     4      10 \n
-''',
 ]
 csq_name="qexample1"
 csq_explanation = "When we delete the node with key 14, either the node with key 10 or the node with key 16 can take its place."
