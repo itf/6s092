@@ -54,7 +54,7 @@ We insert a node with key 10 into the BST. Where does it go (to satisfy the BST 
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
 csq_options =  ["A", "B", "C", "D"]
-csq_name="qexample1"
+csq_name="qexample2"
 csq_explanation = "We compare 10 to 12. 10 < 12, so we go to the left subtree. We compare 10 to 7. 10 > 7, so we put 10 in the right subtree at position B."
 </question>
 
@@ -141,7 +141,7 @@ csq_options =  [
                   10      16
 '''
 ]
-csq_name="qexample1"
+csq_name="qexample3"
 csq_explanation = "We are in the case where the node being deleted has two children. We take the min of the right subtree (or the max of the left subtree), and put move it to the place of the deleted node."
 </question>
 
