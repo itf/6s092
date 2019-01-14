@@ -3,6 +3,12 @@
 
 [Lecture notes 8](https://learning-modules.mit.edu/service/materials/groups/238004/files/a90b0fdd-5d81-4f72-b5f2-3fe8e65a99a0/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Direct Access & Hashing -- section on  6.006 Fall 2018 on stellar.
 
+## Optional Readings
+
+[Open Addressing (OCW notes)](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec10.pdf): For information on the collision-handling mechanism that Python actually uses, rather than the simplified chaining mechanism that we discuss here and in 6.006.
+
+[Rabin-Karp Algorithm (OCW notes)](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec09_orig.pdf): For information on a clever rolling-hash algorithm that's used to efficiently find patterns in a string!
+
 # Hashtables and Hashing
 
 For the following questions, write $\Theta(f(n), a, e, w)$ to mean $f(n)$ Amortized, Expected, Worst-case run time. 
