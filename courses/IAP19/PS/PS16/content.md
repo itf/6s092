@@ -145,6 +145,16 @@ csq_name="qexample1"
 csq_explanation = "We are in the case where the node being deleted has two children. We take the min of the right subtree (or the max of the left subtree), and put move it to the place of the deleted node."
 </question>
 
+<question expression>
+csq_prompt = "Dummy test question"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(n)"]
+csq_explanation = "For each node, we go to the min of its subtree (all the way left), if it has a left subtree, and append that one to the sorted list. From there, we add the parent and then go to the right subtree. We repeat this process throughout the tree."
+csq_nsubmits = None
+</question>
 
 <question expression>
 csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list where the keys are integers (not strings)"
