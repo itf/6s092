@@ -41,7 +41,9 @@ Yes. First, remove the element with the greatest key in $O( \log n)$ time and st
 
 Recall that binary heaps are *complete binary trees*, meaning that they are binary trees in which every row, except possibly the last, is fully filled. When the last row is not full, the leafs are filled in left to right. 
 
-This means that, given $k$ levels/ rows to a binary heap, there are  """$n = \sum_{i = 0}^{k-2} 2^i + r = 2^{k-1} + r - 1 \geq 2^{k-1}$""" elements in the heap, where $r$ represents the number of elements in the last, possibly incomplete level (so $0 < r \leq 2^{k-1}$). With this result we see that $2^{k-1} \leq n$, so $k-1 \leq \log(n)$ and so $k = \log (n)$. This bound on the height of the tree allows us to argue that the operations we use a heap for really are $O(\log n)$. 
+This means that, given $k$ levels/ rows to a binary heap, there are  
+$n = \sum_{i = 0}^{k-2} 2^i + r = 2^{k-1} + r - 1 \geq 2^{k-1}$
+elements in the heap, where $r$ represents the number of elements in the last, possibly incomplete level (so $0 < r \leq 2^{k-1}$). With this result we see that $2^{k-1} \leq n$, so $k-1 \leq \log(n)$ and so $k = \log (n)$. This bound on the height of the tree allows us to argue that the operations we use a heap for really are $O(\log n)$. 
 
 In the following questions we explore the completeness of binary heaps.
 <question expression>
