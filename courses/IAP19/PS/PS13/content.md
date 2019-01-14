@@ -59,7 +59,7 @@ csq_nsubmits = None
 
 Suppose our universe $\mathbb{M} = \{\alpha, \beta, \gamma, \delta\}$ 
 
-<question pythonliteral>
+<question expression>
 csq_prompt = """
 Suppose $\\mathbb{H} = \{f,g,h,l\}$ where
  
@@ -72,7 +72,7 @@ In other words, they never collide.
 
 What is the probability that $\\alpha$ and $\\beta$ collide when mapped under the hash family $\\mathbb{H}$?
 """
-csq_soln = 0
+csq_soln = "0"
 csq_explanation = "None of $f$, $g$, $h$, or $l$ will cause $\\alpha$ and $\\beta$ to collide."
 csq_nsubmits = None
 </question>
@@ -88,7 +88,7 @@ csq_options =  ['yes', 'no']
 csq_explanation = "$0 < 1/n$"
 </question>
 
-<question pythonliteral>
+<question expression>
 csq_prompt = """
 Now suppose $\\mathbb{H} = \{f,g,h,l\}$ where
  
@@ -101,7 +101,7 @@ In other words, either all elements collide or none of them collide.
 
 What is the probability that $\\alpha$ and $\\beta$ collide when mapped under the hash family $\\mathbb{H}$?
 """
-csq_soln = 1/4
+csq_soln = ["1/4", "0"]
 csq_explanation = "If we randomly pick $f$ as the hashing function, then $\\alpha$ and $\\beta$ will collide. Otherwise they will not collide."
 csq_nsubmits = None
 </question>
@@ -113,17 +113,16 @@ Is $\\mathbb{H}$ a 2-universal hash family from $ \\{\\alpha, \\beta, \\gamma, \
 csq_renderer = "radio"
 csq_soln = 'yes'
 csq_options =  ['yes', 'no']
-csq_explanation = "What is the probability of 2 elements colliding?"
+csq_explanation = "$n = 4$, so $1/n = 1/4$. What is the probability of 2 elements colliding?"
 </question>
 
 ## Hashtable with collisions solved by chaining
 
-Suppose we now have a hashtable where collisions are resolved by chaining, where we always keep the most recent value.
+Recall that collisions are when two different keys hash to the same index. Suppose we now have a hashtable where collisions are resolved by chaining. This hashtable, like most hashtables, stores the most recent value for each key.
 
 <question multiplechoice>
-csq_prompt = """We run the following code on our hashtable, where `(x:y)` denotes an element with key `x` and value `y`:
+csq_prompt = """We run the following code on our hashtable `A`, where `(x:y)` denotes an element with key `x` and value `y`:
 ```
-A = hashtable()
 A.insert(a:3)
 A.insert(a:2)
 ```
@@ -139,10 +138,8 @@ csq_options =  ['3',
 
 
 <question multiplechoice>
-csq_prompt = """Suppose `hash(a) = hash(b)`, i.e. there is a collision on our hashtable for those $2$ keys.
-We run the following code on our hashtable:
+csq_prompt = """Now, we instead run this code on our hashtable `A`. Suppose `hash(a) = hash(b)`, i.e. there is a collision on our hashtable for those $2$ keys.
 ```
-A = hashtable()
 A.insert(a:3)
 A.insert(b:2)
 ```
