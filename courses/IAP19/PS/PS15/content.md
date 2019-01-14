@@ -78,72 +78,7 @@ csq_nsubmits = None
 #Binary Trees: Implementation
 Recall that binary trees are often implemented as just (dynamic) arrays, with the elements in the first row listed before the elements in the second, before the elements in the third, and so on. With some simple arithmetic (and zero-indexing!) we gather that the left child of the parent in position $i$ is stored in position $2i+1$, and the right child in position $2i+2$.
 
-<question pythoncode>
-csq_interface = 'ace'
-csq_prompt = "THIS QUESTION IS INCOMPLETE. Write a function that takes in an index $i$ and returns the index of its parent. If given the root node, the function should return None."
 
-## Define solution that will be printed to student.
-csq_soln = """
-def parent(i): 
-    return None if i == 0 else (i-1)//2
-"""
-
-## Code that will be initially on the thingy
-csq_initial = """def parent(i): 
-    return 
-"""
-csq_name= "pcode2"
-
-## Sandbox options to block libraries or decide how long to run thingy
-csq_sandbox_options = {
-    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
-    'MEMORY':1e9
-}
-
-
-## Now we define helped functions
-tests = [cs_random.randint(1,20) for x in range(10)]
-
-def is_correct(n, sol):
-    if not(type(sol) == type('44')):
-       return False
-    if len(sol)==n:
-        for i in range(n):
-           if sol[i]!='4':
-               return False
-        return True
-    return False
-
-## Now we need to write csq_tests, which defines what code to run
-## As well as how to test it. 
-## Each csq_tests is a dictionary of things (code, check, etc)
-
-## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
-## Code should define a string called ans, which is what will be tested.
-
-## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
-
-csq_tests = []
-for i, t in enumerate(tests):
-
-    def check(ans, soln, i = i):
-        n = tests[i]
-        print(ans)
-        return is_correct(n, eval(ans))
-        
-    csq_tests.append({
-        'code': f"""
-n = {tests[i]}
-ans = print_4_ntimes(n)
-""" ,
-        'show_code': i < 5,
-        'grade': True,
-        'check_function': check
-    })
-
-</question>
 
 Next, determine whether the following arrays represent min heaps, max heaps, or neither.
 <question multiplechoice>
@@ -196,3 +131,17 @@ csq_soln = ["(8,9)"]
 csq_explanation = "explanation"
 csq_nsubmits = None
 </question>
+
+# Binary Heaps: maintaining them
+The key to binary heaps is maintaining the max-heap property (or min-heap property, if it's a min-heap), which requires a nodes key value to be greater than the key value of its children. 
+
+<checkyourself>
+This property gives our heap the ability to find the element with greatest key very quickly: it's always the root of the tree. Why is that?
+<showhide>
+Suppose the keys are unique. Then, if the maximum were anywhere but the root, it would have a parent that must have a greater key. But this is impossible because it is the maximum, so it must be at the root.
+
+Alternatively the max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If $\verb|node.key| \leq \verb|node.parent.key|$, and $\verb|node.parent.key| \leq \verb|node.parent.parent.key|$, then clearly $\verb|node.key| \leq \verb|node.parent.parent.key|$. And so on.
+
+Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
+</showhide>
+</checkyourself>
