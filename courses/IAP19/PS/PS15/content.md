@@ -30,7 +30,7 @@ csq_name="pq2"
 </question>
 
 <checkyourself>
-If a priority queue (with unique keys) is optimized to return and remove the element with the greatest key value in $O(\log n)$ time, can it return the second greatest key in $O(\log n)$ time as well? How?
+If a priority queue (with unique keys) is optimized to return and remove the element with the greatest key value in O(\log n) time, can it return the second greatest key in $O(\log n)$ time as well? How?
 <showhide>
 Yes. First, remove the element with the greatest key in $O( \log n)$ time and store it. Then, remove the next element with greatest key: this was the element with the second greatest key originally. Reinsert the first element we had to remove, if necesarry.
 </showhide>
@@ -41,9 +41,7 @@ Yes. First, remove the element with the greatest key in $O( \log n)$ time and st
 
 Recall that binary heaps are *complete binary trees*, meaning that they are binary trees in which every row, except possibly the last, is fully filled. When the last row is not full, the leafs are filled in left to right. 
 
-This means that, given $k$ levels/ rows to a binary heap, there are  
-$n = \sum_{i = 0}^{k-2} 2^i + r = 2^{k-1} + r - 1 \geq 2^{k-1}$
-elements in the heap, where $r$ represents the number of elements in the last, possibly incomplete level (so $0 < r \leq 2^{k-1}$). With this result we see that $2^{k-1} \leq n$, so $k-1 \leq \log(n)$ and so $k = \log (n)$. This bound on the height of the tree allows us to argue that the operations we use a heap for really are $O(\log n)$. 
+This means that, given $k$ levels/ rows to a binary heap, there are  $n = \sum_{i = 0}^{k-2} 2^i + r = 2^{k-1} + r - 1 \geq 2^{k-1}$ elements in the heap, where $r$ represents the number of elements in the last, possibly incomplete level (so $0 < r \leq 2^{k-1}$). With this result we see that $2^{k-1} \leq n$, so $k-1 \leq \log(n)$ and so $k = \log (n)$. This bound on the height of the tree allows us to argue that the operations we use a heap for really are $O(\log n)$. 
 
 In the following questions we explore the completeness of binary heaps.
 <question expression>
@@ -66,35 +64,35 @@ csq_options =  ['Yes',
 csq_name="pq1"
 </question>
 
+<question expression>
+csq_prompt = "Suppose a binary tree has $8$ rows. Let $l$ be the minumum number of elements it could contain, and $m$ be the maximum number of elements it could contain. What is $(l,m)$?"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["(128,255)"]
+csq_explanation = "explanation"
+csq_nsubmits = None
+</question>
 
+#Binary Trees: Implementation
+Recall that binary trees are often implemented as just (dynamic) arrays, with the elements in the first row listed before the elements in the second, before the elements in the third, and so on. With some simple arithmetic (and zero-indexing!) we gather that the left child of the parent in position $i$ is stored in position $2i+1$, and the right child in position $2i+2$.
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write your code to return a string with 4 repeated n times"
+csq_prompt = "THIS QUESTION IS INCOMPLETE. Write a function that takes in an index $i$ and returns the index of its parent. If given the root node, the function should return None."
 
 ## Define solution that will be printed to student.
 csq_soln = """
-def print_4_ntimes(n): 
-    return 'Solution will be posted to Stellar'
+def parent(i): 
+    return None if i == 0 else (i-1)//2
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
-    return '4'
+csq_initial = """def parent(i): 
+    return 
 """
 csq_name= "pcode2"
-
-## Code that will be written before the user code as well as solution
-## Particularly useful for defining classes and things that we don't want the user to modify
-## For example, define a DFS function.
-csq_code_pre = ""
-
-
-## Code that will be written after the user code as well as solution code
-## Seems quite useless to me.
-csq_code_post = ""
-
-
 
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
@@ -145,5 +143,56 @@ ans = print_4_ntimes(n)
         'check_function': check
     })
 
-</question> 
+</question>
 
+Next, determine whether the following arrays represent min heaps, max heaps, or neither.
+<question multiplechoice>
+csq_prompt = "$[1,2,3,4,5,6,7,8,9,10]$"
+csq_renderer = "radio"
+csq_soln = [1,0,0]
+csq_options =  ['Min heap',
+'Max heap',
+'Neither']
+csq_name="hi1"
+</question>
+
+<question multiplechoice>
+csq_prompt = "$[1,3,2,8,4,5,7,9,10,6]$"
+csq_renderer = "radio"
+csq_soln = [1,0,0]
+csq_options =  ['Min heap',
+'Max heap',
+'Neither']
+csq_name="hi1"
+</question>
+
+<question multiplechoice>
+csq_prompt = "$[10,8,7,9,3,6,5,4,2,1]$"
+csq_renderer = "radio"
+csq_soln = []
+csq_options =  ['Min heap',
+'Max heap',
+'Neither']
+csq_name="hi1"
+</question>
+
+<question multiplechoice>
+csq_prompt = "$[10,6,9,4,5,7,8,3,2,1]$"
+csq_renderer = "radio"
+csq_soln = []
+csq_options =  ['Min heap',
+'Max heap',
+'Neither']
+csq_name="hi1"
+</question>
+
+<question expression>
+csq_prompt = "In the example of a non-heap above, exactly two elements $(a,b)$ (with $a < b$) could have been swapped, resulting in a valid max heap. What is $(a,b)$?"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["(8,9)"]
+csq_explanation = "explanation"
+csq_nsubmits = None
+</question>
