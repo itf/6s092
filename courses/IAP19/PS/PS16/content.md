@@ -22,15 +22,13 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 csq_prompt = "We have the following BST: \n \
 \n   12   \n\
  7   16   \n\
-A B C D"
+A B C D\n\
+We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?"
 csq_renderer = "checkbox"
-csq_soln = [1,1,1,0]
-csq_options =  ['    10    \n 5        15',
-'    5    \n 5        15',
-'    5    \n 5        5',
-'    10 \n 5            \n                  15']
+csq_soln = [0,1,0,0]
+csq_options =  ["A", "B", "C", "D"]
 csq_name="qexample1"
-csq_explanation = ""
+csq_explanation = "We compare 10 to 12. 10 < 12, so we go to the left subtree. We compare 10 to 7. 10 > 7, so we put 10 in the right subtree at position B."
 </question>
 
 
