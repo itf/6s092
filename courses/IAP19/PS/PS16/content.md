@@ -43,11 +43,11 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 <question multiplechoice>
 csq_prompt = '''
 We have the following BST:
-              12
-            /   \\
-          7       16
-        /  \\   /   \\
-      A    B   C      D
+              12 \n
+            /   \\ \n
+          7       16 \n
+        /  \\   /   \\ \n
+      A    B   C      D \n
 
 We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?
 '''
