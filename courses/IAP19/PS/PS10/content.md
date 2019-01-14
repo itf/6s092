@@ -48,7 +48,7 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
 </question>
 
 <question expression>
-    csq_prompt = "Oh no! The computer that Wumpus' array was stored on suffered a memory failure due to the humidity in the cave. Most of the entries in Wumpus' array have been deleted, leaving him with only the data from a few entries; he doesn't even know which entries he still has. Wumpus now has to transfer the data onto a new drive. How long does it take for the computer to find the next populated entry, if there are $u$ possible indexes? Give an asympotic bound, O(something). \n \n"
+    csq_prompt = "Oh no! The computer that Wumpus' array was stored on suffered a memory failure due to the humidity in the cave. Most of the entries in Wumpus' array have been deleted, leaving him with only the data from $n$ entries; he doesn't even know which entries he still has. Wumpus now has to transfer the remaining entries onto a new drive. How long does it take for the computer to transfer those entries, if there are $u$ possible indexes? Give an asympotic bound, O(something). \n \n"
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
