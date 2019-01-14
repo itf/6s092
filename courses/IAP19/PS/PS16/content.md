@@ -9,10 +9,31 @@ Lecture notes 6, 6.006 Fall 2018 on stellar.
 csq_prompt = "Which of the following trees are BSTs? (There may be more than one)."
 csq_renderer = "checkbox"
 csq_soln = [1,1,1,0]
-csq_options =  ['    10    \n 5        15',
-'    5    \n 5        15',
-'    5    \n 5        5',
-'    10 \n 5            \n                  15']
+csq_options =  [
+'''
+         10
+        /  \\
+      5      15
+'''
+,
+'''
+         5
+       /  \\
+     5     15
+''',
+'''
+        5
+      /  \\
+    5      5
+'''
+'''
+          10
+        /   \\
+      5
+       \\
+         15
+'''
+]
 csq_name="qexample1"
 csq_explanation = "The first three trees satisfy the BST property. Remember that the BST property states that keys in the left subtree must be <= the key of a node, and keys in the right subtree must be >= the key of a node. The fourth tree does not satisfy the BST property because 15 > 10, but 15 is in the left subtree of the node with key 10."
 </question>
