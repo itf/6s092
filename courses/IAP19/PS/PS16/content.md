@@ -83,21 +83,39 @@ We have the following BST: \n
          4        14 \n
        /   \\     /   \\ \n
       2      5   10     16 \n
-We delete the root (node with key 8). What does the tree look now?
+We delete the root (node with key 8). What does the tree look now? (Follow the delete function we learned in class).
 """
 csq_renderer = "checkbox"
-csq_soln = [1,1,0,0]
+csq_soln = [0,1,0]
 csq_options =  [
+'''
+               14
+             /   \\
+           10     16
+         /
+        4
+       /  \\
+     2     5
+''',
 '''
           10 \n
         /     \\ \n
       4        14 \n
      /  \\        \\ \n
     2     5         16 \n
+''',
+'''
+               4
+              /  \\
+            2      5
+                     \\
+                      14
+                    /   \\
+                  10      16
 '''
 ]
 csq_name="qexample1"
-csq_explanation = "When we delete the node with key 14, either the node with key 10 or the node with key 16 can take its place."
+csq_explanation = "We are in the case where the node being deleted has two children. We take the min of the right subtree (or the max of the left subtree), and put move it to the place of the deleted node."
 </question>
 
 
