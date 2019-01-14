@@ -78,11 +78,11 @@ csq_explanation = "When we delete the node with key 14, either the node with key
 <question multiplechoice>
 csq_prompt = """
 We have the following BST: \n
-        8 \n
-     /     \\ \n
-    4        14 \n
-  /   \\     /   \\ \n
- 2      5   10     16 \n
+             8 \n
+          /     \\ \n
+         4        14 \n
+       /   \\     /   \\ \n
+      2      5   10     16 \n
 We delete the root (node with key 8). What does the tree look now?
 """
 csq_renderer = "checkbox"
