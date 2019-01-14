@@ -20,9 +20,9 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 
 <question multiplechoice>
 csq_prompt = "We have the following BST: \n \
-\n___12___\n\
-_7___16___\n\
-A_B_C_D"
+\n   12   \n\
+ 7   16   \n\
+A B C D"
 csq_renderer = "checkbox"
 csq_soln = [1,1,1,0]
 csq_options =  ['    10    \n 5        15',
