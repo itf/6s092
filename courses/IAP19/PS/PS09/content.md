@@ -206,9 +206,7 @@ ans = secondName(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)! \n
-
-Note: normally we can store the length of a linked list as a variable and return it in $O(1)$ time. It just so happens that Wumpus has not included that in this implementation. :("
+csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)! Note: normally we can store the length of a linked list as a variable and return it in $O(1)$ time. It just so happens that Wumpus has not included that in this implementation. :("
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -323,9 +321,7 @@ ans = length(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by finishing the implemention of the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. \n
-
-Assume that the linked list will always contain at least one person with that name."
+csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by finishing the implemention of the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the linked list will always contain at least one person with that name."
 
 ## Define solution that will be printed to student.
 csq_soln = """
