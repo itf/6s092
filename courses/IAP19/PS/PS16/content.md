@@ -39,11 +39,27 @@ We have the following BST: \n
      /     \\ \n
     4        14 \n
             /    \\ \n
-           10     16
+           10     16 \n
+We delete the node with key 14. What does the tree look now? (May be more than one answer).
 """
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
-csq_options =  [""]
+csq_options =  [
+'''
+8 \n
+/     \\ \n
+4        10 \n
+        \\ \n
+         16 \n
+''',
+'''
+8 \n
+/     \\ \n
+4        16 \n
+   /       \n
+  10     
+'''
+]
 csq_name="qexample1"
 csq_explanation = ""
 </question>
