@@ -34,30 +34,30 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "$\Theta(n)$"
+csq_soln = "theta(n)$"
 csq_nsubmits = None
 csq_name="LLOp2"
 </question>
 
 
 <question expression>
-csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: \theta(something) \n \n"
+csq_prompt= "How long does it take to insert or delete an element at the end of a linked list with $n$ elements? Give the asymptotic runtime: theta(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "\theta(1)"
+csq_soln = "theta(1)"
 csq_nsubmits = None
 csq_name="LLOp4"
 </question>
 
 <question expression>
-csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$, in no particular order. What is the asymptotic runtime of finding the number $j$? Give an asymptotic bound: \theta(something) \n \n"
+csq_prompt= "Wumpus now has a linked list of numbers from $0$ to $n$, in no particular order. What is the asymptotic runtime of finding the number $j$? Give an asymptotic bound: theta(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "\theta(n)"
+csq_soln = "theta(n)"
 csq_nsubmits = None
 csq_name="LLOp5"
 </question>

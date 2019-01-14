@@ -28,7 +28,7 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
 </question>
 
 <question expression>
-    csq_prompt = "Wumpus defeats a hero that has wandered into his cave. He wants to store the information about that hero in his array, or make a note about the number of times he has deteated that hero if the hero's information already exists. How long does it take to determine whether or not he has encountered a hero with a specific ID? Give an asymptotic bound, O(something). \n \n"
+    csq_prompt = "Wumpus defeats a hero that has wandered into his cave. He wants to store the information about that hero in his array, or make a note about the number of times he has deteated that hero if the hero's information already exists. How long does it take to determine whether or not he has encountered a hero with a specific ID? Assume that converting an ID to an index takes O(1) time. Give an asymptotic bound, O(something). \n \n"
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
@@ -38,7 +38,7 @@ Wumpus has encountered many different heros (and heroines) that have tried to hu
 </question>
 
 <question expression>
-    csq_prompt = "Wumpus overhears a rumour that a powerful hero named Bob is coming to hunt him. How long does it take for Wumpus to determine if Wumpus has encountered a hero named Bob before, given that there are $u$ indexes in his direct access array, and he is using the same method to assign IDs to indexes as in the statement above the first question? Give an asymptotic bound: O(something). \n \n"
+    csq_prompt = "Wumpus overhears a rumour that a powerful hero named Bob is coming to hunt him. How long does it take for Wumpus to determine if Wumpus has encountered a hero named Bob before, given that there are $u$ indexes in his direct access array, and he is using the same method to assign IDs to indexes as in the statement above the first question? We only know Bob's name, not his ID. Give an asymptotic bound: O(something). \n \n"
     csq_show_check= True
     csq_allow_submit = True
     csq_allow_submit_after_answer_viewed = False
