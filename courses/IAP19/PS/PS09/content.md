@@ -206,7 +206,9 @@ ans = secondName(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)! Note: normally we can store the length of a linked list as a variable and return it in $O(1)$ time. It just so happens that Wumpus has not included that in this implementation. :("
+csq_prompt = "Wumpus has a spotty memory, so sometimes he can't recall how many people he's measured so far. Help him out by implementing the function `length(ll)`, which takes a `LinkedList` as input and returns the integer length (the number of `Person`s in the list)! \n
+
+Note: normally we can store the length of a linked list as a variable and return it in $O(1)$ time. It just so happens that Wumpus has not included that in this implementation. :("
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -321,7 +323,9 @@ ans = length(ll)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by implementing the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. Assume that the linked list will always contain at least one person with that name."
+csq_prompt = "So Wumpus... what's Ivan's height? Wumpus is sad because he can't immediately answer just by looking at his linked list. Help him out by finishing the implemention of the function `find(ll, name)`, which takes a `LinkedList` object and a name as input and returns the integer height of the first person in the list with that name. \n
+
+Assume that the linked list will always contain at least one person with that name."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -335,7 +339,8 @@ def find(ll, name):
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def find(ll, name):
+csq_initial = """
+def find(ll, name):
     return 0
 """
 csq_name= "pcode3"
@@ -440,7 +445,7 @@ ans = find(ll, {t}[1])
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Sometimes Wumpus gets into a big argument with a friend because of arguing over the ethics of eating children. Afterwards, Wumpus is unhappy and doesn't really care about that friend's height anymore. Help Wumpus out by implementing the function `removePerson(ll, name)`, which takes a `LinkedList` object and a name as input, and removes the first `Person` seen with that name from the linked list. Remember that we are reading the list from left to right. Assume that the linked list will always contain at least one person with that name."
+csq_prompt = "Sometimes Wumpus gets into a big argument with a friend because of arguing over the ethics of eating children. Afterwards, Wumpus is unhappy and doesn't really care about that friend's height anymore. Help Wumpus out by completing the following implementation for the function `removePerson(ll, name)`, which takes a `LinkedList` object and a name as input, and removes the first `Person` seen with that name from the linked list. Remember that we are reading the list from left to right. Assume that the linked list will always contain at least one person with that name."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -466,15 +471,19 @@ def removePerson(ll, name):
 ## Code that will be initially on the thingy
 csq_initial = """
 def removePerson(ll, name):
-    # Two cases:
-    # 1. We remove the first person, in which case we can just
-    #    update ll.left
+    ### Two cases:
+    ### 1. We remove the first person, in which case we can just
+    ###    update ll.left
     if name == ll.left.name():
         ll.left = ll.left.getNext()
         return
 
-    # 2. We remove someone who is not first
-    # TODO -- write your code here
+    ### 2. We remove someone who is not first
+    curr_person = ll.left
+    while curr_person != None:
+        if curr_person.name() == name:
+            # TODO -- write your code here
+        curr_person = curr_person.getNext()
     return
 """
 csq_name= "pcode4"
