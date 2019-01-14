@@ -575,10 +575,11 @@ for i, t in enumerate(tests):
     test_case = [(names[cs_random.randint(0, len(names)-1)], cs_random.randint(40, 80)) for x in range(t[0])]
     test_case = test_case + [(t[1], cs_random.randint(40,80))] # Make sure `name` is in the test_case
     cs_random.shuffle(test_case)
+    name = t[1]
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
-removePerson(ll, {t}[1]) 
+removePerson(ll, {name}) 
 ans = str(ll)
 """ ,
         'show_code': i < 5,
