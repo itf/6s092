@@ -32,6 +32,23 @@ csq_explanation = "We compare 10 to 12. 10 < 12, so we go to the left subtree. W
 </question>
 
 
+<question multiplechoice>
+csq_prompt = """
+We have the following BST: \n
+     8
+  /     \
+4        14
+       /    \
+     10     16
+"""
+csq_renderer = "checkbox"
+csq_soln = [0,1,0,0]
+csq_options =  [""]
+csq_name="qexample1"
+csq_explanation = ""
+</question>
+
+
 <question expression>
 csq_prompt = "Question?"
 csq_show_check = True
