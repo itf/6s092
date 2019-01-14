@@ -22,8 +22,8 @@ csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
 csq_options =  ['    10    \n 5        15',
 '    5    \n 5        15',
-'option 3',
-'option 4']
+'    5    \n 5        5',
+'    10 \n 5 \n    15']
 csq_name="qexample1"
 </question>
 
