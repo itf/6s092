@@ -151,11 +151,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-<<<<<<< HEAD
-csq_soln = ['2','4','5','8','10','14','16']
-=======
 
->>>>>>> 7c9c024af8549645a2a1fd74ebe233a820b3c0b4
 csq_explanation = "For each node, we go to the min of its subtree (all the way left), if it has a left subtree, and append that one to the sorted list. From there, we add the parent and then go to the right subtree. We repeat this process throughout the tree."
 csq_nsubmits = None
 </question>
