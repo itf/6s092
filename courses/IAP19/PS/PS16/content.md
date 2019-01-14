@@ -145,8 +145,9 @@ csq_name="qexample1"
 csq_explanation = "We are in the case where the node being deleted has two children. We take the min of the right subtree (or the max of the left subtree), and put move it to the place of the deleted node."
 </question>
 
-<question expression>
+<question pythonliteral>
 csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list of strings."
+csq_soln = [2,4,5,8,10,14,16]
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
