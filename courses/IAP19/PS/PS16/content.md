@@ -5,17 +5,6 @@ Lecture notes 6, 6.006 Fall 2018 on stellar.
 # Binary Search Trees
 
 
-<!-- <question multiplechoice>
-csq_prompt = "TEST TEST TEST Question?"
-csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
-</question> -->
-
 <question multiplechoice>
 csq_prompt = "Which of the following trees are BSTs? (There may be more than one)."
 csq_renderer = "checkbox"
