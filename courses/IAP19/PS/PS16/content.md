@@ -22,7 +22,7 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 csq_prompt = "We have the following BST: \n \
 \n        12        \n \
     7        16   \n \
-A      B   C     D"
+\n A      B   C                                    D"
 csq_renderer = "checkbox"
 csq_soln = [1,1,1,0]
 csq_options =  ['    10    \n 5        15',
