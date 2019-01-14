@@ -1,11 +1,11 @@
 # Readings 
-Recitation notes 7, 6.006 Fall 2018 on stellar.
+[Recitation notes 7](https://learning-modules.mit.edu/service/materials/groups/238004/files/4ced90b7-63e9-453c-9f10-4e8c51a94d67/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Direct Access & Hashing -- section on Hashing, 6.006 Fall 2018 on stellar.
 
-Lecture notes 8 6.006 Fall 2018 on stellar.
+[Lecture notes 8](https://learning-modules.mit.edu/service/materials/groups/238004/files/a90b0fdd-5d81-4f72-b5f2-3fe8e65a99a0/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Direct Access & Hashing -- section on  6.006 Fall 2018 on stellar.
 
 # Hashtables and Hashing
 
-For the following questions, write $\Theta(f(n), a, e, w)$ to mean f(n) Amortized, Expected, Worst-case run time. 
+For the following questions, write $\Theta(f(n), a, e, w)$ to mean $f(n)$ Amortized, Expected, Worst-case run time. 
 
 For example, $\Theta(n, e, a)$ would mean $\underbrace{\Theta(n)}_\text{expected, amortized}$
 
@@ -22,9 +22,17 @@ csq_explanation = "Because the expected number of collisions is $O(1)$"
 csq_nsubmits = None
 </question>
 
+<question expression>
+csq_prompt = """What is the asymptotic run-time to insert an element (key-value pair) into a hashtable?  
+"""
+csq_soln = ["O(1,e,a)", "Theta(1,e,a)"]
+csq_explanation = "Amortized because the hash-table is a dynamic array"
+csq_nsubmits = None
+</question>
+
 
 <question expression>
-csq_prompt = """What is the asymptotic run time to find an element by its value on a hashtable?  
+csq_prompt = """What is the asymptotic run-time to find an element by its value on a hashtable?  
 """
 csq_soln = ["O(n,w)", "Theta(n,w)"]
 csq_explanation = "There is no efficient way "
