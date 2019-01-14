@@ -120,12 +120,12 @@ csq_explanation = "We are in the case where the node being deleted has two child
 
 
 <question expression>
-csq_prompt = "Question?"
+csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list where the keys are integers (not strings)"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
+csq_soln = [2,4,5,8,10,14,16]
 csq_explanation = "explanation"
 csq_nsubmits = None
 </question>
