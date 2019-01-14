@@ -18,6 +18,22 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 </question>
 
 
+<question multiplechoice>
+csq_prompt = "We have the following BST: \n \
+        12        \n
+    7        16   \n
+A      B   C     D"
+csq_renderer = "checkbox"
+csq_soln = [1,1,1,0]
+csq_options =  ['    10    \n 5        15',
+'    5    \n 5        15',
+'    5    \n 5        5',
+'    10 \n 5            \n                  15']
+csq_name="qexample1"
+csq_explanation = ""
+</question>
+
+
 <question expression>
 csq_prompt = "Question?"
 csq_show_check = True
