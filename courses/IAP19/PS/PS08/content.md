@@ -1,7 +1,7 @@
 # Readings 
-Recitation notes 7, 6.006 Fall 2018 on stellar.
+[Recitation notes 7](https://learning-modules.mit.edu/service/materials/groups/238004/files/4ced90b7-63e9-453c-9f10-4e8c51a94d67/link?errorRedirect=%2Fmaterials%2Findex.html&download=true) -- sections up to and including Direct Access Array, 6.006 Fall 2018 on stellar.
 
-Lecture notes 8, 6.006 Fall 2018 on stellar.
+[Lecture notes 8](https://learning-modules.mit.edu/service/materials/groups/238004/files/a90b0fdd-5d81-4f72-b5f2-3fe8e65a99a0/link?errorRedirect=%2Fmaterials%2Findex.html&download=true) -- sections up to and including Direct Access Array, 6.006 Fall 2018 on stellar.
 
 # Direct Access Array
 
