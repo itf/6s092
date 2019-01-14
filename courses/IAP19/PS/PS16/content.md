@@ -129,7 +129,7 @@ csq_soln = [2,4,5,8,10,14,16]
 csq_explanation = "explanation"
 csq_nsubmits = None
 </question>
-
+<!--
 <checkyourself>
 Are you understanding?
 <showhide>
@@ -216,4 +216,4 @@ ans = print_4_ntimes(n)
         'check_function': check
     })
 
-</question>
+</question> -->
