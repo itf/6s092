@@ -1,4 +1,4 @@
-# Readings 
+# Readings
 Recitation notes 5b, 6.006 Fall 2018 on stellar.
 
 Lecture notes 6, 6.006 Fall 2018 on stellar.
@@ -6,7 +6,7 @@ Lecture notes 6, 6.006 Fall 2018 on stellar.
 
 
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "TEST TEST TEST Question?"
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
 csq_options =  ['option 1',
@@ -43,12 +43,12 @@ csq_prompt = "Write your code to return a string with 4 repeated n times"
 
 ## Define solution that will be printed to student.
 csq_soln = """
-def print_4_ntimes(n): 
+def print_4_ntimes(n):
     return 'Solution will be posted to Stellar'
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
+csq_initial = """def print_4_ntimes(n):
     return '4'
 """
 csq_name= "pcode2"
@@ -67,9 +67,9 @@ csq_code_post = ""
 
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
-    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'],
+    'CLOCKTIME': 0.36,
+    # 'CPUTIME': 0.36,
     'MEMORY':1e9
 }
 
@@ -88,7 +88,7 @@ def is_correct(n, sol):
     return False
 
 ## Now we need to write csq_tests, which defines what code to run
-## As well as how to test it. 
+## As well as how to test it.
 ## Each csq_tests is a dictionary of things (code, check, etc)
 
 ## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
@@ -103,7 +103,7 @@ for i, t in enumerate(tests):
         n = tests[i]
         print(ans)
         return is_correct(n, eval(ans))
-        
+
     csq_tests.append({
         'code': f"""
 n = {tests[i]}
@@ -114,5 +114,4 @@ ans = print_4_ntimes(n)
         'check_function': check
     })
 
-</question> 
-
+</question>
