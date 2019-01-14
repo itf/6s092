@@ -42,7 +42,7 @@ csq_explanation = "The first three trees satisfy the BST property. Remember that
 
 <question multiplechoice>
 csq_prompt = '''
-We have the following BST:
+We have the following BST: \n
               12 \n
             /   \\ \n
           7       16 \n
