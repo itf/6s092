@@ -23,7 +23,7 @@ csq_prompt = "We have the following BST: \n \
 \n   12   \n\
  7   16   \n\
 A B C D\n\
-We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?"
+\n We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?"
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
 csq_options =  ["A", "B", "C", "D"]
