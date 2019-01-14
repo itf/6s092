@@ -35,10 +35,10 @@ csq_explanation = "We compare 10 to 12. 10 < 12, so we go to the left subtree. W
 <question multiplechoice>
 csq_prompt = """
 We have the following BST: \n
-     8
-  /     \
-4        14
-       /    \
+     8 \n
+  /     \ \n
+4        14 \n
+       /    \ \n
      10     16
 """
 csq_renderer = "checkbox"
