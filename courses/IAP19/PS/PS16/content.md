@@ -43,7 +43,7 @@ We have the following BST: \n
 We delete the node with key 14. What does the tree look now? (May be more than one answer).
 """
 csq_renderer = "checkbox"
-csq_soln = [0,1,0,0]
+csq_soln = [1,1,0,0]
 csq_options =  [
 '''
         8 \n
@@ -58,10 +58,63 @@ csq_options =  [
      4       16 \n
             /     \n
           10     
+''',
 '''
+        8 \n
+     /     \n
+    4       
+''',
+'''
+        8 \n
+      /   \\ \n
+     4      10 \n
+''',
 ]
 csq_name="qexample1"
-csq_explanation = ""
+csq_explanation = "When we delete the node with key 14, either the node with key 10 or the node with key 16 can take its place."
+</question>
+
+
+<question multiplechoice>
+csq_prompt = """
+We have the following BST: \n
+        8 \n
+     /     \\ \n
+    4        14 \n
+  /   \\     /   \\ \n
+ 2      5   10     16 \n
+We delete the root (node with key 8). What does the tree look now?
+"""
+csq_renderer = "checkbox"
+csq_soln = [1,1,0,0]
+csq_options =  [
+'''
+        8 \n
+      /   \\ \n
+     4      10 \n
+             \\ \n
+                 16 \n
+''',
+'''
+         8 \n
+       /    \\ \n
+     4       16 \n
+            /     \n
+          10     
+''',
+'''
+        8 \n
+     /     \n
+    4       
+''',
+'''
+        8 \n
+      /   \\ \n
+     4      10 \n
+''',
+]
+csq_name="qexample1"
+csq_explanation = "When we delete the node with key 14, either the node with key 10 or the node with key 16 can take its place."
 </question>
 
 
