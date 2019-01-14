@@ -20,7 +20,7 @@ csq_name="qexample1"
 csq_prompt = "Which of the following trees are BSTs? (There may be more than one)."
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
-csq_options =  ['    10    \n    - - \n 5       15',
+csq_options =  ['    10    \n    - - \n 5       15 \n',
 'option 2',
 'option 3',
 'option 4']
