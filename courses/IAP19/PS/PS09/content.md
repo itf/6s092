@@ -96,7 +96,7 @@ We have defined the `Person` object to have the following functions:
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Write a function called `secondName` that takes an input of a `LinkedList` and returns the second person's name in the (remember we are reading from left to right)."
+csq_prompt = "Write a function called `secondName` that takes an input of a `LinkedList` and returns the second person's name in the (remember we are reading from left to right). Assume that our list will always have at least two people in it."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -445,6 +445,10 @@ csq_prompt = "Sometimes Wumpus gets into a big argument with a friend because of
 ## Define solution that will be printed to student.
 csq_soln = """
 def removePerson(ll, name):
+    if name == ll.left.name():
+        ll.left = curr_person.getNext()
+        return
+
     curr_person = ll.left
     while curr_person:
         if curr_person.name() == name:
@@ -460,8 +464,18 @@ def removePerson(ll, name):
 """
 
 ## Code that will be initially on the thingy
-csq_initial = """def removePerson(ll, name):
-    return 0
+csq_initial = """
+def removePerson(ll, name):
+    # Two cases:
+    # 1. We remove the first person, in which case we can just
+    #    update ll.left
+    if name == ll.left.name():
+        ll.left = curr_person.getNext()
+        return
+
+    # 2. We remove someone who is not first
+    # TODO -- write your code here
+    return
 """
 csq_name= "pcode4"
 
