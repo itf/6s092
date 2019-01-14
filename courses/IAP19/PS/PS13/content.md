@@ -14,7 +14,7 @@ Assume that the size of the hashtable is $\Theta(n)$, where $n$ is the number of
 
 If something runs in worst-case $f(n)$, only the worst case solution will be accepted, even though worst-case also implies expected and amortized.
 <question expression>
-csq_prompt = """What is the assymptotic run time to find an element by its key on a hashtable?
+csq_prompt = """What is the asymptotic run time to find an element by its key on a hashtable?
 
 \n"""
 csq_soln = ["O(1,e)", "Theta(1,e)"]
@@ -24,16 +24,7 @@ csq_nsubmits = None
 
 
 <question expression>
-csq_prompt = """What is the assymptotic run time to find an element by its value on a hashtable?  
-"""
-csq_soln = ["O(n,w)", "Theta(n,w)"]
-csq_explanation = "There is no efficient way "
-csq_nsubmits = None
-</question>
-
-
-<question expression>
-csq_prompt = """What is the assymptotic run time to find an element by its value on a hashtable?  
+csq_prompt = """What is the asymptotic run time to find an element by its value on a hashtable?  
 """
 csq_soln = ["O(n,w)", "Theta(n,w)"]
 csq_explanation = "There is no efficient way "
@@ -42,9 +33,9 @@ csq_nsubmits = None
 
 
 ## 2-Universal hashing
-In 2-universal hashing, we randomly select a function from a family of hash functions that maps elements from $\mathbb{M} \to \{0 \dots N-1\}$ , such that the probability of two elements from $\mathbb{M}$ having the same hash is $\le \frac{1}{N}$.
+In 2-universal hashing, we randomly select a function from a family of hash functions that maps elements from $\mathbb{M} \to \{0 \dots n-1\}$ , such that the probability of two elements from $\mathbb{M}$ having the same hash is $\le \frac{1}{n}$.
 
-A hash family with those properties is called a 2-universal hash family. More generally, if the probability of $k$ elements having the same hash was  $\le \frac{1}{N^{k-1}}$, we would have a $k$-universal hash family.
+A hash family with those properties is called a 2-universal hash family. More generally, if the probability of $k$ elements having the same hash was  $\le \frac{1}{n^{k-1}}$, we would have a $k$-universal hash family.
 
 When someone says universal hashing without specifying $k$, it means 2-universal hashing.
 
