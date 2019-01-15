@@ -51,7 +51,6 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = '6'
-csq_explanation = "explanation"
 csq_nsubmits = None
 csq_name="p3"
 </question>
@@ -65,13 +64,13 @@ csq_name="p4"
 </question>
 
 <question expression>
-csq_prompt = "Suppose a binary tree has $8$ rows. Let $l$ be the minumum number of elements it could contain, and $m$ be the maximum number of elements it could contain. What is $(l,m)$?"
+csq_prompt = "Suppose a binary tree has $8$ rows. Let $l$ be the minumum number of elements it could contain, and $m$ be the maximum number of elements it could contain. What is $l+m$?"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["(128,255)"]
-csq_explanation = "explanation"
+csq_soln = '383'
+csq_explanation = "The values are $(l,m) = (128, 255)$."
 csq_nsubmits = None
 csq_name="p5"
 </question>
@@ -123,13 +122,13 @@ csq_name="p9"
 </question>
 
 <question expression>
-csq_prompt = "In the example of a non-heap above, exactly two elements $(a,b)$ (with $a < b$) could have been swapped, resulting in a valid max heap. What is $(a,b)$?"
+csq_prompt = "In the example of a non-heap above, exactly two elements $(a,b)$ could have been swapped, resulting in a valid max heap. What is $a+b$?"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = '$(8,9)$'
-csq_explanation = "explanation"
+csq_soln = '17'
+csq_explanation = "The values are $(a,b) = (8,9)$."
 csq_nsubmits = None
 csq_name="p10"
 </question>
