@@ -584,7 +584,7 @@ for i, t in enumerate(tests):
     csq_tests.append({
         'code': f"""
 ll = LinkedList({test_case})
-removePerson(ll, {name}) 
+removePerson(ll, '{name}') 
 ans = str(ll)
 """ ,
         'show_code': i < 5,
