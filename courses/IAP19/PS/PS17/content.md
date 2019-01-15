@@ -50,7 +50,7 @@ csq_renderer = "checkbox"
 csq_soln = [1,0]
 csq_options =  ["True", "False"]
 csq_name="qexample3"
-csq_explanation = "True. There are no subtrees of the root (both are "missing children"), so the skew equals $(-1) - (-1) = 0$."
+csq_explanation = "True. There are no subtrees of the root (both are "missing children"), so the skew equals (-1) - (-1) = 0."
 </question>
 
 <question multiplechoice>
