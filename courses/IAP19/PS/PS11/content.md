@@ -257,7 +257,7 @@ people = [Person(*x) for x in {people}]
 d = construct_daa(people)
 sorted_arr = extract_from_daa(d)
 enough_ats = d.num_ats() > {u}
-ans = enough_ats, [[str(x) for x in d.at(h)] for h in {heights}]
+ans = enough_ats, d.num_ats(), [[str(x) for x in d.at(h)] for h in {heights}]
 """,
         'show_code': i<2,
         'grade': True,
