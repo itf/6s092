@@ -130,8 +130,8 @@ tests = [ (4, [(1, "Helen", 60),
 ]
 csq_tests = []
 for i, t in enumerate(tests):
-    A = [Person(*x) for x in t[1]]
     csq_tests.append({ 'code': f"""
+A = [Person(*x) for x in t[1]]
 d = construct_daa({A})
 ans = isinstance(d, Array), str(d)
 """,
@@ -218,9 +218,9 @@ tests = [ (4, [(1, "Helen", 60),
 csq_tests = []
 for i, t in enumerate(tests):
     u = 100
-    people = [People(*x) for x in t]
     csq_tests.append({
         'code': f"""
+people = [Person(*x) for x in t]
 d = construct_daa({people})
 sorted_arr = extract_from_daa(d)
 enough_ats = d.num_ats() > {u}
