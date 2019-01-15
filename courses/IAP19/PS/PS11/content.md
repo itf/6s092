@@ -105,7 +105,7 @@ class Array:
 
     def __str__(self):
         flat_list = [x for q in self._array123 for x in q]
-        return str(sorted(flat_list, key = lambda x: x.height))
+        return str([str(x) for x in sorted(flat_list, key = lambda x: x.height)])
 
     def at(self, i):
         self.num_accesses += 1
@@ -181,7 +181,7 @@ class Array:
 
     def __str__(self):
         flat_list = [x for q in self._array123 for x in q]
-        return str(sorted(flat_list, key = lambda x: x.height))
+        return str([str(x) for x in sorted(flat_list, key = lambda x: x.height)])
 
     def at(self, i):
         self.num_accesses += 1
