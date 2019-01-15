@@ -102,7 +102,7 @@ class Array:
         self.num_sets = 0
 
     def __str__(self):
-        return str(sorted(self._array123))
+        return str(sorted(self._array123, lambda x: x.height))
 
     def at(self, i):
         self.num_accesses += 1
@@ -180,7 +180,7 @@ class Array:
         self.num_sets = 0
 
     def __str__(self):
-        return str(sorted(self._array123))
+        return str(sorted(self._array123, lambda x: x.height))
 
     def at(self, i):
         self.num_accesses += 1
