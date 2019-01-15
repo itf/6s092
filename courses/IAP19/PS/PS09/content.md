@@ -34,7 +34,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "theta(n)$"
+csq_soln = "theta(n)"
 csq_nsubmits = None
 csq_name="LLOp2"
 </question>
