@@ -12,7 +12,7 @@ csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
 csq_options =  ["O(n)",
                 "O(log(n))",
-                "O(n**2)",
+                "$O(n^2)$",
                 "O(n log(n))"]
 csq_name="qexample1"
 </question>
