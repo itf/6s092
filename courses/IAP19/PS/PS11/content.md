@@ -51,18 +51,17 @@ csq_explanation = "Jakob was before Ghost in the queue."
 <question pythoncode>
 csq_interface = 'ace'
 csq_prompt = """
-We're going to perform counting sort on our array! We do this by running the following code:
+Let's implement counting sort! Here we implement counting sort in two parts. The first part will construct a direct access `Array d` by inserting the elements in our array `A` by key. The second part extracts a sorted array from the direct access array by reading through the direct access array. We represent these two components with the following code:
 ```
 def counting_sort(A):
     d = construct_daa(A)
     return extract_from_daa(d)
 ```
-In the above segment of code, `A` and `d` are `Array` objects, which have the following functions and instance attributes:
-Maybe we should make `A` a normal array and `d` an Array object...
+In the above segment of code, `A` is a normal Python list, and `d` is a special `Array` object which is a static direct access array that is specially equipped to handle key collisions. We have the following functions and instance attributes on `Array`:
 
-* `at(i)`:
-* `add(i, x)`:
-* `length`
+* `at(i)`: Returns the queue located at index `i`
+* `add(i, x)`: Adds an element to the queue located at index `i`
+* `u`: The size of the direct access array
 
 The objects in the array are `Person` objects, which have the following instance attributes:
 
@@ -70,14 +69,13 @@ The objects in the array are `Person` objects, which have the following instance
 * `name`
 * `height`
 
-In this problem, we implement `construct_daa(A)`, which takes in our `Array` object, and outputs a custom `Array` object where elements have been inserted into the indexed location indicated by their keys. When constructing `d`, use the universe size `u` that you derived in the first problem.
+In this problem, we implement `construct_daa(A)`, which takes in a normal Python list, and outputs a custom `Array` object where elements have been inserted into the indexed location indicated by their keys. When constructing `d`, use the universe size `u` that you derived in the first problem of this problem set.
 """
 
 csq_soln = """
 def construct_daa(A):
     d = Array(100)
-    for A_index in A.length:
-        person = A.at(A_index)
+    for person in A:
         d.add(person.height, person)
     return d
 """
@@ -137,9 +135,10 @@ tests = [ (4, [(1, "Helen", 60),
 ]
 csq_tests = []
 for i, t in enumerate(tests):
+    A = [Person(*x) for x in t[1]]
     csq_tests.append({ 'code': f"""
-A = Array(*{t})
-ans = construct_daa(A)
+d = construct_daa({A})
+ans = isinstance(d, Array), str(d)
 """,
         'show_code': i<5,
         'grade': True,
@@ -150,7 +149,7 @@ ans = construct_daa(A)
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = """Now we are going to implement `extract_from_daa(d)`, which takes in our `Array d` and outputs another `Array` of size $n$, with our $n$ people arranged in order of increasing heights."""
+csq_prompt = """Now we are going to implement `extract_from_daa(d)`, which takes in our `Array d` and outputs a normal Python list of size $n$, with our $n$ `Person`s arranged in order of increasing heights."""
 
 csq_soln = """
 def extract_from_daa(d):
@@ -162,7 +161,7 @@ def extract_from_daa(d):
 """
 
 csq_initial = """def extract_from_daa(d):
-    return None
+    return []
 """
 
 csq_code_pre = """
@@ -201,6 +200,11 @@ class Array:
     def num_ats(self,):
         return self.num_accesses
 
+def construct_daa(A):
+    d = Array(100)
+    for person in A:
+        d.add(person.height, person)
+    return d
 """
 
 
@@ -219,11 +223,14 @@ tests = [ (4, [(1, "Helen", 60),
 csq_tests = []
 for i, t in enumerate(tests):
     u = 100
+    people = t[1]
     csq_tests.append({
         'code': f"""
 A = Array(*{t})
-enough_ats = A.num_ats() > {u}
-ans = enough_ats, str(construct_daa(A))
+d = construct_daa({people})
+sorted_arr = extract_from_daa(d)
+enough_ats = d.num_ats() > {u}
+ans = enough_ats, str(sorted_arr)
 """,
         'show_code': i<5,
         'grade': True,
