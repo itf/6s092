@@ -323,7 +323,7 @@ def print_user_table(username, pset_full_scores, user_score_problemset):
         a = soup.new_tag(
             "a", href="COURSE/{path}{spoof}".format(path=name, spoof=spoof)
         )
-        a.string = get_name_from_pset(name) # link to user info
+        a.string = name + " - " + get_name_from_pset(name)  # link to user info
 
         td.append(a)
         td["class"] = "text-left"
