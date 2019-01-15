@@ -105,7 +105,7 @@ class Array:
 
     def __str__(self):
         flat_list = [x for q in self._array123 for x in q]
-        return str([str(x) for x in sorted(flat_list, key = lambda x: x.height)])
+        return str([str(x) for x in sorted(flat_list, key = lambda x: x.name)])
 
     def at(self, i):
         self.num_accesses += 1
@@ -136,7 +136,10 @@ for i, t in enumerate(tests):
     csq_tests.append({ 'code': f"""
 A = [Person(*x) for x in {t}[1]]
 d = construct_daa(A)
-ans = isinstance(d, Array), str(d)
+ans = isinstance(d, Array), \
+      [str(x) for x in d.at(60)], \
+      [str(x) for x in d.at(66)], \
+      [str(x) for x in d.at(68)]
 """,
         'show_code': i<5,
         'grade': True,
@@ -181,7 +184,7 @@ class Array:
 
     def __str__(self):
         flat_list = [x for q in self._array123 for x in q]
-        return str([str(x) for x in sorted(flat_list, key = lambda x: x.height)])
+        return str([str(x) for x in sorted(flat_list, key = lambda x: x.name)])
 
     def at(self, i):
         self.num_accesses += 1
