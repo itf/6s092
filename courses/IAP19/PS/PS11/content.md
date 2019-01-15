@@ -154,7 +154,7 @@ A = [Person(*x) for x in {people}]
 d = construct_daa(A)
 ans = isinstance(d, Array), [[str(x) for x in d.at(h)] for h in {heights}]
 """,
-        'show_code': i<2,
+        'show_code': i < 1,
         'grade': True,
     })
 
@@ -256,10 +256,10 @@ for i, (heights, people) in enumerate(tests):
 people = [Person(*x) for x in {people}]
 d = construct_daa(people)
 sorted_arr = extract_from_daa(d)
-enough_ats = d.num_ats() > {u}
+enough_ats = d.num_ats() >= {u}
 ans = enough_ats, d.num_ats(), [[str(x) for x in d.at(h)] for h in {heights}]
 """,
-        'show_code': i<2,
+        'show_code': i < 1,
         'grade': True,
     })
 
