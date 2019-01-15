@@ -15,7 +15,7 @@ csq_options =  ['Return the length of the set',
 'Sort the elements of a set by key',
 'Insert an element with some key',
 'Remove an element with a particular key']
-csq_name="pq1-1"
+csq_name="p1"
 </question>
 
 <question multiplechoice>
@@ -26,7 +26,7 @@ csq_options =  ['An unsorted array, where, upon being asked for the max, searche
 'A sorted array, where each element is inserted into the proper location by key (in descending order), and upon being asked for the max returns the first element',
 'A binary search tree, as seen in PS16',
 'A binary max heap']
-csq_name="pq1-2"
+csq_name="p2"
 </question>
 
 <checkyourself>
@@ -50,10 +50,10 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["6"]
+csq_soln = '6'
 csq_explanation = "explanation"
 csq_nsubmits = None
-csq_name="pq2-1"
+csq_name="p3"
 </question>
 
 <question multiplechoice>
@@ -61,7 +61,7 @@ csq_prompt = "In the previous example, is the last row complete?"
 csq_renderer = "radio"
 csq_soln = 'No'
 csq_options =  ['Yes','No']
-csq_name="pq2-2"
+csq_name="p4"
 </question>
 
 <question expression>
@@ -70,10 +70,10 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["(128,255)"]
+csq_soln = '(128,255)'
 csq_explanation = "explanation"
 csq_nsubmits = None
-csq_name="pq2-3"
+csq_name="p5"
 </question>
 
 #Binary Trees: Implementation
@@ -85,41 +85,41 @@ Next, determine whether the following arrays represent min heaps, max heaps, or 
 <question multiplechoice>
 csq_prompt = "$[1,2,3,4,5,6,7,8,9,10]$"
 csq_renderer = "radio"
-csq_soln = [1,0,0]
+csq_soln = 'Min heap'
 csq_options =  ['Min heap',
 'Max heap',
 'Neither']
-csq_name="hi1"
+csq_name="p6"
 </question>
 
 <question multiplechoice>
 csq_prompt = "$[1,3,2,8,4,5,7,9,10,6]$"
 csq_renderer = "radio"
-csq_soln = [1,0,0]
+csq_soln = 'Min heap'
 csq_options =  ['Min heap',
 'Max heap',
 'Neither']
-csq_name="hi1"
+csq_name="p7"
 </question>
 
 <question multiplechoice>
 csq_prompt = "$[10,8,7,9,3,6,5,4,2,1]$"
 csq_renderer = "radio"
-csq_soln = []
+csq_soln = 'Neither'
 csq_options =  ['Min heap',
 'Max heap',
 'Neither']
-csq_name="hi1"
+csq_name="p8"
 </question>
 
 <question multiplechoice>
 csq_prompt = "$[10,6,9,4,5,7,8,3,2,1]$"
 csq_renderer = "radio"
-csq_soln = []
+csq_soln = 'Max heap'
 csq_options =  ['Min heap',
 'Max heap',
 'Neither']
-csq_name="hi1"
+csq_name="p9"
 </question>
 
 <question expression>
@@ -128,9 +128,10 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["(8,9)"]
+csq_soln = '(8,9)'
 csq_explanation = "explanation"
 csq_nsubmits = None
+csq_name="p10"
 </question>
 
 # Binary Heaps: maintaining them
