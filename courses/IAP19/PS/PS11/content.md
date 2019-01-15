@@ -69,7 +69,7 @@ The objects in the array are `Person` objects, which have the following instance
 * `name`
 * `height`
 
-In this problem, we implement `construct_daa(A)`, which takes in a normal Python list, and outputs a custom `Array` object where elements have been inserted into the indexed location indicated by their keys. When constructing `d`, use the universe size `u` that you derived in the first problem of this problem set.
+In this problem, we implement `construct_daa(A)`, which takes in a normal Python list, and outputs a custom `Array` object where elements have been inserted into the indexed location indicated by their keys. They are inserted into the queues in the order that they appear in `A`. When constructing `d`, use the universe size `u` that you derived in the first problem of this problem set.
 """
 
 csq_soln = """
@@ -126,22 +126,35 @@ csq_sandbox_options = {
     'MEMORY':1e9
 }
 
-tests = [ (4, [(1, "Helen", 60),
+tests = [ ((60, 66, 68),
+              [(1, "Helen", 60),
                (2, "Jakob", 66),
                (3, "Courtney", 68),
-               (4, "Ghost", 66) ])
+               (4, "Ghost", 66) ]),
+          ((54, 60, 68, 70, 72),
+              [(1, "Helen", 72),
+               (34, "Kanye", 68),
+               (21, "Stef", 60),
+               (32, "Jason", 68),
+               (2, "Justine", 60),
+               (5, "Michael", 70),
+               (2, "Alap", 54),
+               (111, "Ivan", 68),
+               (100, "Pato", 68)]),
+          ((30),
+              [(1, "Erik", 30),
+               (2, "Zach", 30),
+               (3, "Jason", 30),
+               (4, "Preksha", 30)])
 ]
 csq_tests = []
-for i, t in enumerate(tests):
+for i, (heights, people) in enumerate(tests):
     csq_tests.append({ 'code': f"""
-A = [Person(*x) for x in {t}[1]]
+A = [Person(*x) for x in {people}]
 d = construct_daa(A)
-ans = isinstance(d, Array), '\n', \
-      [str(x) for x in d.at(60)], '\n', \
-      [str(x) for x in d.at(66)], '\n', \
-      [str(x) for x in d.at(68)]
+ans = isinstance(d, Array), [[str(x) for x in d.at(h)] for h in {heights}]
 """,
-        'show_code': i<5,
+        'show_code': i<2,
         'grade': True,
     })
 
@@ -214,23 +227,39 @@ csq_sandbox_options = {
     'MEMORY':1e9
 }
 
-tests = [ (4, [(1, "Helen", 60),
+tests = [ ((60, 66, 68),
+              [(1, "Helen", 60),
                (2, "Jakob", 66),
                (3, "Courtney", 68),
-               (4, "Ghost", 66) ])
+               (4, "Ghost", 66) ]),
+          ((54, 60, 68, 70, 72),
+              [(1, "Helen", 72),
+               (34, "Kanye", 68),
+               (21, "Stef", 60),
+               (32, "Jason", 68),
+               (2, "Justine", 60),
+               (5, "Michael", 70),
+               (2, "Alap", 54),
+               (111, "Ivan", 68),
+               (100, "Pato", 68)]),
+          ((30),
+              [(1, "Erik", 30),
+               (2, "Zach", 30),
+               (3, "Jason", 30),
+               (4, "Preksha", 30)])
 ]
 csq_tests = []
-for i, t in enumerate(tests):
+for i, (heights, people) in enumerate(tests):
     u = 100
     csq_tests.append({
         'code': f"""
-people = [Person(*x) for x in {t}[1]]
+people = [Person(*x) for x in {people}]
 d = construct_daa(people)
 sorted_arr = extract_from_daa(d)
 enough_ats = d.num_ats() > {u}
-ans = enough_ats, str(sorted_arr)
+ans = enough_ats, [[str(x) for x in d.at(h)] for h in {heights}]
 """,
-        'show_code': i<5,
+        'show_code': i<2,
         'grade': True,
     })
 
