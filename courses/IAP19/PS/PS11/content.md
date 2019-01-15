@@ -94,6 +94,8 @@ class Person:
         self.height = height
     def __str__(self):
         return f"({self.id}, {self.name}, {self.height})"
+    def __repr__(self):
+        return f"({self.id}, {self.name}, {self.height})"
 
 class Array:
     def __init__(self, length):
@@ -104,8 +106,14 @@ class Array:
         self.num_sets = 0
 
     def __str__(self):
-        flat_list = [x for q in self._array123 for x in q]
-        return str([str(x) for x in sorted(flat_list, key = lambda x: x.name)])
+      return str(self._array123)
+
+    def __repr__(self):
+      max_i = 0
+      for i in range(len(self._array123)):
+        if self._array123[i]:
+          max_i = i
+      return str(self._array123[0:max_i+1] + ['...'])
 
     def at(self, i):
         self.num_accesses += 1
@@ -152,7 +160,8 @@ for i, (heights, people) in enumerate(tests):
     csq_tests.append({ 'code': f"""
 A = [Person(*x) for x in {people}]
 d = construct_daa(A)
-ans = isinstance(d, Array), [[str(x) for x in d.at(h)] for h in {heights}]
+assert isinstance(d, Array)
+ans = d
 """,
         'show_code': i < 1,
         'grade': True,
@@ -186,6 +195,8 @@ class Person:
         self.height = height
     def __str__(self):
         return f"({self.id}, {self.name}, {self.height})"
+    def __repr__(self):
+        return f"({self.id}, {self.name}, {self.height})"
 
 class Array:
     def __init__(self, length):
@@ -196,8 +207,14 @@ class Array:
         self.num_sets = 0
 
     def __str__(self):
-        flat_list = [x for q in self._array123 for x in q]
-        return str([str(x) for x in sorted(flat_list, key = lambda x: x.name)])
+      return str(self._array123)
+
+    def __repr__(self):
+      max_i = 0
+      for i in range(len(self._array123)):
+        if self._array123[i]:
+          max_i = i
+      return str(self._array123[0:max_i+1] + ['...'])
 
     def at(self, i):
         self.num_accesses += 1
@@ -257,7 +274,8 @@ people = [Person(*x) for x in {people}]
 d = construct_daa(people)
 sorted_arr = extract_from_daa(d)
 enough_accesses_to_d = d.num_ats() >= {u}
-ans = enough_accesses_to_d, [[str(x) for x in d.at(h)] for h in {heights}]
+assert enough_accesses_to_d
+ans = sorted_arr
 """,
         'show_code': i < 1,
         'grade': True,
