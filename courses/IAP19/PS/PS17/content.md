@@ -10,11 +10,46 @@ Recitation notes 6, 6.006 Fall 2018 on stellar.
 csq_prompt = "The height of an AVL tree is:"
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
-csq_options =  ["O(n)",
-                "O(log(n))",
+csq_options =  ["$O(n)$",
+                "$O(log(n))$",
                 "$O(n^2)$",
-                "O(n log(n))"]
+                "$O(n log(n))$"]
 csq_name="qexample1"
+</question>
+
+From the F2018 L07 notes:
+AVL property: Sub-tree heights of a node's left and right children differ by at most one.
+
+node height: number of edges in the longest path down. (Leaves have height zero, because there are no edges down from the leaves).
+
+
+<question multiplechoice>
+csq_prompt = '''The following is an AVL tree \n
+                10
+              /   \\ \n
+            4      17
+                  /
+                 12
+'''
+csq_renderer = "checkbox"
+csq_soln = [1,0]
+csq_options =  ["True", "False"]
+csq_name="qexample2"
+csq_explanation = "True. Each node's right and left subtrees have a height difference of at most 1."
+</question>
+
+<question multiplechoice>
+csq_prompt = '''The following is an AVL tree \n
+                10
+              /   \\ \n
+            4      17
+                  /
+                 12
+'''
+csq_renderer = "checkbox"
+csq_soln = [1,0]
+csq_options =  ["True", "False"]
+csq_name="qexample3"
 </question>
 
 
