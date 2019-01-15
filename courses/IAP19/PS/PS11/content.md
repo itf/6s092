@@ -110,7 +110,7 @@ class Array:
 
     def add(self, i, x):
         self.num_sets += 1
-        assert isinstance(type(x), Person)
+        assert isinstance(x, Person)
         self._array123[i].append(x)
         return
 """
@@ -188,7 +188,7 @@ class Array:
 
     def add(self, i, x):
         self.num_sets += 1
-        assert isinstance(type(x), Person)
+        assert isinstance(x, Person)
         self._array123[i].append(x)
         return
 
