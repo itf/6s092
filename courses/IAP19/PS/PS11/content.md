@@ -11,7 +11,7 @@ csq_options = ['5', '50','100', '1000']
 </question>
 
 <question multiplechoice>
-csq_prompt = """All of the 6.s092 students dropped out, so now we only have the following three students. :( Their information is formatted as `(student_id, name, height_inches)`.
+csq_prompt = """All of the 6.s092 students dropped out, so now we only have the following four students. :( Their information is formatted as `(student_id, name, height_inches)`.
 
 We perform counting sort on them anyway, inserting them into a direct access array $d$ in the order shown below. The direct access array has size $u$ as determined in the previous problem. What is true about $d$, given that the list `[x, y]` represents a queue where `x` was inserted into the queue before `y`?
 
@@ -94,14 +94,9 @@ class Person:
         self.height = height
 
 class Array:
-    def __init__(self, length, people = None):
-
-        if people:
-            self.length = len(people)
-            self._array123 = [Person(x[0], x[1], x[2]) for x in people]
-        else:
-            self.length = length
-            self._array123 = [ [] for x in range(length)]
+    def __init__(self, length):
+        self.length = length
+        self._array123 = [ [] for x in range(length)]
 
         self.num_accesses = 0
         self.num_sets = 0
@@ -197,7 +192,7 @@ class Array:
         self._array123[i].append(x)
         return
 
-    def num_ats(self,):
+    def num_ats(self):
         return self.num_accesses
 
 def construct_daa(A):
@@ -223,10 +218,9 @@ tests = [ (4, [(1, "Helen", 60),
 csq_tests = []
 for i, t in enumerate(tests):
     u = 100
-    people = t[1]
+    people = [People(*x) for x in t]
     csq_tests.append({
         'code': f"""
-A = Array(*{t})
 d = construct_daa({people})
 sorted_arr = extract_from_daa(d)
 enough_ats = d.num_ats() > {u}
