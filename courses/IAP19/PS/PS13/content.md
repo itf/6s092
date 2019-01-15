@@ -107,7 +107,7 @@ In other words, either all elements collide or none of them collide.
 
 What is the probability that $\\alpha$ and $\\beta$ collide when mapped under the hash family $\\mathbb{H}$?
 """
-csq_soln = ["1/4", "0"]
+csq_soln = ["1/4", "0.25"]
 csq_explanation = "If we randomly pick $f$ as the hashing function, then $\\alpha$ and $\\beta$ will collide. Otherwise they will not collide."
 csq_nsubmits = None
 </question>
