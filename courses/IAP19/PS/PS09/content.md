@@ -29,7 +29,7 @@ csq_name="LLOp3"
 </question>
 
 <question expression>
-csq_prompt= "How long does it take to insert or delete an element at the end of a direct access array with $n$ elements? Give the asymptotic runtime: theta(something) \n \n"
+csq_prompt= "How long does it take to insert or delete an element at the end of an array (not a dynamic array, just an array) with $n$ elements? Give the asymptotic runtime: theta(something) \n \n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
