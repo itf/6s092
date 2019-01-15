@@ -18,25 +18,28 @@ We perform counting sort on them anyway, inserting them into a direct access arr
 
 ```
 h = (1, Helen, 60)
+
 j = (2, Jakob, 66)
+
 c = (3, Courtney, 68)
+
 g = (4, Ghost, 66)```
 """
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0,1,0]
 csq_options = [
-"`d[1] = [(1, 'Helen', 60)]`",
-"`d[66] = [(2, 'Jakob', 66), (4, 'Ghost', 66)]`",
-"`d[66] = [(4, 'Ghost', 66), (2, 'Jakob', 66)]`",
-"`d['Ghost'] = [(4, 'Ghost', 66)]`",
-"`d[60] = [(1, 'Helen', 60)]`",
-"`d[0] = [(1, 'Helen', 60), (2, 'Jakob', 66), (3, 'Courtney', 68), (4, 'Ghost', 66)]`"
+"`d[1] = [h]`",
+"`d[66] = [j, g]`",
+"`d[66] = [g, j]`",
+"`d['Ghost'] = [g]`",
+"`d[60] = [h]`",
+"`d[0] = [h, j, c, g]`"
 ]
 csq_explanation = "If we're sorting by height, then the key would be heights and not IDs or names."
 </question>
 
 <question expression>
-csq_prompt = """Now we read from $d$ to get the list of students sorted by increasing height. What sequence would we get? Submit your answer as 4 letters, i.e. cghj"""
+csq_prompt = """Now we read from $d$ to get the list of students sorted by increasing height. What sequence would we get? Submit your answer as 4 letters, i.e. cghj \n"""
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
