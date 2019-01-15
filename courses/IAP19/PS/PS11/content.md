@@ -92,6 +92,8 @@ class Person:
         self.id = id
         self.name = name
         self.height = height
+    def __str__(self):
+        return f"({self.id}, {self.name}, {self.height})"
 
 class Array:
     def __init__(self, length):
@@ -166,6 +168,8 @@ class Person:
         self.id = id
         self.name = name
         self.height = height
+    def __str__(self):
+        return f"({self.id}, {self.name}, {self.height})"
 
 class Array:
     def __init__(self, length):
