@@ -102,7 +102,8 @@ class Array:
         self.num_sets = 0
 
     def __str__(self):
-        return str(sorted(self._array123, key = lambda x: x.height))
+        flat_list = [x for q in self._array123 for x in q]
+        return str(sorted(flat_list, key = lambda x: x.height))
 
     def at(self, i):
         self.num_accesses += 1
@@ -167,20 +168,16 @@ class Person:
         self.height = height
 
 class Array:
-    def __init__(self, length, people = None):
-
-        if people:
-            self.length = len(people)
-            self._array123 = [Person(x[0], x[1], x[2]) for x in people]
-        else:
-            self.length = length
-            self._array123 = [ [] for x in range(length)]
+    def __init__(self, length):
+        self.length = length
+        self._array123 = [ [] for x in range(length)]
 
         self.num_accesses = 0
         self.num_sets = 0
 
     def __str__(self):
-        return str(sorted(self._array123, key = lambda x: x.height))
+        flat_list = [x for q in self._array123 for x in q]
+        return str(sorted(flat_list, key = lambda x: x.height))
 
     def at(self, i):
         self.num_accesses += 1
