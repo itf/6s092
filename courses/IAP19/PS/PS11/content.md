@@ -136,8 +136,8 @@ tests = [ (4, [(1, "Helen", 60),
 ]
 csq_tests = []
 for i, t in enumerate(tests):
-    A = Array(*t)
     csq_tests.append({ 'code': f"""
+A = Array(*{t})
 ans = construct_daa(A)
 """,
         'show_code': i<5,
@@ -145,8 +145,3 @@ ans = construct_daa(A)
     })
 
 </question>
-
-
-
-
-
