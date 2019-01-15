@@ -58,6 +58,7 @@ def counting_sort(A):
     return extract_from_daa(d)
 ```
 In the above segment of code, `A` and `d` are `Array` objects, which have the following functions and instance attributes:
+Maybe we should make `A` a normal array and `d` an Array object...
 
 * `at(i)`:
 * `add(i, x)`:
@@ -81,10 +82,10 @@ def construct_daa(A):
     return d
 """
 
-csq_initial = """
-def construct_daa(A):
+csq_initial = """def construct_daa(A):
+    u = #TODO
     d = Array(u)
-    return A
+    return None
 """
 
 csq_code_pre = """
@@ -139,6 +140,90 @@ for i, t in enumerate(tests):
     csq_tests.append({ 'code': f"""
 A = Array(*{t})
 ans = construct_daa(A)
+""",
+        'show_code': i<5,
+        'grade': True,
+    })
+
+</question>
+
+
+<question pythoncode>
+csq_interface = 'ace'
+csq_prompt = """Now we are going to implement `extract_from_daa(d)`, which takes in our `Array d` and outputs another `Array` of size $n$, with our $n$ people arranged in order of increasing heights."""
+
+csq_soln = """
+def extract_from_daa(d):
+    ans = []
+    for d_index in range(d.length):
+        queue = d.at(d_index)
+        ans = ans + queue
+    return ans
+"""
+
+csq_initial = """def extract_from_daa(d):
+    return None
+"""
+
+csq_code_pre = """
+class Person:
+    def __init__(self, id, name, height):
+        self.id = id
+        self.name = name
+        self.height = height
+
+class Array:
+    def __init__(self, length, people = None):
+
+        if people:
+            self.length = len(people)
+            self._array123 = [Person(x[0], x[1], x[2]) for x in people]
+        else:
+            self.length = length
+            self._array123 = [ [] for x in range(length)]
+
+        self.num_accesses = 0
+        self.num_sets = 0
+
+    def __str__(self):
+        return str(sorted(self._array123))
+
+    def at(self, i):
+        self.num_accesses += 1
+        return self._array123[i]
+
+    def add(self, i, x):
+        self.num_sets += 1
+        assert isinstance(type(x), Person)
+        self._array123[i].append(x)
+        return
+
+    def num_ats(self,):
+        return self.num_accesses
+
+"""
+
+
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
+tests = [ (4, [(1, "Helen", 60),
+               (2, "Jakob", 66),
+               (3, "Courtney", 68),
+               (4, "Ghost", 66) ])
+]
+csq_tests = []
+for i, t in enumerate(tests):
+    u = 100
+    csq_tests.append({
+        'code': f"""
+A = Array(*{t})
+enough_ats = A.num_ats() > {u}
+ans = enough_ats, str(construct_daa(A))
 """,
         'show_code': i<5,
         'grade': True,
