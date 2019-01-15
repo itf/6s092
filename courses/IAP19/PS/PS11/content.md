@@ -256,8 +256,8 @@ for i, (heights, people) in enumerate(tests):
 people = [Person(*x) for x in {people}]
 d = construct_daa(people)
 sorted_arr = extract_from_daa(d)
-enough_ats = d.num_ats() >= {u}
-ans = enough_ats, d.num_ats(), [[str(x) for x in d.at(h)] for h in {heights}]
+enough_accesses_to_d = d.num_ats() >= {u}
+ans = enough_accesses_to_d, [[str(x) for x in d.at(h)] for h in {heights}]
 """,
         'show_code': i < 1,
         'grade': True,
