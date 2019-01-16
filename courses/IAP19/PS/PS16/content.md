@@ -142,13 +142,13 @@ csq_explanation = "We are in the case where the node being deleted has two child
 </question>
 
 <question pythonliteral>
-csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list of strings."
+csq_prompt = "For the BST in the above problem (before deletion), what is the result of an in-order traversal? Enter your answer as a python list of integers."
 csq_soln = [2,4,5,8,10,14,16]
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_explanation = "[2,4,5,8,10,14,16] For each node, we go to the min of its subtree (all the way left), if it has a left subtree, and append that one to the sorted list. From there, we add the parent and then go to the right subtree. We repeat this process throughout the tree."
+csq_explanation = "For each node, we go to the min of its subtree (all the way left), if it has a left subtree, and append that one to the sorted list. From there, we add the parent and then go to the right subtree. We repeat this process throughout the tree."
 csq_nsubmits = None
 </question>
 
@@ -170,6 +170,23 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_explanation = "Even though it takes up to $O(h)$ work to find a specific value, in-order traversal performs $O(1)$ work per node, so it takes a total of $O(n)$ work."
+csq_explanation = "Even though it takes up to $O(h)$ work to find a specific value, in-order traversal performs $\\theta(1)$ work per node, so it takes a total of $\\theta(n)$ work."
 csq_nsubmits = None
 </question>
+
+<question expression>
+csq_prompt = "How long does it take to sort an unsorted list with $n$ elements using binary search tree in-order-traversal, if we also tell you that the BST will end up with a height of $h$?"
+csq_soln = ["theta(nh)", "O(nh)"]
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_explanation = "See check yourself below."
+</question>
+
+<checkyourself>
+Do you understand the time complexity for the last question?
+<showhide>
+We must first construct the BST from our list. It will take $\theta(h)$ work to perform each insertion into the BST. So performing $n$ insertions will take $\theta(nh)$ time. You can think about it in terms of the two extreme cases: one where $h = \log(n)$, and the other extreme case where $h = n$."
+</showhide>
+</checkyourself>
