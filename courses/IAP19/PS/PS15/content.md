@@ -181,9 +181,17 @@ All max-heaps must satisfy the max-heap property (and min-heaps must satisfy the
 <checkyourself>
 This property allows us to find the element with greatest key in the max-heap in $O(1)$ time: it's always the root of the tree. Why is that?
 <showhide>
-There are two ways of showing this. First, we use contradiction. Suppose that the keys were all unique (if the keys are not unique, the proof is similar intuitively but more complicated). Assume that the maximum key node was not at the root. Then it would have a parent that has a greater key. But this is impossible because it is the maximum, so we have a contradiction: the maximum key node must be the root node.
-We can also prove this using induction, which is a proofs technique you guys will see in 6.006. The max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If $\verb|node.key| \leq \verb|node.parent.key|$, and $\verb|node.parent.key| \leq \verb|node.parent.parent.key|$, then clearly $\verb|node.key| \leq \verb|node.parent.parent.key|$. And so on.
-Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
+There are two ways of showing this.
+$$1$$
+First, we use contradiction. Suppose that the keys were all unique (if the keys are not unique, the proof is similar intuitively but more complicated). Assume that the maximum key node was not at the root. Then it would have a parent that has a greater key. But this is impossible because it is the maximum, so we have a contradiction: the maximum key node must be the root node.
+$$2$$
+We can also prove this using induction, which is a proofs technique you guys will see in 6.006. The max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If
+#$\verb|node.key| \leq \verb|node.parent.key|$$
+and
+$$\verb|node.parent.key| \leq \verb|node.parent.parent.key|$$
+then clearly
+$$\verb|node.key| \leq \verb|node.parent.parent.key|$$
+And so on. Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
 </showhide>
 </checkyourself>
 
