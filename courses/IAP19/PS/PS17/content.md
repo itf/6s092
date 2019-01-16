@@ -88,12 +88,12 @@ csq_explanation = ""
 </question>
 
 <checkyourself>
-Can you show that $T(h) \\geq 2^{n/2}$?
+Can you show that $T(h) \geq 2^{n/2}$?
 <showhide>
-Your answer in the previous question simplifies to $T(h) \\geq 2T(h-2)$, because $T(h-1) \\geq T(h-2)$. We use induction: we know that $T(1) \\geq 2^0$. Assume that $T(h-2) \\geq 2^{(h-2)/2}$. Then 
-$$T(h) \\geq 2T(h-2) \\geq 2 \\times 2^{(h-2)/2} = 2^{h/2}$$
+Your answer in the previous question simplifies to $T(h) \geq 2T(h-2)$, because $T(h-1) \geq T(h-2)$. We use induction: we know that $T(1) \geq 2^0$. Assume that $T(h-2) \geq 2^{(h-2)/2}$. Then 
+$$T(h) \geq 2T(h-2) \geq 2 \times 2^{(h-2)/2} = 2^{h/2}$$
 What this means is that, given some height $h$, we have a lower-bound for the number $n$ of nodes that would be in the tree. So we have an upper-bound for $h$:
-$$ \\Rightarrow n \\geq T(h) \\geq 2^{h/2} \\Rightarrow h \\leq 2 \\times \\log_2(n)$$
+$$ \Rightarrow n \geq T(h) \geq 2^{h/2} \Rightarrow h \leq 2 \times \log_2(n)$$
 </showhide>
 </checkyourself>
 
