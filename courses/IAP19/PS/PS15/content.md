@@ -176,16 +176,18 @@ csq_name="p10"
 </question>
 
 # Binary Heaps: Maintaining Them
-The key to binary heaps is maintaining the max-heap property (or min-heap property, if it's a min-heap), which requires a nodes key value to be greater than the key value of its children. 
+All max-heaps must satisfy the max-heap property (and min-heaps must satisfy the min-heap property). The max-heap property states that a node's key value must be greater than or equal to the key value of its children.
 
 <checkyourself>
-This property gives our heap the ability to find the element with greatest key very quickly: it's always the root of the tree. Why is that?
+This property allows us to find the element with greatest key in the max-heap in $O(1)$ time: it's always the root of the tree. Why is that?
 <showhide>
-Suppose the keys are unique. Then, if the maximum were anywhere but the root, it would have a parent that must have a greater key. But this is impossible because it is the maximum, so it must be at the root. \n Alternatively the max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If $\verb|node.key| \leq \verb|node.parent.key|$, and $\verb|node.parent.key| \leq \verb|node.parent.parent.key|$, then clearly $\verb|node.key| \leq \verb|node.parent.parent.key|$. And so on. \n Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
+There are two ways of showing this. First, we use contradiction. Suppose that the keys were all unique (if the keys are not unique, the proof is similar intuitively but more complicated). Assume that the maximum key node was not at the root. Then it would have a parent that has a greater key. But this is impossible because it is the maximum, so we have a contradiction: the maximum key node must be the root node.
+We can also prove this using induction, which is a proofs technique you guys will see in 6.006. The max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If $\verb|node.key| \leq \verb|node.parent.key|$, and $\verb|node.parent.key| \leq \verb|node.parent.parent.key|$, then clearly $\verb|node.key| \leq \verb|node.parent.parent.key|$. And so on.
+Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
 </showhide>
 </checkyourself>
 
-So if we ensure that our binary heap maintains the max-heap property, this will, in turn, make sure that the binary heap keeps the element with greatest key value at the top: the primary feature of a priority queue!
+So if we ensure that our binary heap maintains the max-heap property, this will, in turn, make sure that the binary heap keeps the element with greatest key value at the top: this makes it really efficient to use a max-heap as a priority queue implementation!
 
 Then the question becomes: how do we ensure that the binary heap maintains the max-heap property, even when we do operations on it (inserting a new element, removing the maximum element)?
 
@@ -204,9 +206,9 @@ max_heapify_up(A, len(A)-1)         # make sure max-heap property is satisfied
 ```
 
 <checkyourself>
-Why is $c$ set to len(A)-1 in the code above?
+Why do we input `len(A)-1` as the second parameter in `max_heapify_up` in the code above?
 <showhide>
-In the definition of `max_heapify_up`, $c$ is an index in the array. We want to apply max heapify to the element we just inserted, which is in position len(A)-1 with zero indexing.
+In the definition of `max_heapify_up`, $c$ is an index in the array. We want to apply max heapify to the element we just inserted, which is at the end, in position `len(A)-1` with zero indexing.
 </showhide>
 </checkyourself>
 
@@ -298,6 +300,6 @@ delete A[len(A)-1]
 max_heapify_down(A,len(A)-1)
 delete A[0]
 ``` """]
-csq_explanation = 'The number of levels in the tree is $O(\log n)$, as discussed earlier in the problem set.'
+csq_explanation = "We replace the max with a leaf, delete the leaf, and move the leaf down until the tree satisfies the max-heap property again."
 csq_name="p14"
 </question>
