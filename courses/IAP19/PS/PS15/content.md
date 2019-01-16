@@ -195,9 +195,7 @@ In the definition of max_heapify_up, $c$ is an index in the array. We want to ap
 </checkyourself>
 
 <question multiplechoice>
-csq_prompt = "The key observation for the runtime of max_heapify_up is that each time we have to recurse, we are recursing on the parent, and therefore getting one level closer to the root. So we can bound the runtime using the number of levels in the tree.
-
-With this in mind, what is the runtime of inserting an element with this implementation? Here, $n$ represents the number of elements in the heap."
+csq_prompt = "The key observation for the runtime of max_heapify_up is that each time we have to recurse, we are recursing on the parent, and therefore getting one level closer to the root. So we can bound the runtime using the number of levels in the tree. With this in mind, what is the runtime of inserting an element with this implementation? Here, $n$ represents the number of elements in the heap."
 csq_renderer = "radio"
 csq_soln = '$O(\log n)$'
 csq_options =  ['$O(1)$',
