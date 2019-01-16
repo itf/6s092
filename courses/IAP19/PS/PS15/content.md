@@ -116,7 +116,7 @@ for i, t in enumerate(tests):
     csq_test.append({
         'code': f"""
 ans = parent({t})
-"""
+""",
         'show_code': i < 5,
         'grade': True,
     })
