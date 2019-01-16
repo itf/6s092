@@ -61,7 +61,7 @@ In the above segment of code, `A` is a normal Python list, and `d` is a special 
 
 * `at(i)`: Returns the queue located at index `i`
 * `add(i, x)`: Adds an element to the queue located at index `i`
-* `u`: The size of the direct access array
+* `length`: The size of the direct access array
 
 The objects in the array are `Person` objects, which have the following instance attributes:
 
