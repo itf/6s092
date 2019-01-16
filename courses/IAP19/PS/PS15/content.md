@@ -7,13 +7,14 @@
 
 
 <question multiplechoice>
-csq_prompt = "Which of the following operations do most priority queues execute efficiently?"
+csq_prompt = "Generally, a good priority queue is optimized to do some specific operations quickly. Which of the following are among these operations?"
 csq_renderer = "checkbox"
-csq_soln = [1,1,1,0]
+csq_soln = [1,1,1,0,0]
 csq_options =  ['Return the length of the set',
 'Remove the element with the greatest (or least) key',
 'Insert an element with some key',
-'Remove an element with a particular key']
+'Remove an element with a particular key',
+'Insert $k$ of a particular element']
 csq_name="p1"
 </question>
 
