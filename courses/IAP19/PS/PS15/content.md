@@ -84,9 +84,9 @@ csq_name="p5"
 #Binary Trees: Implementation
 Recall that binary trees are often implemented as just (dynamic) arrays, with the elements in the first row listed before the elements in the second, before the elements in the third, and so on. With some simple arithmetic (and zero-indexing!) we gather that the left child of the parent in position $i$ is stored in position $2i+1$, and the right child in position $2i+2$.
 
-<!-- <question pythoncode>
+<question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "THIS QUESTION IS INCOMPLETE. Write a function that takes in an index $i$ and returns the index of its parent. If given the root node, the function should return the root node index (0) again, for reasons we will see later."
+csq_prompt = "Write a function that takes in an index $i$ and returns the index of its parent. If given the root node, the function should return the root node index (0) again, for reasons we will see later."
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -107,8 +107,16 @@ csq_sandbox_options = {
     'MEMORY':1e9
 }
 
+tests = [0, 1, 2, cs_random.randint(3,7), cs_random.randint(5, 10), cs_random.randint(10, 20), cs_random.randint(20, 32)]
+
 csq_test = []
-</question> -->
+for i, t in enumerate(tests):
+    csq_test.append({
+        'code': f"""
+ans = parent({t})
+"""
+    })
+</question>
 
 Next, determine whether the following arrays represent min heaps, max heaps, or neither.
 <question multiplechoice>
@@ -169,11 +177,7 @@ The key to binary heaps is maintaining the max-heap property (or min-heap proper
 <checkyourself>
 This property gives our heap the ability to find the element with greatest key very quickly: it's always the root of the tree. Why is that?
 <showhide>
-Suppose the keys are unique. Then, if the maximum were anywhere but the root, it would have a parent that must have a greater key. But this is impossible because it is the maximum, so it must be at the root.
-
-Alternatively the max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If $\verb|node.key| \leq \verb|node.parent.key|$, and $\verb|node.parent.key| \leq \verb|node.parent.parent.key|$, then clearly $\verb|node.key| \leq \verb|node.parent.parent.key|$. And so on.
-
-Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
+Suppose the keys are unique. Then, if the maximum were anywhere but the root, it would have a parent that must have a greater key. But this is impossible because it is the maximum, so it must be at the root. \n Alternatively the max-heap property ensures that the ancestors of any node have a key value at least that of the node: proving this by induction is pretty straightforward, or you can convince yourself by looking at the parent of the parent of a node. If $\verb|node.key| \leq \verb|node.parent.key|$, and $\verb|node.parent.key| \leq \verb|node.parent.parent.key|$, then clearly $\verb|node.key| \leq \verb|node.parent.parent.key|$. And so on. \n Then the root, which is everyone's ancestor, must have key value that is at least the value of any other node. This makes it the maximum.
 </showhide>
 </checkyourself>
 
@@ -282,6 +286,7 @@ A[0]=A[len(A)-1]
 delete A[len(A)-1]
 max_heapify_down(A,len(A)-1)
 ``` """, """
+```
 max_heapify_down(A,0)
 delete A[len(A)-1]
 ``` """, """
