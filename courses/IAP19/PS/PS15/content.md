@@ -99,6 +99,9 @@ csq_initial = """def parent(i):
     return 
 """
 
+csq_code_pre = ""
+csq_code_post = ""
+
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
@@ -108,13 +111,14 @@ csq_sandbox_options = {
 }
 
 tests = [0, 1, 2, cs_random.randint(3,7), cs_random.randint(5, 10), cs_random.randint(10, 20), cs_random.randint(20, 32)]
-
 csq_test = []
 for i, t in enumerate(tests):
     csq_test.append({
         'code': f"""
 ans = parent({t})
 """
+        'show_code': i < 5,
+        'grade': True,
     })
 </question>
 
