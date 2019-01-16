@@ -1,7 +1,8 @@
 # Readings
-Recitation notes 5b, 6.006 Fall 2018 on stellar.
+[Recitation notes 5b](https://learning-modules.mit.edu/service/materials/groups/238004/files/01453835-3d27-478a-8069-4f55b2eeace6/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
 
-Lecture notes 6, 6.006 Fall 2018 on stellar.
+[Lecture notes 6](https://learning-modules.mit.edu/service/materials/groups/238004/files/1d824237-2789-4b76-9829-c7844c145ad5/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on stellar.
+
 # Binary Search Trees
 
 
@@ -43,20 +44,20 @@ csq_options =  [
            15
 '''
 ]
-csq_explanation = "Remember that the BST property states that keys in the left subtree must be <= the key of a node, and keys in the right subtree must be >= the key of a node. The fourth tree does not satisfy the BST property because 15 > 10, but 15 is in the left subtree of the node with key 10."
+csq_explanation = "Remember that the BST property states that keys in the left subtree must be $\\leq$ the key of a node, and keys in the right subtree must be $\\geq$ the key of a node. The fourth tree does not satisfy the BST property because $15 > 10$, but $15$ is in the left subtree of the node with key $10$."
 </question>
 
 
 <question multiplechoice>
 csq_prompt = '''
 We have the following BST: \n
-              12 \n
-            /   \\ \n
-          7       16 \n
-        /  \\   /   \\ \n
-      A    B   C      D \n
+              12 
+            /   \\ 
+          7       16 
+        /  \\   /   \\ 
+      A    B   C      D 
 
-We insert a node with key 10 into the BST. Where does it go (to satisfy the BST property)?
+We insert a node with key $10$ into the BST. Where does it go (to satisfy the BST property)?
 '''
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
@@ -68,39 +69,39 @@ csq_explanation = "We compare 10 to 12. 10 < 12, so we go to the left subtree. W
 <question multiplechoice>
 csq_prompt = """
 We have the following BST: \n
-         8 \n
-     /     \\ \n
-    4        14 \n
-            /    \\ \n
-           10     16 \n
-We delete the node with key 14. What does the tree look now? (May be more than one answer).
+         8 
+     /     \\ 
+    4        14 
+            /    \\ 
+           10     16 
+We delete the node with key $14$. What does the tree look now? (May be more than one answer).
 """
 csq_renderer = "checkbox"
 csq_soln = [1,1,0,0]
 csq_options =  [
 '''
-        8 \n
-      /   \\ \n
-     4      10 \n
-             \\ \n
-                 16 \n
+        8 
+      /   \\ 
+     4      10 
+             \\ 
+                 16 
 ''',
 '''
-         8 \n
-       /    \\ \n
-     4       16 \n
-            /     \n
+         8 
+       /    \\ 
+     4       16 
+            /     
           10     
 ''',
 '''
-        8 \n
-     /     \n
+        8 
+     /     
     4       
 ''',
 '''
-        8 \n
-      /   \\ \n
-     4      10 \n
+        8 
+      /   \\ 
+     4      10 
 ''',
 ]
 csq_explanation = "When we delete the node with key 14, either the node with key 10 or the node with key 16 can take its place."
@@ -110,12 +111,12 @@ csq_explanation = "When we delete the node with key 14, either the node with key
 <question multiplechoice>
 csq_prompt = """
 We have the following BST: \n
-             8 \n
-          /     \\ \n
-         4        14 \n
-       /   \\     /   \\ \n
-      2      5   10     16 \n
-We delete the root (node with key 8). What does the tree look now? (Follow the delete function we learned in class).
+             8 
+          /     \\ 
+         4        14 
+       /   \\     /   \\ 
+      2      5   10     16 
+We delete the root (node with key 8). What does the tree look now? (Follow the algorithm described in the recitation notes).
 """
 csq_renderer = "checkbox"
 csq_soln = [0,1,0]
@@ -130,11 +131,11 @@ csq_options =  [
      2     5
 ''',
 '''
-          10 \n
-        /     \\ \n
-      4        14 \n
-     /  \\        \\ \n
-    2     5         16 \n
+          10 
+        /     \\ 
+      4        14 
+     /  \\        \\ 
+    2     5         16 
 ''',
 '''
                4
@@ -198,3 +199,19 @@ Do you understand the time complexity for the last question?
 We must first construct the BST from our list. It will take $\Theta(h)$ work to perform each insertion into the BST. So performing $n$ insertions will take $\Theta(nh)$ time. You can think about it in terms of the two extreme cases: one where $h = \log(n)$, and the other extreme case where $h = n$.
 </showhide>
 </checkyourself>
+
+<question pythonliteral>
+csq_prompt = """
+We have the following BST: \n
+             8
+          /     \\
+         4        14
+       /   \\     /   \\
+      2      5   10     16
+       \\
+        3
+Return a Python list of the nodes you encounter when you search for the minimum element in this BST, in the order that you encounter them.
+"""
+csq_soln = [8, 4, 2]
+csq_explanation = "Start at the root, and continue to travel down the left child until there are no more left children."
+</question>
