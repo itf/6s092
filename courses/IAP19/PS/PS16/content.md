@@ -8,7 +8,7 @@ Lecture notes 6, 6.006 Fall 2018 on stellar.
 <question multiplechoice>
 csq_prompt = "Which of the following trees are BSTs? (There may be more than one)."
 csq_renderer = "checkbox"
-csq_soln = [1,1,1,0]
+csq_soln = [1,1,1,0,1]
 csq_options =  [
 '''
          10
@@ -34,8 +34,16 @@ csq_options =  [
        \\
          15
 '''
+,
+'''
+    5
+     \\
+       10
+         \\
+           15
+'''
 ]
-csq_explanation = "The first three trees satisfy the BST property. Remember that the BST property states that keys in the left subtree must be <= the key of a node, and keys in the right subtree must be >= the key of a node. The fourth tree does not satisfy the BST property because 15 > 10, but 15 is in the left subtree of the node with key 10."
+csq_explanation = "Remember that the BST property states that keys in the left subtree must be <= the key of a node, and keys in the right subtree must be >= the key of a node. The fourth tree does not satisfy the BST property because 15 > 10, but 15 is in the left subtree of the node with key 10."
 </question>
 
 
@@ -153,7 +161,7 @@ csq_nsubmits = None
 </question>
 
 <question expression>
-csq_prompt = "How long does it take to find an element in a binary search tree of height $h$ with $n$ elements?"
+csq_prompt = "How long does it take to find an element in a binary search tree of height $h$ with $n$ elements? Give the asymptotic complexity."
 csq_soln = "O(h)"
 csq_show_check = True
 csq_allow_check = True
@@ -187,6 +195,6 @@ csq_explanation = "See check yourself below."
 <checkyourself>
 Do you understand the time complexity for the last question?
 <showhide>
-We must first construct the BST from our list. It will take $\theta(h)$ work to perform each insertion into the BST. So performing $n$ insertions will take $\theta(nh)$ time. You can think about it in terms of the two extreme cases: one where $h = \log(n)$, and the other extreme case where $h = n$."
+We must first construct the BST from our list. It will take $\Theta(h)$ work to perform each insertion into the BST. So performing $n$ insertions will take $\Theta(nh)$ time. You can think about it in terms of the two extreme cases: one where $h = \log(n)$, and the other extreme case where $h = n$.
 </showhide>
 </checkyourself>
