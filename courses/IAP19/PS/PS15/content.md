@@ -256,8 +256,8 @@ csq_soln = 'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_up(A, 0)'
 csq_options =  ['A.append(k), then max_heapify_up(A, len(A)-1',
 'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_up(A,0)',
 'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_up(A,len(A)-1)',
-max_heapify_up(A,0), then delete A[len(A)-1]',
-max_heapify_up(A,len(A)-1), then delete A[0]']
+'max_heapify_up(A,0), then delete A[len(A)-1]',
+'max_heapify_up(A,len(A)-1), then delete A[0]']
 csq_explanation = 'The number of levels in the tree is $O(\log n)$, as discussed earlier in the problem set.'
 csq_name="p14"
 </question>
