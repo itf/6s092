@@ -111,9 +111,9 @@ csq_sandbox_options = {
 }
 
 tests = [0, 1, 2, cs_random.randint(3,7), cs_random.randint(5, 10), cs_random.randint(10, 20), cs_random.randint(20, 32)]
-csq_test = []
+csq_tests = []
 for i, t in enumerate(tests):
-    csq_test.append({
+    csq_tests.append({
         'code': f"""
 ans = parent({t})
 """,
