@@ -229,7 +229,7 @@ csq_options =  ['$O(1)$',
 '$O(\log n)$',
 '$O(n)$',
 '$O(n \log n)$',
-'$O(n^2)']
+'$O(n^2)$']
 csq_explanation = 'The number of levels in the tree is $O(\log n)$, as discussed earlier in the problem set.'
 csq_name="p11"
 </question>
