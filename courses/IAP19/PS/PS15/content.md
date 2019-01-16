@@ -22,15 +22,15 @@ csq_name="p1"
 csq_prompt = "Which of the following would be considered a priority queue?"
 csq_renderer = "checkbox"
 csq_soln = [1,1,0,1]
-csq_options =  ['An unsorted array, where, upon being asked for the max, searches through the entire array and returns the element with maximal key',
-'A sorted array, where each element is inserted into the proper location by key (in descending order), and upon being asked for the max returns the first element',
+csq_options =  ['An unsorted dynamic array, where, upon being asked for the max, searches through the entire array and returns the element with maximal key',
+'A sorted dynamic array, where each element is inserted into the proper location by key (in descending order), and upon being asked for the max returns the first element',
 'A binary search tree, as seen in PS16',
 'A binary max heap']
 csq_name="p2"
 </question>
 
 <checkyourself>
-If a priority queue (with unique keys) is optimized to return and remove the element with the greatest key value in O(\log n) time, can it return the second greatest key in $O(\log n)$ time as well? How?
+If a priority queue (with unique keys) is optimized to return and remove the element with the greatest key value in $O(\log n)$ time, can it return the second greatest key in $O(\log n)$ time as well? How?
 <showhide>
 Yes. First, remove the element with the greatest key in $O( \log n)$ time and store it. Then, remove the next element with greatest key: this was the element with the second greatest key originally. Reinsert the first element we had to remove, if necesarry.
 </showhide>
@@ -64,7 +64,7 @@ csq_name="p4"
 </question>
 
 <question expression>
-csq_prompt = "Suppose a binary tree has $8$ rows. Let $l$ be the minumum number of elements it could contain, and $m$ be the maximum number of elements it could contain. What is $l+m$?"
+csq_prompt = "Suppose a binary tree has $8$ rows. Let $l$ be the minumum number of elements it could contain, and $m$ be the maximum number of elements it could contain. What is $l+m$? Feel free to express your answer as an expression like `a^b + c`"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
@@ -241,23 +241,24 @@ Along with the insert operation, we need to be able to remove the maximum. This 
 The only problem is that, of course, it is very unlikely that this element has the greatest key. Note, however, that this element is the *only* one not obeying the max heap property. So we run max_heapify_down, which moves this misplaced element back into its place, without messing with the other elements of the heap. It looks very familiar:
 
 ```python
-def max_heapify_up(A, p):
+def max_heapify_down(A, p):
     l, r = 2 * c + 1, 2 * i + 2             # get the parent (defined this function earlier)
     c = l if A[l].key > A [r].key else r    # chooses the child with the bigger key
     if A[c].key > A[p].key:                 # if the child is bigger than that of p
         A[p], A[c] = A[c], A[p]             # switch parent and child
-        max_heapify_up(A, c)                # check if the new "child" now needs to be moved down further
+        max_heapify_down(A, c)                # check if the new "child" now needs to be moved down further
 ```
 
 <question multiplechoice>
-csq_prompt = "Using this max_heapify_up function, how would you implement the remove_max functionality of a priority queue?"
+csq_prompt = "Using this max_heapify_down function, how would you implement the remove_max functionality of a priority queue?"
 csq_renderer = "radio"
-csq_soln = 'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_up(A, 0)'
-csq_options =  ['A.append(k), then max_heapify_up(A, len(A)-1',
-'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_up(A,0)',
-'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_up(A,len(A)-1)',
-'max_heapify_up(A,0), then delete A[len(A)-1]',
-'max_heapify_up(A,len(A)-1), then delete A[0]']
+csq_soln = "A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_down(A,0)"
+
+csq_options =  ['A.append(k), then max_heapify_down(A, len(A)-1)',
+'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_down(A,0)',
+'A[0]=A[len(A)-1], delete A[len(A)-1], then max_heapify_down(A,len(A)-1)',
+'max_heapify_down(A,0), then delete A[len(A)-1]',
+'max_heapify_down(A,len(A)-1), then delete A[0]']
 csq_explanation = 'The number of levels in the tree is $O(\log n)$, as discussed earlier in the problem set.'
 csq_name="p14"
 </question>
