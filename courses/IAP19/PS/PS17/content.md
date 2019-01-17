@@ -103,11 +103,11 @@ Now that we've shown that an AVL tree with $n$ nodes has $O(\log(n))$ height, we
 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree \n
-                10
-              /   \\ 
-            4      17
-                  /
-                 12
+                10  
+              /   \\   
+            4      17  
+                  /   
+                 12   
 '''
 csq_renderer = "checkbox"
 csq_soln = [1,0]
@@ -119,7 +119,7 @@ csq_explanation = "Each node's right and left subtrees have a height difference 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree 
 ```
-                10
+                10   
 ```
 '''
 csq_renderer = "checkbox"
@@ -147,11 +147,11 @@ csq_explanation = "From the root (with key 20), the left subtree (node with key 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree \n
 ```
-                23  
+                23    
               /    
             18 
               \\ 
-              19
+              19  
 ```
 
 '''
@@ -170,7 +170,7 @@ csq_prompt = '''Ben Bitdiddle has just inserted an element to his AVL tree, brea
           / \    B       C         B       A     / \....
 h ......./___\../ \...../ \......./ \...../ \.../   \... h
 h + 1 ........./   \.../   \...../   \.../___\./_____\.. h + 1
-h + 2 ......../_____\./_____\.../_____\................. h + 2
+h + 2 ......../_____\./_____\.../_____\................. h + 2  
 ```
 '''
 csq_soln = 'no'
@@ -188,7 +188,7 @@ csq_prompt = """Ben inserted an element into another AVL tree, breaking the AVL 
           /   \    F        G     / \        / \      / \      / \     / \....
 h ......./_____\../ \....../ \.../   \....../   \..../   \..../   \.../   \... h
 h + 1 .........../   \..../   \./_____\..../_____\../_____\../_____\./_____\.. h + 1
-h + 2 ........../_____\../_____\.............................................. h + 2
+h + 2 ........../_____\../_____\.............................................. h + 2  
 ``` """
 csq_soln = "AFGE"
 </question>
