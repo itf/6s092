@@ -87,15 +87,15 @@ csq_soln = ["1 + T(h-1) + T(h-2)", "1 + T(h-2) + T(h-1)"]
 csq_explanation = ""
 </question>
 
-In order to show that an AVL tree of $n$ nodes has $O(\log(n))$ height, it'e enough to show that $h \\leq 2 \\times \\log(n)$. If a tree of $n$ nodes has a height of $h$, then $n \geq T(h)$ by definition.
+In order to show that an AVL tree of $n$ nodes has $O(\log(n))$ height, it'e enough to show that $h \leq 2 \times \log(n) + 1$. If a tree of $n$ nodes has a height of $h$, then $n \geq T(h)$ by definition.
 
 <checkyourself>
-Can you show that $T(h) \geq 2^{n/2}$?
+Can you show that $T(h) \geq 2^{h-1/2}$?
 <showhide>
-Your answer in the previous question simplifies to $T(h) \geq 2T(h-2)$, because $T(h-1) \geq T(h-2)$. We use induction: we know that $T(1) \geq 2^0$. Assume that $T(h-2) \geq 2^{(h-2)/2}$. Then 
-$$T(h) \geq 2T(h-2) \geq 2 \times 2^{(h-2)/2} = 2^{h/2}$$
+Your answer in the previous question simplifies to $T(h) \geq 2T(h-2)$, because $T(h-1) \geq T(h-2)$. We use induction: we know that $T(1) \geq 2^0$. Assume that $T(i) \geq 2^{(i-1)/2}$ for all $i \leq h$. Then 
+$$T(h) \geq 2T(h-2) \geq 2 \times 2^{(h-3)/2} = 2^{h-1/2}$$
 What this means is that, given some height $h$, we have a lower-bound for the number $n$ of nodes that would be in the tree. So we have an upper-bound for $h$:
-$$ \Rightarrow n \geq T(h) \geq 2^{h/2} \Rightarrow h \leq 2 \times \log_2(n)$$
+$$ \Rightarrow n \geq T(h) \geq 2^{h-1/2} \Rightarrow h \leq 2 \times \log_2(n) + 1$$
 </showhide>
 </checkyourself>
 
