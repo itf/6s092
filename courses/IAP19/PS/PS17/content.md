@@ -156,13 +156,14 @@ csq_explanation = "The node with key 18 has height 1, and there is no right chil
 
 <question expression>
 csq_prompt = """Ben Bitdiddle has just inserted an element to his AVL tree, breaking the AVL property. In order to maintain the AVL property, he decides to perform a rotation. Is this a valid rotation to maintain the BST and AVL properties of the tree? \n
-
+```
 Case 1      ____X____               ____X____
            A     ____Y___          A      ___Y___
           / \    B       C        / \    B       C
 h ......./___\../ \...../ \....../___\../ \...../ \...... h
 h + 1 ........./___\.../ \............./   \.../___\..... h + 1
 h + 2 ......../_____\./_____\........./_____\............ h + 2
+```
 """
 
 csq_soln = "No"
