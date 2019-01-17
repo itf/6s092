@@ -12,36 +12,46 @@ csq_renderer = "checkbox"
 csq_soln = [1,1,1,0,1]
 csq_options =  [
 '''
-         10
-        /  \\
-      5      15
+```
+  10
+ /  \\
+5    15
+```
 '''
 ,
 '''
-         5
-       /  \\
-     5     15
+```
+   5
+  /  \\
+5    15
+```
 ''',
 '''
-        5
-      /  \\
-    5      5
+```
+   5
+  /  \\
+5     5
+```
 '''
 ,
 '''
-          10
-        /   
-      5
-       \\
-         15
+```
+   10
+  /   
+5
+ \\
+  15
+```
 '''
 ,
 '''
-    5
+```
+5
+ \\
+   10
      \\
-       10
-         \\
-           15
+     15         
+```
 '''
 ]
 csq_explanation = "Remember that the BST property states that keys in the left subtree must be $\\leq$ the key of a node, and keys in the right subtree must be $\\geq$ the key of a node. The fourth tree does not satisfy the BST property because $15 > 10$, but $15$ is in the left subtree of the node with key $10$."
@@ -84,7 +94,7 @@ csq_options =  [
       /   \\ 
      4      10 
              \\ 
-                 16 
+              16 
 ''',
 '''
          8 
@@ -101,7 +111,7 @@ csq_options =  [
 '''
         8 
       /   \\ 
-     4      10 
+     4      10      
 ''',
 ]
 csq_explanation = "When we delete the node with key 14, either the node with key 10 or the node with key 16 can take its place."
@@ -144,7 +154,7 @@ csq_options =  [
                      \\
                       14
                     /   \\
-                  10      16
+                  10      16      .
 '''
 ]
 csq_explanation = "We are in the case where the node being deleted has two children. We take the min of the right subtree (or the max of the left subtree), and put move it to the place of the deleted node."
@@ -207,7 +217,7 @@ We have the following BST: \n
           /     \\
          4        14
        /   \\     /   \\
-      2      5   10     16
+      2      5   10     16    
        \\
         3
 Return a Python list of the nodes you encounter when you search for the minimum element in this BST, in the order that you encounter them.
