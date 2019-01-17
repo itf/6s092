@@ -57,7 +57,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["$O(n+u)", "Theta(n+u)"]
+csq_soln = ["O(n+u)", "Theta(n+u)"]
 csq_nsubmits = None
 csq_name="p3"
 </question>
@@ -69,7 +69,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["$O(k)$","$Theta(k)$"]
+csq_soln = ["O(k)","Theta(k)"]
 csq_nsubmits = None
 csq_name="p4"
 </question>
@@ -80,7 +80,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["$O(k(n+u))$","$Theta(k(n+u))$"]
+csq_soln = ["O(k(n+u))","Theta(k(n+u))"]
 csq_nsubmits = None
 csq_name="p5"
 </question>
