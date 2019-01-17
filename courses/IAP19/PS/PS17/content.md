@@ -154,17 +154,33 @@ csq_name="qexample5"
 csq_explanation = "The node with key 18 has height 1, and there is no right child of the root (it is a 'missing child' and contributes height $-1$). The root has a skew equal to $(-1) - (1) = -2$. The skew of an AVL tree must be $\in \{-1, 0, 1\}$."
 </question>
 
-<question expression>
+<question multiplechoice>
 csq_prompt = """Ben Bitdiddle has just inserted an element to his AVL tree, breaking the AVL property. In order to maintain the AVL property, he decides to perform a rotation. Is this a valid rotation to maintain the BST and AVL properties of the tree? \n
 ```
-Case 1      ____X____               ____X____
-           A     ____Y___          A      ___Y___
-          / \    B       C        / \    B       C
-h ......./___\../ \...../ \....../___\../ \...../ \...... h
-h + 1 ........./___\.../ \............./   \.../___\..... h + 1
-h + 2 ......../_____\./_____\........./_____\............ h + 2
-```
-"""
+            ____X____                   ____Y_____
+           A     ____Y___   -->     ___X___       C
+          / \    B       C         B       A     / \
+h ......./___\../ \...../ \......./ \...../ \.../   \... h
+h + 1 ........./   \.../   \...../   \.../___\./_____\.. h + 1
+h + 2 ......../_____\./_____\.../_____\................. h + 2
 
-csq_soln = "No"
+```"""
+csq_soln = 'no'
+csq_options = ['yes', 'no']
+csq_renderer = 'radio'
+csq_explanation = "The subtree rooted at A ends up as a right child of X, even though A is smaller than X."
+</question>
+
+<question expression>
+csq_prompt = """Ben inserted an element into another AVL tree, breaking the AVL property on that one too. If you reference the recitation notes, this tree falls under Case 2 of breaking the AVL property. Express the letters that should take the place of w, x, y, z as a string of four uppercase letters, if we want to properly maintain the BST and AVL properties. i.e. ABCD \n
+```
+             ______B_________                       _____D_________
+            A           _____C_____            ____B___          __C____
+           / \      ___D____       E          w        x        y       z
+          /   \    F        G     / \        / \      / \      / \     / \
+h ......./_____\../ \....../ \.../   \....../   \..../   \..../   \.../   \... h
+h + 1 .........../   \..../   \./_____\..../_____\../_____\../_____\./_____\.. h + 1
+h + 2 ........../_____\../_____\.............................................. h + 2
+``` """
+csq_soln = "AFGH"
 </question>
