@@ -71,7 +71,7 @@ csq_options = ['yes', 'no']
 csq_explanation = "No matter what, both AVL trees and complete trees with have heights of $\\Theta(\\log(n))"
 </question>
 
-As we've seen, AVL trees of $n$ elements don't all necessarily have the same tree height. Let's try to understand a little more about why it's possible for us to prove that AVL trees have $\Theta(\log(n))$ height. We showed in PS15 that a complete tree has $\Theta(\log(n))$ height. Since this is the densest format for a tree, any AVL tree has $\Omega(\log(n))$ height. Now it suffices to show that an AVL tree must have $\O(\log(n))$ height.
+As we've seen, AVL trees of $n$ elements don't all necessarily have the same tree height. Let's try to understand a little more about why it's possible for us to prove that AVL trees have $\Theta(\log(n))$ height. We showed in PS15 that a complete tree has $\Theta(\log(n))$ height. Since this is the densest format for a tree, any AVL tree has $\Omega(\log(n))$ height. Now it suffices to show that an AVL tree must have $O(\log(n))$ height.
 
 <question multiplechoice>
 csq_prompt = "Let $T(h)$ be the minimum number of nodes in an AVL tree of height $h$. What could be the heights of its left and right subtrees, respectively?"
@@ -97,6 +97,7 @@ $$ \Rightarrow n \geq T(h) \geq 2^{h/2} \Rightarrow h \leq 2 \times \log_2(n)$$
 </showhide>
 </checkyourself>
 
+Now that we've shown that an AVL tree with $n$ nodes has $O(\log(n))$ height, we have shown that an AVL tree with $n$ nodes must have $\Theta(\log(n))$ height.
 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree \n
@@ -154,6 +155,15 @@ csq_explanation = "The node with key 18 has height 1, and there is no right chil
 </question>
 
 <question expression>
-csq_prompt = "Does this rotation maintain the BST property, sike it doesn't. Here are the actual rotations"
+csq_prompt = """Ben Bitdiddle has just inserted an element to his AVL tree, breaking the AVL property. In order to maintain the AVL property, he decides to perform a rotation. Is this a valid rotation to maintain the BST and AVL properties of the tree? \n
+
+Case 1      ____X____               ____X____
+           A     ____Y___          A      ___Y___
+          / \    B       C        / \    B       C
+h ......./___\../ \...../ \....../___\../ \...../ \...... h
+h + 1 ........./___\.../ \............./   \.../___\..... h + 1
+h + 2 ......../_____\./_____\........./_____\............ h + 2
+"""
+
 csq_soln = "No"
 </question>
