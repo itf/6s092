@@ -195,7 +195,7 @@ csq_nsubmits = None
 
 <question expression>
 csq_prompt = "How long does it take to sort an unsorted list with $n$ elements using binary search tree in-order-traversal, if we also tell you that the BST will end up with a height of $h$?"
-csq_soln = ["theta(nh)", "O(nh)"]
+csq_soln = ["theta(n*h)", "O(n*h)", "O(n*h,w)", "theta(n*h,w)"]
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True

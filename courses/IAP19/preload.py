@@ -227,11 +227,11 @@ def _draw_assymptotics(letter, x):
         func = f"{letter}\\left({x[0]}\\right)"
 
     e, a, w = '', '', ''
-    if ('e' in x):
+    if ('e' in x[1:]):
         e = ' expected'
-    if ('a' in x):
+    if ('a' in x[1:]):
         a = ' amortized'
-    if ('w' in x):
+    if ('w' in x[1:]):
         w= ' worst-case'
 
 
