@@ -4,6 +4,7 @@ Recitation notes 8, 6.006 Fall 2018 on stellar.
 
 # Radix Sort
 
+## Tuple sort
 
 <question multiplechoice>
 csq_prompt = "Question?"
