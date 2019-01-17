@@ -118,7 +118,9 @@ csq_explanation = "Each node's right and left subtrees have a height difference 
 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree 
+```
                 10
+```
 '''
 csq_renderer = "checkbox"
 csq_soln = [1,0]
@@ -129,9 +131,11 @@ csq_explanation = "There are no subtrees of the root (both are 'missing children
 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree \n
+```
                 20  
               /    
             13                
+```
 '''
 csq_renderer = "checkbox"
 csq_soln = [1,0]
@@ -142,11 +146,13 @@ csq_explanation = "From the root (with key 20), the left subtree (node with key 
 
 <question multiplechoice>
 csq_prompt = '''The following is an AVL tree \n
+```
                 23  
               /    
             18 
               \\ 
               19
+```
 
 '''
 csq_renderer = "checkbox"
