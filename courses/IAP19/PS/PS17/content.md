@@ -155,7 +155,7 @@ csq_explanation = "The node with key 18 has height 1, and there is no right chil
 </question>
 
 <question multiplechoice>
-csq_prompt = """Ben Bitdiddle has just inserted an element to his AVL tree, breaking the AVL property. In order to maintain the AVL property, he decides to perform a rotation. Is this a valid rotation to maintain the BST and AVL properties of the tree? \n
+csq_prompt = '''Ben Bitdiddle has just inserted an element to his AVL tree, breaking the AVL property. In order to maintain the AVL property, he decides to perform a rotation. Is this a valid rotation to maintain the BST and AVL properties of the tree? \n
 ```
             ____X____                   ____Y_____......
            A     ____Y___   -->     ___X___       C.....
@@ -163,8 +163,8 @@ csq_prompt = """Ben Bitdiddle has just inserted an element to his AVL tree, brea
 h ......./___\../ \...../ \......./ \...../ \.../   \... h
 h + 1 ........./   \.../   \...../   \.../___\./_____\.. h + 1
 h + 2 ......../_____\./_____\.../_____\................. h + 2
-
-```"""
+```
+'''
 csq_soln = 'no'
 csq_options = ['yes', 'no']
 csq_renderer = 'radio'
