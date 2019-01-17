@@ -87,6 +87,8 @@ csq_soln = ["1 + T(h-1) + T(h-2)", "1 + T(h-2) + T(h-1)"]
 csq_explanation = ""
 </question>
 
+In order to show that an AVL tree of $n$ nodes has $O(\log(n))$ height, it'e enough to show that $h \\leq 2 \\times \\log(n)$. If a tree of $n$ nodes has a height of $h$, then $n \geq T(h)$ by definition.
+
 <checkyourself>
 Can you show that $T(h) \geq 2^{n/2}$?
 <showhide>
