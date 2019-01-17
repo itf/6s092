@@ -157,9 +157,9 @@ csq_explanation = "The node with key 18 has height 1, and there is no right chil
 <question multiplechoice>
 csq_prompt = """Ben Bitdiddle has just inserted an element to his AVL tree, breaking the AVL property. In order to maintain the AVL property, he decides to perform a rotation. Is this a valid rotation to maintain the BST and AVL properties of the tree? \n
 ```
-            ____X____                   ____Y_____
-           A     ____Y___   -->     ___X___       C
-          / \    B       C         B       A     / \
+            ____X____                   ____Y_____......
+           A     ____Y___   -->     ___X___       C.....
+          / \    B       C         B       A     / \....
 h ......./___\../ \...../ \......./ \...../ \.../   \... h
 h + 1 ........./   \.../   \...../   \.../___\./_____\.. h + 1
 h + 2 ......../_____\./_____\.../_____\................. h + 2
@@ -174,10 +174,10 @@ csq_explanation = "The subtree rooted at A ends up as a right child of X, even t
 <question expression>
 csq_prompt = """Ben inserted an element into another AVL tree, breaking the AVL property on that one too. If you reference the recitation notes, this tree falls under Case 2 of breaking the AVL property. Express the letters that should take the place of w, x, y, z as a string of four uppercase letters, if we want to properly maintain the BST and AVL properties. i.e. ABCD \n
 ```
-             ______B_________                       _____D_________
-            A           _____C_____            ____B___          __C____
-           / \      ___D____       E          w        x        y       z
-          /   \    F        G     / \        / \      / \      / \     / \
+             ______B_________                       _____D_________...........
+            A           _____C_____            ____B___          __C____......
+           / \      ___D____       E          w        x        y       z.....
+          /   \    F        G     / \        / \      / \      / \     / \....
 h ......./_____\../ \....../ \.../   \....../   \..../   \..../   \.../   \... h
 h + 1 .........../   \..../   \./_____\..../_____\../_____\../_____\./_____\.. h + 1
 h + 2 ........../_____\../_____\.............................................. h + 2
