@@ -23,7 +23,7 @@ Wumpus wants to make his counting sort more efficient, so Wumpus decides to chan
 csq_renderer = "checkbox"
 csq_soln = [1,1,0,0]
 csq_options =  ['The algorithm will not work',
-'Hashtables don't have order, so the data at the end will not be sorted,
+'Hashtables dont have order, so the data at the end will not be sorted',
 'The algorithm will work and is efficient',
 'Hashtables are a magical way of making counting sort be more efficient']
 </question>
