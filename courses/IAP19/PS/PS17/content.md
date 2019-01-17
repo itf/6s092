@@ -74,7 +74,7 @@ csq_explanation = "No matter what, both AVL trees and complete trees with have h
 As we've seen, AVL trees of $n$ elements don't all necessarily have the same tree height. Let's try to understand a little more about why it's possible for us to prove that AVL trees have $\Theta(\log(n))$ height. We showed in PS15 that a complete tree has $\Theta(\log(n))$ height. Since this is the densest format for a tree, any AVL tree has $\Omega(\log(n))$ height. Now it suffices to show that an AVL tree must have $O(\log(n))$ height.
 
 <question multiplechoice>
-csq_prompt = "Let $T(h)$ be the minimum number of nodes in an AVL tree of height $h$. What could be the heights of its left and right subtrees, respectively?"
+csq_prompt = "Let $T(h)$ be the **minimum** number of nodes in an AVL tree of height $h$. What could be the heights of its left and right subtrees, respectively?"
 csq_renderer = "checkbox"
 csq_options = ["$(h, h-1)$", "$(h-1, h-2)$", "$(h-2, h-1)$", "$(h-1, h-1)$", "$(h-2, h-2)$"]
 csq_soln = [0,1,1,0,0]
