@@ -97,10 +97,10 @@ How many keys do we have? Well, if the original keys were bounded by $O(n^c)$, t
 Try the following example. Here, we are told that the keys are bounded by $n^4$. Since we are given $5$ numbers, we know the keys are smaller than $5^4$. Represent the number in base $5$, and then use counting sort five times:
 $$[100, 63, 624, 26, 255]$$
 <showhide>
-First, we write the numbers in base $5$: $[400_5, 223_5, 4444_5, 101_5, 2010_5]$. Now we sort, first by the ones digit: $[400_5, 2010_5, 101_5, 223_5, 4444_5]$.
-Now by the second, fives digit: $[400_5, 101_5, 2010_5, 223_5, 4444_5]$.
-Now by the third, 25s digit: $[2010_5, 101_5, 223_5, 400_5, 4444_5]$.
-And lastly, by the fourth, 125s digit: $[101_5, 223_5, 400_5, 2010_5, 4444_5$].
+First, we write the numbers in base $5$: $[400_5, 223_5, 4444_5, 101_5, 2010_5]$. Now we sort, first by the ones digit: $$[400_5, 2010_5, 101_5, 223_5, 4444_5].$$
+Now by the second, fives digit: $$[400_5, 101_5, 2010_5, 223_5, 4444_5].$$
+Now by the third, 25s digit: $$[2010_5, 101_5, 223_5, 400_5, 4444_5].$$
+And lastly, by the fourth, 125s digit: $$[101_5, 223_5, 400_5, 2010_5, 4444_5].$$
 When the last digit didn't exist, we interpret it as a $0$. Note that it took us $4$ sorts to do this: a number that would stay constant regardless of the input size. Additionally, both $n$ and $u$ were $O(n)$ (with $n=5$ in this case).
 </showhide>
 </checkyourself>
