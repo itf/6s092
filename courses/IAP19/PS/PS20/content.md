@@ -130,7 +130,7 @@ for n, k, p in test_params:
 def is_correct(test, sol):
     if not isinstance(sol, list):
         return False
-    sol = {sol}
+    sol = set(sol)
     n, k, g = test
     if len(sol) != k:
         return False
