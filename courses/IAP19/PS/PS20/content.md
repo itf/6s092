@@ -92,6 +92,7 @@ def closestK(n, k, graph):
     return closest
 '''
 
+
 def bfs_dist_sets(n, k, g):
     visited = [False for i in range(n)]
     parent = [None for i in range(n)]
@@ -116,9 +117,14 @@ def bfs_dist_sets(n, k, g):
 
     dists = [n for i in range(n)]
     dists[0] = 0
+
+    def find_dist(i):
+        if dists[i] == n:
+            dists[i] = find_dist(parent[i]) + 1
+        return dists[i]
+
     for i in range(n):
-        if parent[i] is not None:
-            dists[i] = dists[parent[i]] + 1
+        find_dist(i)
 
     max_dist = dists[last_v]
     must_have = {i for i in range(n) if dists[i] < max_dist}
