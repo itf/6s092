@@ -147,7 +147,7 @@ for i, t in enumerate(tests):
         'code': f"""
 n, k, g = t
 ans = closestK(n, k, g),
-        'check_function': check
+        'check_function': check"""
     })
 
 </question> 
