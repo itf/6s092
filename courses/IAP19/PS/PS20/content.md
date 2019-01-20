@@ -37,10 +37,10 @@ yeah
 <question multiplechoice>
 csq_prompt = "Consider a graph with $V$ vertices in which each vertex has degree at most 10. (Recall that the degree of vertex $v$ is the number of edges incident to $v$.) What is the time complexity of a breadth-first search on this graph?\n\n"
 csq_renderer = "radio"
-csq_soln = [1, 0, 0]
-csq_options =  ['$\Theta(V)$',
- '$\Theta(V\log V)$',
- '$\Theta(V^2)$']
+csq_soln = r'$\Theta(V)$'
+csq_options =  [r'$\Theta(V)$',
+ r'$\Theta(V\log V)$',
+ r'$\Theta(V^2)$']
 csq_explanation = 'A useful property of graphs is that the sum of its vertex degrees is double the number of edges. (One way to think about this is that each degree counts an edge from one of its two endpoints.) The degree sum is $\le 10V$, so our edge count is $E=O(V)$. BFS runs in $\Theta(V+E)$ time, which simplifies to $\Theta(V)$ after our substitution.'
 </question>
 
