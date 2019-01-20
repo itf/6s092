@@ -140,7 +140,7 @@ def is_correct(test, sol):
     if len(sol) != k:
         return False
     must_have, can_have = bfs_dist_sets(n, k, g)
-    return must_have < sol and sol < can_have
+    return must_have <= sol and sol <= can_have
 
 
 csq_tests = []
