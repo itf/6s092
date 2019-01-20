@@ -83,7 +83,7 @@ def bfs_dist_sets(n, k, g):
     last_v = None
     count = 0
     head = 0  # index of queue head, increments when we pop off the queue
-    while head < len(queue):
+    while count < khead < len(queue):
         v = queue[head]
         head += 1
         if visited[v]:
@@ -99,7 +99,8 @@ def bfs_dist_sets(n, k, g):
                 if parent[w] is None:
                     parent[w] = v
 
-    dists = [0 for i in range(n)]
+    dists = [n for i in range(n)]
+    dists[0] = 0
     for i in range(n):
         if parent[i] is not None:
             dists[i] = dists[parent[i]] + 1
