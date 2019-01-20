@@ -63,10 +63,9 @@ def closestK(n, k, graph):
         head += 1
         if visited[v]:
             continue
-        closest.append(v)
         visited[v] = True
         count += 1
-        if count == k and last_v is not None:
+        if count <= k:
             last_v = v
         for w in g[v]:
             if not visited[w]:
@@ -105,10 +104,9 @@ def bfs_dist_sets(n, k, g):
         head += 1
         if visited[v]:
             continue
-        closest.append(v)
         visited[v] = True
         count += 1
-        if count == k and last_v is not None:
+        if count <= k:
             last_v = v
         for w in g[v]:
             if not visited[w]:
