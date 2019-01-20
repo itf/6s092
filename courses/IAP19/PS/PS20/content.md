@@ -145,7 +145,7 @@ for i, t in enumerate(tests):
         
     csq_tests.append({
         'code': f"""
-n, k, g = t
+n, k, g = {t}
 ans = closestK(n, k, g)""",
         'check_function': check
     })
