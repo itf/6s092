@@ -51,22 +51,39 @@ csq_prompt = 'Closest k vertices in a graph, will flesh out with riveting story.
 
 ## Define solution that will be printed to student.
 csq_soln = '''
-def closestK(n, k, graph): 
-    closest = []
-    visited = [False for i in range(n)]  # list of n Falses
+def closestK(n, k, graph):
+    visited = [False for i in range(n)]
+    parent = [None for i in range(n)]
     queue = [0]
+    last_v = None
+    count = 0
     head = 0  # index of queue head, increments when we pop off the queue
-    while len(closest) < k and head < len(queue):
+    while count < khead < len(queue):
         v = queue[head]
         head += 1
         if visited[v]:
             continue
         closest.append(v)
         visited[v] = True
-        for w in graph[v]:
+        count += 1
+        if count == k and last_v is not None:
+            last_v = v
+        for w in g[v]:
             if not visited[w]:
                 queue.append(w)
-    return closest
+                if parent[w] is None:
+                    parent[w] = v
+
+    dists = [n for i in range(n)]
+    dists[0] = 0
+    for i in range(n):
+        if parent[i] is not None:
+            dists[i] = dists[parent[i]] + 1
+
+    max_dist = dists[last_v]
+    must_have = {i for i in range(n) if dists[i] < max_dist}
+    can_have = {i for i in range(n) if dists[i] <= max_dist}
+    return must_have
 '''
 
 ## Code that will be initially on the thingy
