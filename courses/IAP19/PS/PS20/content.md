@@ -37,13 +37,6 @@ csq_options =  ['$[A, B, C, D, E, F, G]$',
 csq_explanation = 'The second sequence visits $E$ (distance 2 from $A$) before visiting $C$ (distance 1 from $A$). The fourth sequence visits $F$ and $G$ before visiting $D$.'
 </question>
 
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
-
 <question multiplechoice>
 csq_prompt = "Consider a graph with $V$ vertices in which each vertex has degree at most 10. (Recall that the degree of a vertex $v$ is the number of edges incident to $v$.) What is the time complexity of a breadth-first search on this graph?\n\n"
 csq_renderer = "radio"
