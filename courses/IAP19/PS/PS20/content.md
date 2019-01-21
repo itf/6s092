@@ -230,3 +230,27 @@ Because it isn't easy to change the algorithm to accommodate this restriction, w
 <center>
 <img src="/_static/IAP19/bfs-32.png" height="200"  />
 </center>
+
+insert remaining explanation about duplicating the graph
+
+<question multiplechoice>
+csq_prompt = "If edge $uv$ in the original graph was red, which edges would we add to our new graph?\n\n"
+csq_renderer = "checkbox"
+csq_soln = [1, 0, 0, 1]
+csq_options =  ["$uv$",
+ "$uv'$",
+ "$u'v$",
+ "$u'v'$"]
+csq_explanation = "Moving along a red edge doesn't change our used-a-blue-edge state. If we were on a normal vertex, we move to another normal vertex. Likewise, if we were on a prime vertex, we move to another prime vertex."
+</question>
+
+<question multiplechoice>
+csq_prompt = "If edge $uv$ in the original graph was blue, which edges would we add to our new graph?\n\n"
+csq_renderer = "checkbox"
+csq_soln = [0, 1, 1, 1]
+csq_options =  ["$uv$",
+ "$uv'$",
+ "$u'v$",
+ "$u'v'$"]
+csq_explanation = "Moving along a blue edge means that our used-a-blue-edge state is now true if it wasn't already true. That means that if we were on a normal vertex, we have to move to a prime vertex. Because these edges are undirected (i.e. $vu$ is also an edge), we need both $uv'$ and $vu'$ for symmetry. If we were on a prime vertex, we should be able to go to another prime vertex, so we should also have $u'v'$.\n\nYou might notice that this setup would allow us to move from a prime vertex back to a normal vertex, which seems odd because we can't lose our used-a-blue-edge state. While this is technically allowed, it doesn't create any paths shorter than possible (in fact, the path probably gets longer this way), so for the purpose of finding the shortest path, it's okay."
+</question>
