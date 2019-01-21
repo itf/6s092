@@ -79,12 +79,16 @@ csq_soln = '''def closestK(n, k, graph):
 
 ## Code that will be initially on the thingy
 csq_initial = '''def closestK(n, k, graph):
-    queue = []
+    visited = [False for i in range(n)]
+    queue = [0]
 
-    # exploring the neighbors of 0
-    v = 0
+    # visiting vertex 0
+    v = queue[0]
+    visited[v] = True
     for w in graph[v]:
         queue.append(w)
+
+    return None
 '''
 
 
