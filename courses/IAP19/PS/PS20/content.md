@@ -1,7 +1,7 @@
 # Readings 
-Recitation notes 10, 6.006 Fall 2018 on stellar.
+Recitation notes 10, 6.006 Fall 2018 on Stellar.
 
-Lecture notes 10, 6.006 Fall 2018 on stellar.
+Lecture notes 10, 6.006 Fall 2018 on Stellar.
 
 # Traversing the graph with BFS
 
