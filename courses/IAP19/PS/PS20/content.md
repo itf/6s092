@@ -23,7 +23,7 @@ csq_explanation = 'Because we begin at $A$, our BFS should visit its neighbors $
 
 
 <center>
-<img src="/_static/IAP19/bfs-12.png" height="250"  />
+<img src="/_static/IAP19/bfs-12.png" height="300"  />
 </center>
 
 <question multiplechoice>
@@ -191,13 +191,13 @@ ans = closestK(n, k, g)""",
 
 A breadth-first search that only queues up vertices to be visited can find nearby vertices easily but can't easily compute the distances to these vertices or reconstruct the shortest paths used to reach them. To do this, we need to introduce <i>parent pointers</i> to our algorithm.
 
-In a breadth-first search (as well as in other graph searches), the parent of a vertex is the vertex which immediately preceded it. An example is shown below in which we have just visited vertex $A$. The red arrow edges indicate that vertices $B$ and $C$ each point to $A$ as their parent.
+In a breadth-first search (as well as in other graph searches), the parent of a vertex is the vertex which immediately precedes it. An example is shown below in which we have just visited vertex $A$. The red arrow edges indicate that vertices $B$ and $C$ each point to $A$ as their parent.
 
 <center>
 <img src="/_static/IAP19/bfs-21.png" height="200"  />
 </center>
 
-After visiting vertex $B$, we assign it to be the parent of vertices $D$ and $E$. Note that we don't assign it to vertex $A$ because $A$ has already been visited, and we don't assign it to vertex $C$ because $C$ already has a parent.
+After visiting vertex $B$, we assign it to be the parent of vertices $D$ and $E$. Note that we don't assign $B$ as the parent of $A$ because $A$ has already been visited, and we don't assign it as the parent of $C$ because $C$ already has a parent.
 
 <center>
 <img src="/_static/IAP19/bfs-22.png" height="200"  />
@@ -214,6 +214,8 @@ The graph illustrates the completed parent pointers from this BFS. Note that the
 Can a vertex have multiple parents? Can a vertex have no parent? Can a vertex be a parent to multiple other vertices?
 <showhide>
 A vertex can have at most one parent, but a vertex can be a parent to multiple vertices as seen above. A vertex will have no parent if it is the starting vertex (by definition) or if it is unreachable from the starting vertex.
+
+From an implementation standpoint, this makes parent pointers easy to use, as we can store all of our pointers in an array-like structure, where element $i$ is the parent of vertex $i$.
 </showhide>
 </checkyourself>
 
