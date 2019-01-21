@@ -213,7 +213,7 @@ No, because following the parent pointers from any vertex will always lead to th
 Consider the graph below, in which edges are colored either red or blue. How would we find the shortest path from vertex $A$ to another vertex given that the path <i>must contain a blue edge</i>?
 
 <center>
-<img src="/_static/IAP19/bfs-31.png" height="200"  />
+<img src="/_static/IAP19/bfs-31.png" height="250"  />
 </center>
 
 Let's look at our options going from $A$ to $E$. The shortest path without the blue edge restriction is $A\to B\to E$, but this doesn't satisfy our condition. If we were to prioritize blue edges first, we would likely find the path $A\to C\to F\to D\to E$, but we can do better with $A\to B\to D\to E$, the correct answer.
