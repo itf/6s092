@@ -6,7 +6,10 @@ Lecture notes 10, 6.006 Fall 2018 on stellar.
 
 
 <question multiplechoice>
-csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n"
+csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n
+<center>
+<img src="/_static/IAP19/bfs-q1.png" />
+</center>"
 csq_renderer = "checkbox"
 csq_soln = [0, 1, 0]
 csq_options =  ['$[A, B, C, D]$',
@@ -35,12 +38,13 @@ yeah
 </checkyourself>
 
 <question multiplechoice>
-csq_prompt = "Consider a graph with $V$ vertices in which each vertex has degree at most 10. (Recall that the degree of vertex $v$ is the number of edges incident to $v$.) What is the time complexity of a breadth-first search on this graph?\n\n"
+csq_prompt = "Consider a graph with $V$ vertices in which each vertex has degree at most 10. (Recall that the degree of a vertex $v$ is the number of edges incident to $v$.) What is the time complexity of a breadth-first search on this graph?\n\n"
 csq_renderer = "radio"
 csq_soln = r'$\Theta(V)$'
 csq_options =  [r'$\Theta(V)$',
  r'$\Theta(V\log V)$',
- r'$\Theta(V^2)$']
+ r'$\Theta(V^2)$',
+ r'$\Theta(V^{10})$']
 csq_explanation = 'A useful property of graphs is that the sum of its vertex degrees is double the number of edges. (One way to think about this is that each degree counts an edge from one of its two endpoints.) The degree sum is $\le 10V$, so our edge count is $E=O(V)$. BFS runs in $\Theta(V+E)$ time, which simplifies to $\Theta(V)$ after our substitution.'
 </question>
 
