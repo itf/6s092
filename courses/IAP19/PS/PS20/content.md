@@ -218,13 +218,13 @@ Consider the graph below, in which edges are colored either red or blue. How wou
 
 Let's look at our options going from $A$ to $E$. The shortest path without the blue edge restriction is $A\to B\to E$, but this doesn't satisfy our condition. If we were to prioritize blue edges first, we would likely find the path $A\to C\to F\to D\to E$, but we can do better with $A\to B\to D\to E$, the correct answer.
 
-Because it isn't easy to change the algorithm to accommodate this restriction, we can think about changing the graph instead. When we explore the graph with BFS and build up our shortest paths, for each vertex $v$, we'd like to know the shortest path to $v$ that <i>does not</i> use a blue edge, and the shortest path to $v$ that <i>does</i> use a blue edge. Instead of maintaining two different paths to one vertex, we can split $v$ into two versions, $v$ and $v'$. An example of this split for one vertex is illustrated below.
+Because it isn't easy to change the algorithm to accommodate this restriction, we can think about changing the graph instead. We'd like to make a new graph with colorless edges based on the original one such that performing a simple BFS on this graph will give us our desired answer. The key idea is that this new graph has to describe where we are and whether or not we've used a blue edge. For a vertex $v$ in the original graph, we can split $v$ into two versions, $v$ and $v'$, so that being on $v$ means that we have not used a blue edge and being on $v'$ means that we have. An example of this split for one vertex is illustrated below.
 
 <center>
 <img src="/_static/IAP19/bfs-32.png" height="200"  />
 </center>
-
-insert remaining explanation about duplicating the graph
+ 
+When we apply this idea of vertex duplication to the entire graph, we end up with two copies, the "normal" side $({A, B, C,\dots})$ and the "prime" side $({A', B', C',\dots})$. Moving through this new graph captures both our location in the original graph and whether we have used a blue edge. Edges in this new graph can then describe movement in the original graph as well as changes to this "used-a-blue-edge" state. Now we just need to figure out how to transfer our original edges into this new graph.
 
 <question multiplechoice>
 csq_prompt = "If edge $uv$ in the original graph was red, which edges would we add to our new graph?\n\n"
@@ -245,5 +245,18 @@ csq_options =  ["$uv$",
  "$uv'$",
  "$u'v$",
  "$u'v'$"]
-csq_explanation = "Moving along a blue edge means that our used-a-blue-edge state is now true if it wasn't already true. That means that if we were on a normal vertex, we have to move to a prime vertex. Because these edges are undirected (i.e. $vu$ is also an edge), we need both $uv'$ and $vu'$ for symmetry. If we were on a prime vertex, we should be able to go to another prime vertex, so we should also have $u'v'$.\n\nYou might notice that this setup would allow us to move from a prime vertex back to a normal vertex, which seems odd because we can't lose our used-a-blue-edge state. While this is technically allowed, it doesn't create any paths shorter than possible (in fact, the path probably gets longer this way), so for the purpose of finding the shortest path, it's okay."
+csq_explanation = "Moving along a blue edge means that our used-a-blue-edge state is now true if it wasn't already true. That means that if we were on a normal vertex, we have to move to a prime vertex. Because these edges are undirected (i.e. $vu$ is also an edge), we need both $uv'$ and $vu'$ for symmetry. If we were on a prime vertex, we should be able to go to another prime vertex as using another blue edge doesn't change our state, so we also have $u'v'$.\n\nYou might notice that this setup would allow us to move from a prime vertex back to a normal vertex, which seems odd because we can't lose our used-a-blue-edge state. While this is technically allowed, it doesn't create any paths shorter than possible (in fact, the path probably gets longer this way), so for the purpose of finding the shortest path, it's okay."
 </question>
+
+Now, a path from $s$ to $t$ containing a blue edge in the original graph is equivalent to a path in the new graph starting at $s$ (when we haven't used a blue edge) to $t'$ (when we have). Because the only way to move between the two halves of the new graph is to take a blue edge in the original graph, our new shortest path must satisfy the condition.
+
+An example of this transformation on a small 3-vertex graph is shown below. The edges of the new graph are colored for clarity, though a BFS on this graph treats them all normally. Notice that the length-1 path from $A$ to $C$ that takes the red edge does not translate to a length-1 path from $A$ to $C'$ in the new graph because its structure enforces the blue-edge requirement.
+
+<center>
+<img src="/_static/IAP19/bfs-33.png" height="200"  />
+</center>
+
+Now, we can use our normal BFS with parent pointers to find the shortest path between any $s$ and $t'$ we choose. All we have to do is translate this path back into the context of the original graph, but luckily, reversing our transformation is the easier part. All we have to do is treat $A$ and $A'$ as just $A$, $B$ and $B'$ as just $B$, etc. In the 3-vertex example, the path $A\to B\to C'$ corresponds to $A\to B\to C$ in the original graph.
+
+This example only introduced a binary state, but the idea can just as easily be applied to problems with an arbitrary number of states, provided that the state transitions through the graph are fully described.
+
