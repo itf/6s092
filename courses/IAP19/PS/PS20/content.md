@@ -98,7 +98,7 @@ def bfs_dists(n, k, g):
     queue = [0]
     closest = []
     head = 0  # index of queue head, increments when we pop off the queue
-    while len(closest) < k and head < len(queue):
+    while head < len(queue):
         v = queue[head]
         head += 1
         if visited[v]:
@@ -126,7 +126,7 @@ def bfs_dists(n, k, g):
     for i in range(n):
         find_dist(i)
 
-    return (dists, sum(dists[i] for i in closest))
+    return (dists, sum(dists[i] for i in closest[:k]))
 
 test_params = [(10, 5, 0.25),
          (50, 30, 0.079),
