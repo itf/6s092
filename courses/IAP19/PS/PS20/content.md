@@ -12,7 +12,7 @@ Lecture notes 10, 6.006 Fall 2018 on stellar.
 </center>
 
 <question multiplechoice>
-csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n"
+csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph above starting at $A$?\n\n"
 csq_renderer = "checkbox"
 csq_soln = [0, 1, 0]
 csq_options =  ['$[A, B, C, D]$',
@@ -27,7 +27,7 @@ csq_explanation = 'Because we begin at $A$, our BFS should visit its neighbors $
 </center>
 
 <question multiplechoice>
-csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n"
+csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph above starting at $A$?\n\n"
 csq_renderer = "checkbox"
 csq_soln = [1, 0, 1, 0]
 csq_options =  ['$[A, B, C, D, E, F, G]$',
