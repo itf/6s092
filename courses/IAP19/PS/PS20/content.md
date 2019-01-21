@@ -218,7 +218,7 @@ Consider the graph below, in which edges are colored either red or blue. How wou
 
 Let's look at our options going from $A$ to $E$. The shortest path without the blue edge restriction is $A\to B\to E$, but this doesn't satisfy our condition. If we were to prioritize blue edges first, we would likely find the path $A\to C\to F\to D\to E$, but we can do better with $A\to B\to D\to E$, the correct answer.
 
-Because it isn't easy to change the algorithm to accommodate this restriction, we can think about changing the graph instead. We'd like to make a new graph with colorless edges based on the original one such that performing a simple BFS on this graph will give us our desired answer. The key idea is that this new graph has to describe where we are and whether or not we've used a blue edge. For a vertex $v$ in the original graph, we can split $v$ into two versions, $v$ and $v'$, so that being on $v$ means that we have not used a blue edge and being on $v'$ means that we have. An example of this split for one vertex is illustrated below.
+Because it isn't easy to change the algorithm to accommodate this restriction, we can think about changing the graph instead. We'd like to make a new graph with colorless edges based on the original one such that performing a simple BFS on this graph will give us our desired answer. The key idea is that this new graph has to describe where we are and whether or not we've used a blue edge to get there. For a vertex $v$ in the original graph, we can split $v$ into two versions, $v$ and $v'$, so that being on $v$ means that we have not used a blue edge and being on $v'$ means that we have. An example of this split for one vertex is illustrated below.
 
 <center>
 <img src="/_static/IAP19/bfs-32.png" height="200"  />
@@ -227,7 +227,7 @@ Because it isn't easy to change the algorithm to accommodate this restriction, w
 When we apply this idea of vertex duplication to the entire graph, we end up with two copies, the "normal" side $({A, B, C,\dots})$ and the "prime" side $({A', B', C',\dots})$. Moving through this new graph captures both our location in the original graph and whether we have used a blue edge. Edges in this new graph can then describe movement in the original graph as well as changes to this "used-a-blue-edge" state. Now we just need to figure out how to transfer our original edges into this new graph.
 
 <question multiplechoice>
-csq_prompt = "If edge $uv$ in the original graph was red, which edges would we add to our new graph?\n\n"
+csq_prompt = "If edge $uv$ in the original graph was red, which edges would we need to add to our new graph?\n\n"
 csq_renderer = "checkbox"
 csq_soln = [1, 0, 0, 1]
 csq_options =  ["$uv$",
@@ -238,7 +238,7 @@ csq_explanation = "Moving along a red edge doesn't change our used-a-blue-edge s
 </question>
 
 <question multiplechoice>
-csq_prompt = "If edge $uv$ in the original graph was blue, which edges would we add to our new graph?\n\n"
+csq_prompt = "If edge $uv$ in the original graph was blue, which edges would we need to add to our new graph?\n\n"
 csq_renderer = "checkbox"
 csq_soln = [0, 1, 1, 1]
 csq_options =  ["$uv$",
