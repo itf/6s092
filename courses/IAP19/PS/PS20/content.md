@@ -8,7 +8,7 @@ Lecture notes 10, 6.006 Fall 2018 on stellar.
 ## Traversing the graph with BFS
 
 <center>
-<img src="/_static/IAP19/bfs-11.png" height="150"  />
+<img src="/_static/IAP19/bfs-11.png" height="200"  />
 </center>
 
 <question multiplechoice>
@@ -23,7 +23,7 @@ csq_explanation = 'Because we begin at $A$, our BFS should visit its neighbors $
 
 
 <center>
-<img src="/_static/IAP19/bfs-12.png" height="150"  />
+<img src="/_static/IAP19/bfs-12.png" height="250"  />
 </center>
 
 <question multiplechoice>
@@ -57,7 +57,7 @@ csq_explanation = 'A useful property of graphs is that the sum of its vertex deg
 
 
 <center>
-<img src="/_static/IAP19/bfs-13.png" height="150"  />
+<img src="/_static/IAP19/bfs-13.png" height="200"  />
 </center>
 
 
@@ -194,19 +194,19 @@ A breadth-first search that only queues up vertices to be visited can find nearb
 In a breadth-first search (as well as in other graph searches), the parent of a vertex is the vertex which immediately preceded it. An example is shown below in which we have just visited vertex $A$. The red arrow edges indicate that vertices $B$ and $C$ each point to $A$ as their parent.
 
 <center>
-<img src="/_static/IAP19/bfs-21.png" height="150"  />
+<img src="/_static/IAP19/bfs-21.png" height="200"  />
 </center>
 
 After visiting vertex $B$, we assign it to be the parent of vertices $D$ and $E$. Note that we don't assign it to vertex $A$ because $A$ has already been visited, and we don't assign it to vertex $C$ because $C$ already has a parent.
 
 <center>
-<img src="/_static/IAP19/bfs-22.png" height="150"  />
+<img src="/_static/IAP19/bfs-22.png" height="200"  />
 </center>
 
 The graph illustrates the completed parent pointers from this BFS. Note that the edges corresponding to the parent pointers form a tree, in which every vertex has exactly one path (namely, the shortest one) to the starting vertex $A$. A graph can have multiple such trees depending on which vertex the BFS starts at and its visit order. In the above example, we could have assigned $C$ to be the parent of $D$ and found an equally valid tree.
 
 <center>
-<img src="/_static/IAP19/bfs-23.png" height="150"  />
+<img src="/_static/IAP19/bfs-23.png" height="200"  />
 </center>
 
 
@@ -229,7 +229,7 @@ No, because following the parent pointers from any vertex will always lead to th
 Consider the graph below, in which edges are colored either red or blue. How would we find the shortest path from vertex $A$ to another vertex given that the path <i>must contain a blue edge</i>?
 
 <center>
-<img src="/_static/IAP19/bfs-31.png" height="150"  />
+<img src="/_static/IAP19/bfs-31.png" height="200"  />
 </center>
 
 Let's look at our options going from $A$ to $E$. The shortest path without the blue edge restriction is $A\to B\to E$, but this doesn't satisfy our condition. If we were to prioritize blue edges first, we would likely find the path $A\to C\to F\to D\to E$, but we can do better with $A\to B\to D\to E$, the correct answer.
@@ -237,5 +237,5 @@ Let's look at our options going from $A$ to $E$. The shortest path without the b
 Because it isn't easy to change the algorithm to accommodate this restriction, we can think about changing the graph instead. When we explore the graph with BFS and build up our shortest paths, for each vertex $v$, we'd like to know the shortest path to $v$ that <i>does not</i> use a blue edge, and the shortest path to $v$ that <i>does</i> use a blue edge. Instead of maintaining two different paths to one vertex, we can split $v$ into two versions, $v$ and $v'$. An example of this split for one vertex is illustrated below.
 
 <center>
-<img src="/_static/IAP19/bfs-32.png" height="150"  />
+<img src="/_static/IAP19/bfs-32.png" height="200"  />
 </center>
