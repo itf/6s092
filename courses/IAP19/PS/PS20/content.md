@@ -215,7 +215,7 @@ No, because following the parent pointers from any vertex will always lead to th
 </showhide>
 </checkyourself>
 
-## Shortest path finding with state management
+## Harder shortest path finding
 
 Consider the graph below, in which edges are colored either red or blue. How would we find the shortest path from vertex $A$ to another vertex given that the path <i>must contain a blue edge</i>?
 
