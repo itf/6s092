@@ -6,10 +6,7 @@ Lecture notes 10, 6.006 Fall 2018 on stellar.
 
 
 <question multiplechoice>
-csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n
-<center>
-<img src="/_static/IAP19/bfs-q1.png" />
-</center>"
+csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n"
 csq_renderer = "checkbox"
 csq_soln = [0, 1, 0]
 csq_options =  ['$[A, B, C, D]$',
@@ -76,12 +73,16 @@ def closestK(n, k, graph):
 ## Code that will be initially on the thingy
 csq_initial = '''
 def closestK(n, k, graph):
-    closest = [i for i in range(k)]
-    return closest
+    queue = []
+
+    # exploring the neighbors of 0
+    v = 0
+    for w in graph[v]:
+        queue.append(w)
 '''
 
 
-def bfs_dist_sets(n, k, g):
+def bfs_dists(n, k, g):
     visited = [False for i in range(n)]
     parent = [None for i in range(n)]
     queue = [0]
@@ -95,13 +96,17 @@ def bfs_dist_sets(n, k, g):
             continue
         visited[v] = True
         count += 1
-        if count <= k:
+        if count == k:
             last_v = v
         for w in g[v]:
             if not visited[w]:
                 queue.append(w)
                 if parent[w] is None:
                     parent[w] = v
+
+    # checks that at least k vertices are reachable
+    if last_v is None:
+        return (None, None)
 
     dists = [n for i in range(n)]
     dists[0] = 0
@@ -127,23 +132,26 @@ test_params = [(10, 5, 0.25),
 tests = []
 
 for n, k, p in test_params:
-    g = {i: [] for i in range(n)}
-    for i in range(n):
-        for j in range(i + 1, n):
-            if cs_random.random() < p:
-                g[i].append(j)
-                g[j].append(i)
-    tests.append((n, k, g))
+    remake = True
+    while remake:
+        g = {i: [] for i in range(n)}
+        for i in range(n):
+            for j in range(i + 1, n):
+                if cs_random.random() < p:
+                    g[i].append(j)
+                    g[j].append(i)
+        must_have, can_have = bfs_dists(n, k, g)
+        remake = must_have is None
+    tests.append((n, k, g, must_have, can_have))
 
 
 def is_correct(test, sol):
     if not isinstance(sol, list):
         return False
     sol = set(sol)
-    n, k, g = test
+    n, k, g, must_have, can_have = test
     if len(sol) != k:
         return False
-    must_have, can_have = bfs_dist_sets(n, k, g)
     return must_have <= sol and sol <= can_have
 
 
@@ -155,7 +163,7 @@ for i, t in enumerate(tests):
         
     csq_tests.append({
         'code': f"""
-n, k, g = {t}
+n, k, g, _, _ = {t}
 ans = closestK(n, k, g)""",
         'check_function': check
     })
