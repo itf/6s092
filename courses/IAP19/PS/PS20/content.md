@@ -99,18 +99,15 @@ def bfs_dists(n, k, g):
     visited = [False for i in range(n)]
     parent = [None for i in range(n)]
     queue = [0]
-    last_v = None
-    count = 0
+    closest = []
     head = 0  # index of queue head, increments when we pop off the queue
-    while head < len(queue):
+    while len(closest) < k and head < len(queue):
         v = queue[head]
         head += 1
         if visited[v]:
             continue
         visited[v] = True
-        count += 1
-        if count == k:
-            last_v = v
+        closest.append(v)
         for w in g[v]:
             if not visited[w]:
                 queue.append(w)
@@ -118,7 +115,7 @@ def bfs_dists(n, k, g):
                     parent[w] = v
 
     # checks that at least k vertices are reachable
-    if last_v is None:
+    if len(closest) < k:
         return (None, None)
 
     dists = [n for i in range(n)]
@@ -132,10 +129,7 @@ def bfs_dists(n, k, g):
     for i in range(n):
         find_dist(i)
 
-    max_dist = dists[last_v]
-    must_have = {i for i in range(n) if dists[i] < max_dist}
-    can_have = {i for i in range(n) if dists[i] <= max_dist}
-    return (must_have, can_have)
+    return (dists, sum(dists[i] for i in closest))
 
 test_params = [(10, 5, 0.25),
          (50, 30, 0.08),
@@ -143,7 +137,7 @@ test_params = [(10, 5, 0.25),
          (300, 120, 0.02)]
 
 tests = []
-tests.append((6, 4, {0: [1, 2], 1: [0, 2, 3, 4], 2: [0, 1, 3], 3: [1, 2, 5], 4: [1], 5: [3]}))
+tests.append((6, 4, {0: [1, 2], 1: [0, 2, 3, 4], 2: [0, 1, 3], 3: [1, 2, 5], 4: [1], 5: [3]}, [0, 1, 1, 2, 2, 3], 4))
 
 for n, k, p in test_params:
     remake = True
@@ -154,19 +148,18 @@ for n, k, p in test_params:
                 if cs_random.random() < p:
                     g[i].append(j)
                     g[j].append(i)
-        must_have, can_have = bfs_dists(n, k, g)
-        remake = must_have is None
-    tests.append((n, k, g, must_have, can_have))
+        dists, min_dist = bfs_dists(n, k, g)
+        remake = dists is None
+    tests.append((n, k, g, dists, min_dist))
 
 
 def is_correct(test, sol):
     if not isinstance(sol, list):
         return False
-    sol = set(sol)
-    n, k, g, must_have, can_have = test
+    n, k, g, dists, min_dist = test
     if len(sol) != k:
         return False
-    return must_have <= sol and sol <= can_have
+    return all(dists[i] < n for i in sol) and sum(dists[i] for i in sol) == min_dist
 
 
 csq_tests = []
