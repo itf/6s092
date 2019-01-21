@@ -5,6 +5,12 @@ Lecture notes 10, 6.006 Fall 2018 on stellar.
 # Breadth First Search
 
 
+## Traversing the graph with BFS
+
+<center>
+<img src="/_static/IAP19/bfs-11.png" />
+</center>
+
 <question multiplechoice>
 csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n"
 csq_renderer = "checkbox"
@@ -15,6 +21,10 @@ csq_options =  ['$[A, B, C, D]$',
 csq_explanation = 'Because we begin at $A$, our BFS should visit its neighbors $B$ and $D$ before visiting $C$. Also, a BFS which starts at $A$ should visit $A$ first.'
 </question>
 
+
+<center>
+<img src="/_static/IAP19/bfs-12.png" />
+</center>
 
 <question multiplechoice>
 csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph below starting at $A$?\n\n"
@@ -46,9 +56,14 @@ csq_explanation = 'A useful property of graphs is that the sum of its vertex deg
 </question>
 
 
+<center>
+<img src="/_static/IAP19/bfs-13.png" />
+</center>
+
+
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = 'Closest k vertices in a graph, will flesh out with riveting story.'
+csq_prompt = "Wumpus has infiltrated the sanctuary of his nemesis Kason Ju. This complex can be described as an undirected graph on $n$ vertices numbered from $0$ to $n-1$. Wumpus is located at room 0 and needs to connect his doomsday device by wire to $k$ different rooms (which can include room 0). Because of the exorbitant cost of wire which he bought from LaVerde's, he would like to use as little as possible. Running a wire between adjacent rooms uses 1 unit, and distinct connections cannot share wires on the same edge. In the above graph, one solution is shown for $k=4$. Write an algorithm to find a list of $k$ rooms that satisfies the condition. (In the same example, either [0, 1, 2, 3] or [0, 1, 2, 4] in any order would be correct.)"
 
 ## Define solution that will be printed to student.
 csq_soln = '''
@@ -130,6 +145,7 @@ test_params = [(10, 5, 0.25),
          (300, 120, 0.02)]
 
 tests = []
+tests.append((6, 4, {0: [1, 2], 1: [0, 2, 3, 4], 2: [0, 1, 3], 3: [1, 2, 5], 4: [1], 5: [3]}))
 
 for n, k, p in test_params:
     remake = True
@@ -168,4 +184,58 @@ ans = closestK(n, k, g)""",
         'check_function': check
     })
 
-</question> 
+</question>
+
+
+## Building a BFS tree
+
+A breadth-first search that only queues up vertices to be visited can find nearby vertices easily but can't easily compute the distances to these vertices or reconstruct the shortest paths used to reach them. To do this, we need to introduce <i>parent pointers</i> to our algorithm.
+
+In a breadth-first search (as well as in other graph searches), the parent of a vertex is the vertex which immediately preceded it. An example is shown below in which we have just visited vertex $A$. The red arrow edges indicate that vertices $B$ and $C$ each point to $A$ as their parent.
+
+<center>
+<img src="/_static/IAP19/bfs-21.png" />
+</center>
+
+After visiting vertex $B$, we assign it to be the parent of vertices $D$ and $E$. Note that we don't assign it to vertex $A$ because $A$ has already been visited, and we don't assign it to vertex $C$ because $C$ already has a parent.
+
+<center>
+<img src="/_static/IAP19/bfs-22.png" />
+</center>
+
+The graph illustrates the completed parent pointers from this BFS. Note that the edges corresponding to the parent pointers form a tree, in which every vertex has exactly one path (namely, the shortest one) to the starting vertex $A$. A graph can have multiple such trees depending on which vertex the BFS starts at and its visit order. In the above example, we could have assigned $C$ to be the parent of $D$ and found an equally valid tree.
+
+<center>
+<img src="/_static/IAP19/bfs-23.png" />
+</center>
+
+
+<checkyourself>
+Can a vertex have multiple parents? Can a vertex have no parent? Can a vertex be a parent to multiple other vertices?
+<showhide>
+A vertex can have at most one parent, but a vertex can be a parent to multiple vertices as seen above. A vertex will have no parent if it is the starting vertex (by definition) or if it is unreachable from the starting vertex.
+</showhide>
+</checkyourself>
+
+<checkyourself>
+Can the parent pointers form a cycle?
+<showhide>
+No, because following the parent pointers from any vertex will always lead to the starting vertex, where the path stops.
+</showhide>
+</checkyourself>
+
+## Shortest path finding with state management
+
+Consider the graph below, in which edges are colored either red or blue. How would we find the shortest path from vertex $A$ to another vertex given that the path <i>must contain a blue edge</i>?
+
+<center>
+<img src="/_static/IAP19/bfs-31.png" />
+</center>
+
+Let's look at our options going from $A$ to $E$. The shortest path without the blue edge restriction is $A\to B\to E$, but this doesn't satisfy our condition. If we were to prioritize blue edges first, we would likely find the path $A\to C\to F\to D\to E$, but we can do better with $A\to B\to D\to E$, the correct answer.
+
+Because it isn't easy to change the algorithm to accommodate this restriction, we can think about changing the graph instead. When we explore the graph with BFS and build up our shortest paths, for each vertex $v$, we'd like to know the shortest path to $v$ that <i>does not</i> use a blue edge, and the shortest path to $v$ that <i>does</i> use a blue edge. Instead of maintaining two different paths to one vertex, we can split $v$ into two versions, $v$ and $v'$. An example of this split for one vertex is illustrated below.
+
+<center>
+<img src="/_static/IAP19/bfs-32.png" />
+</center>
