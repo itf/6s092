@@ -66,8 +66,7 @@ csq_interface = 'ace'
 csq_prompt = "Wumpus has infiltrated the sanctuary of his nemesis Kason Ju. This complex can be described as an undirected graph on $n$ vertices numbered from $0$ to $n-1$. Wumpus is located at room 0 and needs to connect his doomsday device by wire to $k$ different rooms (which can include room 0). Because of the exorbitant cost of wire which he bought from LaVerde's, he would like to use as little as possible. Running a wire between adjacent rooms uses 1 unit, and distinct connections cannot share wires on the same edge. In the above graph, one solution is shown for $k=4$. Write an algorithm to find a list of $k$ rooms that satisfies the condition. (In the same example, either [0, 1, 2, 3] or [0, 1, 2, 4] in any order would be correct.)"
 
 ## Define solution that will be printed to student.
-csq_soln = '''
-def closestK(n, k, graph):
+csq_soln = '''def closestK(n, k, graph):
     closest = []
     visited = [False for i in range(n)]  # list of n Falses
     queue = [0]
@@ -86,8 +85,7 @@ def closestK(n, k, graph):
 '''
 
 ## Code that will be initially on the thingy
-csq_initial = '''
-def closestK(n, k, graph):
+csq_initial = '''def closestK(n, k, graph):
     queue = []
 
     # exploring the neighbors of 0
