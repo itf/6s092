@@ -256,7 +256,7 @@ An example of this transformation on a small 3-vertex graph is shown below. The 
 <img src="/_static/IAP19/bfs-33.png" height="200"  />
 </center>
 
-Now, we can use our normal BFS with parent pointers to find the shortest path between any $s$ and $t'$ we choose. All we have to do is translate this path back into the context of the original graph, but luckily, reversing our transformation is the easier part. All we have to do is treat $A$ and $A'$ as just $A$, $B$ and $B'$ as just $B$, etc. In the 3-vertex example, the path $A\to B\to C'$ corresponds to $A\to B\to C$ in the original graph.
+Now, we can use our normal BFS with parent pointers to find the shortest path between any $s$ and $t'$ we choose. Now we just have to translate this path back into the context of the original graph, but luckily, reversing our transformation is the easier part. All we have to do is treat $A$ and $A'$ as just $A$, $B$ and $B'$ as just $B$, etc. In the 3-vertex example, the path $A\to B\to C'$ corresponds to $A\to B\to C$ in the original graph.
 
 This example only introduced a binary state, but the idea can just as easily be applied to problems with an arbitrary number of states, provided that the state transitions through the graph are fully described.
 
