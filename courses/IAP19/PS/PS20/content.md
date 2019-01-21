@@ -2,10 +2,8 @@
 Recitation notes 10, 6.006 Fall 2018 on stellar.
 
 Lecture notes 10, 6.006 Fall 2018 on stellar.
-# Breadth First Search
 
-
-## Traversing the graph with BFS
+# Traversing the graph with BFS
 
 <center>
 <img src="/_static/IAP19/bfs-11.png" height="200"  />
@@ -175,9 +173,9 @@ ans = closestK(n, k, g)""",
 </question>
 
 
-## Building a BFS tree
+# Building a BFS tree
 
-A breadth-first search that only queues up vertices to be visited can find nearby vertices easily but can't easily compute the distances to these vertices or reconstruct the shortest paths used to reach them. To do this, we need to introduce <i>parent pointers</i> to our algorithm.
+A breadth-first search that only queues up vertices to be visited can find nearby vertices but can't easily compute the distances to them or reconstruct the shortest paths used to reach them. To do this, we need to introduce <i>parent pointers</i> to our algorithm.
 
 In a breadth-first search (as well as in other graph searches), the parent of a vertex is the vertex which immediately precedes it. An example is shown below in which we have just visited vertex $A$. The red arrow edges indicate that vertices $B$ and $C$ each point to $A$ as their parent.
 
@@ -212,7 +210,7 @@ No, because following the parent pointers from any vertex will always lead to th
 </showhide>
 </checkyourself>
 
-## Harder shortest path finding
+# Harder shortest path finding
 
 Consider the graph below, in which edges are colored either red or blue. How would we find the shortest path from vertex $A$ to another vertex given that the path <i>must contain a blue edge</i>?
 
