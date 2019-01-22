@@ -45,16 +45,6 @@ csq_options =  [r'$\Theta(V)$',
 csq_explanation = 'A useful property of undirected graphs is that the sum of its vertex degrees is double the number of edges. (One way to think about this is that each degree counts an edge from one of its two endpoints.) The degree sum is $\le 10V$, so our edge count is $E=O(V)$. BFS runs in $\Theta(V+E)$ time, which simplifies to $\Theta(V)$ after our substitution.'
 </question>
 
-<question expression>
-csq_prompt = "In a simple graph with $V$ vertices, which does not allow multiple edges between the same pair of vertices, give the best upper bound in big-$O$ notation for the runtime of a BFS.   \n\n"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = "O(V^2)"
-csq_explanation = "In the worst case, the graph is complete, meaning that every vertex pair has an edge. With $\Theta(V^2)$ such pairs, we have $E=\Theta(V^2)$, so our worst-case runtime is $O(V+E)=O(V^2)$."
-</question>
-
 <center>
 <img src="/_static/IAP19/bfs-13.png" height="200"  />
 </center>
