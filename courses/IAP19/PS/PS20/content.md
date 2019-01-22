@@ -49,6 +49,16 @@ csq_explanation = 'A useful property of undirected graphs is that the sum of its
 <img src="/_static/IAP19/bfs-13.png" height="200"  />
 </center>
 
+<question expression>
+csq_prompt = "What is the runtime of the algorithm described above on a graph with $V$ vertices and $E$ edges? Remember to consider the cost of creating the new graph as well as the subsequent BFS. Express your answer in Theta notation as a function of $V$ and $E$.   \n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "Theta(V+E)"
+csq_explanation = "We can count the number of vertices and edges in our new graph, which will tell us the time cost of creating the graph and the cost of running BFS on it. We know that for each original vertex, we add 2 vertices to our new graph, and for each original edge, we add 2 or 3 edges to our graph depending on its color. Thus, each vertex contributes $\Theta(1)$ new vertices, and each edge contributes $\Theta(1)$ new edges, so our new graph has $V'=\Theta(V)$ vertices and $E'=\Theta(E)$ edges. The BFS runs in $\Theta(V'+E')=\Theta(V+E)$ time, for a grand total of $\Theta(V+E)$, asymptotically equivalent to a BFS on the original graph."
+</question>
+
 <question pythoncode>
 csq_interface = 'ace'
 csq_prompt = "Wumpus has infiltrated the sanctuary of his nemesis Kason Ju. This complex can be described as an undirected graph on $n$ vertices numbered from $0$ to $n-1$. Wumpus is located at room $0$ and needs to connect his doomsday device by wire to $k$ different rooms (which can include room $0$).\n\nBecause of the exorbitant cost of wire which he bought from LaVerde's, he would like to use as little as possible. Running a wire between adjacent rooms uses 1 unit, and distinct connections cannot share wires on the same edge. In the above graph, one solution is shown for $k=4$.\n\nWrite an algorithm to find a list of $k$ rooms that satisfies the above condition. (In the same example, either $[0, 1, 2, 3]$ or $[0, 1, 2, 4]$ in any order would be correct.)\n\n"
