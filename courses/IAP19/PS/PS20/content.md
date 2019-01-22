@@ -5,6 +5,8 @@ Lecture notes 10, 6.006 Fall 2018 on Stellar.
 
 # Traversing the graph with BFS
 
+BFS shares many characteristics with DFS, but BFS visits vertices in order of increasing distance. This invariant lends itself well to finding nearby vertices from a starting point, as well as computing distances and shortest paths in unweighted graphs.
+
 <center>
 <img src="/_static/IAP19/bfs-11.png" height="200"  />
 </center>
@@ -198,7 +200,7 @@ csq_soln = [0, 1, 1, 0]
 csq_options =  [r'A vertex can have multiple parents.',
  r'A vertex can have no parent.',
  r'A vertex can be a parent to multiple vertices.',
- r'The shortest path from vertex $v$ to the starting vertex must include the parent of $v$']
+ r'The shortest path from vertex $v$ to the starting vertex must include the parent of $v$.']
 csq_explanation = 'A vertex can have at most one parent, but a vertex can be a parent to multiple vertices as seen above. A vertex will have no parent if it is the starting vertex (by definition) or if it is unreachable from the starting vertex. While the parent of a vertex is on a shortest path to that vertex, the path need not be unique, and alternate shortest paths can use different vertices.<br>From an implementation standpoint, this makes parent pointers easy to use, as we can store all of our pointers in an array-like structure, where element $i$ is the parent of vertex $i$.'
 </question>
 
