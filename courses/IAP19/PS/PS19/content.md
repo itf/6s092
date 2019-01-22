@@ -46,9 +46,7 @@ csq_name="p1"
 </question>
 
 <question multiplechoice>
-csq_prompt = "Now, what do we do with the vertex `s`? We need to visit its neighbors, as long as they don't already have parents.
-
-Remember, this will follow a recursive structure: for each new vertex `v` we visit, we should be calling `depth_first` on it."
+csq_prompt = "Now, what do we do with the vertex `s`? We need to visit its neighbors, as long as they don't already have parents. Remember, this will follow a recursive structure: for each new vertex `v` we visit, we should be calling `depth_first` on it."
 csq_renderer = "radio"
 csq_soln = """```
 if parent[v] = None:
@@ -119,9 +117,7 @@ csq_name="p4"
 </question>
 
 <question expression>
-csq_prompt = "Let $E$ denote the number of vertices in a graph, $V$ denote the number of edges. Using big-O notation, what is the overall runtime of the depth-first search algorithm? Two facts will be helpfull here: first, that the sum of the out-degrees of all vertices is no more than twice the number of edges, so that
-$$\sum_{v \in V}deg(v) = O(E),$$
-and secondly, that there is an extra required runtime of $V$ to initialize the parent array."
+csq_prompt = "Let $E$ denote the number of vertices in a graph, $V$ denote the number of edges. Using big-O notation, what is the overall runtime of the depth-first search algorithm? Two facts will be helpfull here: first, that the sum of the out-degrees of all vertices is no more than twice the number of edges, so that $$\sum_{v \in V}deg(v) = O(E),$$ and secondly, that there is an extra required runtime of $V$ to initialize the parent array."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
