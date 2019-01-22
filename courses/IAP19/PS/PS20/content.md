@@ -222,6 +222,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "FG"
 csq_explanation = "By inspection, we see that $E$ is distance 3 away from $A$. Its parent must be an adjacent vertex distance 2 away from $A$, and any such vertex will work. The vertices which satisfy these conditions are $F$ and $G$."
+csq_nsubmits = None
 </question>
 
 
@@ -285,6 +286,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "Theta(V+E)"
 csq_explanation = "We can count the number of vertices and edges in our new graph, which will tell us the time cost of creating the graph and the cost of running BFS on it. We know that for each original vertex, we add 2 vertices to our new graph, and for each original edge, we add 2 or 3 edges to our graph depending on its color. Thus, each vertex contributes $\Theta(1)$ new vertices, and each edge contributes $\Theta(1)$ new edges, so our new graph has $V'=\Theta(V)$ vertices and $E'=\Theta(E)$ edges. The BFS runs in $\Theta(V'+E')=\Theta(V+E)$ time, for a grand total of $\Theta(V+E)$, asymptotically equivalent to a BFS on the original graph."
+csq_nsubmits = None
 </question>
 
 This example only introduced a binary state, but the idea can just as easily be applied to problems with an arbitrary number of states, provided that the state transitions through the graph are fully described.
