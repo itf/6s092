@@ -209,6 +209,10 @@ No, because following the parent pointers from any vertex will always lead to th
 </showhide>
 </checkyourself>
 
+<center>
+<img src="/_static/IAP19/bfs-24.png" height="200"  />
+</center>
+
 <question expression>
 csq_prompt = "A BFS is run on the graph above starting from $A$. Which vertices could be the parent of $E$ as a result? List them as a string in alphabetical order.   \n\n"
 csq_initial = ""
