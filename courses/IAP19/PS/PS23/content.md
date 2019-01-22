@@ -1,8 +1,10 @@
 # Readings 
-Recitation notes 13, 6.006 Fall 2018 on stellar.
+Recitation notes 13, 6.006 Fall 2018 on Stellar.
 
-Lecture notes 13, 6.006 Fall 2018 on stellar.
+Lecture notes 13, 6.006 Fall 2018 on Stellar.
 # Bellman-Ford
+
+
 
 
 <question multiplechoice>
