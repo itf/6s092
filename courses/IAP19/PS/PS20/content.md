@@ -209,6 +209,16 @@ No, because following the parent pointers from any vertex will always lead to th
 </showhide>
 </checkyourself>
 
+<question expression>
+csq_prompt = "A BFS is run on the graph above starting from $A$. Which vertices could be the parent of $E$ as a result? List them as a string in alphabetical order.   \n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "FG"
+csq_explanation = "By inspection, we see that $E$ is distance 3 away from $A$. Its parent must be an adjacent vertex distance 2 away from $A$, and any such vertex will work. The vertices which satisfy these conditions are $F$ and $G$."
+</question>
+
 
 # Harder shortest path finding
 
