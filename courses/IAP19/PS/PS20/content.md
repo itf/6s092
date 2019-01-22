@@ -19,7 +19,6 @@ csq_options =  ['$[A, B, C, D]$',
 csq_explanation = 'Because we begin at $A$, our BFS should visit its neighbors $B$ and $D$ before visiting $C$. Also, a BFS which starts at $A$ should visit $A$ first.'
 </question>
 
-
 <center>
 <img src="/_static/IAP19/bfs-12.png" height="300"  />
 </center>
@@ -46,11 +45,19 @@ csq_options =  [r'$\Theta(V)$',
 csq_explanation = 'A useful property of undirected graphs is that the sum of its vertex degrees is double the number of edges. (One way to think about this is that each degree counts an edge from one of its two endpoints.) The degree sum is $\le 10V$, so our edge count is $E=O(V)$. BFS runs in $\Theta(V+E)$ time, which simplifies to $\Theta(V)$ after our substitution.'
 </question>
 
+<question expression>
+csq_prompt = "In a simple graph with $V$ vertices, which does not allow multiple edges between the same pair of vertices, give the best upper bound in big-$O$ notation for the runtime of a BFS.\n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "O(V^2)"
+csq_explanation = "In the worst case, the graph is complete, meaning that every vertex pair has an edge. With $\Theta(V^2)$ such pairs, we have $E=\Theta(V^2)$, so our worst-case runtime is $O(V+E)=O(V^2)."
+</question>
 
 <center>
 <img src="/_static/IAP19/bfs-13.png" height="200"  />
 </center>
-
 
 <question pythoncode>
 csq_interface = 'ace'
@@ -88,7 +95,6 @@ csq_initial = '''def closestK(n, k, graph):
 
     return None
 '''
-
 
 def bfs_dists(n, k, g):
     visited = [False for i in range(n)]
@@ -169,7 +175,6 @@ n, k, g, _, _ = {t}
 ans = closestK(n, k, g)""",
         'check_function': check
     })
-
 </question>
 
 
@@ -195,7 +200,6 @@ The graph illustrates the completed parent pointers from this BFS. Note that the
 <img src="/_static/IAP19/bfs-23.png" height="200"  />
 </center>
 
-
 <checkyourself>
 Can a vertex have multiple parents? Can a vertex have no parent? Can a vertex be a parent to multiple other vertices?
 <showhide>
@@ -209,6 +213,7 @@ Can the parent pointers form a cycle?
 No, because following the parent pointers from any vertex will always lead to the starting vertex, where the path stops.
 </showhide>
 </checkyourself>
+
 
 # Harder shortest path finding
 
@@ -273,4 +278,3 @@ csq_explanation = "We can count the number of vertices and edges in our new grap
 </question>
 
 This example only introduced a binary state, but the idea can just as easily be applied to problems with an arbitrary number of states, provided that the state transitions through the graph are fully described.
-
