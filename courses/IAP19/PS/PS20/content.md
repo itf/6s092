@@ -320,7 +320,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = 4
+csq_soln = "4"
 csq_explanation = "At each vertex, we either have used a red edge to get there or not, and we either have used a blue edge or not. We have $2$ options for each, giving us $2\cdot 2=4$ combinations in total."
 csq_nsubmits = None
 csq_name = "bfs_state4"
