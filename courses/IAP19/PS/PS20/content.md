@@ -211,6 +211,7 @@ No, because following the parent pointers from any vertex will always lead to th
 
 <question expression>
 csq_prompt = "A BFS is run on the graph above starting from $A$. Which vertices could be the parent of $E$ as a result? List them as a string in alphabetical order.   \n\n"
+csq_initial = ""
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
