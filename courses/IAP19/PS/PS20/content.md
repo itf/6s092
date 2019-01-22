@@ -263,7 +263,7 @@ Now, we can use our normal BFS with parent pointers to find the shortest path be
 With our new and shiny algorithm fleshed out, we can analyze its runtime.
 
 <question expression>
-csq_prompt = "What is the runtime of the algorithm described above on a graph with $V$ vertices and $E$ edges? Remember to consider the cost of creating the new graph as well as the subsequent BFS. Express your answer in Theta notation as a function of $V$ and $E$.\n\n"
+csq_prompt = "What is the runtime of the algorithm described above on a graph with $V$ vertices and $E$ edges? Remember to consider the cost of creating the new graph as well as the subsequent BFS. Express your answer in Theta notation as a function of $V$ and $E$.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
