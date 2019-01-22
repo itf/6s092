@@ -1,4 +1,4 @@
-# Readings 
+# Readings
 Recitation notes 12, 6.006 Fall 2018 on stellar.
 
 
@@ -6,113 +6,76 @@ Recitation notes 12, 6.006 Fall 2018 on stellar.
 
 
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "For some vertices in the graph, there does not exist a shortest path from the source to those vertices when the graph contains: "
+csq_renderer = "checkbox"
+csq_soln = [1,0,0]
+csq_options =  ['a negative weight cycle',
+'a positive weight cycle',
+'negative weight edges (no cycle)']
+csq_name="qexample1"
+csq_explanation = "When there is a negative weight cycle, we can get a shorter path by going around the cycle again, giving a path with weight negative infinity."
+</question>
+
+<question multiplechoice>
+csq_prompt = "The first step of any relaxation algorithm is: "
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
+csq_options =  ["initialize the weights to positive infinity",
+"initialize the weights to negative infinity",
+"initialize the weights to one random integer; anything works",
+"initialize the weights to zero"]
+csq_name="qexample2"
+csq_explanation = "The invariant for relaxation is that d[v] >= $\\delta$[v], where d[v] is the current estimate for the weight of the path from s to v and $\\delta$[v] is the actual minimum weight of that path. \n
+By initializing to positive infinity, we have that this invariant must be true at the beginning. This is not necessarily true if we initialize to anything else (anything else might be smaller than the actual minimum weight)."
 </question>
 
+<center>
+<img src="/_static/IAP19/relax1.png" height="200"  />
+</center>
 
-<question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
+<question multiplechoice>
+csq_prompt = "In the above graph, can we relax any edges?"
+csq_soln = [1,0]
+csq_options =  ["True", "False"]
+csq_name="qexample3"
+csq_explanation = "We have d[u] = 5, d[v] = 20, and w(u,v) = 7=12, so d[v] < d[u] + w(u,v), so yes, we can relax."
 </question>
 
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
+<center>
+<img src="/_static/IAP19/relax2.png" height="200"  />
+</center>
 
+<question multiplechoice>
+csq_prompt = "In the above graph, is there a negative weight cycle? If so, which edges are in it?"
+csq_soln = [0,1,0,0]
+csq_options =  ["No negative weight cycle",
+  "Negative weight cycle; edges (a,b), (b,c), (c,d), (d,a)",
+  "Negative weight cycle; edges (b,c), (c,d), (d,a)",
+  "Negative weight cycle; edges (s,a), (a,b), (b,c), (c,d), (d,a), (c,v)"]
+csq_name="qexample4"
+csq_explanation = "The path consisting of edges (a,b), (b,c), (c,d), and (d,a) is a cycle. It has negative weight: +10 - 15 -17 -11 = -33. Edges (s,a) and (c,v) are not part of this cycle (even though s and v are connected to the vertices in the cycle)."
+</question>
 
+<center>
+<img src="/_static/IAP19/relax2.png" height="200"  />
+</center>
 
-<question pythoncode>
-csq_interface = 'ace'
-csq_prompt = "Write your code to return a string with 4 repeated n times"
+<question multiplechoice>
+csq_prompt = "In the (same) above graph, what is the weight of the minimum weight path from s to v?"
+csq_soln = [0,0,0,1]
+csq_options =  ["1", "-17", "4", "negative infinity"]
+csq_name="qexample4"
+csq_explanation = "There is a negative weight cycle on the path from s to v, so the minimum weight path has negative infinity weight."
+</question>
 
-## Define solution that will be printed to student.
-csq_soln = """
-def print_4_ntimes(n): 
-    return 'Solution will be posted to Stellar'
-"""
+<center>
+<img src="/_static/IAP19/relax4.png" height="200"  />
+</center>
 
-## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
-    return '4'
-"""
-csq_name= "pcode2"
-
-## Code that will be written before the user code as well as solution
-## Particularly useful for defining classes and things that we don't want the user to modify
-## For example, define a DFS function.
-csq_code_pre = ""
-
-
-## Code that will be written after the user code as well as solution code
-## Seems quite useless to me.
-csq_code_post = ""
-
-
-
-## Sandbox options to block libraries or decide how long to run thingy
-csq_sandbox_options = {
-    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
-    'MEMORY':1e9
-}
-
-
-## Now we define helped functions
-tests = [cs_random.randint(1,20) for x in range(10)]
-
-def is_correct(n, sol):
-    if not(type(sol) == type('44')):
-       return False
-    if len(sol)==n:
-        for i in range(n):
-           if sol[i]!='4':
-               return False
-        return True
-    return False
-
-## Now we need to write csq_tests, which defines what code to run
-## As well as how to test it. 
-## Each csq_tests is a dictionary of things (code, check, etc)
-
-## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
-## Code should define a string called ans, which is what will be tested.
-
-## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
-
-csq_tests = []
-for i, t in enumerate(tests):
-
-    def check(ans, soln, i = i):
-        n = tests[i]
-        print(ans)
-        return is_correct(n, eval(ans))
-        
-    csq_tests.append({
-        'code': f"""
-n = {tests[i]}
-ans = print_4_ntimes(n)
-""" ,
-        'show_code': i < 5,
-        'grade': True,
-        'check_function': check
-    })
-
-</question> 
-
+<question multiplechoice>
+csq_prompt = "In the above graph, what is the weight of the minimum weight path from s to v?"
+csq_soln = [0,0,0,1]
+csq_options =  ["negative infinity", "-5"]
+csq_name="qexample5"
+csq_explanation = "Negative infinity is less than -5; if there exists a path from s to v having a negative weight cycle, this path will produce the minimum weight."
+</question>
