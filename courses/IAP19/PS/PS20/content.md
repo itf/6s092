@@ -260,5 +260,17 @@ An example of this transformation on a small 3-vertex graph is shown below. The 
 
 Now, we can use our normal BFS with parent pointers to find the shortest path between any $s$ and $t'$ we choose. Now we just have to translate this path back into the context of the original graph, but luckily, reversing our transformation is the easier part. All we have to do is treat $A$ and $A'$ as just $A$, $B$ and $B'$ as just $B$, etc. In the 3-vertex example, the path $A\to B\to C'$ corresponds to $A\to B\to C$ in the original graph.
 
+With our new and shiny algorithm fleshed out, we can analyze its runtime.
+
+<question expression>
+csq_prompt = "What is the runtime of the algorithm described above on a graph with $V$ vertices and $E$ edges? Remember to consider the cost of creating the new graph as well as the subsequent BFS. Express your answer in Theta notation as a function of $V$ and $E$.\n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "Theta(V+E)"
+csq_explanation = "We can count the number of vertices and edges in our new graph, which will tell us the time cost of creating the graph and the cost of running BFS on it. We know that for each original vertex, we add 2 vertices to our new graph, and for each original edge, we add 2 or 3 edges to our graph depending on its color. Thus, each vertex contributes $\Theta(1)$ new vertices, and each edge contributes $\Theta(1)$ new edges, so our new graph has $V'=\Theta(V)$ vertices and $E'=\Theta(E)$ edges. The BFS runs in $\Theta(V'+E')=\Theta(V+E)$ time, for a grand total of $\Theta(V+E), asymptotically equivalent to a BFS on the original graph."
+</question>
+
 This example only introduced a binary state, but the idea can just as easily be applied to problems with an arbitrary number of states, provided that the state transitions through the graph are fully described.
 
