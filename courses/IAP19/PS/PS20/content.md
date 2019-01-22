@@ -34,16 +34,6 @@ csq_options =  ['$[A, B, C, D, E, F, G]$',
 csq_explanation = 'The second sequence visits $E$ (distance 2 from $A$) before visiting $C$ (distance 1 from $A$). The fourth sequence visits $F$ and $G$ before visiting $D$.'
 </question>
 
-<question expression>
-csq_prompt = "What is the runtime of the algorithm described above on a graph with $V$ vertices and $E$ edges? Remember to consider the cost of creating the new graph as well as the subsequent BFS. Express your answer in Theta notation as a function of $V$ and $E$.   \n\n"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = "Theta(V+E)"
-csq_explanation = "We can count the number of vertices and edges in our new graph, which will tell us the time cost of creating the graph and the cost of running BFS on it. We know that for each original vertex, we add 2 vertices to our new graph, and for each original edge, we add 2 or 3 edges to our graph depending on its color. Thus, each vertex contributes $\Theta(1)$ new vertices, and each edge contributes $\Theta(1)$ new edges, so our new graph has $V'=\Theta(V)$ vertices and $E'=\Theta(E)$ edges. The BFS runs in $\Theta(V'+E')=\Theta(V+E)$ time, for a grand total of $\Theta(V+E)$, asymptotically equivalent to a BFS on the original graph."
-</question>
-
 <question multiplechoice>
 csq_prompt = "Consider a graph with $V$ vertices in which each vertex has degree at most 10. (Recall that the degree of a vertex $v$ is the number of edges incident to $v$.) What is the time complexity of a breadth-first search on this graph?\n\n"
 csq_renderer = "radio"
