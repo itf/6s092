@@ -137,7 +137,7 @@ When we count the out-degrees of all vertices, we are counting the number of edg
 Now it's time to try depth first search in practice! Consider the following graph. 
 
 <center>
-<img src="/_static/IAP19/dfs-1.png" height="200"  />
+<img src="/_static/IAP19/dfs-1.png" height="250"  />
 </center>
 
 <question expression>
@@ -152,7 +152,7 @@ csq_name="p7"
 </question>
 
 <center>
-<img src="/_static/IAP19/dfs-2.png" height="200"  />
+<img src="/_static/IAP19/dfs-2.png" height="250"  />
 </center>
 
 <question expression>
