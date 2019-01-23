@@ -137,33 +137,31 @@ When we count the out-degrees of all vertices, we are counting the number of edg
 Now it's time to try depth first search in practice! Consider the following graph. 
 
 <center>
-<img src="/_static/IAP19/image-here" height="200"  />
+<img src="/_static/IAP19/dfs-1.png" height="200"  />
 </center>
 
-<Graph indexType="custom" height="400" width="400" nodes={[{label:0,center:{x:169.4,y:176.4}},{label:1,center:{x:223.1,y:287.2}},{label:2,center:{x:240.2,y:66.2}},{label:3,center:{x:106.7,y:67.8}},{label:4,center:{x:92.2,y:282}},{label:5,center:{x:353.7,y:296.2}},{label:"6",center:{x:302.2,y:180.2}},{label:"7",center:{x:267.8,y:399.4}}]} edges={[{source:0,target:1},{source:0,target:2},{source:0,target:3},{source:1,target:5},{source:5,target:7},{source:1,target:6},{source:2,target:6},{source:0,target:6},{source:4,target:1},{source:0,target:4}]} />
-
 <question expression>
-csq_prompt = "Assuming we visit vertices with lower values before those with higher values, and that `s` is our start vertex, in what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. Your answer should be in the form $a, b, c, ...$."
+csq_prompt = "Assuming we visit vertices with lower values before those with higher values, and that $0$ is our start vertex, in what order will we visit vertices? List vertices in order of the *last* time we visit a vertex (i.e. $0$ will appear *last* on your list). You might not use all vertices. Your answer should be in the form $a, b, c, ...$."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = 'n'
+csq_soln = '7, 5, 6, 1, 2, 3, 4, 0'
 csq_nsubmits = None
 csq_name="p7"
 </question>
 
 <center>
-<img src="/_static/IAP19/image-here" height="200"  />
+<img src="/_static/IAP19/dfs-2.png" height="200"  />
 </center>
 
 <question expression>
-csq_prompt = "As in the last question, assume we visit vertices with lower values before those with higher values and that `s` is the start vertex. In what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. Your answer should be in the form $a, b, c, ...$."
+csq_prompt = "As in the last question, assume we visit vertices with lower values before those with higher values and that $0$ is the start vertex. In what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. You might not use all vertices. Your answer should be in the form $a, b, c, ...$."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = 'n'
+csq_soln = '2, 4, 1, 5, 6, 0'
 csq_nsubmits = None
 csq_name="p8"
 </question>
@@ -201,7 +199,7 @@ csq_prompt = "DFS can easily be modified to compute shortest paths from the star
 csq_renderer = "radio"
 csq_soln = 'False'
 csq_options = ['True', 'False']
-csq_explanation = "While breadth first search can do this well, depth-first search will not choose edges that minimize distance from `s`. For an example, consider the second depth-first search calculation you made in this section."
+csq_explanation = "While breadth first search can do this well, depth-first search will not choose edges that minimize distance from `s`. For an example, consider the first depth-first search calculation you made in this section: it returns a tree with the edges $(0,1)$ and $(1,6)$, but it would be more efficient to reach $6$ via the edge $(0,6)$."
 csq_name="p12"
 </question>
 
