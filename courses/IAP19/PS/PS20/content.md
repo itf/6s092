@@ -125,7 +125,6 @@ csq_initial = '''def closestK(n, k, graph):
 '''
 
 csq_code_pre = '''
-python
 import threading
 import os
 import signal
