@@ -1,8 +1,3 @@
-# Readings 
-Recitation notes 11, 6.006 Fall 2018 on stellar.
-
-Lecture notes 11, 6.006 Fall 2018 on stellar.
-
 # Depth-First Search: Theory
 In a *depth-first search*, we travel through every vertex reachable from some start vertex *s*, and it does so by following a single path as deeply as possible before continuing to another path. 
 
@@ -42,6 +37,7 @@ parent[s] = s
 for v in Adj[s]:
 	parent[v] = s
 ```"""]
+csq_explanation = "We wish to create an array with one parent per vertex, so we give it a length of `len(Adj)`, which has a length equal to the number of vertices. Nothing has a parent yet except `s`, which is its own parent."
 csq_name="p1"
 </question>
 
@@ -51,8 +47,7 @@ csq_renderer = "radio"
 csq_soln = """```
 if parent[v] = None:
 	parent[v] = s
-	depth_first(Adj, v)
-```"""
+	depth_first(Adj, v)```"""
 csq_options =  ["""```
 if parent[v] = None:
 	parent[v] = s
@@ -73,7 +68,8 @@ if parent[v] = None:
 if parent[v] = None:
 	parent = depth_first(Adj, v)
 ```"""]
-csq_name="p1"
+csq_explanation = "First, we use the `if` statement to ensure that the vertex we consider has not already been visited. Assuming it hasn't, we want to give it a parent: our current vertex `s`. Then, we want to run a DFS on `v` to explore its subtree (hence the recursive structure). Convince yourself that this does the same as the intuitive explanation at the beginning of this section."
+csq_name="p2"
 </question>
 
 <question multiplechoice>
@@ -85,7 +81,8 @@ csq_options =  ['The list of vertices reachable from `s` using only edges from t
 'The number of vertices reachable from `s`',
 'A list of parents of vertices that can be used to construct a tree rooted at `s`',
 'A list of vertices, ordered by when the depth-first search first reached it.']
-csq_name="p2"
+csq_explanation = "The only information that this implementation returns is the list of parents."
+csq_name="p3"
 </question>
 
 Although as written, depth-first search only returns one of the following, it can easily be made to return any of them. 
@@ -101,7 +98,7 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = ['$O(V)$', '$Theta(V)']
 csq_explanation = "We can only call `depth_first` once on per vertex: it will only be called if the vertex had no parent to start, and after it is called, it will have a parent. So we call the function at most once per vertex, or $O(V)$ times."
 csq_nsubmits = None
-csq_name="p3"
+csq_name="p4"
 </question>
 
 <question expression>
@@ -113,7 +110,7 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = ['$O(d)$', '$Theta(d)']
 csq_explanation = "For a given vertex, the for-loop `for v in Adj[s]` will do work for each vertex adjacent to `s`. This will take an amount of work proportional to $d$."
 csq_nsubmits = None
-csq_name="p4"
+csq_name="p5"
 </question>
 
 <question expression>
@@ -125,7 +122,7 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = ['$O(V+E)$', '$Theta(V+E)$']
 csq_explanation = "We need to sum the work O(d) over all vertices. By the hint, this means that the total runtime is $O(E)$. However, we need also consider the extra $O(V)$ work necesarry to just initialize the array. This gives us a total runtime of $O(V+E)$."
 csq_nsubmits = None
-csq_name="p5"
+csq_name="p6"
 </question>
 
 <checkyourself>
@@ -138,3 +135,97 @@ When we count the out-degrees of all vertices, we are counting the number of edg
 # Depth-First Search: Practice
 
 Now it's time to try depth first search in practice! Consider the following graph. 
+
+<center>
+<img src="/_static/IAP19/image-here" height="200"  />
+</center>
+
+<question expression>
+csq_prompt = "Assuming we visit vertices with lower values before those with higher values, and that `s` is our start vertex, in what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. Your answer should be in the form $a, b, c, ...$."
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = 'n'
+csq_nsubmits = None
+csq_name="p7"
+</question>
+
+<center>
+<img src="/_static/IAP19/image-here" height="200"  />
+</center>
+
+<question expression>
+csq_prompt = "As in the last question, assume we visit vertices with lower values before those with higher values and that `s` is the start vertex. In what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. Your answer should be in the form $a, b, c, ...$."
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = 'n'
+csq_nsubmits = None
+csq_name="p8"
+</question>
+
+For the next two questions, suppose the graph is undirected. Similarly, a *connected component* of a graph is a connected subgraph of the original graph, which is not connected to any other vertex (that is, it is the biggest connected piece possible).
+
+<question expression>
+csq_prompt = "If I wish to explore the entirety of a graph $G$ with $n$ connected components, how many times will I have to call on the `depth_first()` function? Do not use big-O notation for this question."
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = 'n'
+csq_explanation = "Every time we finish exploring a connected component, `depth_first()` will terminate, and we will have to call the function again on a new connected component. This will happen $n$ times."
+csq_nsubmits = None
+csq_name="p9"
+</question>
+
+The linear run time of depth-first search great, but sometimes we want to do even better, given some restrictions on the structure of the graph. For instance, if we know there are only a few edges, we might be able to say that $E = O(V)$, in which case the run time is simply $O(V)$. 
+
+<question expression>
+csq_prompt = "Suppose that the entire graph is connected, so that we can reach any vertex from `s`, the start of our DFS search. What is the run time of DFS in this case?"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ['$O(E)$', '$Theta(E)$']
+csq_explanation = "For every vertex in the graph to be connected, we need at least $V-1$ edges: this will create a tree that connects all vertices with the minimum number of edges. Since $E > V - 1$, we have that $V = O(E)$ and so the run time $O(V+E)$ becomes $O(V)$."
+csq_nsubmits = None
+csq_name="p11"
+</question>
+
+<question multiplechoice>
+csq_prompt = "DFS can easily be modified to compute shortest paths from the start vertex `s` to other vertices connected to it."
+csq_renderer = "radio"
+csq_soln = 'False'
+csq_options = ['True', 'False']
+csq_explanation = "While breadth first search can do this well, depth-first search will not choose edges that minimize distance from `s`. For an example, consider the second depth-first search calculation you made in this section."
+csq_name="p12"
+</question>
+
+# Topological Sort
+Suppose a graph is directed and acyclic: its edges are directed and there is no way to follow the edges of the graph from a vertex back to itself.
+
+In this case, we can define a *topological sort* on graph. A topological sort is an ordering of vertices $(v_1, v_2, ..., v_k)$ in a graph so that for every edge $(v_i, v_j)$, we have $i < j$. In other words, a directed edge from a vertex $v_i$ to another vertex $v_j$ requires $v_j$ to go after $v_i$ in the sort.
+
+<checkyourself>
+Why do we require that the graph be directed and acyclic to define a topological sort?
+<showhide>
+Suppose our graph had a cycle, and denote the vertices in the cycle $v_a, v_b, v_c, ..., v_a$ (since we start and end on the same vertex). Then the condition for topological sort requires that $a < b < c < ... <
+a$, but it makes no sense for $a < a$. (Intuitively, a cycle means some vertex $v_a$ needs to come after itself... which is impossible.) The graph must be directed because undirected graphs are necesarrily cyclic.
+</showhide>
+</checkyourself>
+
+Why is a topological sort useful? Consider the following familiar scenario: you are given a list of classes, and prerequisites for classes. For instance your set of classes might be `V = {00, 006, 854, 046, 009}` and a set of prerequisites `E = {(00,006), (00, 009), (006, 046), (046, 854)}`. You wish to determine a valid order in which to take classes. The topological sort will give you something like `(00, 006, 009, 046, 854)`, and taking classes in this order will not violate any prerequisites!
+
+<question multiplechoice>
+csq_prompt = "Which of the following are true about topological sorts for a directed acyclic graph?"
+csq_renderer = "checkbox"
+csq_soln = [0,1,0,1,1]
+csq_options =  ['There is only one valid topological sort.',
+'If edges $(a,b)$ and $(b,c)$ exist, then $a$ must come before $c$ in the topological sort.',
+'If edges $(a,b)$, $(c,b)$, and $(c,a)$ exist, there is no topological sort for the graph.',
+'A topological sort can be computed in the same time (asymptotically) as depth-first search.',
+'If a valid topological sort exists, the graph must be acyclic.']
+csq_name="p10"
+</question>
