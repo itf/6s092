@@ -1,30 +1,29 @@
 # Readings 
-Recitation notes 10, 6.006 Fall 2018 on Stellar.
+[Recitation notes 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/fb806d51-1a22-4a1c-b388-33211a880b42/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Breadth-First Search, 6.006 Fall 2018 on Stellar.
 
-Lecture notes 10, 6.006 Fall 2018 on Stellar.
+[Lecture notes 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/5f6a6fa2-26f7-4791-8e6e-2246ab4a4d83/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Breadth-First Search, 6.006 Fall 2018 on Stellar.
 
 # Traversing the graph with BFS
 
-BFS shares many characteristics with DFS, but BFS visits vertices in order of increasing distance. This invariant lends itself well to finding nearby vertices from a starting point, as well as computing distances and shortest paths in unweighted graphs.
+BFS shares many characteristics with [DFS](https://s092.xvm.mit.edu/IAP19/PS/PS19), but BFS visits vertices in order of increasing distance from the start (source) vertex. This invariant lends itself well to finding nearby vertices from a starting point, as well as computing distances and shortest paths in unweighted graphs.
 
 For reference, here is one implementation of breadth-first search on a graph using a first-in-first-out (FIFO) queue.
 
-    1. Add the starting vertex to the queue.
+    1. Add the starting vertex $s$ to the queue.
     2. Remove a vertex from the queue and add any of its neighbors we haven't yet seen to the queue.
     3. Mark the removed vertex as visited.
-    4. If our queue isn't empty, go to step 2.
+    4. If our queue isn't empty, go to step 2. Otherwise, we are done because we have visited all the vertices reachable from $s$.
 
-The order in which we visit vertices is the sequence produced by our BFS.
+BFS returns the vertices in the order in which we visit them.
 
 <question expression>
-csq_prompt = "What is the runtime of this algorithm in Theta notation as a function of $V$ and $E$, the number of vertices and edges?   \n\n"
+csq_prompt = "What is the asymptotic runtime of this algorithm as a function of $V$ and $E$, the number of vertices and edges?   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "Theta(V+E)"
+csq_soln = ["O(V+E)", "Theta(V+E)"]
 csq_explanation = "Each vertex is visited once, and each edge is checked at most twice (once from each end). This gives us a runtime of $\Theta(V+E)$.<br><br>A possible implementation mistake that would slow down this algorithm is not ensuring that queue removal is done in $\Theta(1)$ time. Using `list.pop(0)` would be one such example."
-csq_name = "bfs_runtime"
 </question>
 
 <center>
@@ -34,12 +33,12 @@ csq_name = "bfs_runtime"
 <question multiplechoice>
 csq_prompt = "Which of the following sequences of vertices could be produced by running a breadth-first search on the graph above starting at $A$?\n\n"
 csq_renderer = "checkbox"
-csq_soln = [0, 1, 0]
+csq_soln = [0, 1, 1, 0]
 csq_options =  ['$[A, B, C, D]$',
  '$[A, D, B, C]$',
+ '$[A, B, D, C]$',
  '$[B, A, C, D]$']
 csq_explanation = 'Because we begin at $A$, our BFS should visit its neighbors $B$ and $D$ before visiting $C$. Also, a BFS which starts at $A$ should visit $A$ first.'
-csq_name = "bfs_traverse1"
 </question>
 
 <center>
@@ -55,7 +54,6 @@ csq_options =  ['$[A, B, C, D, E, F, G]$',
  '$[A, C, D, B, F, G, E]$',
  '$[A, B, C, F, G, D, E]$']
 csq_explanation = 'The second sequence visits $E$ (distance 2 from $A$) before visiting $C$ (distance 1 from $A$). The fourth sequence visits $F$ and $G$ before visiting $D$.'
-csq_name = "bfs_traverse2"
 </question>
 
 <question multiplechoice>
@@ -67,18 +65,16 @@ csq_options =  [r'$\Theta(V)$',
  r'$\Theta(V^2)$',
  r'$\Theta(V^{10})$']
 csq_explanation = 'A useful property of undirected graphs is that the sum of its vertex degrees is double the number of edges. (One way to think about this is that each degree counts an edge from one of its two endpoints.) The degree sum is $\le 10V$, so our edge count is $E=O(V)$. BFS runs in $\Theta(V+E)$ time, which simplifies to $\Theta(V)$ after our substitution.'
-csq_name = "bfs_time1"
 </question>
 
 <question expression>
-csq_prompt = "In a simple graph with $V$ vertices, which does not allow multiple edges between the same pair of vertices, give the best upper bound in big-$O$ notation for the runtime of a BFS.   \n\n"
+csq_prompt = "In a simple graph with $V$ vertices, which does not allow multiple edges between the same pair of vertices, give the best upper bound in big-$O$ notation for the runtime of a BFS in terms of $V$.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "O(V^2)"
 csq_explanation = "In the worst case, the graph is complete, meaning that every vertex pair has an edge. With $\Theta(V^2)$ such pairs, we have $E=\Theta(V^2)$, so our worst-case runtime is $O(V+E)=O(V^2)$."
-csq_name = "bfs_time2"
 </question>
 
 <center>
@@ -88,8 +84,7 @@ csq_name = "bfs_time2"
 <question pythoncode>
 csq_interface = 'ace'
 csq_npoints = 2
-csq_prompt = "Wumpus has infiltrated the sanctuary of his nemesis Kason Ju. This complex can be described as an undirected graph on $n$ vertices numbered from $0$ to $n-1$. Wumpus needs to connect his doomsday device, which he has planted in room $0$, by wire to $k$ different rooms (which can include room $0$).\n\nBecause of the exorbitant cost of wire which he bought from LaVerde's, he would like to use as little as possible. Running a wire between adjacent rooms uses 1 unit, and distinct connections cannot share wires on the same edge. In the above graph, one solution is shown for $k=4$.\n\nWrite an algorithm to find a list of $k$ rooms that satisfies the above condition. (In the same example, either $[0, 1, 2, 3]$ or $[0, 1, 2, 4]$ in any order would be correct.)\n\n"
-csq_name = "bfs_code1"
+csq_prompt = "Wumpus has infiltrated the sanctuary of his nemesis Kason Ju. This complex can be described as an undirected graph on $n$ vertices numbered from $0$ to $n-1$. Wumpus needs to connect his doomsday device, which he has planted in room $0$, by wire to $k$ different rooms (which can include room $0$).\n\nBecause of the exorbitant cost of wire which he bought from LaVerde's, he would like to use as little as possible. Running a wire between adjacent rooms uses 1 unit, and distinct connections cannot share wires on the same edge. In the above graph, one solution is shown for $k=4$. Notice that there are two wires running between vertices $0$ and $1$, one of which is part of the wire running from $0$ to $3$. \n\nWrite an algorithm to find a list of $k$ rooms that satisfies the above condition. (In the same example, either $[0, 1, 2, 3]$ or $[0, 1, 2, 4]$ in any order would be correct.)\n\n"
 
 ## Define solution that will be printed to student.
 csq_soln = '''def closestK(n, k, graph):
@@ -112,16 +107,19 @@ csq_soln = '''def closestK(n, k, graph):
 
 ## Code that will be initially on the thingy
 csq_initial = '''def closestK(n, k, graph):
-    visited = [False for i in range(n)]
+    closest = []
+    visited = [False for i in range(n)]  # list of n Falses
     queue = [0]
-
-    # visiting vertex 0
-    v = queue[0]
-    visited[v] = True
-    for w in graph[v]:
-        queue.append(w)
-
-    return None
+    head = 0  # index of queue head, increments when we pop off the queue
+    while /*TODO and */ head < len(queue):
+        v = ### TODO
+        visited[v] = True
+        ###
+        ### TODO
+        ###
+        for w in graph[v]:
+            ### TODO
+    return None ### TODO
 '''
 
 def bfs_dists(n, k, g):
@@ -200,16 +198,17 @@ for i, t in enumerate(tests):
         
     csq_tests.append({
         'code': f"""
-n, k, g, _, _ = {t}
-ans = closestK(n, k, g)""",
+n, k, graph, _, _ = {t}
+ans = closestK(n, k, graph)""",
         'check_function': check
+        'show_code': i < 3)
     })
 </question>
 
 
 # Building a BFS tree
 
-A breadth-first search that only queues up vertices to be visited can find nearby vertices but can't easily compute the distances to them or reconstruct the shortest paths used to reach them. To do this, we need to introduce <i>parent pointers</i> to our algorithm.
+So far, our BFS algorithm returns the list of vertices in approximate order of how far away they are from the source node. However, we still can't easily compute the exact distances to them or reconstruct the shortest paths used to reach them. To do this, we need to introduce <i>parent pointers</i> to our algorithm.
 
 In a breadth-first search (as well as in other graph searches), the parent of a vertex is the vertex which immediately precedes it. An example is shown below in which we have just visited vertex $A$. The red arrow edges indicate that vertices $B$ and $C$ each point to $A$ as their parent.
 
@@ -238,7 +237,6 @@ csq_options =  [r'A vertex can have multiple parents.',
  r'A vertex can be a parent to multiple vertices.',
  r'The shortest path from vertex $v$ to the starting vertex must include the parent of $v$.']
 csq_explanation = 'A vertex can have at most one parent, but a vertex can be a parent to multiple vertices as seen above. A vertex will have no parent if it is the starting vertex (by definition) or if it is unreachable from the starting vertex. While the parent of a vertex is on a shortest path to that vertex, the path need not be unique, and alternate shortest paths can use different vertices.<br><br>From an implementation standpoint, this makes parent pointers easy to use, as we can store all of our pointers in an array-like structure, where element $i$ is the parent of vertex $i$.'
-csq_name = "bfs_parent1"
 </question>
 
 <checkyourself>
@@ -253,22 +251,20 @@ No, because following the parent pointers from any vertex will always lead to th
 </center>
 
 <question expression>
-csq_prompt = "A BFS is run on the graph above starting from $A$. Which vertices could be the parent of $E$ as a result? List them as a string in alphabetical order.   \n\n"
+csq_prompt = "A BFS is run on the graph above starting from $A$. Which vertices could be the parent of $E$ as a result? Answer with a string of letters.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "FG"
+csq_soln = ["FG", "GF"]
 csq_explanation = "By inspection, we see that $E$ is distance 3 away from $A$. Its parent must be an adjacent vertex distance 2 away from $A$, and any such vertex will work. The vertices which satisfy these conditions are $F$ and $G$."
 csq_nsubmits = None
-csq_name = "bfs_parent2"
 </question>
 
 <question pythoncode>
 csq_interface = 'ace'
 csq_npoints = 1
 csq_prompt = "Modify the BFS algorithm you produced earlier to compute a BFS tree on the given graph on $n$ vertices. Your BFS should start at vertex $0\le s< n$. Your algorithm should return a list of length $n$ in which element $i$ is the parent of vertex $i$ or None if vertex $i$ has no parent.\n\n"
-csq_name = "bfs_code2"
 
 ## Define solution that will be printed to student.
 csq_soln = '''def bfsTree(n, s, graph):
@@ -293,15 +289,16 @@ csq_soln = '''def bfsTree(n, s, graph):
 ## Code that will be initially on the thingy
 csq_initial = '''def bfsTree(n, s, graph):
     visited = [False for i in range(n)]
+    parent = [None for i in range(n)]
     queue = [s]
 
-    # visiting vertex s
-    v = queue[0]
-    visited[v] = True
-    for w in graph[v]:
-        queue.append(w)
-
-    return None
+    head = 0  # index of queue head, increments when we pop off the queue
+    while head < len(queue):
+        # visiting vertex at head
+        ###
+        ### TODO
+        ###
+    return None # TODO
 '''
 
 def bfs_dists(n, s, g):
@@ -424,11 +421,10 @@ csq_options =  ["$uv$",
  "$u'v$",
  "$u'v'$"]
 csq_explanation = "Moving along a red edge doesn't change our used-a-blue-edge state. If we were on a normal vertex, we move to another normal vertex. Likewise, if we were on a prime vertex, we move to another prime vertex."
-csq_name = "bfs_state1"
 </question>
 
 <question multiplechoice>
-csq_prompt = "If edge $uv$ in the original graph was blue, which edges would we need to add to our new graph?\n\n"
+csq_prompt = "If edge $uv$ in the original graph was blue, which edges would we need to add to our new graph? Recall that our graph is undirected. \n\n"
 csq_renderer = "checkbox"
 csq_soln = [0, 1, 1, 1]
 csq_options =  ["$uv$",
@@ -436,7 +432,6 @@ csq_options =  ["$uv$",
  "$u'v$",
  "$u'v'$"]
 csq_explanation = "Moving along a blue edge means that our used-a-blue-edge state is now true if it wasn't already true. That means that if we were on a normal vertex, we have to move to a prime vertex. Because these edges are undirected (i.e. $vu$ is also an edge), we need both $uv'$ and $vu'$ for symmetry. If we were on a prime vertex, we should be able to go to another prime vertex as using another blue edge doesn't change our state, so we also have $u'v'$.\n\nYou might notice that this setup would allow us to move from a prime vertex back to a normal vertex, which seems odd because we can't lose our used-a-blue-edge state. While this is technically allowed, it doesn't create any paths shorter than possible (in fact, the path probably gets longer this way), so for the purpose of finding the shortest path, it's okay. An alternative would be to make these cross-edges directed."
-csq_name = "bfs_state2"
 </question>
 
 A path from $s$ to $t$ containing a blue edge in the original graph is equivalent to a path in the new graph starting at $s$ (when we haven't used a blue edge) to $t'$ (when we have). Because the only way to move between the two halves of the new graph is to take a blue edge in the original graph, our new shortest path must satisfy the condition.
@@ -460,7 +455,6 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = "Theta(V+E)"
 csq_explanation = "We can count the number of vertices and edges in our new graph, which will tell us the time cost of creating the graph and the cost of running BFS on it. We know that for each original vertex, we add 2 vertices to our new graph, and for each original edge, we add 2 or 3 edges to our graph depending on its color. Thus, each vertex contributes $\Theta(1)$ new vertices, and each edge contributes $\Theta(1)$ new edges, so our new graph has $V'=\Theta(V)$ vertices and $E'=\Theta(E)$ edges. The BFS runs in $\Theta(V'+E')=\Theta(V+E)$ time, for a grand total of $\Theta(V+E)$, asymptotically equivalent to a BFS on the original graph."
 csq_nsubmits = None
-csq_name = "bfs_state3"
 </question>
 
 This example only introduced a binary state, but the idea can just as easily be applied to problems with an arbitrary number of states.
@@ -476,7 +470,6 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = "4"
 csq_explanation = "At each vertex, we either have used a red edge to get there or not, and we either have used a blue edge or not. We have $2$ options for each, giving us $2\cdot 2=4$ combinations in total."
 csq_nsubmits = None
-csq_name = "bfs_state4"
 </question>
 
 <checkyourself>

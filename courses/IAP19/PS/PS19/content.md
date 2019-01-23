@@ -2,6 +2,8 @@
 
 [Recitation 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/fb806d51-1a22-4a1c-b388-33211a880b42/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), First part of notes on Graphs and Graph Representations, 6.006 Fall 2018
 
+[Lecture 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/5f6a6fa2-26f7-4791-8e6e-2246ab4a4d83/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), First part before Breadth-First Search, 6.006 Fall 2018
+
 [Recitation 11](https://learning-modules.mit.edu/service/materials/groups/238004/files/b3fc7631-d76e-48c3-85a5-00d10b81e70c/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Depth-First Search, 6.006 Fall 2018
 
 # Depth-First Search: Theory
@@ -261,7 +263,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = [1,0,0,0]
 csq_soln = '241560'
-csq_options = ['3025614', '065142', '314', '0562143']
+csq_options = ['3025614', '065142', '315', '0562143']
 csq_nsubmits = 3
 csq_explanation = "We include every vertex because we're running a Full DFS."
 </question>
@@ -277,6 +279,7 @@ a$, but it makes no sense for $a < a$. (Intuitively, a cycle means some vertex $
 <question pythonliteral>
 csq_prompt = "You have an undirected graph with three nodes. I tell you that the graph has a cycle. What is the minimum possible number of edges in this graph?"
 csq_soln = 1
+csq_nsubmits = 3
 </question>
 
 Why is a topological sort useful?
