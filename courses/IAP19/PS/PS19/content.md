@@ -141,12 +141,12 @@ Now it's time to try depth first search in practice! Consider the following grap
 </center>
 
 <question expression>
-csq_prompt = "Assuming we visit vertices with lower values before those with higher values, and that $0$ is our start vertex, in what order will we visit vertices? List vertices in order of the *last* time we visit a vertex (i.e. $0$ will appear *last* on your list). You might not use all vertices. Your answer should be in the form $a, b, c, ...$."
+csq_prompt = "Assuming we visit vertices with lower values before those with higher values, and that $0$ is our start vertex, in what order will we visit vertices? List vertices in order of the *last* time we visit a vertex (i.e. $0$ will appear *last* on your list). You might not use all vertices. Your answer should be a single string, such as $1230$."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = '7, 5, 6, 1, 2, 3, 4, 0'
+csq_soln = '75612340'
 csq_nsubmits = None
 csq_name="p7"
 </question>
@@ -156,12 +156,12 @@ csq_name="p7"
 </center>
 
 <question expression>
-csq_prompt = "As in the last question, assume we visit vertices with lower values before those with higher values and that $0$ is the start vertex. In what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. You might not use all vertices. Your answer should be in the form $a, b, c, ...$."
+csq_prompt = "As in the last question, assume we visit vertices with lower values before those with higher values and that $0$ is the start vertex. In what order will we visit vertices? List vertices in order of the *last* time we visit a vertex. You might not use all vertices. Your answer should be a single string, such as $1230$."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = '2, 4, 1, 5, 6, 0'
+csq_soln = '241560'
 csq_nsubmits = None
 csq_name="p8"
 </question>
