@@ -7,6 +7,15 @@ Lecture notes 10, 6.006 Fall 2018 on Stellar.
 
 BFS shares many characteristics with DFS, but BFS visits vertices in order of increasing distance. This invariant lends itself well to finding nearby vertices from a starting point, as well as computing distances and shortest paths in unweighted graphs.
 
+For reference, here is one implementation of breadth-first search on a graph using a first-in-first-out (FIFO) queue.
+
+    1. Add the starting vertex to the queue.
+    2. Remove a vertex from the queue and add any of its neighbors we haven't yet seen to the queue.
+    3. Mark the removed vertex as visited.
+    4. If our queue isn't empty, go to step 2.
+
+The order in which we visit vertices is the sequence produced by our BFS.
+
 <center>
 <img src="/_static/IAP19/bfs-11.png" height="200"  />
 </center>
