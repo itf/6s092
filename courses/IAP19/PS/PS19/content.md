@@ -166,9 +166,7 @@ csq_nsubmits = None
 csq_name="p8"
 </question>
 
-
-
-For this question, suppose the graph is undirected. We say that a graph is *connected* if every vertex is reachable from every other vertex. Similarly, a *connected component* of a graph is a connected subgraph of the original graph, which is not connected to any other vertex (that is, it is the biggest connected piece possible).
+For the next two questions, suppose the graph is undirected. Similarly, a *connected component* of a graph is a connected subgraph of the original graph, which is not connected to any other vertex (that is, it is the biggest connected piece possible).
 
 <question expression>
 csq_prompt = "If I wish to explore the entirety of a graph $G$ with $n$ connected components, how many times will I have to call on the `depth_first()` function? Do not use big-O notation for this question."
@@ -182,7 +180,28 @@ csq_nsubmits = None
 csq_name="p9"
 </question>
 
+The linear run time of depth-first search great, but sometimes we want to do even better, given some restrictions on the structure of the graph. For instance, if we know there are only a few edges, we might be able to say that $E = O(V)$, in which case the run time is simply $O(V)$. 
 
+<question expression>
+csq_prompt = "Suppose that the entire graph is connected, so that we can reach any vertex from `s`, the start of our DFS search. What is the run time of DFS in this case?"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ['$O(E)$', '$Theta(E)$']
+csq_explanation = "For every vertex in the graph to be connected, we need at least $V-1$ edges: this will create a tree that connects all vertices with the minimum number of edges. Since $E > V - 1$, we have that $V = O(E)$ and so the run time $O(V+E)$ becomes $O(V)$.
+csq_nsubmits = None
+csq_name="p11"
+</question>
+
+<question multiplechoice>
+csq_prompt = "DFS can easily be modified to compute shortest paths from the start vertex `s` to other vertices connected to it."
+csq_renderer = "radio"
+csq_soln = 'False'
+csq_options ['True', 'False']
+csq_explanation = "While breadth first search can do this well, depth-first search will not choose edges that minimize distance from `s`. For an example, consider the second depth-first search calculation you made in this section."
+csq_name="p12"
+</question>
 
 # Topological Sort
 Suppose a graph is directed and acyclic: its edges are directed and there is no way to follow the edges of the graph from a vertex back to itself.
