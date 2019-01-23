@@ -359,18 +359,23 @@ def is_correct(test, sol):
     n, s, g = test
     if len(sol) != n:
         return False
+    if any(sol[i] not in g[i] for i in range(n)):
+        return False
     expected_dists = bfs_dists(n, s, g)
 
     dists = [n for i in range(n)]
     dists[s] = 0
 
-    def find_dist(i):
+    def find_dist(i, start):
+        if sol[i] == start:  # cycle detected
+            return None
         if sol[i] is not None and dists[i] == n:
-            dists[i] = find_dist(sol[i]) + 1
+            dists[i] = find_dist(sol[i], start) + 1
         return dists[i]
 
     for i in range(n):
-        find_dist(i)
+        if find_dist(i, i) is None:
+            return False
 
     return expected_dists == dists
 
