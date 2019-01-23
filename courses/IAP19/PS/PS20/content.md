@@ -365,16 +365,19 @@ def is_correct(test, sol):
 
     dists = [n for i in range(n)]
     dists[s] = 0
+    cyclic = False
 
     def find_dist(i, start):
         if sol[i] == start:  # cycle detected
-            return None
+            cyclic = True
+            return 0
         if sol[i] is not None and dists[i] == n:
             dists[i] = find_dist(sol[i], start) + 1
         return dists[i]
 
     for i in range(n):
-        if find_dist(i, i) is None:
+        find_dist(i, i)
+        if cyclic:
             return False
 
     return expected_dists == dists
