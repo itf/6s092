@@ -84,7 +84,7 @@ def get_user_score_psets(user, pset_paths):
         x = csm_tutor.compute_page_stats(globals(), user, [cs_course] + path, ['state','question_info'])
         scores = x['state'].get("scores", {})
         question_info =  x['question_info']
-        user_score = sum([scores[q]*question_info[q]['csq_npoints'] for q in scores])
+        user_score = sum([scores[q]*question_info[q]['csq_npoints'] for q in scores if q in scores and q in question_info])
         user_score_dict[pset_name] = user_score
     return user_score_dict
 
