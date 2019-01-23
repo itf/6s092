@@ -398,7 +398,9 @@ for i, t in enumerate(tests):
         'code': f"""
 n, s, g = {t}
 ans = bfsTree(n, s, g)""",
-        'check_function': check
+        'check_function': check,
+        'show_code': i < 3,
+        'grade': True
     })
 </question>
 
