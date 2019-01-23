@@ -307,7 +307,7 @@ csq_explanation = "Moving along a blue edge means that our used-a-blue-edge stat
 csq_name = "bfs_state2"
 </question>
 
-Now, a path from $s$ to $t$ containing a blue edge in the original graph is equivalent to a path in the new graph starting at $s$ (when we haven't used a blue edge) to $t'$ (when we have). Because the only way to move between the two halves of the new graph is to take a blue edge in the original graph, our new shortest path must satisfy the condition.
+A path from $s$ to $t$ containing a blue edge in the original graph is equivalent to a path in the new graph starting at $s$ (when we haven't used a blue edge) to $t'$ (when we have). Because the only way to move between the two halves of the new graph is to take a blue edge in the original graph, our new shortest path must satisfy the condition.
 
 An example of this transformation on a small 3-vertex graph is shown below. The edges of the new graph are colored for clarity, though a BFS on this graph treats them all normally. Notice that the length-1 path from $A$ to $C$ that takes the red edge does not translate to a length-1 path from $A$ to $C'$ in the new graph because its structure enforces the blue-edge requirement.
 
@@ -315,7 +315,7 @@ An example of this transformation on a small 3-vertex graph is shown below. The 
 <img src="/_static/IAP19/bfs-33.png" height="200"  />
 </center>
 
-Now, we can use our normal BFS with parent pointers to find the shortest path between any $s$ and $t'$ we choose. Now we just have to translate this path back into the context of the original graph, but luckily, reversing our transformation is the easier part. All we have to do is treat $A$ and $A'$ as just $A$, $B$ and $B'$ as just $B$, etc. In the 3-vertex example, the path $A\to B\to C'$ corresponds to $A\to B\to C$ in the original graph.
+Now we can use our normal BFS with parent pointers to find the shortest path between any $s$ and $t'$ we choose. We just have to translate this path back into the context of the original graph, but luckily, reversing our transformation is the easier part. All we have to do is treat $A$ and $A'$ as just $A$, $B$ and $B'$ as just $B$, etc. In the 3-vertex example, the path $A\to B\to C'$ corresponds to $A\to B\to C$ in the original graph.
 
 With our new and shiny algorithm fleshed out, we can analyze its runtime.
 
