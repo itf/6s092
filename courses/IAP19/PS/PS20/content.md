@@ -9,10 +9,10 @@ BFS shares many characteristics with [DFS](https://s092.xvm.mit.edu/IAP19/PS/PS1
 
 For reference, here is one implementation of breadth-first search on a graph using a first-in-first-out (FIFO) queue.
 
-    1. Add the starting vertex $s$ to the queue.
+    1. Add the starting vertex s to the queue.
     2. Remove a vertex from the queue and add any of its neighbors we haven't yet seen to the queue.
     3. Mark the removed vertex as visited.
-    4. If our queue isn't empty, go to step 2. Otherwise, we are done because we have visited all the vertices reachable from $s$.
+    4. If our queue isn't empty, go to step 2. Otherwise, we are done because we have visited all the vertices reachable from s.
 
 BFS returns the vertices in the order in which we visit them.
 
@@ -111,15 +111,13 @@ csq_initial = '''def closestK(n, k, graph):
     visited = [False for i in range(n)]  # list of n Falses
     queue = [0]
     head = 0  # index of queue head, increments when we pop off the queue
-    while /*TODO and */ head < len(queue):
-        v = ### TODO
-        visited[v] = True
+    while head < len(queue): ###TODO
         ###
         ### TODO
         ###
         for w in graph[v]:
             ### TODO
-    return None ### TODO
+    return None
 '''
 
 def bfs_dists(n, k, g):
@@ -299,7 +297,7 @@ csq_initial = '''def bfsTree(n, s, graph):
         ###
         ### TODO
         ###
-    return None # TODO
+    return None
 '''
 
 def bfs_dists(n, s, g):
