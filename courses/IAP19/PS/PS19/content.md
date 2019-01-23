@@ -193,11 +193,11 @@ Because graphs are represented as $G = (V,E)$, we say that the run-time of depth
 csq_prompt = "What are valid relationships between $V$ and $E$?"
 csq_soln = [1,1,1,1,0]
 csq_renderer = "checkbox"
-csq_options = ["$E = theta(1)$",
-               "$E = theta(V)$",
-               "$E = theta(V log(v))$",
-               "$E = theta(V^2)$",
-               "$E = theta(V^3)$"]
+csq_options = ["$E = \\Theta(1)$",
+               "$E = \\Theta(V)$",
+               "$E = \\Theta(V log(v))$",
+               "$E = \\Theta(V^2)$",
+               "$E = \\Theta(V^3)$"]
 csq_nsubmits = 3
 </question>
 
@@ -233,8 +233,9 @@ Then we can define a *topological sort* on this graph. A topological sort is an 
 <img src="/_static/IAP19/dfs-1.png" height="250"  />
 </center>
 
-<question expression>
+<question multiplechoice>
 csq_prompt = "Let's go back to this graph we saw earlier. What are some valid topological sorts of the vertices in this graph?"
+csq_renderer = "checkbox"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
@@ -251,8 +252,9 @@ Topological sort is often associated with DFS because there is an easy way to de
 <img src="/_static/IAP19/dfs-2.png" height="250"  />
 </center>
 
-<question expression>
+<question multiplechoice>
 csq_prompt = "What about this graph?"
+csq_renderer = "checkbox"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
