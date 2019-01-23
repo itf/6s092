@@ -264,6 +264,130 @@ csq_nsubmits = None
 csq_name = "bfs_parent2"
 </question>
 
+<question pythoncode>
+csq_interface = 'ace'
+csq_npoints = 1
+csq_prompt = "Modify the BFS algorithm you produced earlier to compute a BFS tree on the given graph on $n$ vertices. Your BFS should start at vertex $0\le s< n$. Your algorithm should return a list of length $n$ in which element $i$ is the parent of vertex $i$ or None if vertex $i$ has no parent.\n\n"
+csq_name = "bfs_code2"
+
+## Define solution that will be printed to student.
+csq_soln = '''def bfsTree(n, s, graph):
+    visited = [False for i in range(n)]  # list of n Falses
+    parent = [None for i in range(n)]
+    queue = [s]
+    head = 0  # index of queue head, increments when we pop off the queue
+    while head < len(queue):
+        v = queue[head]
+        head += 1
+        if visited[v]:
+            continue
+        visited[v] = True
+        for w in graph[v]:
+            if not visited[w]:
+                queue.append(w)
+                if parent[w] is not None:
+                    parent[w] = v
+    return parent
+'''
+
+## Code that will be initially on the thingy
+csq_initial = '''def bfsTree(n, s, graph):
+    visited = [False for i in range(n)]
+    queue = [s]
+
+    # visiting vertex s
+    v = queue[0]
+    visited[v] = True
+    for w in graph[v]:
+        queue.append(w)
+
+    return None
+'''
+
+def bfs_dists(n, s, g):
+    visited = [False for i in range(n)]
+    parent = [None for i in range(n)]
+    queue = [s]
+    head = 0  # index of queue head, increments when we pop off the queue
+    while head < len(queue):
+        v = queue[head]
+        head += 1
+        if visited[v]:
+            continue
+        visited[v] = True
+        for w in g[v]:
+            if not visited[w]:
+                queue.append(w)
+                if parent[w] is None:
+                    parent[w] = v
+
+    dists = [n for i in range(n)]
+    dists[s] = 0
+
+    def find_dist(i):
+        if parent[i] is not None and dists[i] == n:
+            dists[i] = find_dist(parent[i]) + 1
+        return dists[i]
+
+    for i in range(n):
+        find_dist(i)
+
+    return dists
+
+test_params = [(10, 5, 0.25),
+         (50, 30, 0.079),
+         (100, 70, 0.022),
+         (300, 240, 0.016),
+         (2000, 1800, 0.00383)]
+
+tests = []
+tests.append((6, 4, {0: [1, 2], 1: [0, 2, 3, 4], 2: [0, 1, 3], 3: [1, 2, 5], 4: [1], 5: [3]})
+
+for n, s, p in test_params:
+    g = {i: [] for i in range(n)}
+    for i in range(n):
+        for j in range(i + 1, n):
+            if cs_random.random() < p:
+                g[i].append(j)
+                g[j].append(i)
+    tests.append((n, s, g))
+
+
+def is_correct(test, sol):
+    if not isinstance(sol, list):
+        return False
+    n, s, g = test
+    if len(sol) != n:
+        return False
+    expected_dists = bfs_dists(n, s, g)
+
+    dists = [n for i in range(n)]
+    dists[s] = 0
+
+    def find_dist(i):
+        if sol[i] is not None and dists[i] == n:
+            dists[i] = find_dist(sol[i]) + 1
+        return dists[i]
+
+    for i in range(n):
+        find_dist(i)
+
+    return expected_dists == dists
+
+
+csq_tests = []
+for i, t in enumerate(tests):
+
+    def check(ans, soln, i = i):
+        return is_correct(tests[i], eval(ans))
+        
+    csq_tests.append({
+        'code': f"""
+n, s, g = {t}
+ans = bfsTree(n, s, g)""",
+        'check_function': check
+    })
+</question>
 
 # Harder shortest path finding
 
