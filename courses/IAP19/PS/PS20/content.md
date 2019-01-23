@@ -141,9 +141,10 @@ def limit_cpu(time_seconds):
 t = threading.Thread(target=limit_cpu, args = [1])
 t.start()
 '''
-_cpu_timer_check = False
-csq_code_post = '''
 
+csq_code_post = '''
+_cpu_timer_check = False
+'''
 
 def bfs_dists(n, k, g):
     visited = [False for i in range(n)]
