@@ -16,6 +16,17 @@ For reference, here is one implementation of breadth-first search on a graph usi
 
 The order in which we visit vertices is the sequence produced by our BFS.
 
+<question expression>
+csq_prompt = "What is the runtime of this algorithm in Theta notation as a function of $V$ and $E$, the number of vertices and edges?   \n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "Theta(V+E)"
+csq_explanation = "Each vertex is visited once, and each edge is checked at most twice (once from each end). This gives us a runtime of $\Theta(V+E)$.<br><br>A possible implementation mistake that would slow down this algorithm is not ensuring that queue removal is done in $\Theta(1)$ time. Using `list.pop(0)` would be one such example."
+csq_name = "bfs_runtime"
+</question>
+
 <center>
 <img src="/_static/IAP19/bfs-11.png" height="200"  />
 </center>
