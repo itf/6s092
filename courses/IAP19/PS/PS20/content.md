@@ -223,7 +223,7 @@ After visiting vertex $B$, we assign it to be the parent of vertices $D$ and $E$
 <img src="/_static/IAP19/bfs-22.png" height="200"  />
 </center>
 
-The graph illustrates the completed parent pointers from this BFS. Note that the edges corresponding to the parent pointers form a tree, in which every vertex has exactly one path (namely, the shortest one) to the starting vertex $A$. A graph can have multiple such trees depending on which vertex the BFS starts at and its visit order. In the above example, we could have assigned $C$ to be the parent of $D$ and found an equally valid tree.
+The graph below illustrates the completed parent pointers from this BFS. Note that the edges corresponding to the parent pointers form a tree, in which every vertex has exactly one path (namely, the shortest one) to the starting vertex $A$. A graph can have multiple such trees depending on which vertex the BFS starts at and its visit order. In the above example, we could have assigned $C$ to be the parent of $D$ and found an equally valid tree.
 
 <center>
 <img src="/_static/IAP19/bfs-23.png" height="200"  />
