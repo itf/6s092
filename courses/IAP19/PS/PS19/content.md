@@ -189,7 +189,7 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = ['$O(E)$', '$Theta(E)$']
-csq_explanation = "For every vertex in the graph to be connected, we need at least $V-1$ edges: this will create a tree that connects all vertices with the minimum number of edges. Since $E > V - 1$, we have that $V = O(E)$ and so the run time $O(V+E)$ becomes $O(V)$.
+csq_explanation = "For every vertex in the graph to be connected, we need at least $V-1$ edges: this will create a tree that connects all vertices with the minimum number of edges. Since $E > V - 1$, we have that $V = O(E)$ and so the run time $O(V+E)$ becomes $O(V)$."
 csq_nsubmits = None
 csq_name="p11"
 </question>
@@ -198,7 +198,7 @@ csq_name="p11"
 csq_prompt = "DFS can easily be modified to compute shortest paths from the start vertex `s` to other vertices connected to it."
 csq_renderer = "radio"
 csq_soln = 'False'
-csq_options ['True', 'False']
+csq_options = ['True', 'False']
 csq_explanation = "While breadth first search can do this well, depth-first search will not choose edges that minimize distance from `s`. For an example, consider the second depth-first search calculation you made in this section."
 csq_name="p12"
 </question>
