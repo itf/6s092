@@ -359,7 +359,7 @@ def is_correct(test, sol):
     n, s, g = test
     if len(sol) != n:
         return False
-    if any(sol[i] not in g[i] for i in range(n) if i != s):
+    if any(sol[i] is not None and sol[i] not in g[i] for i in range(n)):
         return False
     expected_dists = bfs_dists(n, s, g)
 
