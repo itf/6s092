@@ -200,8 +200,9 @@ for i, t in enumerate(tests):
         'code': f"""
 n, k, graph, _, _ = {t}
 ans = closestK(n, k, graph)""",
-        'check_function': check
-        'show_code': i < 3)
+        'show_code': i < 3,
+        'grade': True,
+        'check_function': check)
     })
 </question>
 
