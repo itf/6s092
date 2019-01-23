@@ -285,7 +285,7 @@ csq_soln = '''def bfsTree(n, s, graph):
         for w in graph[v]:
             if not visited[w]:
                 queue.append(w)
-                if parent[w] is not None:
+                if parent[w] is None:
                     parent[w] = v
     return parent
 '''
