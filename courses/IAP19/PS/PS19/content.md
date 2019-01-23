@@ -42,9 +42,7 @@ csq_name="p1"
 </question>
 
 <question multiplechoice>
-csq_prompt = "Now, what do we do with the vertex `s`? We need to visit its neighbors, as long as they don't already have parents.
-
-Remember, this will follow a recursive structure: for each new vertex `v` we visit, we should be calling `depth_first` on it."
+csq_prompt = "Now, what do we do with the vertex `s`? We need to visit its neighbors, as long as they don't already have parents. Remember, this will follow a recursive structure: for each new vertex `v` we visit, we should be calling `depth_first` on it."
 csq_renderer = "radio"
 csq_soln = """```
 if parent[v] = None:
