@@ -69,7 +69,7 @@ csq_explanation = "There is a negative weight cycle on the path from s to v, so 
 </question>
 
 <center>
-<img src="/_static/IAP19/relax4.png" height="200"  />
+<img src="/_static/IAP19/relax3.png" height="200"  />
 </center>
 
 <question multiplechoice>

@@ -193,11 +193,11 @@ Because graphs are represented as $G = (V,E)$, we say that the run-time of depth
 csq_prompt = "What are valid relationships between $V$ and $E$?"
 csq_soln = [1,1,1,1,0]
 csq_renderer = "checkbox"
-csq_options = ["E = theta(1)",
-               "E = theta(V)",
-               "E = theta(V log(v))",
-               "E = theta(V^2)",
-               "E = theta(V^3)"]
+csq_options = ["$E = theta(1)$",
+               "$E = theta(V)$",
+               "$E = theta(V log(v))$",
+               "$E = theta(V^2)$",
+               "$E = theta(V^3)$"]
 csq_nsubmits = 3
 </question>
 
@@ -227,6 +227,42 @@ csq_nsubmits = 1
 Suppose a graph $G = (V, E)$ with $k$ vertices is directed and acyclic. When we say a graph is acyclic, that means there is no way to follow the edges of the graph from a vertex back to itself.
 
 Then we can define a *topological sort* on this graph. A topological sort is an ordering of vertices $(v_1, v_2, ..., v_k)$ in a graph so that for every edge $(v_i, v_j) \in E$, $i < j$ in the topological sort ordering. In other words, if there exists a directed edge from a vertex $v_i$ to another vertex $v_j$, then $v_i$ will go before $v_j$ in the sort.
+
+
+<center>
+<img src="/_static/IAP19/dfs-1.png" height="250"  />
+</center>
+
+<question expression>
+csq_prompt = "Let's go back to this graph we saw earlier. What are some valid topological sorts of the vertices in this graph?"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = [1,0,1,0]
+csq_options = ['04321657', '01234657', '04126573', '01234567']
+csq_explanation = "If the edge (u,v) exists, then u must appear before v in the topological sort"
+csq_nsubmits = 3
+</question>
+
+Topological sort is often associated with DFS because there is an easy way to derive a valid topological sort on a graph: run Full DFS on a graph and order the vertices by when DFS returns on each of them. Then the reverse of the resulting list of vertices is a valid topological sort.
+
+<center>
+<img src="/_static/IAP19/dfs-2.png" height="250"  />
+</center>
+
+<question expression>
+csq_prompt = "What about this graph?"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = [1,0,0,0]
+csq_soln = '241560'
+csq_options = ['3025614', '065142', '314', '0562143']
+csq_nsubmits = 3
+csq_explanation = "We include every vertex because we're running a Full DFS."
+</question>
 
 <checkyourself>
 Why do we require that the graph be acyclic to define a topological sort?
