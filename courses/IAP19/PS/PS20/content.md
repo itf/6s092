@@ -124,6 +124,27 @@ csq_initial = '''def closestK(n, k, graph):
     return None
 '''
 
+csq_code_pre = '''
+python
+import threading
+import os
+import signal
+import resource
+import time as _time
+def limit_cpu(time_seconds):
+   while(_cpu_timer_check):
+       if  resource.getrusage(resource.RUSAGE_SELF)[0] > time_seconds:
+           os.kill(os.getpid(), signal.SIGXCPU)
+           assert False, resource.getrusage(resource.RUSAGE_SELF)[0]
+       else:
+           _time.sleep(0.001)cpu_time_limit = 0.1
+t = threading.Thread(target=limit_cpu, args = [1])
+t.start()
+'''
+_cpu_timer_check = False
+csq_code_post = '''
+
+
 def bfs_dists(n, k, g):
     visited = [False for i in range(n)]
     parent = [None for i in range(n)]
@@ -163,7 +184,8 @@ def bfs_dists(n, k, g):
 test_params = [(10, 5, 0.25),
          (50, 30, 0.079),
          (100, 70, 0.047),
-         (300, 240, 0.0191)]
+         (300, 240, 0.0191),
+         (2000, 1800, 0.00383)]
 
 tests = []
 tests.append((6, 4, {0: [1, 2], 1: [0, 2, 3, 4], 2: [0, 1, 3], 3: [1, 2, 5], 4: [1], 5: [3]}, [0, 1, 1, 2, 2, 3], 4))
