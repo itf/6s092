@@ -137,7 +137,8 @@ def limit_cpu(time_seconds):
            os.kill(os.getpid(), signal.SIGXCPU)
            assert False, resource.getrusage(resource.RUSAGE_SELF)[0]
        else:
-           _time.sleep(0.001)cpu_time_limit = 0.1
+           _time.sleep(0.001)
+           cpu_time_limit = 0.1
 t = threading.Thread(target=limit_cpu, args = [1])
 t.start()
 '''
