@@ -202,7 +202,7 @@ n, k, graph, _, _ = {t}
 ans = closestK(n, k, graph)""",
         'show_code': i < 3,
         'grade': True,
-        'check_function': check})
+        'check_function': check
     })
 </question>
 
