@@ -89,6 +89,42 @@ Because we are guaranteed to have relaxed all the edges of the shortest path in 
 </showhide>
 </checkyourself>
 
+
+
+<question multiplechoice>
+csq_prompt = """Suppose a graph contains only one single cycle.
+
+Would topological sort relaxation work?
+"""
+csq_renderer = "checkbox"
+csq_soln = [1,0,0,0]
+csq_options =  ['No',
+'yes',
+'only if it is a positive cycle',
+'only if all edges of the cycle are positive']
+csq_explanation = "No. There is no topological sort"
+</question>
+
+<question multiplechoice>
+csq_prompt = """Suppose we have the following graph
+
+```
+(C)    <-   (A)  ->  (B)
+  \                     \
+   +-> (D) ->(F) <- (E)<-+
+
+```
+Which of the following are valid topological sorts?
+"""
+csq_renderer = "checkbox"
+csq_soln = [1,1,0,0]
+csq_options =  ['$ABCDEF$',
+'$ACDBEF$',
+'$ACDFBE$',
+'$ACDFEB$']
+csq_explanation = "By the definition"
+</question>
+
 ## Coding topological sort relaxation
 
 <python>
