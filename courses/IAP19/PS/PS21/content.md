@@ -99,7 +99,7 @@ csq_explanation = "The shortest path has a negative weight cycle, so the minimum
 </question>
 
 <question pythonliteral>
-csq_prompt = "We start performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. At the beginning, our shortest path estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[a] = \\infty$ \n\n $\\delta[b] = \\infty$ \n\n$\\delta[c]=\\infty$ \n\n$\\delta[d]=\\infty$\n\n$\\delta[v]=\\infty$\n\n After we relax along the edge $(s, a)$, what is our new path estimate for $a$? $\\delta[a] =$"
+csq_prompt = "We start performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. At the beginning, our shortest path estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[a] = \\infty$ \n\n $\\delta[b] = \\infty$ \n\n$\\delta[c]=\\infty$ \n\n$\\delta[d]=\\infty$\n\n$\\delta[v]=\\infty$\n\n After we relax along the edge $(s, a)$, what is our new path estimate for $a$? \n\n$\\delta[a] =$"
 csq_soln = 2
 csq_explanation = "$\\delta[s] = 0$, $w(s, a) = 2$, so $\\delta[a] > \\delta[s] + w(s,a)$. By the triangle inequality, we can set $\\delta[a] = 0 + 2 = 2$"
 </question>
@@ -120,12 +120,12 @@ csq_explanation = "Walk through the relaxations. Because we visit `a` twice, we 
 </question>
 
 <question pythonliteral>
-csq_prompt = "Everytime we relax the edges `[(a,b), (b,c), (c,d), (d,a) ]` in order, which nodes do we decrease the $\\delta$ for? Express your answer as a list of strings in Python format, i.e. ['a', 'b']."
+csq_prompt = "Everytime we relax the edges `[(a,b), (b,c), (c,d), (d,a) ]` in order, which nodes do we decrease the $\\delta$ for? Express your answer as a list of strings in Python format, i.e. ['a', 'b'].\n\n"
 csq_soln = ['a', 'b', 'c', 'd']
 csq_explanation = "We decrease the $\\delta$ for all of the vertices involved."
 </question>
 
 <question pythonliteral>
-csq_prompt = "By how much do we decrease $\\delta$?"
+csq_prompt = "Each time we go around the cycle, we decrease $\\delta$ by the same amount. What is this amount? Express as a positive number.\n\n"
 csq_soln = 33
 </question>
