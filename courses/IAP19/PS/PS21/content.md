@@ -67,12 +67,14 @@ csq_explanation = "There is no negative weight cycle on the path, so we can find
 csq_nsubmits = 4
 </question>
 
+The rest of the problems will all refer to the following graph:
+
 <center>
 <img src="/_static/IAP19/relax7.png" height="200"  />
 </center>
 
 <question multiplechoice>
-csq_prompt = "In the above graph, is there a negative weight cycle? If so, which edges are in it?"
+csq_prompt = "Is there a negative weight cycle? If so, which edges are in it?"
 csq_soln = "Negative weight cycle; edges (a,b), (b,c), (c,d), (d,a)"
 csq_renderer = "radio"
 csq_options =  ["No negative weight cycle",
@@ -82,13 +84,6 @@ csq_options =  ["No negative weight cycle",
 csq_explanation = "The path consisting of edges (a,b), (b,c), (c,d), and (d,a) is a cycle. It has negative weight: +10 - 15 -17 -11 = -33. Edges (s,a) and (c,v) are not part of this cycle (even though s and v are connected to the vertices in the cycle)."
 csq_nsubmits = 4
 </question>
-
-
-The next two problems will deal with the following graph:
-
-<center>
-<img src="/_static/IAP19/relax7.png" height="200"  />
-</center>
 
 <question multiplechoice>
 csq_prompt = "What is the weight of the minimum weight path from $s$ to $v$?"
