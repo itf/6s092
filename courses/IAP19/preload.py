@@ -143,7 +143,7 @@ if 's092.xvm.mit.edu' in cs_url_root:
 #  whdw: allowed to see "WHDW" page (Who Has Done What)
 #  email: allowed to send e-mail through CAT-SOOP
 #  grade: allowed to submit grades
-cs_default_role = 'Guest'
+cs_default_role = 'Student'
 cs_permissions = {'Admin': ['view_all', 'submit_all', 'impersonate', 'admin', 'whdw', 'email', 'grade'],
                'Instructor': ['view_all', 'submit_all', 'impersonate', 'admin', 'whdw', 'email', 'grade'],
                'TA': ['view_all', 'submit_all', 'impersonate', 'whdw', 'email', 'grade'],
