@@ -1,119 +1,48 @@
 # Readings 
-Recitation notes 10, 6.006 Fall 2018 on stellar.
+[Recitation 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/fb806d51-1a22-4a1c-b388-33211a880b42/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), First part of notes on Graphs and Graph Representations, 6.006 Fall 2018
 
-Recitation notes 10, 6.006 Fall 2018 on stellar.
+[Lecture 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/5f6a6fa2-26f7-4791-8e6e-2246ab4a4d83/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), First part before Breadth-First Search, 6.006 Fall 2018
 
 # Graph Representation
 
-
 <question multiplechoice>
-csq_prompt = "Question?"
+csq_prompt = "Which of these are valid graphs $G = (V,E)$?"
 csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
+csq_soln = [1,0,1]
+csq_options =  [
+"""```V = [0, 1, 2, 3]
+E = [(0,1), (1,2), (0,3)]
+```""",
+"""```V = [0, 1, 2]
+E = [(0,1), (1,2), (0,3)]
+```""",
+"""```V = [a, b, c]
+E = [(a,b), (b,c), (a,c)]
+```"""]
+csq_explanation = "We can't have edges containing nodes outside of $V$"
 </question>
 
+The following questions all deal with this graph:
 
-<question expression>
-csq_prompt = "Question?"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
+<center>
+<img src="/_static/IAP19/relax6.png" height="200"  />
+</center>
+
+<question pythonliteral>
+csq_prompt = "What is $V$? Express as a Python list of strings, like ['a', 'b']."
+csq_soln = ['a', 'b', 'c', 'd', 'v', 's']
+csq_explanation = "$V$ is the list of vertices in the graph."
 </question>
 
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
+<question pythonliteral>
+csq_prompt = "Let's say we decide to represent $E$ with a dictionary. What is `E['s']`? Express as a Python set of strings, like {'a', 'b'}."
+csq_soln = {'a', 'v'}
+csq_explanation = "The dictionary value contains the set of all vertices $x$ such that $(s, x)$ is an edge in $G$"
+</question>
 
-
-
-<question pythoncode>
-csq_interface = 'ace'
-csq_prompt = "Write your code to return a string with 4 repeated n times"
-
-## Define solution that will be printed to student.
-csq_soln = """
-def print_4_ntimes(n): 
-    return 'Solution will be posted to Stellar'
-"""
-
-## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
-    return '4'
-"""
-csq_name= "pcode2"
-
-## Code that will be written before the user code as well as solution
-## Particularly useful for defining classes and things that we don't want the user to modify
-## For example, define a DFS function.
-csq_code_pre = ""
-
-
-## Code that will be written after the user code as well as solution code
-## Seems quite useless to me.
-csq_code_post = ""
-
-
-
-## Sandbox options to block libraries or decide how long to run thingy
-csq_sandbox_options = {
-    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
-    'MEMORY':1e9
-}
-
-
-## Now we define helped functions
-tests = [cs_random.randint(1,20) for x in range(10)]
-
-def is_correct(n, sol):
-    if not(type(sol) == type('44')):
-       return False
-    if len(sol)==n:
-        for i in range(n):
-           if sol[i]!='4':
-               return False
-        return True
-    return False
-
-## Now we need to write csq_tests, which defines what code to run
-## As well as how to test it. 
-## Each csq_tests is a dictionary of things (code, check, etc)
-
-## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
-## Code should define a string called ans, which is what will be tested.
-
-## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
-
-csq_tests = []
-for i, t in enumerate(tests):
-
-    def check(ans, soln, i = i):
-        n = tests[i]
-        print(ans)
-        return is_correct(n, eval(ans))
-        
-    csq_tests.append({
-        'code': f"""
-n = {tests[i]}
-ans = print_4_ntimes(n)
-""" ,
-        'show_code': i < 5,
-        'grade': True,
-        'check_function': check
-    })
-
-</question> 
+<question pythonliteral>
+csq_prompt = "How many different paths are there from $s$ to $v$ that do not contain a cycle?"
+csq_soln = 2
+csq_explanation = "We have the path `[s,a,b,c,v]` and `[s,v]`."
+</question>
 

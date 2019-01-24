@@ -32,7 +32,7 @@ csq_nsubmits = 3
 </center>
 
 <question pythonliteral>
-csq_prompt = "We are in the middle of performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. Right now, our estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[1] = 2$ \n\n $\\delta[2] = 7$ \n\n$\\delta[3]=22$ \n\n Remember that $\\delta[v]$ is shorthand for our current estimate for the length of the shortest path from $s$ to $v$. We can relax one shortest path estimate from having a weight of $a$ to having a weight of $b$. What is $a + b$?"
+csq_prompt = "We are in the middle of performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. Right now, our estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[1] = 2$ \n\n $\\delta[2] = 7$ \n\n$\\delta[3]=22$ \n\n Remember that $\\delta[v]$ is shorthand for our current estimate for the length of the shortest path from $s$ to $v$. We can relax the shortest path estimate $\\delta[v]$ for some vertex $v$ from having a value of $a$ to having a value of $b$. What is $a + b$?"
 csq_soln = 36
 csq_explanation = "We have `d[2] = 7`, `d[3] = 22`, and `w(2,3) = 7`, so `d[3] > d[2] + w(2,3)$`. We relax 22 to be 14."
 csq_nsubmits = 1

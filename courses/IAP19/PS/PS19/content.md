@@ -1,9 +1,5 @@
 # Readings
 
-[Recitation 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/fb806d51-1a22-4a1c-b388-33211a880b42/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), First part of notes on Graphs and Graph Representations, 6.006 Fall 2018
-
-[Lecture 10](https://learning-modules.mit.edu/service/materials/groups/238004/files/5f6a6fa2-26f7-4791-8e6e-2246ab4a4d83/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), First part before Breadth-First Search, 6.006 Fall 2018
-
 [Recitation 11](https://learning-modules.mit.edu/service/materials/groups/238004/files/b3fc7631-d76e-48c3-85a5-00d10b81e70c/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Depth-First Search, 6.006 Fall 2018
 
 # Depth-First Search: Theory
