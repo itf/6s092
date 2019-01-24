@@ -29,8 +29,8 @@ The following questions all deal with this graph:
 </center>
 
 <question pythonliteral>
-csq_prompt = "What is $V$? Express as a Python list of strings, like ['a', 'b']."
-csq_soln = ['a', 'b', 'c', 'd', 'v', 's']
+csq_prompt = "What is $V$? Express as a Python set of strings, like {'a', 'b'}."
+csq_soln = {'a', 'b', 'c', 'd', 'v', 's'}
 csq_explanation = "$V$ is the list of vertices in the graph."
 </question>
 
