@@ -25,7 +25,7 @@ csq_explanation = "We can't have edges containing nodes outside of $V$"
 The following questions all deal with this graph:
 
 <center>
-<img src="/_static/IAP19/relax6.png" height="200"  />
+<img src="/_static/IAP19/relax7.png" height="200"  />
 </center>
 
 <question pythonliteral>
@@ -36,7 +36,7 @@ csq_explanation = "$V$ is the list of vertices in the graph."
 
 <question pythonliteral>
 csq_prompt = "Let's say we decide to represent $E$ with a dictionary. What is `E['s']`? Express as a Python set of strings, like {'a', 'b'}."
-csq_soln = {'a'}
+csq_soln = {'a', 'v'}
 csq_explanation = "The dictionary value contains the set of all vertices $x$ such that $(s, x)$ is an edge in $G$"
 </question>
 
