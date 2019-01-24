@@ -32,7 +32,7 @@ csq_nsubmits = 3
 </center>
 
 <question pythonliteral>
-csq_prompt = "We are in the middle of performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. Right now, our estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[1] = 2$ \n\n $\\delta[2] = 7$ \n\n$\\delta[3]=22$ \n\n (Remember that $\\delta[v]$ is shorthand for our current estimate for the length of the shortest path from $s$ to $v$. We can relax one shortest path estimate from having a weight of $a$ to having a weight of $b$. What is $a + b$?"
+csq_prompt = "We are in the middle of performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. Right now, our estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[1] = 2$ \n\n $\\delta[2] = 7$ \n\n$\\delta[3]=22$ \n\n Remember that $\\delta[v]$ is shorthand for our current estimate for the length of the shortest path from $s$ to $v$. We can relax one shortest path estimate from having a weight of $a$ to having a weight of $b$. What is $a + b$?"
 csq_soln = 36
 csq_explanation = "We have `d[2] = 7`, `d[3] = 22`, and `w(2,3) = 7`, so `d[3] > d[2] + w(2,3)$`. We relax 22 to be 14."
 csq_nsubmits = 1
@@ -99,7 +99,7 @@ csq_explanation = "The shortest path has a negative weight cycle, so the minimum
 </question>
 
 <question pythonliteral>
-csq_prompt = "We start performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. At the beginning, our shortest path estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[a] = \\infty$ \n\n $\\delta[b] = \\infty$ \n\n$\\delta[c]=\\infty$ \n\n$\\delta[d]=\\infty$\n\n$\\delta[v]=\\infty$\n\n After we relax along the edge $(s, a)$, what is our new path estimate for $a$? \n\n$\\delta[a] =$"
+csq_prompt = "We start performing relaxation on the above graph, in order to find the shortest paths from $s$ to every other node. At the beginning, our shortest path estimates are: \n\n $\\delta[s] = 0$ \n\n $\\delta[a] = \\infty$ \n\n $\\delta[b] = \\infty$ \n\n$\\delta[c]=\\infty$ \n\n$\\delta[d]=\\infty$ \n\n $\\delta[v]=\\infty$ \n\n After we relax along the edge $(s, a)$, what is our new path estimate for $a$? \n\n$\\delta[a] =$"
 csq_soln = 2
 csq_explanation = "$\\delta[s] = 0$, $w(s, a) = 2$, so $\\delta[a] > \\delta[s] + w(s,a)$. By the triangle inequality, we can set $\\delta[a] = 0 + 2 = 2$"
 </question>
