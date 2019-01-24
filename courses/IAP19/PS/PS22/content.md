@@ -97,7 +97,7 @@ Because we are guaranteed to have relaxed all the edges of the shortest path in 
 <question pythoncode>
 csq_interface = 'ace'
 csq_prompt = """
-<span class = "dark_word">Wumpus</span>, tired of living in a cave with 20 rooms, has built an underground lair. A young adventurous humans trying to slay the <span class = "dark_word">evil</span> Wumpus decided to explode his lair! 
+<span class = "dark_word">Wumpus</span>, tired of living in a cave with 20 rooms, has built an underground lair. A young adventurous human trying to slay the <span class = "dark_word">evil</span> Wumpus decided to explode his lair! 
 
 Now Wumpus has to escape! Help find the shortest path from where Wumpus is to the surface! Since the lair is crumbling down into a bottomless pit, Wumpus will only go from a cave to another if the depth of the following cave is shallower than that of the previous one.
 
