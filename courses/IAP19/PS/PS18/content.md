@@ -36,7 +36,7 @@ csq_explanation = "$V$ is the list of vertices in the graph."
 
 <question pythonliteral>
 csq_prompt = "Let's say we decide to represent $E$ with a dictionary. What is `E['s']`? Express as a Python set of strings, like {'a', 'b'}."
-csq_soln = {'a', 'v'}
+csq_soln = {'a'}
 csq_explanation = "The dictionary value contains the set of all vertices $x$ such that $(s, x)$ is an edge in $G$"
 </question>
 
