@@ -91,7 +91,7 @@ The next two problems will deal with the following graph:
 </center>
 
 <question multiplechoice>
-csq_prompt = "What is the weight of the minimum weight path from s to v?"
+csq_prompt = "What is the weight of the minimum weight path from $s$ to $v$?"
 csq_renderer = "radio"
 csq_soln = "$-\\infty$"
 csq_options =  ["-5", "1", "-22", "$-\\infty$"]
@@ -125,6 +125,6 @@ csq_soln = ['a', 'b', 'c', 'd']
 </question>
 
 </question pythonliteral>
-csq_prompt = "By how much do we decrease $\\delta$?"
+csq_prompt = "By how much do we decrease $\delta$?"
 csq_soln = 33
 </question>
