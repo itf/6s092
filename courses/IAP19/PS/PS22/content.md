@@ -110,7 +110,7 @@ csq_prompt = """Suppose we have the following graph
 
 ```
 (C)    <-   (A)  ->  (B)
-  \                     \
+  \\                     \\
    +-> (D) ->(F) <- (E)<-+
 
 ```
