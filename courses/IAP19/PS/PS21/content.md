@@ -122,9 +122,10 @@ csq_explanation = "Walk through the relaxations. Because we visit `a` twice, we 
 <question pythonliteral>
 csq_prompt = "Everytime we relax the edges `[(a,b), (b,c), (c,d), (d,a) ]` in order, which nodes do we decrease the $\\delta$ for? Express your answer as a list of strings in Python format, i.e. ['a', 'b']."
 csq_soln = ['a', 'b', 'c', 'd']
+csq_explanation = "We decrease the $\\delta$ for all of the vertices involved."
 </question>
 
-</question pythonliteral>
-csq_prompt = "By how much do we decrease $\delta$?"
+<question pythonliteral>
+csq_prompt = "By how much do we decrease $\\delta$?"
 csq_soln = 33
 </question>
