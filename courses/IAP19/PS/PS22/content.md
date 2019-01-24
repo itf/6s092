@@ -117,11 +117,11 @@ csq_prompt = """Suppose we have the following graph
 Which of the following are valid topological sorts?
 """
 csq_renderer = "checkbox"
-csq_soln = [1,1,0,0]
+csq_soln = [1,1,1,0]
 csq_options =  ['$ABCDEF$',
 '$ACDBEF$',
-'$ACDFBE$',
-'$ACDFEB$']
+'$ACBEDF$',
+'$ACDFBE$']
 csq_explanation = "By the definition"
 </question>
 
