@@ -1,6 +1,7 @@
 # Readings 
 Recitation notes 12, 6.006 Fall 2018 on stellar.
 
+DFS pset here on cat-soop.
 
 <style>
 
