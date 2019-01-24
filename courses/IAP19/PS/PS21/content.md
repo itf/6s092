@@ -7,8 +7,8 @@
 csq_prompt = "Select valid reasons that may not exist a shortest path between vertices $u$ and $v$:"
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,1]
-csq_options =  ['there is a negative weight cycle on the path from $u$ to $v$',
-'negative weight edges on the path from $u$ to $v$',
+csq_options =  ['There is a negative weight cycle on the path from $u$ to $v$',
+'Negative weight edges on the path from $u$ to $v$',
 '$u$ and $v$ are not adjacent to each other',
 '$u$ and $v$ are in different connected components in an undirected graph',]
 csq_explanation = "When there is a negative weight cycle, we can get a shorter path by going around the cycle again, so any shortest path would have $\\infty$ edges."
@@ -20,7 +20,7 @@ csq_prompt = "A valid first step of any relaxation algorithm could be to initial
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,0]
 csq_options =  ["$\\infty$",
-"$\\infty$",
+"$-\\infty$",
 "The same integer",
 "$0$"]
 csq_explanation = "The invariant for relaxation is that d[v] >= $\\delta$[v], where d[v] is the current estimate for the weight of the path from s to v and $\\delta$[v] is the actual minimum weight of that path. By initializing to positive infinity, we have that this invariant must be true at the beginning. This is not necessarily true if we initialize to anything else (anything else might be smaller than the actual minimum weight)."
