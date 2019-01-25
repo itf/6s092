@@ -129,8 +129,8 @@ csq_initial = '''def closestK(n, k, graph):
 ## Sandbox options to block libraries or decide how long to run thingy
 csq_sandbox_options = {
     'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
+    'CLOCKTIME': 0.5, 
+    # 'CPUTIME': 0.5, 
     'MEMORY':1e9
 }
 
@@ -212,7 +212,7 @@ for i, t in enumerate(tests):
         'code': f"""
 n, k, graph, _, _ = {t}
 ans = closestK(n, k, graph)""",
-        'show_code': i < 1,
+        'show_code': i < 3,
         'grade': True,
         'check_function': check
     })
