@@ -126,6 +126,14 @@ csq_initial = '''def closestK(n, k, graph):
     return None
 '''
 
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
 def bfs_dists(n, k, g):
     visited = [False for i in range(n)]
     parent = [None for i in range(n)]
@@ -204,7 +212,7 @@ for i, t in enumerate(tests):
         'code': f"""
 n, k, graph, _, _ = {t}
 ans = closestK(n, k, graph)""",
-        'show_code': i < 3,
+        'show_code': i < 1,
         'grade': True,
         'check_function': check
     })
@@ -308,6 +316,14 @@ csq_initial = '''def bfsTree(n, s, graph):
         ###
     return None
 '''
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
 
 def bfs_dists(n, s, g):
     visited = [False for i in range(n)]
