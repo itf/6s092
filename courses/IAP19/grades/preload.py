@@ -159,7 +159,7 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
         header.append(th)
     table.append(header)
 
-    for name, score in sorted(users_total.items(), key=lambda x:x[1]):
+    for name, score in sorted(users_total.items(), key=lambda x:x[1], reverse = True):
         tr = soup.new_tag("tr")
         td = soup.new_tag("td")
         a = soup.new_tag(
