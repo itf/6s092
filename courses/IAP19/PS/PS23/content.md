@@ -62,7 +62,7 @@ yeah
 <question pythoncode>
 csq_interface = 'ace'
 csq_npoints = 2
-csq_prompt = "Eager to advance his plans for galactic domination, Wumpus has cobbled together a starship from spare parts in EC's backyard, blasting off to explore the galaxy. The galaxy, composed of sectors connected by one-way hyperspace lanes, can be modeled as a weighted directed graph on $n$ vertices. Lanes with positive weights consume that much fuel when used, while lanes with negative weights can be harvested to increase Wumpus's fuel supply. Starting the trip with only $f$ units of fuel, Wumpus would like to know which sectors he can reach from Earth, located at sector $0$. Write an algorithm that computes a <i>set</i> of all the sectors Wumpus can reach.<br><br>The graph will be a dictionary of adjacency lists of the form $\{u: [(v_1,w_1),(v_2,w_2),\dots]\}$ where vertex $u$ has outgoing edges to $v_1$ with weight $w_1$, $v_2$ with weight $w_2$, etc. Remember that a path is valid only if Wumpus's fuel supply stays nonnegative throughout. Your algorithm should run in $O(V,E)$ time. Assume no negative cycles.\n\n"
+csq_prompt = "Eager to advance his plans for galactic domination, Wumpus has cobbled together a starship from spare parts in EC's backyard, blasting off to explore the galaxy. The galaxy, composed of sectors connected by one-way hyperspace lanes, can be modeled as a weighted directed graph on $n$ vertices. Lanes with positive weights consume that much fuel when used, while lanes with negative weights can be harvested to increase Wumpus's fuel supply. Starting the trip with only $f$ units of fuel, Wumpus would like to know which sectors he can reach from Earth, located at sector $0$. Write an algorithm that computes a <i>set</i> of all the sectors Wumpus can reach.<br>The graph will be a dictionary of adjacency lists of the form $\{u: [(v_1,w_1),(v_2,w_2),\dots]\}$ where vertex $u$ has outgoing edges to $v_1$ with weight $w_1$, $v_2$ with weight $w_2$, etc. Remember that a path is valid only if Wumpus's fuel supply stays nonnegative throughout. Your algorithm should run in $O(V,E)$ time. Assume no negative cycles.\n\n"
 csq_name = "bellman_code1"
 
 ## Define solution that will be printed to student.
@@ -70,7 +70,7 @@ csq_soln = '''def bellman(n, f, graph):
     edges = [(u, v, w) for u in graph for v, w in graph[u]]
     dist = [f + 1 for i in range(n)]
     dist[0] = 0
-    for i in range(n):
+    for i in range(n - 1):
         for u, v, w in edges:
             if dist[u] + w < dist[v]:
                 dist[v] = dist[u] + w
@@ -80,12 +80,13 @@ csq_soln = '''def bellman(n, f, graph):
 
 ## Code that will be initially on the thingy
 csq_initial = '''def bellman(n, f, graph):
-    edges = [(u, v, w) for u in graph for v, w in graph[u]]
-    dist = [inf for i in range(n)]
-    dist[0] = 0
-    for u, v, w in edges:
-        dist[v] = dist[u] + w
-    return None
+    edges = [] ### TODO
+    dist = [] ### TODO
+    for i in range(n - 1):
+        ###
+        ### TODO
+        ###
+    return {0}
 '''
 
 from math import inf
@@ -125,7 +126,7 @@ for n, p, mu, sigma in test_params:
                     g[i].append((j, int(cs_random.gauss(mu, sigma))))
         dist = bellman_dist(n, g)
         remake = dist is None
-    f = cs_random.choice([x for x in dist if x != inf])
+    f = cs_random.choice([x for x in dist if x != inf and x > 0])
     tests.append((n, f, g))
 
 
