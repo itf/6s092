@@ -111,7 +111,7 @@ test_params = [(10, 0.3, 14, 11)
 
 tests = []
 
-for n, p in test_params:
+for n, p, mu, sigma in test_params:
     remake = True
     while remake:
         g = {i: [] for i in range(n)}
@@ -120,7 +120,7 @@ for n, p in test_params:
                 if i == j:
                     continue
                 if cs_random.random() < p:
-                    g[i].append((j, int(cs_random.gauss(10, 15))))
+                    g[i].append((j, int(cs_random.gauss(mu, sigma))))
         dist = bellman_dist(n, g)
         remake = dist is None
     f = cs_random.choice([x for x in dist if x != inf])
