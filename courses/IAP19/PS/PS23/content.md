@@ -9,9 +9,9 @@ Bellman-Ford has the largest asymptotic runtime of the single-source shortest pa
 
 The algorithm:
 
-    1. Initialize the distance of the start vertex to be 0, and that of all other vertices to be $+\infty$.
-    2. Relax all edges.
-    3. Repeat step 2 $V-1$ times in total.
+1. Initialize the distance of the start vertex to be 0, and that of all other vertices to be $+\infty$.
+2. Relax all edges.
+3. Repeat step 2 $V-1$ times in total.
 
 <question expression>
 csq_prompt = "What is the runtime of this algorithm in Theta notation as a function of $V$ and $E$?   \n\n"
