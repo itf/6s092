@@ -4,7 +4,7 @@ Recitation notes 14, 6.006 Fall 2018 on Stellar.
 Lecture notes 14, 6.006 Fall 2018 on Stellar.
 
 
-# Understanding the algorithm
+# Understanding the Algorithm
 
 As mentioned in [PS23](https://s092.xvm.mit.edu/IAP19/PS/PS23), Dijkstra's offers an improved asymptotic runtime over Bellman-Ford for graphs that have nonnegative edge weights. This property allows the algorithm to efficiently determine an order in which to relax every edge only once to compute shortest paths, even when the graph contains cycles.
 
@@ -14,21 +14,30 @@ Check out this [visualization](https://codepen.io/ZacharyAbel/pen/xyNoWE) (writt
 
 Seems intuitive enough: but how do we actually translate this into code? Though the behind it concept may seem simple, Dijkstra's is a little trickier to implement than the other SSSP algorithms we have seen so far, although like Topological Sort Relaxation and Bellman-Ford, it uses the relaxation framework. Integral to the implementation of Dijkstra's is the concept of a priority queue which supports the following operations:
 
-* `build` (B): Builds a priority queue of the nodes keyed by the estimated distance so far from the source
-* `del_min` (M): Removes and returns a node from the priority queue with the smallest key
-* `dec_key` (D): Decreases the key value of a node in the priority queue
+* `build`: Builds a priority queue of the nodes keyed by the estimated distance so far from the source
+* `del_min`: Removes and returns a node from the priority queue with the smallest key
+* `dec_key`: Decreases the key value of a node in the priority queue
 
 The key differences between all of the different relaxation algorithms (Topological Sort Relaxation, Bellman-Ford, Dijkstra's) that we have seen so far is that they perform the relaxation in different orders. Topological Sort Relaxation performs the relaxations in the order given to us by the topological sort on the vertices. Bellman-Ford does not enforce any particular order, but *does* require that we relax every edge in the graph once before repeating. Dijkstra's algorithm will relax the edges in the order given by this priority queue.
 
 More specifically, from the 6.006 recitation notes linked above: "Dijkstra’s algorithm repeatedly relax[es] edges from a vertex whose minimum weight path estimate is smallest among vertices whose out-going edges have not yet been relaxed." The key invariant of Dijkstra's is that when we pop a vertex off of the priority queue using `del_min`, the distance estimate for that vertex is the correct shortest distance. So at any given time, the nodes for which we are trying to find the shortest distances for are all contained in the progressively shrinking priority queue.
 
+
+# A Simple Example of Dijkstra's algorithm
+
 Let's try to get a better understanding of what that means by running Dijkstra's on the graph below, from source node `s`.
 
 <center>
-<img src="/_static/IAP19/dijkstra1.png" height="70"  />
+<img src="/_static/IAP19/dijkstra1.png" height="210" />
 </center>
 
-We initialize distance estimates from `s` to be $\infty$ for `a` and `b`, and $0$ for $s$.
+We initialize distance estimates:
+
+$\\delta[s, s] = 0$
+
+$\\delta[s, a] = \infty$
+
+$\\delta[s, b] = \infty$
 
 <question multiplechoice>
 csq_prompt = "For now, let's represent our priority queue to be a list of all the vertices keyed by estimated distance so far from the source, sorted in increasing distance. For example, a valid priority queue could be `[(10, 'a'), (20, 'b'), (30, 's')]`. What could the priority queue look like right now for the graph above?"
@@ -59,11 +68,53 @@ csq_explanation = "We have only relaxed edges `(s, a)` and `(s, b)` so far, so o
 </question>
 
 <checkyourself>
-What can't we pop off the edge `(3, 'b')`?
+Our next step is to pop off the node `a` from the priority queue and repeat the process. Why can't we pop off `b`?
 <showhide>
-Our priority queue interface only supports removing the element with the smallest key, so we would have to remove `(1, 'a')`. More importantly, this would break our invariant that we have the correct distance estimates for any vertices popped off of the Priority Queue. As we can see, the correct shortest distance from `s` to `b` is $2$. The correct move here is to pop off the edge `(1, 'a')`.
+Our priority queue interface only supports removing the element with the smallest key, so we would have to remove `(1, 'a')`. More importantly, this would break our invariant that we have the correct distance estimates for any vertices popped off of the Priority Queue. As we can see, the correct shortest distance from `s` to `b` is $2$.
 </showhide>
 </checkyourself>
+
+<question pythonliteral>
+csq_prompt = "We pop off `a` and relax all outgoing edges from `a`. Now what would our priority queue look like? Use the same format as above."
+csq_soln = [(2, 'b')]
+csq_explanation = "We relax the edge `(a, b)`, which leads to a distance estimate of $2$ for `b`."
+</question>
+
+Finally we pop off the last element in the priority queue. Confirm for yourself that the distances we found were all indeed the correct shortest distances from `s`.
+
+# A More Complicated Example
+
+Now we will try to run Dijkstra's algorithm starting at source node `s` on this slightly more complicated graph.
+
+<center>
+<img src="/_static/IAP19/dijkstra1.png" height="210" />
+</center>
+
+<question expression>
+csq_prompt = "The order in which nodes get popped off of the priority queue is also in order of increasing shortest distances. Based on that, in what order would nodes get popped off here? Express as a string of letters, like sabcd."
+csq_soln = ["sbcda", "sbdca"]
+csq_explanation = "Shortest distances of nodes $(s, b, c, d, a)$ are $(0, 1, 3, 3, 100)$."
+</question>
+
+<question pythonliteral>
+csq_prompt = "We perform an iteration of Dijkstra's (we run `del_min`, relax all of the outgoing edges from that node, and then perform `dec_key` for each of those vertices). What does the priority queue look like now? Express your answer as a Python list, use the format from above. Use 'inf' if the distance estimate is $\\infty$"
+csq_soln = [(1, 'b'), (4, 'c'), (100, 'a'), ('inf', 'd')]
+csq_explanation = "We relax all of the outgoing edges from `s`, which are `(s,a)`, `(s,b)` and `(s,c)`."
+</question>
+
+<question pythonliteral>
+csq_prompt = "We repeat this step again: what is the priority queue now?"
+csq_soln = [(3, 'c'), (100, 'a'), ('inf', 'd')]
+csq_explanation = "We relax all of the outgoing edges from `b`, including `(b,a)`. But this doesn't decrease our minimum distance estimate for `a`, so we don't change it."
+</question>
+
+<question pythonliteral>
+csq_prompt = "We repeat this process for a third time: what is the priority queue now?"
+csq_soln = [(3, 'd'), (100, 'a')]
+csq_explanation = "We relax `(c, d)`."
+</question>
+
+Finally, we only have one node left. By definition, this is the minimum distance in the priority queue, so we pop it off and then we are done. Does this match the answer that you gave for the order that you predicted nodes would be popped off?
 
 # Evaluating runtime
 
