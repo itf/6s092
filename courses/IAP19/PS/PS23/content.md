@@ -113,9 +113,9 @@ csq_soln = '''def bellman(n, graph):
 
 ## Code that will be initially on the thingy
 csq_initial = '''def bellman(n, graph):
-    edges = [] ### TODO
-    dist = [] ### TODO
-    parent = [] ### TODO
+    edges = [(u, v, graph[u][v]) for u in graph for v in graph[u]]
+    dist = [inf for i in range(n)]  ### TODO
+    parent = [None for i in range(n)]
     for i in range(n - 1):
         ###
         ### TODO
