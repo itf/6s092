@@ -1,118 +1,45 @@
 # Readings 
-Recitation notes 14, 6.006 Fall 2018 on stellar.
+Recitation notes 14, 6.006 Fall 2018 on Stellar.
 
-Lecture notes 14, 6.006 Fall 2018 on stellar.
-# Dijkstra
+Lecture notes 14, 6.006 Fall 2018 on Stellar.
 
 
-<question multiplechoice>
-csq_prompt = "Question?"
-csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
-</question>
+# Understanding the algorithm
 
+As mentioned in [PS23](https://s092.xvm.mit.edu/IAP19/PS/PS23), Dijkstra's offers an improved asymptotic runtime over Bellman-Ford for graphs that have nonnegative edge weights. This property allows the algorithm to efficiently determine an order in which to relax every edge only once to compute shortest paths, even when the graph contains cycles.
+
+
+INSERT EXPLANATION OF ALGORITHM WITH GRAPH DIAGRAM
+
+
+# Evaluating runtime
+
+The runtime of Dijkstra's largely relies upon the properties of the priority queue used to select the next vertex to visit. We will analyze the runtime of the algorithm when implemented with a min-heap priority queue and with a Fibonacci heap priority queue. As mentioned previously, the priority queue selects vertices using their distances as keys.
+
+We can aggregate the work done over the execution of Dijkstra's as follows:
+
+1. For at most $V$ times, we must select the vertex with minimum distance from our priority queue.
+2. For at most $E$ times, we must relax an edge and potentially update a vertex's distance.
 
 <question expression>
-csq_prompt = "Question?"
+csq_prompt = "What is the runtime of Dijkstra's algorithm in big-O notation as a function of $V$ and $E$ when implemented with a min-heap priority queue? Recall that dequeuing from and enqueuing into such a queue can be done in $O(\log n)$ time, where $n$ is the heap size. Also, as a hint, recall that accessing any element in a min-heap other than the minimum is inefficient, so adding redundant elements to the heap is preferable to replacing elements in the heap. Consider this when deciding how to 'update' your vertex distances.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
+csq_soln = "O(E*log(V))"
+csq_explanation = "Because the min-heap stores each vertex and its distance, we can bound its size at $O(V)$. This is important because this bounds the runtime of its operations at $O(\log V)$. For example, selecting the vertex to visit from our min-heap merely requires popping the minimum off the heap, which can be done in $O(\log V)$ time.<br><br>Relaxing an edge itself is an $O(1)$ operation, but updating the vertex distance requires modifying the min-heap. Because we don't want to perform an $O(V)$ linear-scan operation just to locate and change a single key, we simply place a copy of the vertex with its new key on the heap and leave both versions. This works because of the observation that updating a vertex's distance can only decrease it. Thus, our min-heap will pop off the most recent version of any vertex, leaving the remaining copies of that vertex to be discarded after it has been visited once. While this bloats our min-heap to size $O(E)$, we know that $E=O(V^2)$, so its operations still run in $\log E=O(\log V)$ time.Thus,<br><br>one full edge relaxation runs in $O(log V)", while vertex selection also runs in $O(\log V)$ per vertex. After scaling by the number of such operations, we arrive at the runtime of $O(E\log V)$.
+csq_name = "dijkstra_runtime1"
 </question>
 
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
+While a nicer complexity than that of Bellman-Ford, the algorithm's complexity could potentially be improved with the introduction of Fibonacci heaps. While their precise mechanisms aren't important to know, the key difference is that a Fibonacci heap can perform a decrease-key operation in amortized $O(1)$ time, rather than $O(\log V)$.
 
-
-
-<question pythoncode>
-csq_interface = 'ace'
-csq_prompt = "Write your code to return a string with 4 repeated n times"
-
-## Define solution that will be printed to student.
-csq_soln = """
-def print_4_ntimes(n): 
-    return 'Solution will be posted to Stellar'
-"""
-
-## Code that will be initially on the thingy
-csq_initial = """def print_4_ntimes(n): 
-    return '4'
-"""
-csq_name= "pcode2"
-
-## Code that will be written before the user code as well as solution
-## Particularly useful for defining classes and things that we don't want the user to modify
-## For example, define a DFS function.
-csq_code_pre = ""
-
-
-## Code that will be written after the user code as well as solution code
-## Seems quite useless to me.
-csq_code_post = ""
-
-
-
-## Sandbox options to block libraries or decide how long to run thingy
-csq_sandbox_options = {
-    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
-    'CLOCKTIME': 0.36, 
-    # 'CPUTIME': 0.36, 
-    'MEMORY':1e9
-}
-
-
-## Now we define helped functions
-tests = [cs_random.randint(1,20) for x in range(10)]
-
-def is_correct(n, sol):
-    if not(type(sol) == type('44')):
-       return False
-    if len(sol)==n:
-        for i in range(n):
-           if sol[i]!='4':
-               return False
-        return True
-    return False
-
-## Now we need to write csq_tests, which defines what code to run
-## As well as how to test it. 
-## Each csq_tests is a dictionary of things (code, check, etc)
-
-## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
-## Code should define a string called ans, which is what will be tested.
-
-## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
-
-csq_tests = []
-for i, t in enumerate(tests):
-
-    def check(ans, soln, i = i):
-        n = tests[i]
-        print(ans)
-        return is_correct(n, eval(ans))
-        
-    csq_tests.append({
-        'code': f"""
-n = {tests[i]}
-ans = print_4_ntimes(n)
-""" ,
-        'show_code': i < 5,
-        'grade': True,
-        'check_function': check
-    })
-
-</question> 
-
+<question expression>
+csq_prompt = "What is the runtime of Dijkstra's algorithm in big-O notation as a function of $V$ and $E$ when implemented with a Fibonacci heap priority queue? Recall that dequeuing from and enqueuing into such a queue can be done in $O(\log n)$ time, where $n$ is the heap size, and decreasing the key of an element runs in amortized $O(1)$.   \n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "O(E+V*log(V))"
+csq_explanation = "Like before, the vertices are each picked in $O(\log V)$ time, and each edge relaxation happens in $O(1)$ time. Now, each vertex update also happens in O(1) time, so our cumulative runtime is $O(E+V\log(V))$."
+</question>
