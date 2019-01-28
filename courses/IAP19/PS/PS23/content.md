@@ -5,16 +5,16 @@ Lecture notes 13, 6.006 Fall 2018 on Stellar.
 # Shortest paths
 
 
-Bellman-Ford has the largest asymptotic runtime of the single-source shortest path algorithms covered in this course, but it makes no assumptions about the structure of the graph. For comparison, BFS requires unweighted edges, topological sort relaxation only works on acyclic graphs, and Dijkstra's requires nonnegative edge weights.
+Bellman-Ford has the largest asymptotic runtime of the single-source shortest path algorithms covered in this course, but it makes few assumptions about the structure of the graph. For comparison, BFS requires unweighted edges, topological sort relaxation only works on acyclic graphs, and Dijkstra's requires nonnegative edge weights. Bellman-Ford only requires the graph to have no negative-weight cycles for reasons we will discuss later.
 
 The algorithm:
 
 1. Initialize the distance of the start vertex to be 0, and that of all other vertices to be $+\infty$.
-2. Relax all edges.
+2. Relax all edges in any order.
 3. Repeat step 2 $(V-1)$ times in total.
 
 <question expression>
-csq_prompt = "What is the runtime of this algorithm in Theta notation as a function of $V$ and $E$?   \n\n"
+csq_prompt = "What is the runtime of this algorithm in Theta notation as a function of $V$ and $E$? Remember to express in simplest asymptotic form.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
@@ -25,29 +25,43 @@ csq_nsubmits = None
 csq_name = "bf_runtime"
 </question>
 
-So why does this work? 
+So why is relaxing all edges $V-1$ times necessary and sufficient? Consider the following linear graph for simplicity.
 
-<question multiplechoice>
-csq_prompt = "Question?"
-csq_renderer = "checkbox"
-csq_soln = [1,0,0,0]
-csq_options =  ['option 1',
-'option 2',
-'option 3',
-'option 4']
-csq_name="qexample1"
-</question>
-
+<center>
+<img src="/_static/IAP19/bellman-11.png" height="200"  />
+</center>
 
 <question expression>
-csq_prompt = "Question?"
+csq_prompt = "We start Bellman-Ford on the above graph with source vertex $A$. After one round of relaxing all edges, what are the maximum (worst-case) possible distance values associated with each vertex? If there is no such maximum for a vertex, use inf. Give your answer in the form $a,b,c,d$.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["T(n)+O(n)", "12"]
-csq_explanation = "explanation"
-csq_nsubmits = None
+csq_soln = "0,2,inf,inf"
+csq_explanation = "If edge $AB$ is the last to be relaxed, then vertices $C$ and $D$ will still have distance $\infty$ after the first relaxation. Because $A$ begins with distance $0$, relaxing $AB$ makes $B$'s distance at most $2$."
+csq_name = "bf_relax1"
+</question>
+
+<question expression>
+csq_prompt = "After the second round of edge relaxation, what are the maximum (worst-case) possible distance values associated with each vertex? Give your answer in the same way as above.   \n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "0,2,-1,inf"
+csq_explanation = "Because $B$ has distance at most $2$ after the first round, $C$ has at most distance $-1$ after relaxing $BC$. $D$ can still have distance $\infty$."
+csq_name = "bf_relax2"
+</question>
+
+<question expression>
+csq_prompt = "After the third round of edge relaxation, what are the maximum (worst-case) possible distance values associated with each vertex?   \n\n"
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "0,2,-1,5"
+csq_explanation = "Because $C$ has distance at most $-1$ after the second round, $D$ has at most distance $5$ after relaxing $CD$."
+csq_name = "bf_relax3"
 </question>
 
 <checkyourself>
