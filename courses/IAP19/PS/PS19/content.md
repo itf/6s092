@@ -258,7 +258,6 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = [1,0,0,0]
-csq_soln = '241560'
 csq_options = ['3025614', '065142', '315', '0562143']
 csq_nsubmits = 3
 csq_explanation = "We include every vertex because we're running a Full DFS."

@@ -248,7 +248,7 @@ csq_soln = [0, 1, 1, 0]
 csq_options =  [r'A vertex can have multiple parents.',
  r'A vertex can have no parent.',
  r'A vertex can be a parent to multiple vertices.',
- r'The shortest path from vertex $v$ to the starting vertex must include the parent of $v$.']
+ r'A shortest path from vertex $v$ to the starting vertex must include the parent of $v$.']
 csq_explanation = 'A vertex can have at most one parent, but a vertex can be a parent to multiple vertices as seen above. A vertex will have no parent if it is the starting vertex (by definition) or if it is unreachable from the starting vertex. While the parent of a vertex is on a shortest path to that vertex, the path need not be unique, and alternate shortest paths can use different vertices.<br><br>From an implementation standpoint, this makes parent pointers easy to use, as we can store all of our pointers in an array-like structure, where element $i$ is the parent of vertex $i$.'
 csq_name = "bfs_parent1"
 </question>

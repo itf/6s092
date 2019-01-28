@@ -3,7 +3,9 @@ Recitation notes 15, 6.006 Fall 2018 on stellar.
 
 Recitation notes 15, 6.006 Fall 2018 on stellar.
 # Johnson's algorithm
-
+<python>
+csq_npoints=0
+</python>
 
 <question multiplechoice>
 csq_prompt = "Question?"
