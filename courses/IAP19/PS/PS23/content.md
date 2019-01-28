@@ -88,7 +88,7 @@ csq_name = "bellman_code1"
 
 ## Define solution that will be printed to student.
 csq_soln = '''def bellman(n, graph):
-    edges = [(u, v, w) for u in graph for v, w in graph[u]]
+    edges = [(u, v, graph[u][v]) for u in graph for v in graph[u]]
     dist = [inf for i in range(n)]
     dist[0] = 0
     parent = [None for i in range(n)]
@@ -112,7 +112,7 @@ csq_soln = '''def bellman(n, graph):
 '''
 
 ## Code that will be initially on the thingy
-csq_initial = '''def bellman(n, f, graph):
+csq_initial = '''def bellman(n, graph):
     edges = [] ### TODO
     dist = [] ### TODO
     parent = [] ### TODO
@@ -151,13 +151,13 @@ tests = []
 for n, p, mu, sigma in test_params:
     remake = True
     while remake:
-        g = {i: [] for i in range(n)}
+        g = {i: {} for i in range(n)}
         for i in range(n):
             for j in range(n):
                 if i == j:
                     continue
                 if cs_random.random() < p:
-                    g[i].append((j, int(cs_random.gauss(mu, sigma))))
+                    g[i][j] = int(cs_random.gauss(mu, sigma))
         dist = bellman_dist(n, g)
         remake = dist is None
     tests.append((n, g, dist))
