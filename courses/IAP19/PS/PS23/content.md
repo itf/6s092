@@ -38,7 +38,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "[0,2,inf,inf]"
+csq_soln = "0,2,999,999"
 csq_explanation = "If edge $AB$ is the last to be relaxed, then vertices $C$ and $D$ will still have distance $\infty$ after the first relaxation. Because $A$ begins with distance $0$, relaxing $AB$ makes $B$'s distance at most $2$."
 csq_name = "bellman_relax1"
 </question>
@@ -49,7 +49,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "[0,2,-1,inf]"
+csq_soln = "0,2,-1,999"
 csq_explanation = "Because $B$ has distance at most $2$ after the first round, $C$ has at most distance $-1$ after relaxing $BC$. $D$ can still have distance $\infty$."
 csq_name = "bellman_relax2"
 </question>
@@ -60,7 +60,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "[0,2,-1,5]"
+csq_soln = "0,2,-1,5"
 csq_explanation = "Because $C$ has distance at most $-1$ after the second round, $D$ has at most distance $5$ after relaxing $CD$."
 csq_name = "bellman_relax3"
 </question>
