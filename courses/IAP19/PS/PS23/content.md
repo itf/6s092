@@ -126,7 +126,7 @@ csq_initial = '''def bellman(n, graph):
 from math import inf
 
 def bellman_dist(n, graph):
-    edges = [(u, v, w) for u in graph for v, w in graph[u]]
+    edges = [(u, v, graph[u][v]) for u in graph for v in graph[u]]
     dist = [inf for i in range(n)]
     dist[0] = 0
     for i in range(n):
