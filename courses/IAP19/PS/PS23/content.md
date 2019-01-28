@@ -28,7 +28,7 @@ csq_name = "bf_runtime"
 So why is relaxing all edges $V-1$ times necessary and sufficient? Consider the following linear graph for simplicity.
 
 <center>
-<img src="/_static/IAP19/bellman-11.png" height="200"  />
+<img src="/_static/IAP19/bellman-11.png" height="100"  />
 </center>
 
 <question expression>
@@ -64,14 +64,19 @@ csq_explanation = "Because $C$ has distance at most $-1$ after the second round,
 csq_name = "bf_relax3"
 </question>
 
-<checkyourself>
-Are you understanding?
-<showhide>
-yeah
-</showhide>
-</checkyourself>
+Though this example has only 1 path to each vertex, we can derive a general understanding of how Bellman-Ford finds shortest paths. The key invariant is that after $k$ relaxation passes, all shortest paths with at most $k$ edges are found. Before any relaxation, we have trivially found all $0$-edge shortest paths, which is the $0$-length path to the source vertex. After $1$ pass, we have found all $1$-edge shortest paths, which consist of the outgoing edges from the source.
 
+To show that this invariant holds after pass $k$, consider the shortest path from source $s$ to some vertex $v$, which contains $k$ edges. (The squiggle represents a path with an arbitrary number of edges.) We want to show that we find this shortest path by pass $k$. Say that vertex $u$ immediately precedes $v$ in the path, so edge $uv$ is in the path. This means that the shortest path from $s$ to $u$ is the segment of the same path that stops at $u$, which has $k-1$ edges. By pass $k-1$, we must have found this shortest path to $u$, so relaxing $uv$ in pass $k$ will give us the shortest path to $v$.
 
+<center>
+<img src="/_static/IAP19/bellman-12.png" height="70"  />
+</center>
+
+So relaxing the edges $V-1$ times will guarantee all shortest paths with at most $V-1$ edges. But what if the shortest path to a vertex has more than $V-1$ edges? Such a path would necessarily repeat a vertex, which means that our path contains a cycle. But because our graph can't have negative cycles, the cycle must have nonnegative weight. By cutting out the cycle, we don't increase the total path weight, so our reduced path must be the shortest one.
+
+<center>
+<img src="/_static/IAP19/bellman-13.png" height="150"  />
+</center>
 
 <question pythoncode>
 csq_interface = 'ace'
@@ -158,4 +163,6 @@ ans = bellman(n, f, graph)""",
         'grade': True
     })
 </question>
+
+# Negative-weight cycles
 
