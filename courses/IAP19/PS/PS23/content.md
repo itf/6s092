@@ -14,11 +14,8 @@ This graph compares the different SSSP algorithms we have covered and will cover
 | SSSP Algorithm             | PSet #   | Setting                           | Runtime          |
 | ---------------------------| -------- | --------------------------------- | ---------------- |
 | BFS                        | 20       | $w(e) = 1$ for all $e \in E$      | $O(V+E)$         |
-
 | Topo Sort Relaxation       | 22       | acyclic graph                     | $O(V+E)$         |
-
 | Dijkstra                   | 24       | $w(e) > 0$ for all $e \in E$      | $O(V log V + E)$ |
-
 | Bellman-Ford               | 23       | General graph                     | $O(VE)$          |
 
 Let's assume for now that our graph does not contain any negative cycles in it. See [here](https://s092.xvm.mit.edu/_static/IAP19/relax6.png) for an example of a graph with a negative cycle.
