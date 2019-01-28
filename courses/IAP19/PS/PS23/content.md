@@ -170,12 +170,7 @@ def is_correct(test, sol):
         return True
     if not isinstance(sol, list):
         return False
-    path_len = 0
-    for i in range(len(sol) - 1):
-        if sol[i + 1] not in g[sol[i]]:
-            return False
-        path_len += g[sol[i]][sol[i + 1]]
-    return path_len == dist
+    return all(sol[i + 1] in g[sol[i]] for i in range(n - 1)) and sum(g[sol[i]][sol[i + 1]] for i in range(n - 1)) == dist
 
 
 csq_tests = []
@@ -247,6 +242,8 @@ We run Bellman-Ford on a graph then attempt to relax every edge one more time. I
 Actually, no. We can conclude that there are no negative cycles reachable from our chosen source, but a negative cycle totally isolated from the source would not be found in this way. This is because setting the distance of every unreachable vertex to $\infty$ does not allow their edges to be relaxed. If we purely wanted to detect any negative cycles in the graph, we would need to initialize every vertex distance to any finite value.<br><br>It is worth amending our previous statement here that Bellman-Ford requires a graph without negative cycles. Technically, it works so long as no negative cycles are reachable from the source.
 </showhide>
 </checkyourself>
+
+Thus, running an extended Bellman-Ford with $V$ iterations on any graph either correctly returns all distances or reveals a negative cycle in the graph.
 
 <question multiplechoice>
 csq_prompt = "If a graph has a negative cycle reachable from the source, which statements can potentially describe the discrepancies between the true distances and the distances reported by an execution of Bellman-Ford on this graph?\n\n"
