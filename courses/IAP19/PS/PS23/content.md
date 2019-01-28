@@ -14,7 +14,7 @@ This graph compares the different SSSP algorithms we have covered and will cover
 | SSSP Algorithm             | Setting                           | PSet #   | Runtime          |
 | ---------------------------| --------------------------------- | -------- | ---------------- |
 | BFS                        | $w(e) = 1$ for all $e \in E$      | 20       | $O(V+E)$         |
-| Topo Sort Relaxation       | acyclic graph                     | 22       | $O(V+E)$         |
+| Topo Sort Relaxation       | Acyclic graph                     | 22       | $O(V+E)$         |
 | Dijkstra                   | $w(e) > 0$ for all $e \in E$      | 24       | $O(V log V + E)$ |
 | Bellman-Ford               | General graph                     | 23       | $O(VE)$          |
 

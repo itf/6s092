@@ -8,9 +8,62 @@ Lecture notes 14, 6.006 Fall 2018 on Stellar.
 
 As mentioned in [PS23](https://s092.xvm.mit.edu/IAP19/PS/PS23), Dijkstra's offers an improved asymptotic runtime over Bellman-Ford for graphs that have nonnegative edge weights. This property allows the algorithm to efficiently determine an order in which to relax every edge only once to compute shortest paths, even when the graph contains cycles.
 
+One way to think about Dijkstra's is that each edge in the graph is a pipe, and the source node is the faucet. The amount of time that it takes for water to travel through a pipe is proportional to the length of the pipe (the weight of the edge). We open the faucet, and keep track of when water reaches each of those nodes.
 
-INSERT EXPLANATION OF ALGORITHM WITH GRAPH DIAGRAM
+Check out this [visualization](https://codepen.io/ZacharyAbel/pen/xyNoWE) (written up by Zachary Abel) for what Dijkstra's might look like on a graph where the edge weights are the lengths of the edges.
 
+Seems intuitive enough: but how do we actually translate this into code? Though the behind it concept may seem simple, Dijkstra's is a little trickier to implement than the other SSSP algorithms we have seen so far, although like Topological Sort Relaxation and Bellman-Ford, it uses the relaxation framework. Integral to the implementation of Dijkstra's is the concept of a priority queue which supports the following operations:
+
+* `build` (B): Builds a priority queue of the nodes keyed by the estimated distance so far from the source
+* `del_min` (M): Removes and returns a node from the priority queue with the smallest key
+* `dec_key` (D): Decreases the key value of a node in the priority queue
+
+The key differences between all of the different relaxation algorithms (Topological Sort Relaxation, Bellman-Ford, Dijkstra's) that we have seen so far is that they perform the relaxation in different orders. Topological Sort Relaxation performs the relaxations in the order given to us by the topological sort on the vertices. Bellman-Ford does not enforce any particular order, but *does* require that we relax every edge in the graph once before repeating. Dijkstra's algorithm will relax the edges in the order given by this priority queue.
+
+More specifically, from the 6.006 recitation notes linked above: "Dijkstra’s algorithm repeatedly relax[es] edges from a vertex whose minimum weight path estimate is smallest among vertices whose out-going edges have not yet been relaxed." The key invariant of Dijkstra's is that when we pop a vertex off of the priority queue using `del_min`, the distance estimate for that vertex is the correct shortest distance. So at any given time, the nodes for which we are trying to find the shortest distances for are all contained in the progressively shrinking priority queue.
+
+Let's try to get a better understanding of what that means by running Dijkstra's on the graph below, from source node `s`.
+
+<center>
+<img src="/_static/IAP19/dijkstra1.png" height="70"  />
+</center>
+
+We initialize distance estimates from `s` to be $\infty$ for `a` and `b`, and $0$ for $s$.
+
+<question multiplechoice>
+csq_prompt = "For now, let's represent our priority queue to be a list of all the vertices keyed by estimated distance so far from the source, sorted in increasing distance. For example, a valid priority queue could be `[(10, 'a'), (20, 'b'), (30, 's')]`. What could the priority queue look like right now for the graph above?"
+csq_renderer = 'checkbox'
+csq_soln = [0,0,1,1,0]
+csq_options = ["""`[(0, 's'), (1, 'a'), (2, 'b')]`""",
+"""`[(0, 's'), (1, 'a'), (3, 'b')]`""",
+"""`[(0, 's'), ('inf', 'a'), ('inf', 'b')]`""",
+"""`[(0, 's'), ('inf', 'b'), ('inf', 'a')]`""",
+"""`[('inf', 'a'), ('inf', 'b'), ('inf', 's')]`"""]
+csq_explanation = "We start out with a distance of $0$ from `s` to itself, and we don't know anything about `a` or `b` so we set them to be $\\infty$."
+</question>
+
+Now we perform `del_min` and we pop off the node with the smallest estimated distance from the priority queue. We then relax every outgoing edge from that node, and update the keys in the priority queue accordingly using `dec_key`.
+
+<question multiplechoice>
+csq_prompt = "For which of these nodes would we update the keys after one iteration of this?"
+csq_renderer = 'checkbox'
+csq_soln = [1, 1, 0]
+csq_options = ["`a`", "`b`", "`s`"]
+csq_explanation = "We pop off `s`, so we relax the edges `(s, a)` and `(s, b)`. Because we successfully reduce the estimated distances for `a` and `b`, we use `dec_key` to decrease their keys in the priority queue."
+</question>
+
+<question pythonliteral>
+csq_prompt = "Now what does the priority queue look like? Express your answer as a Python list sorted in increasing distance, in the same format that we used above."
+csq_soln = [(1, 'a'), (3, 'b')]
+csq_explanation = "We have only relaxed edges `(s, a)` and `(s, b)` so far, so our distance estimates for them are based off of those two edges only."
+</question>
+
+<checkyourself>
+What can't we pop off the edge `(3, 'b')`?
+<showhide>
+Our priority queue interface only supports removing the element with the smallest key, so we would have to remove `(1, 'a')`. More importantly, this would break our invariant that we have the correct distance estimates for any vertices popped off of the Priority Queue. As we can see, the correct shortest distance from `s` to `b` is $2$. The correct move here is to pop off the edge `(1, 'a')`.
+</showhide>
+</checkyourself>
 
 # Evaluating runtime
 
