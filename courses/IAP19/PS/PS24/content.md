@@ -1,7 +1,7 @@
 # Readings 
-Recitation notes 14, 6.006 Fall 2018 on Stellar.
+[Recitation notes 14](https://learning-modules.mit.edu/service/materials/groups/238004/files/b7106e72-c013-47e4-a483-894f060f6743/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on Stellar.
 
-Lecture notes 14, 6.006 Fall 2018 on Stellar.
+[Lecture notes 14](https://learning-modules.mit.edu/service/materials/groups/238004/files/3168e756-f6d5-45f8-b139-3c2b30399194/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), 6.006 Fall 2018 on Stellar.
 
 
 # Understanding the Algorithm
@@ -33,11 +33,11 @@ Let's try to get a better understanding of what that means by running Dijkstra's
 
 We initialize distance estimates:
 
-$\\delta[s, s] = 0$
+$\delta[s, s] = 0$
 
-$\\delta[s, a] = \infty$
+$\delta[s, a] = \infty$
 
-$\\delta[s, b] = \infty$
+$\delta[s, b] = \infty$
 
 <question multiplechoice>
 csq_prompt = "For now, let's represent our priority queue to be a list of all the vertices keyed by estimated distance so far from the source, sorted in increasing distance. For example, a valid priority queue could be `[(10, 'a'), (20, 'b'), (30, 's')]`. What could the priority queue look like right now for the graph above?"
@@ -87,7 +87,7 @@ Finally we pop off the last element in the priority queue. Confirm for yourself 
 Now we will try to run Dijkstra's algorithm starting at source node `s` on this slightly more complicated graph.
 
 <center>
-<img src="/_static/IAP19/dijkstra1.png" height="210" />
+<img src="/_static/IAP19/dijkstra2.png" height="210" />
 </center>
 
 <question expression>
@@ -97,7 +97,7 @@ csq_explanation = "Shortest distances of nodes $(s, b, c, d, a)$ are $(0, 1, 3, 
 </question>
 
 <question pythonliteral>
-csq_prompt = "We perform an iteration of Dijkstra's (we run `del_min`, relax all of the outgoing edges from that node, and then perform `dec_key` for each of those vertices). What does the priority queue look like now? Express your answer as a Python list, use the format from above. Use 'inf' if the distance estimate is $\\infty$"
+csq_prompt = "We perform an iteration of Dijkstra's (we run `del_min`, relax all of the outgoing edges from that node, and then perform `dec_key` for each of those vertices). What does the priority queue look like now? Express your answer as a Python list, use the format from above. Use 'inf' if the distance estimate is $\\infty$. \n\n ."
 csq_soln = [(1, 'b'), (4, 'c'), (100, 'a'), ('inf', 'd')]
 csq_explanation = "We relax all of the outgoing edges from `s`, which are `(s,a)`, `(s,b)` and `(s,c)`."
 </question>
@@ -118,7 +118,7 @@ Finally, we only have one node left. By definition, this is the minimum distance
 
 # Evaluating runtime
 
-The runtime of Dijkstra's largely relies upon the properties of the priority queue used to select the next vertex to visit. We will analyze the runtime of the algorithm when implemented with a min-heap priority queue and with a Fibonacci heap priority queue. As mentioned previously, the priority queue selects vertices using their distances as keys.
+Because Dijkstra's algorithm heavily relies on those three priority queue operations, it makes sense that the runtime of Dijkstra's also largely relies upon the implementation of the priority queue. Let's analyze the runtime of the algorithm when implemented with two different implementations: a min-heap priority queue and a Fibonacci heap priority queue.
 
 We can aggregate the work done over the execution of Dijkstra's as follows:
 
