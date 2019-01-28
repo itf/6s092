@@ -41,6 +41,6 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "O(E+V*log(V))"
-csq_explanation = "Like before, the vertices are each picked in $O(\log V)$ time, and each edge relaxation happens in $O(1)$ time. Now, each vertex update also happens in $O(1)$ time, so our cumulative runtime is $O(E+V\log(V))$."
+csq_explanation = "Like before, the vertices are each picked in $O(\log V)$ time, and each edge relaxation happens in $O(1)$ time. Now, each vertex update also happens in $O(1)$ time, so our cumulative runtime is $$O(E+V\log(V))$$"
 csq_name = "dijkstra_runtime2"
 </question>
