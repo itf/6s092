@@ -2,8 +2,9 @@
 Recitation notes 13, 6.006 Fall 2018 on Stellar.
 
 Lecture notes 13, 6.006 Fall 2018 on Stellar.
-# Shortest paths
 
+
+# Shortest paths
 
 Bellman-Ford has the largest asymptotic runtime of the single-source shortest path algorithms covered in this course, but it makes few assumptions about the structure of the graph. For comparison, BFS requires unweighted edges, topological sort relaxation only works on acyclic graphs, and Dijkstra's requires nonnegative edge weights. Bellman-Ford only requires the graph to have no negative-weight cycles for reasons we will discuss later.
 
@@ -22,7 +23,7 @@ csq_allow_submit_after_answer_viewed = False
 csq_soln = ["Theta(VE)","Theta(EV)","Theta(V*E)"]
 csq_explanation = "A single edge can be relaxed in $\Theta(1)$ time. Relaxing $E$ edges $V-1$ times each is done in $\Theta(VE)$ time."
 csq_nsubmits = None
-csq_name = "bf_runtime"
+csq_name = "bellman_runtime"
 </question>
 
 So why is relaxing all edges $V-1$ times necessary and sufficient? Consider the following linear graph for simplicity.
@@ -39,7 +40,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "0,2,inf,inf"
 csq_explanation = "If edge $AB$ is the last to be relaxed, then vertices $C$ and $D$ will still have distance $\infty$ after the first relaxation. Because $A$ begins with distance $0$, relaxing $AB$ makes $B$'s distance at most $2$."
-csq_name = "bf_relax1"
+csq_name = "bellman_relax1"
 </question>
 
 <question expression>
@@ -50,7 +51,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "0,2,-1,inf"
 csq_explanation = "Because $B$ has distance at most $2$ after the first round, $C$ has at most distance $-1$ after relaxing $BC$. $D$ can still have distance $\infty$."
-csq_name = "bf_relax2"
+csq_name = "bellman_relax2"
 </question>
 
 <question expression>
@@ -61,7 +62,7 @@ csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = "0,2,-1,5"
 csq_explanation = "Because $C$ has distance at most $-1$ after the second round, $D$ has at most distance $5$ after relaxing $CD$."
-csq_name = "bf_relax3"
+csq_name = "bellman_relax3"
 </question>
 
 Though this example has only 1 path to each vertex, we can derive a general understanding of how Bellman-Ford finds shortest paths. The key invariant is that after $k$ relaxation passes, all shortest paths with at most $k$ edges are found. Before any relaxation, we have trivially found all $0$-edge shortest paths, which is the $0$-length path to the source vertex. After $1$ pass, we have found all $1$-edge shortest paths, which consist of the outgoing edges from the source.
@@ -195,3 +196,67 @@ ans = bellman(n, graph)""",
 
 # Negative-weight cycles
 
+What happens when our graph does contain a negative cycle? Consider the following graph, in which we have begun running Bellman-Ford from source vertex $A$. The current distances associated with each vertex are written beside them.
+
+<center>
+<img src="/_static/IAP19/bellman-21.png" height="200"  />
+</center>
+
+<question multiplechoice>
+csq_prompt = "If we relaxed all edges another time, which vertex distances are guaranteed to be updated?\n\n"
+csq_renderer = "checkbox"
+csq_soln = [1, 0, 0]
+csq_options =  ["$A$",
+ "$B$",
+ "$C$"]
+csq_explanation = "We see that relaxing edge $CA$ must update vertex $A$, and no other vertices are guaranteed to update."
+csq_name = "bellman_neg1"
+</question>
+
+<question multiplechoice>
+csq_prompt = "If we relax all edges again, which vertex distances are guaranteed to be updated?\n\n"
+csq_renderer = "checkbox"
+csq_soln = [0, 1, 0]
+csq_options =  ["$A$",
+ "$B$",
+ "$C$"]
+csq_explanation = "Now that the distance of $A=-4$, we know that relaxing edge $AB$ must update vertex $B$."
+csq_name = "bellman_neg2"
+</question>
+
+<question multiplechoice>
+csq_prompt = "And if we relax again?\n\n"
+csq_renderer = "checkbox"
+csq_soln = [0, 0, 1]
+csq_options =  ["$A$",
+ "$B$",
+ "$C$"]
+csq_explanation = "Now that the distance of $B=-7$, we know that relaxing edge $BC$ must update vertex $C$."
+csq_name = "bellman_neg3"
+</question>
+
+But this brings us back to where we started, only with lower vertex distances. Because traversing this negative cycle yields a net decrease in distance and can be done arbitrarily many times, the shortest distance from the source to any of these vertices is unbounded below, which we can refer to as $-\infty$. Quite far from the values we had predicted earlier.
+
+If the presence of a negative cycle ruins our Bellman-Ford result, how do we figure out if our graph has a negative cycle?
+
+Let's run a full Bellman-Ford on a graph, meaning that we relax all edges for $V-1$ iterations. If this graph has no negative cycles, then we have already computed the shortest paths to all vertices, so relaxing the edges will not produce any shorter distances. Thus, we can simply attempt to relax every edge one more time and conclude that a negative cycle is present if any updates were made.
+
+<checkyourself>
+We run Bellman-Ford on a graph then attempt to relax every edge one more time. If no updates were made, can we conclude that no negative cycles exist in the graph?
+<showhide>
+Actually, no. We can conclude that there are no negative cycles reachable from our chosen source, but a negative cycle totally isolated from the source would not be found in this way. This is because setting the distance of every unreachable vertex to $\infty$ does not allow their edges to be relaxed. If we purely wanted to detect any negative cycles in the graph, we would need to initialize every vertex distance to any finite value.<br><br>It is worth amending our previous statement here that Bellman-Ford requires a graph without negative cycles. Technically, it works so long as no negative cycles are reachable from the source.
+</showhide>
+</checkyourself>
+
+<question multiplechoice>
+csq_prompt = "If a graph has a negative cycle reachable from the source, which statements can potentially describe the discrepancies between the true distances and the distances reported by an execution of Bellman-Ford on this graph?\n\n"
+csq_renderer = "checkbox"
+csq_soln = [1, 1, 0, 0, 0]
+csq_options =  ["All reported distances are overestimates.",
+ "Some reported distances are overestimates.",
+ "All reported distances are correct.",
+ "Some reported distances are underestimates.",
+ "All reported distances are underestimates."]
+csq_explanation = "Because Bellman-Ford fails to fully explore shortest paths when faced with a negative cycle, the real distances must be smaller than the reported ones. Clearly, all vertices in the negative cycle have incorrect distances, as they should be $-\infty$. Furthermore, every vertex reachable from the negative cycle should also have a distance of $-\infty$. However, not all vertices are necessarily incorrect, as the vertices unreachable from the negative cycle remain unaffected."
+csq_name = "bellman_neg4"
+</question>
