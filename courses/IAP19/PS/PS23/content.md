@@ -11,12 +11,12 @@ Bellman-Ford has the largest asymptotic runtime of the single-source shortest pa
 This graph compares the different SSSP algorithms we have covered and will cover in 6.s092 and 6.006, and you can find a similar graph in the lecture notes.
 
 
-| SSSP Algorithm        | PSet Number | Setting                      | Runtime          |
-| ----------------------| ----------- | ---------------------------- | ---------------- |
-| BFS                   | 20          | $w(e) = 1$ for all $e \in E$ | $O(V+E)$         |
-| Topo Sort Relaxation  | 22          | acyclic graph                | $O(V+E)$         |
-| Dijkstra              | 24          | $w(e) > 0$ for all $e \in E$ | $O(V log V + E)$ |
-| Bellman-Ford          | 23          | General graph                | $O(VE)$          |
+| SSSP Algorithm             | PSet #   | Setting                           | Runtime          |
+| ---------------------------| -------- | --------------------------------- | ---------------- |
+| BFS                        | 20       | $w(e) = 1$ for all $e \in E$      | $O(V+E)$         |
+| Topo Sort Relaxation       | 22       | acyclic graph                     | $O(V+E)$         |
+| Dijkstra                   | 24       | $w(e) > 0$ for all $e \in E$      | $O(V log V + E)$ |
+| Bellman-Ford               | 23       | General graph                     | $O(VE)$          |
 
 Let's assume for now that our graph does not contain any negative cycles in it. See [here](https://s092.xvm.mit.edu/_static/IAP19/relax6.png) for an example of a graph with a negative cycle.
 
@@ -55,24 +55,24 @@ csq_explanation = "If edge $AB$ is the last to be relaxed, then vertices $C$ and
 csq_name = "bellman_relax1"
 </question>
 
-<question expression>
+<question pythonliteral>
 csq_prompt = "After the second round of edge relaxation, what are the maximum (worst-case) possible distance values associated with each vertex? Give your answer in the same way as above.   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "0,2,-1,999"
+csq_soln = [0,2,-1,'inf']
 csq_explanation = "Because $B$ has distance at most $2$ after the first round, $C$ has at most distance $-1$ after relaxing $BC$. $D$ can still have distance $\infty$."
 csq_name = "bellman_relax2"
 </question>
 
-<question expression>
+<question pythonliteral>
 csq_prompt = "After the third round of edge relaxation, what are the maximum (worst-case) possible distance values associated with each vertex?   \n\n"
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "0,2,-1,5"
+csq_soln = [0,2,-1,5]
 csq_explanation = "Because $C$ has distance at most $-1$ after the second round, $D$ has at most distance $5$ after relaxing $CD$."
 csq_name = "bellman_relax3"
 </question>
