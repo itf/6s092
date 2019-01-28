@@ -11,7 +11,7 @@ The algorithm:
 
 1. Initialize the distance of the start vertex to be 0, and that of all other vertices to be $+\infty$.
 2. Relax all edges.
-3. Repeat step 2 $V-1$ times in total.
+3. Repeat step 2 $(V-1)$ times in total.
 
 <question expression>
 csq_prompt = "What is the runtime of this algorithm in Theta notation as a function of $V$ and $E$?   \n\n"
@@ -19,7 +19,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "Theta(VE)"
+csq_soln = ["Theta(VE)","Theta(EV)","Theta(V*E)"]
 csq_explanation = "A single edge can be relaxed in $\Theta(1)$ time. Relaxing $E$ edges $V-1$ times each is done in $\Theta(VE)$ time."
 csq_nsubmits = None
 csq_name = "bf_runtime"
