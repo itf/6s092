@@ -352,12 +352,36 @@ def print_pset_table(pset, pset_full_scores, user_score_problemset):
     soup = BeautifulSoup("", "html.parser")
     table = soup.new_tag("table")
     table["class"] = "table table-bordered"
+    tr = soup.new_tag("tr")
+    td = soup.new_tag("td")
+    a = soup.new_tag(
+        "a", href="COURSE/{path}".format(path=pset)
+    )
+    a.string = "Direct Link" # link to user info
+
+    td.append(a)
+    td["class"] = "text-left"
+    tr.append(td)
+
+
+    td = soup.new_tag("td")
+    a = soup.new_tag(
+        "a", href="COURSE/{path}?action=stats".format(path=pset)
+    )
+    a.string = "WHDW" # link to user info
+
+    td.append(a)
+    td["class"] = "text-left"
+    tr.append(td)
+    table.append(tr)
     header = soup.new_tag("tr")
     for heading in ["pset", "score"]:
         th = soup.new_tag("th")
         th.string = heading
         header.append(th)
     table.append(header)
+
+
 
     for name, score in sorted(user_score_problemset.items()):
         if allow_spoof:
