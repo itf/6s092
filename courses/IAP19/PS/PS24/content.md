@@ -167,6 +167,35 @@ csq_explanation = "Like before, the vertices are each picked in $O(\log V)$ time
 csq_name = "dijkstra_runtime2"
 </question>
 
+
+# Extensions to Dijkstra's Algorithm
+
+<question multiplechoice>
+csq_prompt = "Let's say we wanted to slightly modify and extend Dijkstra's algorithm. Which of these could be done with slight modifications to Dijkstra's?"
+csq_renderer = "checkbox"
+csq_options = ["Find the longest path to some vertex `v`",
+"Find the longest path to all vertices as long as the graph has no cycles",
+"Find the longest path to all vertices as long as the edge weights are all non-positive",
+"Detect cycles in the graph"]
+csq_soln = [0,0,1,0]
+csq_explanation = "If we multiply all the edge weights by $-1$, then the third option would be the same as Dijkstra's algorithm. It is not easy to find cycles through Dijkstra: not only would we have to keep track of which vertices have been visited so far, we would also need to keep track of which vertices are reachable from each vertex."
+</question>
+
+<checkyourself>
+We now know that Dijkstra's algorithm has a $O(V \log V + E)$ run-time, which is much better than Bellman-Ford, which has a $O(VE)$ run-time. We still care about Bellman-Ford because it is applicable to general graphs, whereas Dijkstra's is only applicable to graphs with non-negative weights. If we have a graph with negative weights and cycles, we must use Bellman-Ford. What algorithm can we use if the graph has negative weights and no cycles?
+<showhide>
+Topological Sort Relaxation.
+</showhide>
+</checkyourself>
+
+<checkyourself>
+We can quickly find the minimum edge weight, $e_{min}$ in $O(E)$ time. We can create a new graph $G^{\prime}$ with non-negative edge weights by adding $-e_{min}$ to every edge in $G$. Now we can run Dijkstra's algorithm on $G^{\prime}$ in $O(V \log V + E)$ time. This is clearly much faster than Bellman-Ford...why would we bother running Bellman Ford for $O(VE)$?
+<showhide>
+This line of reasoning is incorrect. Even though $G^{\prime}$ will have non-negative edge weights, shortest paths on $G$ are not preserved on $G^{\prime}$. For example, consider this [graph](https://s092.xvm.mit.edu/_static/IAP19/dijkstra3.png). If we add $3$ to all of the edges, then we find that the shortest path in $G^{\prime}$ from $s$ to $b$ is $(s, b)$ with a length of $0$. However, the shortest path in $G$ from $s$ to $b$ is $(s, a), (a, b)$ with a length of $-4$.
+</showhide>
+</checkyourself>
+
+
 # Ideas for Problems
 
 
@@ -185,12 +214,3 @@ What if w is odd?
 update(d_even) = relax(A, w, d_odd, parent, u, v)
 
 Now put everything together and write the code to return the shortest even paths (maybe, maybe this is too hard)
-
-Question:
-What can we do with Dijkstra with minimum modifications?
-Longest path
-Longest path if the graph has no cycles
-Longest path if the edge weights are all non positive
-
-
-Why can't we just turn all the edges positive?
