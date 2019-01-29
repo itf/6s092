@@ -162,7 +162,7 @@ csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O(E+V*log(V))"]
+csq_soln = ["O(E+V * log(V))"]
 csq_explanation = "Like before, the vertices are each picked in $O(\log V)$ time, and each edge relaxation happens in $O(1)$ time. Now, each vertex update also happens in $O(1)$ time, so our cumulative runtime is $$O(E+V\log(V))$$"
 csq_name = "dijkstra_runtime2"
 </question>
@@ -194,23 +194,3 @@ We can quickly find the minimum edge weight, $e_{min}$ in $O(E)$ time. We can cr
 This line of reasoning is incorrect. Even though $G^{\prime}$ will have non-negative edge weights, shortest paths on $G$ are not preserved on $G^{\prime}$. For example, consider this [graph](https://s092.xvm.mit.edu/_static/IAP19/dijkstra3.png). If we add $3$ to all of the edges, then we find that the shortest path in $G^{\prime}$ from $s$ to $b$ is $(s, b)$ with a length of $0$. However, the shortest path in $G$ from $s$ to $b$ is $(s, a), (a, b)$ with a length of $-4$.
 </showhide>
 </checkyourself>
-
-
-# Ideas for Problems
-
-
-Using dijkstra's to find the shortest even paths from s to every other vertex
-Graph has nonnegative weights and cycles. Need to do something to prevent Bellman ford -- make sure the order that things are popped off the priority queue is consistent
-
-We modify Dijkstra's to have an even PQ and an odd PQ. Let's say we have this code: even and odd queues. Which node do we do?
-PQ must have min and del_min.
-min(min_even, min_odd) is odd -> del_min odd
-
-Now we're relaxing some outgoing edge (u,v, w) where w is even. What should we check?
-update(d_even) = relax(A, w, d_even, parent, u, v)
-update(d_odd)
-
-What if w is odd?
-update(d_even) = relax(A, w, d_odd, parent, u, v)
-
-Now put everything together and write the code to return the shortest even paths (maybe, maybe this is too hard)
