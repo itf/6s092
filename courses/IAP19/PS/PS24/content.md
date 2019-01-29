@@ -97,7 +97,7 @@ csq_explanation = "Shortest distances of nodes $(s, b, c, d, a)$ are $(0, 1, 3, 
 </question>
 
 <question pythonliteral>
-csq_prompt = "We perform an iteration of Dijkstra's (we run `del_min`, relax all of the outgoing edges from that node, and then perform `dec_key` for each of those vertices). What does the priority queue look like now? Express your answer as a Python list, use the format from above. Use 'inf' if the distance estimate is $\\infty$. \n\n ."
+csq_prompt = "We perform an iteration of Dijkstra's (we run `del_min`, relax all of the outgoing edges from that node, and then perform `dec_key` for each of those vertices). What does the priority queue look like now? Express your answer as a Python list, use the format from above. Use 'inf' if the distance estimate is $\\infty$. \n\n"
 csq_soln = [(1, 'b'), (4, 'c'), (100, 'a'), ('inf', 'd')]
 csq_explanation = "We relax all of the outgoing edges from `s`, which are `(s,a)`, `(s,b)` and `(s,c)`."
 </question>
@@ -118,20 +118,38 @@ Finally, we only have one node left. By definition, this is the minimum distance
 
 # Evaluating runtime
 
-Because Dijkstra's algorithm heavily relies on those three priority queue operations, it makes sense that the runtime of Dijkstra's also largely relies upon the implementation of the priority queue. Let's analyze the runtime of the algorithm when implemented with two different implementations: a min-heap priority queue and a Fibonacci heap priority queue.
+Because Dijkstra's algorithm heavily relies on those three priority queue operations, it makes sense that the runtime of Dijkstra's also largely relies upon the implementation of the priority queue. Let's analyze the runtime of the algorithm when implemented with two different implementations: a min-heap priority queue (kind of like the one covered in PS15) and a Fibonacci heap priority queue (we treat this data structure as a black box in 6.s092 or 6.006, but you can learn more about it [here](https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf)).
 
-We can aggregate the work done over the execution of Dijkstra's as follows:
-
-1. For at most $V$ times, we must select the vertex with minimum distance from our priority queue.
-2. For at most $E$ times, we must relax an edge and potentially update a vertex's distance.
+| Implementation of PQ    | Create with $n$ elements | Delete/return min | Decrease key        |
+| ----------------------  | ------------------------ | ----------------- | ------------        |
+| Min-heap                | $O(n \log n)$            | $O(\log n)$       | $O(\log n)$         |
+| Fibonacci heap          | $O(n)$                   | $O(\log n)$       | $O(1)$ amortized    |
 
 <question expression>
-csq_prompt = "What is the runtime of Dijkstra's algorithm in big-O notation as a function of $V$ and $E$ when implemented with a min-heap priority queue? Recall that dequeuing from and enqueuing into such a queue can be done in $O(\log n)$ time, where $n$ is the heap size. Also, as a hint, recall that accessing any element in a min-heap other than the minimum is inefficient, so adding redundant elements to the heap is preferable to replacing elements in the heap. Consider this when deciding how to 'update' your vertex distances.   \n\n"
-csq_show_check = True
-csq_allow_check = True
-csq_allow_submit = True
-csq_allow_submit_after_answer_viewed = False
-csq_soln = "O(E*log(V))"
+csq_prompt = "Every iteration of Dijkstra will remove the vertex with minimum distance from our priority queue. How many times will we perform the `del_min` operation on a graph with $V$ vertices and $E$ edges? Answer with an exact expression."
+csq_soln = ["V", "V-1"]
+csq_explanation = "We are done when we pop off all of the vertices from the priority queue, and we never add vertices back onto the queue. Because your implementation can start by not including the start vertex (which trivially has the shortest path from itself) in the priority queue, $V-1$ is also an acceptable answer."
+</question>
+
+<question expression>
+csq_prompt = "After we remove the vertex with minimum distance, we relax all of the outgoing edges from that vertex and we run `dec_min` on nodes that need to be updated. At most how many times could we run `dec_min` on a directed graph with $V$ vertices and $E$ edges? Answer with an exact expression."
+csq_soln = ["E"]
+csq_explanation = "We relax at most once on every edge. Every edge originates from one node, and we only ever update a node's distance after relaxing an edge that ends there."
+</question>
+
+<question multiplechoice>
+csq_prompt = "What is the maximum number of times we could run `dec_min` on an undirected graph with $V$ vertices and $E$ edges?"
+csq_renderer = "radio"
+csq_soln = "$E$"
+csq_options = ["$E$", "$2E$", "$V$", "$V + 2E$", "Undefined because any undirected graph with $>1$ edges will contain a cycle"]
+csq_explanation = "Dijkstra can be run with cycles; that's actually a requirement for Topological Sort Relaxation. Even though we have $2E$ edges if we convert this back into a directed graph, we can only perform `dec_min` if the end-node of the edge is still contained in the priority queue. If we pop off `u` using `del_min`, causing us to relax some edge `(u, v)`, then we may call `dec_min(v)`. But we will never call `dec_min(u)` because we have already removed `u` from the priority queue."
+</question>
+
+These two components (repeatedly removing the min from the queue, and decreasing the queue values) make up the bulk of the work of Dijkstra's algorithm.
+
+<question expression>
+csq_prompt = "Given the runtimes shown in the table above for the min-heap priority queue implementation, how long would it take to run Dijkstra's algorithm? Use big-O notation."
+csq_soln = ["O((V+E)*log(V)", "O(V*log(V)+ E * log(V))"]
 csq_explanation = "Because the min-heap stores each vertex and its distance, we can bound its size at $O(V)$. This is important because this bounds the runtime of its operations at $O(\log V)$. For example, selecting the vertex to visit from our min-heap merely requires popping the minimum off the heap, which can be done in $O(\log V)$ time.<br><br>Relaxing an edge itself is an $O(1)$ operation, but updating the vertex distance requires modifying the min-heap. Because we don't want to perform an $O(V)$ linear-scan operation just to locate and change a single key, we simply place a copy of the vertex with its new key on the heap and leave both versions. This works because of the observation that updating a vertex's distance can only decrease it. Thus, our min-heap will pop off the most recent version of any vertex, leaving the remaining copies of that vertex to be discarded after it has been visited once. While this bloats our min-heap to size $O(E)$, we know that $E=O(V^2)$, so its operations still run in $\log E=O(\log V)$ time.<br><br>Thus, one full edge relaxation runs in $O(\log V)$, while vertex selection also runs in $O(\log V)$ per vertex. After scaling by the number of such operations, we arrive at the runtime of $$E\log V+V\log V=O(E\log V)$$"
 csq_name = "dijkstra_runtime1"
 </question>
@@ -139,12 +157,40 @@ csq_name = "dijkstra_runtime1"
 While a nicer complexity than that of Bellman-Ford, the algorithm's complexity could potentially be improved with the introduction of Fibonacci heaps. While their precise mechanisms aren't important to know, the key difference is that a Fibonacci heap can perform a decrease-key operation in amortized $O(1)$ time, rather than $O(\log V)$.
 
 <question expression>
-csq_prompt = "What is the runtime of Dijkstra's algorithm in big-O notation as a function of $V$ and $E$ when implemented with a Fibonacci heap priority queue? Recall that dequeuing from and enqueuing into such a queue can be done in $O(\log n)$ time, where $n$ is the heap size, and decreasing the key of an element runs in amortized $O(1)$.   \n\n"
+csq_prompt = "We use Fibonacci Heaps to implement the priority queue instead of min-heap. Reference the table above. How long would it take to run Dijkstra's algorithm now? Use big-O notation."
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = "O(E+V*log(V))"
+csq_soln = ["O(E+V*log(V))"]
 csq_explanation = "Like before, the vertices are each picked in $O(\log V)$ time, and each edge relaxation happens in $O(1)$ time. Now, each vertex update also happens in $O(1)$ time, so our cumulative runtime is $$O(E+V\log(V))$$"
 csq_name = "dijkstra_runtime2"
 </question>
+
+# Ideas for Problems
+
+
+Using dijkstra's to find the shortest even paths from s to every other vertex
+Graph has nonnegative weights and cycles. Need to do something to prevent Bellman ford -- make sure the order that things are popped off the priority queue is consistent
+
+We modify Dijkstra's to have an even PQ and an odd PQ. Let's say we have this code: even and odd queues. Which node do we do?
+PQ must have min and del_min.
+min(min_even, min_odd) is odd -> del_min odd
+
+Now we're relaxing some outgoing edge (u,v, w) where w is even. What should we check?
+update(d_even) = relax(A, w, d_even, parent, u, v)
+update(d_odd)
+
+What if w is odd?
+update(d_even) = relax(A, w, d_odd, parent, u, v)
+
+Now put everything together and write the code to return the shortest even paths (maybe, maybe this is too hard)
+
+Question:
+What can we do with Dijkstra with minimum modifications?
+Longest path
+Longest path if the graph has no cycles
+Longest path if the edge weights are all non positive
+
+
+Why can't we just turn all the edges positive?
