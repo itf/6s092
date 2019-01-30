@@ -10,17 +10,18 @@ csq_prompt = """Wumpus is trying to solve the shortest path problem by using dyn
 
 In Wumpus first attempt, Wumpus defines the following recursion:
 
-The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to the nodes that can reach $x$, plus the sum of the edge weight between that node and $x$]. $$D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$$ 
+The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to the nodes that have edges going to $x$, plus the sum of the edge weight between that node and $x$]. $$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
 
 Why won't this work?
 """
 csq_renderer = "checkbox"
 csq_soln = [0,0,1,0]
-csq_options =  ['The shortest path to $x$ does not necessarily includes the shortest path to one of the nodes that can reach $x$',
+csq_options =  ['The shortest path to $x$ does not necessarily includes the shortest path to one of the nodes that has edges to $x$',
 'It works, but it would take an exponential amount of time to run this algorithm.',
 'If there are cycles in the graph, there will be cyclic dependencies. In order to find the shortest path to the node $x$, we have to find the shortest path to the nodes that can reach $x$; however, to find those, we need to find the shortest path to $x$.', 
 'Because it is not true that $D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$']
 </question>
+
 
 
 <question expression>
