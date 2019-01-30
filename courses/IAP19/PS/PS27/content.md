@@ -1,8 +1,10 @@
 # Readings 
+
 Recitation notes 16,17, 6.006 Fall 2018 on stellar.
 
 Lecture notes 16,17, 6.006 Fall 2018 on stellar.
-# Dynamic programming
+
+# Dynamic programming Concepts
 
 
 <question multiplechoice>
