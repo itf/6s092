@@ -2,7 +2,7 @@
 LOL good luck. Just search around the world wide pipes.
 
 # Prim's algorithm
-Prim's algorithm is a **greedy** algorithm that generated a minimum spanning tree.
+Prim's algorithm is a **greedy** algorithm that generates a minimum spanning tree in an undirected graph with positive weights. A minimum spanning tree is a subset of edges of minimum total cost 
 
 It is implemented almost exactly like Dijkstra, but instead of relaxing nodes like:
 
@@ -35,7 +35,13 @@ def relaxNode(node, edges, cost_of_connection_pq):
                 cost_of_connection_pq[neighbor] = weight
 ```
 
-And instead of being interested on the distances to each node, we are interested in the sum of the cost of connections, which is the total cost of the tree.
+And instead of being interested on the distances to each node, we are interested in the sum of the cost of connections, which is the total cost of the tree, as well as the edges.
+
+In other words, the algorithm is:
+
+- Start with a single node
+- Grow your tree one edge at a time, by choosing the edge of smallest weight that connects a new node to your tree
+- Repeat until all nodes are connected.
 
 
 
@@ -51,6 +57,10 @@ csq_explanation = ""
 csq_nsubmits = None
 </question>
 
+TODO one day prove that it works
+
+
+Write coding question to generate maze.
 
 # Quick sort
 Do you wanna sort things quickly? So let's talk about quick sort.
@@ -63,7 +73,7 @@ Do you wanna sort things quickly? So let's talk about quick sort.
 - Recurse on both sides.
 
 Each step runs in expected $O(n)$, and the expected run time will be $O(n log (n))$
-## Not in place implementation (Bad)
+## Not in place implementation (
 
 ```python
 def quicksort(A):
@@ -152,7 +162,7 @@ We will partially follow [these lecture notes](https://people.engr.ncsu.edu/mfms
 
 Let $\tilde{T}(n)$ be the expected number of comparisons performed by quick sort. 
 
-Since there is a $\frac{1}{n}$ chance of splitting the array into a subarray of size $k$ and size $n-k$, for any value of $k$ between $1$ and $n$. And independent on how it splits, it performs $n-1 comparisons.
+Since there is a $\frac{1}{n}$ chance of splitting the array into a subarray of size $k$ and size $n-k$, for any value of $k$ between $0$ and $n-1$. And independent on how it splits, it performs $n-1 comparisons.
 
 So:
 
@@ -309,7 +319,65 @@ ans = A
 
 </question> 
 
+# Quick Select!
 
+In quick select we solve the following problem: given an array A, return the $k$th smalllest element. In particular, return the median.
+
+On quick sort, we chose a pivot, partitioned the data, and then recursed on both halves. In quick select we will only recurse in one of the halves.
+
+## Not in place quickselect (Bad)
+This particular implementation uses, in the worst case, O(n^2) extra space, so it is quite bad. It is better to write an in place implementation, similarly to quicksort.
+
+```python
+def quickselect(A,k):
+    if len(A) == 1:
+        return A[0]
+    else:
+        pivot =  A[0]
+        smaller = [x for x in A[1:] if x <= pivot] 
+        larger = [x for x in A[1:] if x > pivot]
+        if len(smaller) == k:
+            return pivot
+        elif len(smaller) > k:
+            return quickselect(smaller, k)
+        else:
+            return quickselect(larger, k-len(smaller)-1)
+```
+
+# Run time analysis
+
+Let $\tilde{T}(n)$ be the expected number of comparisons performed by quick select. 
+
+Since there is a $\frac{1}{n}$ chance of splitting the array into a subarray of size $k$ and size $n-k$, for any value of $k$ between $0$ and $n-1$. And independent on how it splits, it performs $n-1$ comparisons.
+
+So:
+
+$$\tilde{T}(n) = (n-1) + \sum_{k=1}^{n-1} \frac{1}{n} \tilde{T}(k) $$
+
+So, to simplify the right hand side in order to cancel terms, we multiply everything by $n$.
+
+$$ n \tilde{T}(n) =  n(n-1)+ \sum_{k=1}^{n-1} \tilde{T}(k)  $$
+
+Writing now $T(n-1)$
+
+$$ (n-1) \tilde{T}(n-1) =  (n-1)(n-2)+ \sum_{k=1}^{n-2} \tilde{T}(k) $$
+
+Subtracting one by the other
+
+$$ n \tilde{T}(n) - (n-1) \tilde{T}(n-1) =  n(n-1)-(n-1)(n-2)+ \tilde{T}(n-1) $$
+
+So:
+
+$$ n \tilde{T}(n)  =  2(n-1)+ n \tilde{T}(n-1) $$
+And at last, dividing everything by $n$ and $n+1$
+
+$$ \tilde{T}(n)  =  \frac{2(n-1)}{n}+ \tilde{T}(n-1) $$
+
+Which is trivially solved:
+
+$$ \tilde{T}(n)  =  \sum_{k=1}^{n-1} \frac{2(k-1)}{k} =  \sum_{k=1}^{n-1} \left( 2 - \frac{1}{k}\right) \approx 2n - ln(n)$$
+
+So the expected run time is $\Theta(n)$
 
 # Flajolet-Martin 
 Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?
