@@ -25,7 +25,7 @@ csq_options =  ['The shortest path to $x$ does not necessarily includes the shor
 
 <question multiplechoice>
 csq_prompt = "Which of the following are important to solving a DP problem?"
-csq_renderer = "Checkbox"
+csq_renderer = "checkbox"
 csq_soln = [1,1,1,0,1,1]
 csq_options = ["Define Subproblems", "Relate Subproblems", "Identify Base Cases", "Kill Wumpus", "Compute Solution", "Analyze Running Time"]
 csq_nsubmits = 1
@@ -38,7 +38,7 @@ csq_renderer = "radio"
 csq_soln = "False"
 csq_options = ["True", "False"]
 csq_nsubmits = 1
-csq_explanation = "If $x(i)$ depends on $x(i-1)$, then by definition we need to compute $x(i-1)$ in order to compute $x(i)$.
+csq_explanation = "If $x(i)$ depends on $x(i-1)$, then by definition we need to compute $x(i-1)$ in order to compute $x(i)$."
 </question>
 
 <question multiplechoice>
@@ -84,7 +84,7 @@ csq_explanation = ""
 <img src="/_static/IAP19/dp3.png" height="210"  />
 </center>
 
-<question pythonlist>
+<question pythonliteral>
 csq_prompt = "If I tell you that the subproblem relation for our DP problem is \n\n$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor) + X(\\lfloor\\frac{i}{2}\\rfloor -1)$\n\n and that $a = 8$, then what are the values of $bcdef$? Answer as a Python list of 5 non-negative numbers."
 csq_soln = [3, 4, 2, 0, 1]
 csq_explanation = "Draw out the graph on your own, and compare with the graph in the above image."
@@ -98,6 +98,6 @@ csq_options = ["$X(i) = X(i-1)$",
 "$X(i) = \\Sigma X(j)$ for all $j < i$",
 "$X(i) = \\Sigma X(j)$ for all $j < i$ and $j > i$",
 "$X(i) = \\Sigma X(j)$ for all integer divisors $j$ of $i$",
-"$X(i) = \\Sigma X(j)$ for all primes $j < i$]
+"$X(i) = \\Sigma X(j)$ for all primes $j < i$"]
 csq_explanation = "In the third case, we can see that $X(3)$ depends on $X(2)$, and $X(2)$ depends on $X(3)$, which creates a cycle of dependencies. In the fourth case, $i$ is also an integer divisor of itself which makes the dependencies graph cyclic."
 </question>
