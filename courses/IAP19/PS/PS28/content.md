@@ -126,12 +126,18 @@ ans = subproblems_if_egg_breaks({f}, {i}, {e}) """,
 <question pythoncode>
 csq_interface = "ace"
 csq_npoints = 1
-csq_prompt = "Let's put these two cases together; in the worst case scenario, what is the number of subproblems we have? Use your answers from the previous two problems. You can also use the functions `min` and `max`."
+csq_prompt = "Let's put these two cases together; in the worst case scenario, what is the number of subproblems we have? Use your answers from the previous two problems. You can also use `subproblems_if_egg_doesnt_break`, `subproblems_if_egg_breaks`, and the functions `min` and `max`."
 csq_soln = '''def subproblems_i(f, i, e):
     return max(X(i-1, e-1), X(f-i, e))'''
 
 csq_initial = '''def subproblems_i(f, i, e):
     return X(None, None) #TODO
+
+def subproblems_if_egg_doesnt_break(f, i, e):
+    return X(f-i, e)
+
+def subproblems_if_egg_breaks(f, i, e):
+    return X(i-1, e-1)
 '''
 
 csq_code_pre = '''def X(a, b):
@@ -166,13 +172,22 @@ csq_prompt = """Now we can try to put everything together in order to define our
 
 A way that we commonly do this is that we define the recurrences to depend on subproblems with smaller parameters (i.e. smaller values of $f$ and/or $e$). That way there is a clear order for when we should calculate our subproblems.
 
-Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or $e$. Ignore special/base cases for now. Hint: how do we pick which floor $i$ we should drop the egg from first?"""
+Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or $e$. You can use all of the functions we have defined or mentioned so far. Ignore special/base cases for now. Hint: how do we pick which floor $i$ we should drop the egg from first?"""
 
 csq_soln = '''def subproblems(f, i, e):
     return min([max(X(i-1, e-1), X(f-i, e)) for i in range(f)])'''
 
 csq_initial = '''def subproblems(f, i, e):
     return X(None, None) #TODO
+
+def subproblems_i(f, i, e):
+    return max(X(i-1, e-1), X(f-i, e))
+
+def subproblems_if_egg_doesnt_break(f, i, e):
+    return X(f-i, e)
+
+def subproblems_if_egg_breaks(f, i, e):
+    return X(i-1, e-1)
 '''
 
 csq_code_pre = '''def X(a, b):
@@ -201,19 +216,19 @@ ans = subproblems({f}, {i}, {e}) """,
 </question>
 
 <question multiplechoice>
-csq_prompt = "Next, remember that you should never ever ever recurse without base cases. Which of the following are correct?"
+csq_prompt = "Next, remember that you should never ever ever recurse without base cases. Which of the following are correct? Hint: if a scenario is impossible, it's common to say that we need $\\infty$ steps to solve the problem."
 csq_renderer = "checkbox"
 csq_options = ["$x(0, e) = 1$", "$x(0, e) = 0$", "$x(f, 0) = \\infty$", "$x(f, 0) = f$", "$x(f, 0) = 1$"]
 csq_soln = [0,1,1,0,0]
 csq_explanation = ""
 </question>
 
-If all is well and correct, $x(n, k)$ should give us the minimum number of egg drops for $n$ floors and $k$ eggs. 
+Now we have a general expression for $X(f, e)$, where we can vary the number of floors $f$ and the number of eggs $e$. We can use this to solve the recurrence for $X(n, k)$ (since our building has $n$ floors and we have $k$ eggs, where $n$ and $k$ are fixed constants).
 
-Finally, let us calculate the runtime. 
+Let's calculate the run-time required to solve for $X(n, k)$.
 
 <question expression>
-csq_prompt = "How many subproblems do you have? Express in Theta notation."
+csq_prompt = "How many subproblems do you have? (How many different instances of $X(f, e)$ will we run?) Express in Theta notation."
 csq_soln = ["Theta(nk)", "Theta(n * k)"]
 csq_explanation = ""
 </question>
@@ -229,6 +244,3 @@ csq_prompt = "What is your final runtime?"
 csq_soln = "Theta(n^2 * f)"
 csq_explanation = ""
 </question>
-
-
-
