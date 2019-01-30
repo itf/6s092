@@ -345,39 +345,9 @@ def quickselect(A,k):
 ```
 
 # Run time analysis
-
-Let $\tilde{T}(n)$ be the expected number of comparisons performed by quick select. 
-
-Since there is a $\frac{1}{n}$ chance of splitting the array into a subarray of size $k$ and size $n-k$, for any value of $k$ between $0$ and $n-1$. And independent on how it splits, it performs $n-1$ comparisons.
-
-So:
-
-$$\tilde{T}(n) = (n-1) + \sum_{k=1}^{n-1} \frac{1}{n} \tilde{T}(k) $$
-
-So, to simplify the right hand side in order to cancel terms, we multiply everything by $n$.
-
-$$ n \tilde{T}(n) =  n(n-1)+ \sum_{k=1}^{n-1} \tilde{T}(k)  $$
-
-Writing now $T(n-1)$
-
-$$ (n-1) \tilde{T}(n-1) =  (n-1)(n-2)+ \sum_{k=1}^{n-2} \tilde{T}(k) $$
-
-Subtracting one by the other
-
-$$ n \tilde{T}(n) - (n-1) \tilde{T}(n-1) =  n(n-1)-(n-1)(n-2)+ \tilde{T}(n-1) $$
-
-So:
-
-$$ n \tilde{T}(n)  =  2(n-1)+ n \tilde{T}(n-1) $$
-And at last, dividing everything by $n$ and $n+1$
-
-$$ \tilde{T}(n)  =  \frac{2(n-1)}{n}+ \tilde{T}(n-1) $$
-
-Which is trivially solved:
-
-$$ \tilde{T}(n)  =  \sum_{k=1}^{n-1} \frac{2(k-1)}{k} =  \sum_{k=1}^{n-1} \left( 2 - \frac{1}{k}\right) \approx 2n - ln(n)$$
-
+Sooon
 So the expected run time is $\Theta(n)$
 
 # Flajolet-Martin 
 Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?
+
