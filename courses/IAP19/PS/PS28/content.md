@@ -33,7 +33,7 @@ Now, let us work through this for the general case of $k$ eggs. First, let us wr
 <checkyourself>
 What should our subproblems look like?
 <showhide>
-$x(f, e)$: minimum number of drops to check any sequence of $f$ floors using $e$ eggs. In this case, the parameters we care about are the number of floors and the number of eggs and the desired output is the minimum number of drops. 
+$x(f, e)$: minimum number of drops to check any sequence of $f$ floors using $e$ eggs. In this case, the parameters we care about are the number of floors and the number of eggs and the desired output is the minimum number of drops.<br><br>An important observation that you could make about this subproblem definition is that it does not depend on **how high up** the floors are. It will take the same amount of egg drops to determine $s$ if we are looking at floors $0$ through $9$ as if we are looking at floors $100$ through $109$, or even if we're looking at floors $0, 2, 4, \ldots, 18$. It's worth thinking about why that is true, and maybe walking through a few examples.
 </showhide>
 </checkyourself>
 
@@ -54,19 +54,17 @@ csq_explanation = "If the egg breaks, that means the value of $s$ is less than $
 <question pythoncode>
 csq_interface = "ace"
 csq_npoints = 1
-csq_prompt = "Define the subproblem that we would need to solve if the egg does not break. Express as a function $X(a, b)$, where $a$ and $b$ can be defined in terms of $f$, $i$ and /or $e$."
-csq_soln = '''def subproblem_recurrence(f, i, e):
+csq_prompt = "Define the subproblem that we would need to solve if the egg does not break. Express as a function $X(a, b)$, where $a$ and $b$ can be defined in terms of $f$, $i$ and /or $e$. Ignore special/base cases."
+csq_soln = '''def subproblems_if_egg_doesnt_break(f, i, e):
     return X(f-i, e)'''
 
-csq_initial = '''def subproblem_recurrence(f, i, e):
+csq_initial = '''def subproblems_if_egg_doesnt_break(f, i, e):
     return X(None, None) #TODO
 '''
 
 csq_code_pre = '''def X(a, b):
-    return a**(1.6006) + b**(.6006)/6
+    return (a**(1.6006) + b**(.6006)/6)*(a+22)
 '''
-
-csq_code_post = ''' '''
 
 tests = [(2, 2),
          (4, 4),
@@ -83,24 +81,123 @@ for test_num, t in enumerate(tests):
     e = cs_random.randint(1, e_range)
     csq_tests.append({
         'code': f"""
-ans = subproblem_recurrence({f}, {i}, {e}) """,
-        'show_code': test_num < 3,
+ans = subproblems_if_egg_doesnt_break({f}, {i}, {e}) """,
+        'show_code': False,
         'grade': True
     })
 </question>
 
+<question pythoncode>
+csq_interface = "ace"
+csq_npoints = 1
+csq_prompt = "Define the subproblem that we would need to solve if the egg breaks. Express as a function $X(a, b)$, where $a$ and $b$ can be defined in terms of $f$, $i$ and /or $e$. Ignore special/base cases"
+csq_soln = '''def subproblems_if_egg_breaks(f, i, e):
+    return X(i-1, e-1)'''
 
-<question multiplechoice>
-csq_prompt = "Now, lets convert this notion into a relation between $x(f, e)$ and the corresponding subproblems. In this problem, we care about the worst-case. Which relation correctly equals $x(f, e)$ based on our definitions so far?"
-csq_renderer = "radio"
-csq_options = ["$1 +\\min \\{ \\max \\{ x(i − 1, e − 1), x(f − i, e)\\} |  1 \\leq i \\leq f \\}$",
-"$1 + \\max \\{ \\min \\{x(i − 1, e − 1), x(f − i, e)\\} |  1 ≤ i ≤ f \\}$",
-"$1 + \\max \\{x(i − 1, e − 1), x(f − i, e)\\}$",
-"$\\min \\{ \\max \\{x(i − 1, e − 1), x(f − i, e)\\} |  1 ≤ i ≤ f \\}$",
-"$\\max \\{x(i − 1, e − 1), x(f − i, e)\\}$"]
-csq_soln = "$\\min \\{ \\max \\{x(i − 1, e − 1), x(f − i, e)\\} |  1 ≤ i ≤ f \\}$"
-csq_nsubmits = 4
-csq_explanation = "Blah need to fix"
+csq_initial = '''def subproblems_if_egg_breaks(f, i, e):
+    return X(None, None) #TODO
+'''
+
+csq_code_pre = '''def X(a, b):
+    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+'''
+
+tests = [(2, 2),
+         (4, 4),
+         (10, 5),
+         (20, 20),
+         (100, 100),
+         (1000, 1000)]
+        
+csq_tests = []
+for test_num, t in enumerate(tests):
+    f_range, e_range = t
+    f = cs_random.randint(1, f_range)
+    i = cs_random.randint(1, f)
+    e = cs_random.randint(1, e_range)
+    csq_tests.append({
+        'code': f"""
+ans = subproblems_if_egg_breaks({f}, {i}, {e}) """,
+        'show_code': False,
+        'grade': True
+    })
+</question>
+
+<question pythoncode>
+csq_interface = "ace"
+csq_npoints = 1
+csq_prompt = "Let's put these two cases together; in the worst case scenario, what is the number of subproblems we have? Use your answers from the previous two problems. You can also use the functions `min` and `max`."
+csq_soln = '''def subproblems_i(f, i, e):
+    return max(X(i-1, e-1), X(f-i, e))'''
+
+csq_initial = '''def subproblems_i(f, i, e):
+    return X(None, None) #TODO
+'''
+
+csq_code_pre = '''def X(a, b):
+    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+'''
+
+tests = [(2, 2),
+         (4, 4),
+         (10, 5),
+         (20, 20),
+         (100, 100),
+         (1000, 1000)]
+        
+csq_tests = []
+for test_num, t in enumerate(tests):
+    f_range, e_range = t
+    f = cs_random.randint(1, f_range)
+    i = cs_random.randint(1, f)
+    e = cs_random.randint(1, e_range)
+    csq_tests.append({
+        'code': f"""
+ans = subproblems_i({f}, {i}, {e}) """,
+        'show_code': False,
+        'grade': True
+    })
+</question>
+
+<question pythoncode>
+csq_interface = "ace"
+csq_npoints = 1
+csq_prompt = """Now we can try to put everything together in order to define our recurrence, $X(f,e)$. We want to define the recurrences in dynamic programming in such a way that dependences will not be cyclic (see previous pset for what that means).
+
+A way that we commonly do this is that we define the recurrences to depend on subproblems with smaller parameters (i.e. smaller values of $f$ and/or $e$). That way there is a clear order for when we should calculate our subproblems.
+
+Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or $e$. Ignore special/base cases for now. Hint: how do we pick which floor $i$ we should drop the egg from first?"""
+
+csq_soln = '''def subproblems(f, i, e):
+    return min([max(X(i-1, e-1), X(f-i, e)) for i in range(f)])'''
+
+csq_initial = '''def subproblems(f, i, e):
+    return X(None, None) #TODO
+'''
+
+csq_code_pre = '''def X(a, b):
+    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+'''
+
+tests = [(2, 2),
+         (4, 4),
+         (10, 5),
+         (20, 20),
+         (100, 100),
+         (1000, 1000)]
+        
+csq_tests = []
+for test_num, t in enumerate(tests):
+    f_range, e_range = t
+    f = cs_random.randint(1, f_range)
+    i = cs_random.randint(1, f)
+    e = cs_random.randint(1, e_range)
+    csq_tests.append({
+        'code': f"""
+ans = subproblems({f}, {i}, {e}) """,
+        'show_code': False,
+        'grade': True
+    })
 </question>
 
 <question multiplechoice>
