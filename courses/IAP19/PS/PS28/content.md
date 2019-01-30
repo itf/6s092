@@ -132,16 +132,16 @@ csq_soln = '''def subproblems_i(f, i, e):
 
 csq_initial = '''def subproblems_i(f, i, e):
     return X(None, None) #TODO
+'''
+
+csq_code_pre = '''def X(a, b):
+    return (a**(1.6006) + b**(.6006)/6)*(a+22)
 
 def subproblems_if_egg_doesnt_break(f, i, e):
     return X(f-i, e)
 
 def subproblems_if_egg_breaks(f, i, e):
     return X(i-1, e-1)
-'''
-
-csq_code_pre = '''def X(a, b):
-    return (a**(1.6006) + b**(.6006)/6)*(a+22)
 '''
 
 tests = [(2, 2),
@@ -179,6 +179,10 @@ csq_soln = '''def subproblems(f, i, e):
 
 csq_initial = '''def subproblems(f, i, e):
     return X(None, None) #TODO
+'''
+
+csq_code_pre = '''def X(a, b):
+    return (a**(1.6006) + b**(.6006)/6)*(a+22)
 
 def subproblems_i(f, i, e):
     return max(X(i-1, e-1), X(f-i, e))
@@ -188,10 +192,6 @@ def subproblems_if_egg_doesnt_break(f, i, e):
 
 def subproblems_if_egg_breaks(f, i, e):
     return X(i-1, e-1)
-'''
-
-csq_code_pre = '''def X(a, b):
-    return (a**(1.6006) + b**(.6006)/6)*(a+22)
 '''
 
 tests = [(2, 2),
