@@ -63,7 +63,7 @@ csq_initial = '''def subproblem_recurrence(f, i, e):
 '''
 
 csq_code_pre = '''def X(a, b):
-    a**(1.6006) + b**(.6006)/6
+    return a**(1.6006) + b**(.6006)/6
 '''
 
 csq_code_post = ''' '''
