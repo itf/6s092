@@ -83,7 +83,7 @@ f_range, e_range = {t}
 f = cs.random.randint(1, f_range)
 i = cs.random.randint(1, f)
 e = cs.random.randint(1, e_range)
-ans = subproblem_recurrence(f, i, e) """
+ans = subproblem_recurrence(f, i, e) """,
         'show_code': test_num < 3,
         'grade': True
     })
