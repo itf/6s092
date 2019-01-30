@@ -80,9 +80,9 @@ for test_num, t in enumerate(tests):
     csq_tests.append({
         'code': f"""
 f_range, e_range = {t}
-f = cs.random.randint(1, f_range)
-i = cs.random.randint(1, f)
-e = cs.random.randint(1, e_range)
+f = cs_random.randint(1, f_range)
+i = cs_random.randint(1, f)
+e = cs_random.randint(1, e_range)
 ans = subproblem_recurrence(f, i, e) """,
         'show_code': test_num < 3,
         'grade': True
