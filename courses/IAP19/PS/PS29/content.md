@@ -1,6 +1,57 @@
 # Readings 
 LOL good luck. Just search around the world wide pipes.
 
+# Prim's algorithm
+Prim's algorithm is a **greedy** algorithm that generated a minimum spanning tree.
+
+It is implemented almost exactly like Dijkstra, but instead of relaxing nodes like:
+
+```python
+# Dijkstra relaxation step
+# supposing an adjacency list
+# distances_pq = distances priority queue
+def relaxNode(node, edges, distances_pq):
+    d_node = distances_pq[node]
+    for neighbor, weight in edges[node]:
+        if neighbor in distances_pq:
+            d_neighbor = distances_pq[neighbor]
+            if d_neighbor > d_node + weight:
+                distances_pq[neighbor] = d_node + weight
+```
+
+We do the following:
+
+```python
+# Prim's relaxation step
+# supposing an adjacency list
+# cost_of_connection_pq = distances priority queue
+
+def relaxNode(node, edges, cost_of_connection_pq):
+    d_node = cost_of_connection_pq[node]
+    for neighbor, weight in edges[node]:
+        if neighbor in cost_of_connection_pq:
+            d_neighbor = cost_of_connection_pq[neighbor]
+            if d_neighbor >  weight:
+                cost_of_connection_pq[neighbor] = weight
+```
+
+And instead of being interested on the distances to each node, we are interested in the sum of the cost of connections, which is the total cost of the tree.
+
+
+
+<question expression>
+csq_prompt = """ What is the run-time of Prim's algorithm if we use a binary heap as our priority queue?
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O((E+V)*log(v))","theta((E+V)*log(v))", "O((E+V)*log(v),w)","theta((E+V)*log(v),w)"]
+csq_explanation = ""
+csq_nsubmits = None
+</question>
+
+
 # Quick sort
 Do you wanna sort things quickly? So let's talk about quick sort.
 
@@ -14,7 +65,7 @@ Do you wanna sort things quickly? So let's talk about quick sort.
 Each step runs in expected $O(n)$, and the expected run time will be $O(n log (n))$
 ## Not in place implementation (Bad)
 
-``` python
+```python
 def quicksort(A):
     if len(A) <= 1:
         return A
@@ -167,8 +218,9 @@ The information theoretica lower bound is $\log_2(n!) \approx n\log_2(n) -n \app
 
 
 <question pythoncode>
+csq_npoints = 1
 csq_interface = 'ace'
-csq_prompt = "Implement quick sort! (In practice any sorting algorithm will pass this test, but implement quick sort!) `quicksort(A)`"
+csq_prompt = "Implement quick sort using Hoare partition scheme! (In practice any sorting algorithm will pass this test, but implement quick sort!) `quicksort(A) -> sorts A, returns None`"
 
 ## Define solution that will be printed to student.
 csq_soln = """
