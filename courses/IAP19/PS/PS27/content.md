@@ -1,6 +1,9 @@
 # Readings 
 LOL good luck. Just search around the world wide pipes.
 
+<python>
+csq_npoints = 0
+</python>
 # Prim's algorithm
 Prim's algorithm is a **greedy** algorithm that generates a minimum spanning tree in an undirected graph with positive weights. A minimum spanning tree is a subset of edges of minimum total cost 
 
@@ -228,7 +231,6 @@ The information theoretica lower bound is $\log_2(n!) \approx n\log_2(n) -n \app
 
 
 <question pythoncode>
-csq_npoints = 1
 csq_interface = 'ace'
 csq_prompt = "Implement quick sort using Hoare partition scheme! (In practice any sorting algorithm will pass this test, but implement quick sort!) `quicksort(A) -> sorts A, returns None`"
 
