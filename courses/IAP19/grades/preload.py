@@ -164,28 +164,32 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
         header.append(th)
     table.append(header)
 
-    for name, score in sorted(users_total.items()):
-        tr = soup.new_tag("tr")
-        td = soup.new_tag("td")
-        a = soup.new_tag(
-            "a", href="?user={}".format(name)
-        )
-        a.string = name + " " + _real_name(name)
- # link to user info
-
-        td.append(a)
-        td["class"] = "text-left"
-        tr.append(td)
-
-        td = soup.new_tag("td")
-        td.string = "{score:.2f}/{total} ({percent:.2%})".format(
-                score=score,
-                total=total,
-                percent=(score / total) if total != 0 else 1,
+    for name, score in sorted(users_total.items(), key= lambda x: x[1], reverse=True):
+        real_name = _real_name(name)
+        if not real_name and score == 0:
+            pass
+        else:
+            tr = soup.new_tag("tr")
+            td = soup.new_tag("td")
+            a = soup.new_tag(
+                "a", href="?user={}".format(name)
             )
-        td["class"] = "text-right"
-        tr.append(td)
-        table.append(tr)
+            a.string = name + " " + _real_name(name)
+     # link to user info
+
+            td.append(a)
+            td["class"] = "text-left"
+            tr.append(td)
+
+            td = soup.new_tag("td")
+            td.string = "{score:.2f}/{total} ({percent:.2%})".format(
+                    score=score,
+                    total=total,
+                    percent=(score / total) if total != 0 else 1,
+                )
+            td["class"] = "text-right"
+            tr.append(td)
+            table.append(tr)
 
     soup.append(table)
     print(str(soup))
