@@ -182,7 +182,7 @@ csq_initial = '''def subproblems(f, i, e):
 '''
 
 csq_code_pre = '''def X(a, b):
-    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+    return (a**(2) + b**(3)/6)*(a+22)
 
 def subproblems_i(f, i, e):
     return max(X(i-1, e-1), X(f-i, e))
