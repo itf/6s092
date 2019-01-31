@@ -241,6 +241,6 @@ csq_explanation = ""
 
 <question expression>
 csq_prompt = "What is your final runtime?"
-csq_soln = "Theta(n^2 * f)"
+csq_soln = "Theta(n^2 * k)"
 csq_explanation = ""
 </question>

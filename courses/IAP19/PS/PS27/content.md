@@ -74,7 +74,14 @@ csq_explanation = "Draw out the graph on your own, and compare with the graph in
 </question>
 
 <question multiplechoice>
-csq_prompt = "It's important to make sure that our subproblems are acyclic. That is because we can only solve our problem if the subproblems dependency graph form a DAG. It's easy to see that if we define our subproblem to be $X(i) = X(i)-1$, then it's pretty clear to see that we cannot solve for $X(i)$. Which of these subproblem relations are acyclic?"
+csq_prompt = """It's important when defining and relating our subproblems to make sure that our subproblem dependencies are acyclic. In other words, we can only solve our problem if the subproblems dependency graph form a DAG. A trivial example of a cyclic dependency is if we define our subproblems to be $X(3) = X(2) + 1$ and $X(2) = X(3)-1$. It's pretty clear to see that we can't solve for either $X(3)$ or $X(2)$ here. We only have two requirements for applying Dynamic Programming to problems:
+
+1. The dependency graph must be acyclic.
+
+2. The base cases must be comprehensive, so that recursion won't go on forever.
+
+Which of these subproblem relations are acyclic?"""
+
 csq_renderer = "checkbox"
 csq_soln = [1, 1, 0, 0, 1]
 csq_options = ["$X(i) = X(i-1)$",
