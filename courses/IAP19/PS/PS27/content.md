@@ -7,23 +7,6 @@ Lecture notes [16](https://learning-modules.mit.edu/service/materials/groups/238
 # Dynamic programming Concepts
 
 <question multiplechoice>
-csq_prompt = """Wumpus is trying to solve the shortest path problem by using dynamic programming.
-
-In Wumpus first attempt, Wumpus defines the following recursion:
-
-The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to the nodes that have edges going to $x$, plus the sum of the edge weight between that node and $x$]. $$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
-
-Why won't this work?
-"""
-csq_renderer = "checkbox"
-csq_soln = [0,0,1,0]
-csq_options =  ['The shortest path to $x$ does not necessarily includes the shortest path to one of the nodes that has edges to $x$',
-'It works, but it would take an exponential amount of time to run this algorithm.',
-'If there are cycles in the graph, there will be cyclic dependencies. In order to find the shortest path to the node $x$, we have to find the shortest path to the nodes that can reach $x$; however, to find those, we need to find the shortest path to $x$.', 
-'Because it is not true that $D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$']
-</question>
-
-<question multiplechoice>
 csq_prompt = "Which of the following are important to solving a DP problem?"
 csq_renderer = "checkbox"
 csq_soln = [1,1,1,0,1,1]
@@ -62,11 +45,11 @@ csq_options = ["$X(i) = X(i-1) + 2 * X(i-2)$",
 "$X(i) = X(i-1) + 1$",
 "$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor)$",
 "$X(i) = X(i-1) * X(i-2)$"]
-csq_explanation = ""
+csq_explanation = "Only in the second option does $X(i)$ depend solely on $X(i-1)$"
 </question>
 
 <center>
-<img src="/_static/IAP19/dp2.png" height="210"  />
+<img src="/_static/IAP19/dp1.png" height="210"  />
 </center>
 
 <question multiplechoice>
@@ -77,7 +60,7 @@ csq_options = ["$X(i) = X(i-1) + 2 * X(i-2)$",
 "$X(i) = X(i-1) + 1$",
 "$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor)$",
 "$X(i) = X(i-1) * X(i-2)$"]
-csq_explanation = ""
+csq_explanation = "In both the first and last option, $X(i)$ depends on $X(i-1)$ and $X(i-2)$"
 </question>
 
 <center>
@@ -85,9 +68,9 @@ csq_explanation = ""
 </center>
 
 <question pythonliteral>
-csq_prompt = "If I tell you that the subproblem relation for our DP problem is \n\n$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor) + X(\\lfloor\\frac{i}{2}\\rfloor -1)$\n\n and that $a = 8$, then what are the values of $bcdef$? Answer as a Python list of 5 non-negative numbers."
+csq_prompt = "If I tell you that the subproblem relation for our DP problem is \n\n$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor) + X(\\lfloor\\frac{i}{2}\\rfloor -1)$\n\n and that $a = 8$, then what are the values of $[b, c, d, e, f]$? Answer as a Python list of 5 non-negative numbers."
 csq_soln = [3, 4, 2, 0, 1]
-csq_explanation = "Draw out the graph on your own, and compare with the graph in the above image."
+csq_explanation = "Draw out the graph on your own, and compare with the graph in the above image. The longest chain is c->d->f->e, which means that that must be 4->2->1->0."
 </question>
 
 <question multiplechoice>
@@ -95,9 +78,30 @@ csq_prompt = "It's important to make sure that our subproblems are acyclic. That
 csq_renderer = "checkbox"
 csq_soln = [1, 1, 0, 0, 1]
 csq_options = ["$X(i) = X(i-1)$",
-"$X(i) = \\Sigma X(j)$ for all $j < i$",
-"$X(i) = \\Sigma X(j)$ for all $j < i$ and $j > i$",
-"$X(i) = \\Sigma X(j)$ for all integer divisors $j$ of $i$",
-"$X(i) = \\Sigma X(j)$ for all primes $j < i$"]
+"$X(i) = \\sum^{\\forall j < i} X(j)$ for all $j < i$",
+"$X(i) = \\sum^{\\forall j < i, j > i} X(j)$ for all $j < i$ and $j > i$",
+"$X(i) = \\sum X(j)$ for all integer divisors $j$ of $i$",
+"$X(i) = \\sum X(j)$ for all primes $j < i$"]
 csq_explanation = "In the third case, we can see that $X(3)$ depends on $X(2)$, and $X(2)$ depends on $X(3)$, which creates a cycle of dependencies. In the fourth case, $i$ is also an integer divisor of itself which makes the dependencies graph cyclic."
 </question>
+
+<question multiplechoice>
+csq_prompt = """Wumpus is trying to solve the shortest path problem by using dynamic programming.
+
+In Wumpus's first attempt, Wumpus defines the following recursion:
+
+The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node $u + $ the edge weight connecting $u$ and $x$] over all $u$ adjacent to $x$.
+
+$$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
+
+Why doesn't this work?
+"""
+csq_renderer = "checkbox"
+csq_soln = [0,0,1,0]
+csq_options =  ['The shortest path to $x$ does not necessarily includes the shortest path to one of the nodes that has edges to $x$',
+'It works, but it would take an exponential amount of time to run this algorithm.',
+'If there are cycles in the graph, there will be cyclic dependencies.',
+'Because it is not true that $D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$']
+csq_explanation = "The shortest path from $s$ to $x$, if it goes through some node $u$, will always include the shortest path from $s$ to $u$. The reason why this algorithm doesn't work is because there may be cyclic dependencies if we define our subproblems this way: if we have the graph $x \\rightarrow y, y \\rightarrow x$, then we need to calculate $D(x)$ to calculate $D(y)$, which we need to calculate $D(x)$, and so on.'
+</question>
+
