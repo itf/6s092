@@ -177,8 +177,8 @@ Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or
 Don't forget to take into account your most recent eggthrow"""
 
 csq_soln = '''def subproblems(f, e):
-    if f == 0:
-        return 0
+    if f == 0: #not being checked in the solution
+        return 0 #not being checked in the solution
     else:
         m = min([subproblems_i(f, i, e) for i in range(f)]) + 1
     return m'''
