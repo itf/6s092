@@ -63,7 +63,7 @@ csq_initial = '''def subproblems_if_egg_doesnt_break(f, i, e):
 '''
 
 csq_code_pre = '''def X(a, b):
-    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+    return (a**(2) + b**(3)/6)*(a+22)
 '''
 
 tests = [(2, 2),
@@ -99,7 +99,7 @@ csq_initial = '''def subproblems_if_egg_breaks(f, i, e):
 '''
 
 csq_code_pre = '''def X(a, b):
-    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+    return (a**(2) + b**(3)/6)*(a+22)
 '''
 
 tests = [(2, 2),
@@ -135,7 +135,7 @@ csq_initial = '''def subproblems_i(f, i, e):
 '''
 
 csq_code_pre = '''def X(a, b):
-    return (a**(1.6006) + b**(.6006)/6)*(a+22)
+    return (a**(2) + b**(3)/6)*(a+22)
 
 def subproblems_if_egg_doesnt_break(f, i, e):
     return X(f-i, e)
@@ -174,10 +174,10 @@ A way that we commonly do this is that we define the recurrences to depend on su
 
 Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or $e$. You can use all of the functions we have defined or mentioned so far. Ignore special/base cases for now. Hint: how do we pick which floor $i$ we should drop the egg from first?"""
 
-csq_soln = '''def subproblems(f, i, e):
+csq_soln = '''def subproblems(f, e):
     return min([max(X(i-1, e-1), X(f-i, e)) for i in range(f)])'''
 
-csq_initial = '''def subproblems(f, i, e):
+csq_initial = '''def subproblems(f, e):
     return X(None, None) #TODO
 '''
 
