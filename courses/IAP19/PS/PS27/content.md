@@ -74,6 +74,14 @@ csq_explanation = "Draw out the graph on your own, and compare with the graph in
 </question>
 
 <question multiplechoice>
+csq_prompt = "Which of these are valid sets of base cases that we need to prove in order to solve for the above DP subproblems dependencies graph?"
+csq_renderer = "checkbox"
+csq_soln = [1,1,1,0]
+csq_options = ["e", "e, f", "e, d, a", "a, b, c, d, f"] 
+csq_explanation = "Any set of base case that includes `e` will be sufficient to sole for all of those above DP subproblems. Because there are no other leaf nodes in this graph."
+</question>
+
+<question multiplechoice>
 csq_prompt = """It's important when defining and relating our subproblems to make sure that our subproblem dependencies are acyclic. In other words, we can only solve our problem if the subproblems dependency graph form a DAG. A trivial example of a cyclic dependency is if we define our subproblems to be $X(3) = X(2) + 1$ and $X(2) = X(3)-1$. It's pretty clear to see that we can't solve for either $X(3)$ or $X(2)$ here. We only have two requirements for applying Dynamic Programming to problems:
 
 1. The dependency graph must be acyclic.
@@ -97,7 +105,7 @@ csq_prompt = """Wumpus is trying to solve the shortest path problem by using dyn
 
 In Wumpus's first attempt, Wumpus defines the following recursion:
 
-The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node $u + $ the edge weight connecting $u$ and $x$] over all $u$ adjacent to $x$.
+The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node  + $ the edge weight connecting $y$ and $x$] over all $y$ such that $y$ has an edge to $x$.
 
 $$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
 
@@ -109,6 +117,6 @@ csq_options =  ['The shortest path to $x$ does not necessarily includes the shor
 'It works, but it would take an exponential amount of time to run this algorithm.',
 'If there are cycles in the graph, there will be cyclic dependencies.',
 'Because it is not true that $D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$']
-csq_explanation = "The shortest path from $s$ to $x$, if it goes through some node $u$, will always include the shortest path from $s$ to $u$. The reason why this algorithm doesn't work is because there may be cyclic dependencies if we define our subproblems this way: if we have the graph $x \\rightarrow y, y \\rightarrow x$, then we need to calculate $D(x)$ to calculate $D(y)$, which we need to calculate $D(x)$, and so on."
+csq_explanation = "The shortest path from $s$ to $x$, if it goes through some node $y$, will always include the shortest path from $s$ to $y$. The reason why this algorithm doesn't work is because there may be cyclic dependencies if we define our subproblems this way: if we have the graph $x \\rightarrow y, y \\rightarrow x$, then we need to calculate $D(x)$ to calculate $D(y)$, which we need to calculate $D(x)$, and so on."
 </question>
 
