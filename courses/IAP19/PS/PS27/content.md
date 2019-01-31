@@ -1,122 +1,353 @@
 # Readings 
+LOL good luck. Just search around the world wide pipes.
 
-Recitation notes [16](https://learning-modules.mit.edu/service/materials/groups/238004/files/89d92dc0-f491-4c06-8d94-d9ce837431b3/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), [17](https://learning-modules.mit.edu/service/materials/groups/238004/files/9851f216-c22a-44a8-a336-d2decdb4b3df/link?errorRedirect=%2Fmaterials%2Findex.html&download=true) 6.006 Fall 2018 on stellar
+# Prim's algorithm
+Prim's algorithm is a **greedy** algorithm that generates a minimum spanning tree in an undirected graph with positive weights. A minimum spanning tree is a subset of edges of minimum total cost 
 
-Lecture notes [16](https://learning-modules.mit.edu/service/materials/groups/238004/files/45d1ea70-2acd-4358-a45a-97ff5f564480/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), [17](https://learning-modules.mit.edu/service/materials/groups/238004/files/34839d8e-0e02-4c0a-8a66-8f53cf87e7ce/link?errorRedirect=%2Fmaterials%2Findex.html&download=true) 6.006 Fall 2018 on stellar
+It is implemented almost exactly like Dijkstra, but instead of relaxing nodes like:
 
-# Dynamic programming Concepts
+```python
+# Dijkstra relaxation step
+# supposing an adjacency list
+# distances_pq = distances priority queue
+def relaxNode(node, edges, distances_pq):
+    d_node = distances_pq[node]
+    for neighbor, weight in edges[node]:
+        if neighbor in distances_pq:
+            d_neighbor = distances_pq[neighbor]
+            if d_neighbor > d_node + weight:
+                distances_pq[neighbor] = d_node + weight
+```
 
-<question multiplechoice>
-csq_prompt = "Which of the following are important to solving a DP problem?"
-csq_renderer = "checkbox"
-csq_soln = [1,1,1,0,1,1]
-csq_options = ["Define Subproblems", "Relate Subproblems", "Identify Base Cases", "Kill Wumpus", "Compute Solution", "Analyze Running Time"]
-csq_nsubmits = 1
-csq_explanation = "Don't kill Wumpus! :("
-</question>
+We do the following:
 
-<question multiplechoice>
-csq_prompt = "Our DP subproblem $x(i)$ depends on subproblems $x(1), x(2), \\ldots , x(i − 1)$. In a top-down implementation, the value $x(i)$ is computed before $x(i − 1)$."
-csq_renderer = "radio"
-csq_soln = "False"
-csq_options = ["True", "False"]
-csq_nsubmits = 1
-csq_explanation = "If $x(i)$ depends on $x(i-1)$, then by definition we need to compute $x(i-1)$ in order to compute $x(i)$."
-</question>
+```python
+# Prim's relaxation step
+# supposing an adjacency list
+# cost_of_connection_pq = distances priority queue
 
-<question multiplechoice>
-csq_prompt = "Our DP subproblem $x(i)$ depends on subproblems $x(1), x(2), \\ldots , x(i − 1)$. In a top-down implementation, we start solving $x(i)$ before $x(i − 1)$."
-csq_renderer = "radio"
-csq_soln = "True"
-csq_options = ["True", "False"]
-csq_nsubmits = 1
-csq_explanation = "In a top-down implementation, we will call $x(i)$ first, which will then recursively call all of the subproblems that it depends on (including $x(i-1)$)."
-</question>
+def relaxNode(node, edges, cost_of_connection_pq):
+    d_node = cost_of_connection_pq[node]
+    for neighbor, weight in edges[node]:
+        if neighbor in cost_of_connection_pq:
+            d_neighbor = cost_of_connection_pq[neighbor]
+            if d_neighbor >  weight:
+                cost_of_connection_pq[neighbor] = weight
+```
 
-<center>
-<img src="/_static/IAP19/dp2.png" height="210"  />
-</center>
+And instead of being interested on the distances to each node, we are interested in the sum of the cost of connections, which is the total cost of the tree, as well as the edges.
 
-<question multiplechoice>
-csq_prompt = "Which subproblem relation could be represented by the above subproblem dependencies graph?"
-csq_renderer = "checkbox"
-csq_soln = [0,1,0,0]
-csq_options = ["$X(i) = X(i-1) + 2 X(i-2)$",
-"$X(i) = X(i-1) + 1$",
-"$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor)$",
-"$X(i) = X(i-1) X(i-2)$"]
-csq_explanation = "Only in the second option does $X(i)$ depend solely on $X(i-1)$"
-</question>
+In other words, the algorithm is:
 
-<center>
-<img src="/_static/IAP19/dp1.png" height="210"  />
-</center>
+- Start with a single node
+- Grow your tree one edge at a time, by choosing the edge of smallest weight that connects a new node to your tree
+- Repeat until all nodes are connected.
 
-<question multiplechoice>
-csq_prompt = "Which subproblem relation could be represented by the above subproblem dependencies graph?"
-csq_renderer = "checkbox"
-csq_soln = [1,0,0,1]
-csq_options = ["$X(i) = X(i-1) + 2 X(i-2)$",
-"$X(i) = X(i-1) + 1$",
-"$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor)$",
-"$X(i) = X(i-1) X(i-2)$"]
-csq_explanation = "In both the first and last option, $X(i)$ depends on $X(i-1)$ and $X(i-2)$"
-</question>
 
-<center>
-<img src="/_static/IAP19/dp3.png" height="210"  />
-</center>
 
-<question pythonliteral>
-csq_prompt = "If I tell you that the subproblem relation for our DP problem, represented by the above subproblem dependencies graph, is \n\n $X(i) = X(\\lfloor\\frac{i}{2}\\rfloor) + X(\\lfloor\\frac{i}{2}\\rfloor -1)$\n\n and that $a = 8$, then what are the values of $[b, c, d, e, f]$? Answer as a Python list of 5 non-negative numbers."
-csq_soln = [3, 4, 2, 0, 1]
-csq_explanation = "Draw out the graph on your own, and compare with the graph in the above image. The longest chain is c->d->f->e, which means that that must be 4->2->1->0."
-</question>
-
-<question multiplechoice>
-csq_prompt = "Which of these are valid sets of base cases that we need to show in order to solve for the all of the subproblems in the above dependencies graph?"
-csq_renderer = "checkbox"
-csq_soln = [1,1,1,0]
-csq_options = ["e", "e, f", "e, d, a", "a, b, c, d, f"] 
-csq_explanation = "Any set of base case that includes `e` will be sufficient to sole for all of those above DP subproblems. Because there are no other leaf nodes in this graph."
-</question>
-
-<question multiplechoice>
-csq_prompt = """It's important when defining and relating our subproblems to make sure that our subproblem dependencies are acyclic. In other words, we can only solve our problem if the subproblems dependency graph form a DAG. A trivial example of a cyclic dependency is if we define our subproblems to be $X(3) = X(2) + 1$ and $X(2) = X(3)-1$. It's pretty clear to see that we can't solve for either $X(3)$ or $X(2)$ here. We only have two requirements for applying Dynamic Programming to problems:
-
-1. The dependency graph must be acyclic.
-
-2. The base cases must be comprehensive, so that recursion won't go on forever.
-
-Which of these subproblem relations are acyclic?"""
-
-csq_renderer = "checkbox"
-csq_soln = [1, 1, 0, 0, 1]
-csq_options = ["$X(i) = X(i-1)$",
-"$X(i) = \\sum X(j)$ for all $j < i$",
-"$X(i) = \\sum X(j)$ for all $j < i$ and $j > i$",
-"$X(i) = \\sum X(j)$ for all integer divisors $j$ of $i$",
-"$X(i) = \\sum X(j)$ for all primes $j < i$"]
-csq_explanation = "In the third case, we can see that $X(3)$ depends on $X(2)$, and $X(2)$ depends on $X(3)$, which creates a cycle of dependencies. In the fourth case, $i$ is also an integer divisor of itself which makes the dependencies graph cyclic."
-</question>
-
-<question multiplechoice>
-csq_prompt = """Wumpus is trying to solve the shortest path problem by using dynamic programming.
-
-In Wumpus's first attempt, Wumpus defines the following recursion:
-
-The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node $y+$ the edge weight connecting $y$ and $x$] over all $y$ such that $y$ has an edge to $x$.
-
-$$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
-
-Why doesn't this work?
+<question expression>
+csq_prompt = """ What is the run-time of Prim's algorithm if we use a binary heap as our priority queue?
 """
-csq_renderer = "checkbox"
-csq_soln = [0,0,1,0]
-csq_options =  ['The shortest path to $x$ does not necessarily includes the shortest path to one of the nodes that has edges to $x$',
-'It works, but it would take an exponential amount of time to run this algorithm.',
-'If there are cycles in the graph, there will be cyclic dependencies.',
-'Because it is not true that $D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$']
-csq_explanation = "The shortest path from $s$ to $x$, if it goes through some node $y$, will always include the shortest path from $s$ to $y$. The reason why this algorithm doesn't work is because there may be cyclic dependencies if we define our subproblems this way: if we have the graph $x \\rightarrow y, y \\rightarrow x$, then we need to calculate $D(x)$ to calculate $D(y)$, which we need to calculate $D(x)$, and so on."
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O((E+V)*log(v))","theta((E+V)*log(v))", "O((E+V)*log(v),w)","theta((E+V)*log(v),w)"]
+csq_explanation = ""
+csq_nsubmits = None
 </question>
+
+TODO one day prove that it works
+
+
+Write coding question to generate maze.
+
+# Quick sort
+Do you wanna sort things quickly? So let's talk about quick sort.
+
+## Algorithm
+- Choose a pivot from the array.
+- Put everything that is smaller than the pivot to the left.
+- Put everything that is larger than the pivot to the right.
+- Put the pivot in the middle.
+- Recurse on both sides.
+
+Each step runs in expected $O(n)$, and the expected run time will be $O(n log (n))$
+## Not in place implementation (
+
+```python
+def quicksort(A):
+    if len(A) <= 1:
+        return A
+    else:
+        pivot =  A[0]
+        return quicksort([x for x in A[1:] if x <= pivot]) \
+             + [pivot] \
+             + quicksort([x for x in A[1:] if x > pivot])  
+```
+
+
+<question expression>
+csq_prompt = """ Consider the best case scenario, when the pivot we choose is always the median of the array we are sorting.
+
+How much time (in big O notation) will the above code take?
+
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(n*log(n))","theta(n*log(n))", "O(n*log(n),w)","theta(n*log(n),w)"]
+csq_explanation = "Same as merge sort!"
+csq_nsubmits = None
+</question>
+
+<question expression>
+csq_prompt = """ Consider the best case scenario, when the pivot we choose is always the median of the array we are sorting.
+
+How much extra space (in big O notation) will the above code take?
+<showhide>
+Hint: one recursive call has to return before we call the other one
+</showhide>
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(n)","theta(n)", "O(n,w)","theta(n,w)"]
+csq_explanation = ""
+csq_nsubmits = None
+</question>
+
+## In place implementation (good)!
+So now, instead we will implement counting sort using the Hoare partition scheme (see [wikipedia!](https://en.wikipedia.org/wiki/Quicksort))
+
+- Our pivot is the first element of the array (or we swap a random pivot with the first element of the array).
+- We keep 2 pointers, 
+     - one starting at the second element and moving to the right
+     - one starting at the last element and moving to the left
+- While the pointers don't cross each other:
+     - if the left pointer points to an element smaller than the pivot, move the pointer to the right
+     - else if the right pointer points to an element larger than the pivot, move the pointer to the left
+     - else we swap both of those elements, and move both pointers
+- After the elements have crossed, swap the pivot with the element in the right pointer (that is now to the left)
+
+- And, finally, recurse on both sides.
+
+
+Since we never allocate a new array, i.e. we only pass references of the array to the recursion steps
+<question expression>
+csq_prompt = """ *Trick question* 
+
+Consider the best case scenario, when the pivot we choose is always the median of the array we are sorting.
+
+How much extra space (in big O notation) will the in place implementation take?
+<showhide>
+Hint: how much space gets allocated for a function call? What is the height of the recursion tree?
+</showhide>
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["O(log(n))","theta(log(n))", "O(log(n),w)","theta(log(n),w)"]
+csq_explanation = "log"
+csq_nsubmits = None
+</question>
+
+## Expected runtime of quick sort.
+This section will only make sense if you are familiar with linearity of expectation and it will have some math.
+
+We will partially follow [these lecture notes](https://people.engr.ncsu.edu/mfms/Teaching/CSC505/wrap/Lectures/week05.pdf), and [these notes ](http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/7-Sort/Docs/QuickSortAnal.pdf)
+
+Let $\tilde{T}(n)$ be the expected number of comparisons performed by quick sort. 
+
+Since there is a $\frac{1}{n}$ chance of splitting the array into a subarray of size $k$ and size $n-k$, for any value of $k$ between $0$ and $n-1$. And independent on how it splits, it performs $n-1 comparisons.
+
+So:
+
+$$\tilde{T}(n) = (n-1) + \sum_{k=1}^{n-1} \frac{1}{n}\left(\tilde{T}(k) + \tilde{T}(n-k)  \right) = (n-1)+ \sum_{k=1}^{n-1} \frac{1}{n}2 \tilde{T}(k)  $$
+
+So, to simplify the right hand side in order to cancel terms, we multiply everything by $n$.
+
+$$ n \tilde{T}(n) =  n(n-1)+ \sum_{k=1}^{n-1} 2 \tilde{T}(k)  $$
+
+Writing now $T(n-1)$
+
+$$ (n-1) \tilde{T}(n-1) =  (n-1)(n-2)+ \sum_{k=1}^{n-2} 2 \tilde{T}(k) $$
+
+Subtracting one by the other
+
+$$ n \tilde{T}(n) - (n-1) \tilde{T}(n-1) =  n(n-1)-(n-1)(n-2)+ 2 \tilde{T}(n-1) $$
+
+So:
+
+$$ n \tilde{T}(n)  =  2(n-1)+ (n+1) \tilde{T}(n-1) $$
+And at last, dividing everything by $n$ and $n+1$
+
+$$ \frac{\tilde{T}(n)}{n+1}  =  \frac{2(n-1)}{n(n+1)}+ \frac{\tilde{T}(n-1)}{n} $$
+
+We can now simplify the above equation by defining $B(n) = \frac{\tilde{T}(n)}{n+1}$
+
+
+$$ B(n)  =  \frac{2(n-1)}{n(n+1)}+ B(n-1) $$
+
+Which is trivially solved:
+
+$$ B(n)  =  \sum_{k=1}^{n-1} \frac{2(k-1)}{k(k+1)} =  \sum_{k=1}^{n-1} \left( \frac{2}{k+1} - \frac{1}{k(k+1)}\right)$$
+
+$$ B(n)  = \sum_{k=2}^{n} \frac{2}{k} - \sum_{k=1}^{n-1} \frac{1}{k(k+1)}$$
+
+We know that $ \ln(n) < \sum_{k=1}^{n} \frac{1}{k}< \ln(n)+1$, by bounding above and below by using $\int_1^n \frac{1}{x}$. We also know that $\frac{1}{x}- \frac{1}{x+1} = \frac{1}{(x)+(x+1)}$, which telescopes. So:
+
+$$ \sum_{k=1}^{n-1} \frac{1}{k(k+1)} = \frac{1}{1} - \frac{1}{n} $$
+
+So,
+
+$$ 2 \left(\ln(n)-\ln(2)-1\right) - \frac{1}{1} + \frac{1}{n} < B(n)  < 2\left(\ln(n)+1-\ln(2)\right) - \frac{1}{1} + \frac{1}{n}$$
+
+$$ 2\ln(n)- 2\ln(2)- 3 + \frac{1}{n} < B(n)  < \ln(n)-\ln(2) + 1 + \frac{1}{n}$$
+
+Since $ -2\ln(2) + 1 + \frac{1}{n} << \ln(n)$
+
+$$  B(n)  \approx 2\ln(n) \approx 1.39 \log_2(n)$$
+And, therefore:
+
+$$  T(n)  \approx 2n\ln(n) \approx 1.39 n\log_2(n)$$
+
+<checkyourself>
+Try to understand the derivation above and its consequences.
+</checkyourself>
+
+<checkyourself>
+How does this compare with an optimal algorithm that performs the minimum number of comparisons possible?
+<showhide>
+The information theoretica lower bound is $\log_2(n!) \approx n\log_2(n) -n \approx n \log_2(n)$. So we perform approximately 39% more comparisons in expectation in quick sort.
+</showhide>
+</checkyourself>
+
+
+<question pythoncode>
+csq_npoints = 1
+csq_interface = 'ace'
+csq_prompt = "Implement quick sort using Hoare partition scheme! (In practice any sorting algorithm will pass this test, but implement quick sort!) `quicksort(A) -> sorts A, returns None`"
+
+## Define solution that will be printed to student.
+csq_soln = """
+def quicksort(array, start = None, end = None):
+    if start == None and end == None:
+        start = 0
+        end = len(array)-1
+    if start >= end:
+        return
+    else:
+
+        pivot = array[start]
+        left = start+1
+        right = end
+
+        while left <= right: #equal forces the cross
+            if array[left] <= pivot:
+                left += 1
+            elif array[right] >= pivot:
+                right -= 1
+            else:
+                array[left], array[right] = array[right], array[left]
+                left += 1
+                right -= 1
+        array[start], array[right] = array[right], array[start]
+        quicksort(array, start, right-1)
+        quicksort(array, right+1, end)        
+
+"""
+
+## Code that will be initially on the thingy
+csq_initial = """def quicksort(A): 
+    return A
+"""
+csq_name= "pcode2"
+
+## Code that will be written before the user code as well as solution
+## Particularly useful for defining classes and things that we don't want the user to modify
+## For example, define a DFS function.
+csq_code_pre = ""
+
+
+## Code that will be written after the user code as well as solution code
+## Seems quite useless to me.
+csq_code_post = ""
+
+
+
+## Sandbox options to block libraries or decide how long to run thingy
+csq_sandbox_options = {
+    'BADIMPORT': ['lib601', 'numpy', 'scipy', 'matplotlib'], 
+    'CLOCKTIME': 0.36, 
+    # 'CPUTIME': 0.36, 
+    'MEMORY':1e9
+}
+
+
+## Now we define helped functions
+tests = [1, 5, 6, 10, 20, 100, 200, 501, 1000]
+
+full_tests = [[cs_random.random() for x in range(n)] for n in tests]
+
+
+
+## Now we need to write csq_tests, which defines what code to run
+## As well as how to test it. 
+## Each csq_tests is a dictionary of things (code, check, etc)
+
+## We need to define the key code, which returns a string that will be evaluated with both the user code as well as our solution.
+## Code should define a string called ans, which is what will be tested.
+
+## We also define the key check_function, which is a function that takes escaped ans (a string, usually you will want to eval it.) from running user code, ans from running the solution, and i(index of the test), and then returns True or False.
+
+csq_tests = []
+for i, t in enumerate(tests):
+
+    csq_tests.append({
+        'code': f"""
+A = {full_tests[i]}
+quicksort(A)
+ans = A
+""" ,
+        'show_code': i < 5,
+        'grade': True,
+    })
+
+</question> 
+
+# Quick Select!
+
+In quick select we solve the following problem: given an array A, return the $k$th smalllest element. In particular, return the median.
+
+On quick sort, we chose a pivot, partitioned the data, and then recursed on both halves. In quick select we will only recurse in one of the halves.
+
+## Not in place quickselect (Bad)
+This particular implementation uses, in the worst case, O(n^2) extra space, so it is quite bad. It is better to write an in place implementation, similarly to quicksort.
+
+```python
+def quickselect(A,k):
+    if len(A) == 1:
+        return A[0]
+    else:
+        pivot =  A[0]
+        smaller = [x for x in A[1:] if x <= pivot] 
+        larger = [x for x in A[1:] if x > pivot]
+        if len(smaller) == k:
+            return pivot
+        elif len(smaller) > k:
+            return quickselect(smaller, k)
+        else:
+            return quickselect(larger, k-len(smaller)-1)
+```
+
+# Run time analysis
+Sooon
+So the expected run time is $\Theta(n)$
+
+# Flajolet-Martin 
+Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?
 
