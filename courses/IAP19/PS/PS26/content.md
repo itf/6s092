@@ -205,11 +205,10 @@ csq_tests = []
 for test_num, t in enumerate(tests):
     f_range, e_range = t
     f = cs_random.randint(1, f_range)
-    i = cs_random.randint(1, f)
     e = cs_random.randint(1, e_range)
     csq_tests.append({
         'code': f"""
-ans = subproblems({f}, {i}, {e}) """,
+ans = subproblems({f}, {e}) """,
         'show_code': False,
         'grade': True
     })

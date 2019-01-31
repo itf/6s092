@@ -347,8 +347,7 @@ def quickselect(A,k):
 ```
 
 # Run time analysis
-Sooon
-So the expected run time is $\Theta(n)$
+The runtime analysis of quickselect will be done in a different way than the runtime analysis of quick sort. It will be based (on this page)[http://www.cs.cmu.edu/afs/cs/academic/class/15451-s99/www/lectures/lect0121].
 
 # Flajolet-Martin 
 Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?
