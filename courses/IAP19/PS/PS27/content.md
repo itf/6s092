@@ -74,7 +74,7 @@ csq_explanation = "Draw out the graph on your own, and compare with the graph in
 </question>
 
 <question multiplechoice>
-csq_prompt = "Which of these are valid sets of base cases that we need to prove in order to solve for the above DP subproblems dependencies graph?"
+csq_prompt = "Which of these are valid sets of base cases that we need to show in order to solve for the all of the subproblems in the above dependencies graph?"
 csq_renderer = "checkbox"
 csq_soln = [1,1,1,0]
 csq_options = ["e", "e, f", "e, d, a", "a, b, c, d, f"] 
@@ -105,7 +105,7 @@ csq_prompt = """Wumpus is trying to solve the shortest path problem by using dyn
 
 In Wumpus's first attempt, Wumpus defines the following recursion:
 
-The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node  + $ the edge weight connecting $y$ and $x$] over all $y$ such that $y$ has an edge to $x$.
+The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node  $y + $ the edge weight connecting $y$ and $x$] over all $y$ such that $y$ has an edge to $x$.
 
 $$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
 
