@@ -172,10 +172,16 @@ csq_prompt = """Now we can try to put everything together in order to define our
 
 A way that we commonly do this is that we define the recurrences to depend on subproblems with smaller parameters (i.e. smaller values of $f$ and/or $e$). That way there is a clear order for when we should calculate our subproblems.
 
-Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or $e$. You can use all of the functions we have defined or mentioned so far. Ignore special/base cases for now. Hint: how do we pick which floor $i$ we should drop the egg from first?"""
+Try to define $X(f,e)$ in terms of subproblems with smaller values of $f$ and/or $e$. You can use all of the functions we have defined or mentioned so far. Ignore special/base cases for now. Hint: how do we pick which floor $i$ we should drop the egg from first? 
+
+Don't forget to take into account your most recent eggthrow"""
 
 csq_soln = '''def subproblems(f, e):
-    return min([max(X(i-1, e-1), X(f-i, e)) for i in range(f)])'''
+    if f == 0:
+        return 0
+    else:
+        m = min([subproblems_i(f, i, e) for i in range(f)]) + 1
+    return m'''
 
 csq_initial = '''def subproblems(f, e):
     return X(None, None) #TODO
