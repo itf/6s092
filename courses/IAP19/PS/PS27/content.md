@@ -38,13 +38,13 @@ csq_explanation = "In a top-down implementation, we will call $x(i)$ first, whic
 </center>
 
 <question multiplechoice>
-csq_prompt = "Which subproblem relation could be represented by this subproblem dependencies graph?"
+csq_prompt = "Which subproblem relation could be represented by the above subproblem dependencies graph?"
 csq_renderer = "checkbox"
 csq_soln = [0,1,0,0]
-csq_options = ["$X(i) = X(i-1) + 2 * X(i-2)$",
+csq_options = ["$X(i) = X(i-1) + 2 X(i-2)$",
 "$X(i) = X(i-1) + 1$",
 "$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor)$",
-"$X(i) = X(i-1) * X(i-2)$"]
+"$X(i) = X(i-1) X(i-2)$"]
 csq_explanation = "Only in the second option does $X(i)$ depend solely on $X(i-1)$"
 </question>
 
@@ -53,13 +53,13 @@ csq_explanation = "Only in the second option does $X(i)$ depend solely on $X(i-1
 </center>
 
 <question multiplechoice>
-csq_prompt = "Which subproblem relation could be represented by this subproblem dependencies graph?"
+csq_prompt = "Which subproblem relation could be represented by the above subproblem dependencies graph?"
 csq_renderer = "checkbox"
 csq_soln = [1,0,0,1]
-csq_options = ["$X(i) = X(i-1) + 2 * X(i-2)$",
+csq_options = ["$X(i) = X(i-1) + 2 X(i-2)$",
 "$X(i) = X(i-1) + 1$",
 "$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor)$",
-"$X(i) = X(i-1) * X(i-2)$"]
+"$X(i) = X(i-1) X(i-2)$"]
 csq_explanation = "In both the first and last option, $X(i)$ depends on $X(i-1)$ and $X(i-2)$"
 </question>
 
@@ -68,7 +68,7 @@ csq_explanation = "In both the first and last option, $X(i)$ depends on $X(i-1)$
 </center>
 
 <question pythonliteral>
-csq_prompt = "If I tell you that the subproblem relation for our DP problem is \n\n$X(i) = X(\\lfloor\\frac{i}{2}\\rfloor) + X(\\lfloor\\frac{i}{2}\\rfloor -1)$\n\n and that $a = 8$, then what are the values of $[b, c, d, e, f]$? Answer as a Python list of 5 non-negative numbers."
+csq_prompt = "If I tell you that the subproblem relation for our DP problem, represented by the above subproblem dependencies graph, is \n\n $X(i) = X(\\lfloor\\frac{i}{2}\\rfloor) + X(\\lfloor\\frac{i}{2}\\rfloor -1)$\n\n and that $a = 8$, then what are the values of $[b, c, d, e, f]$? Answer as a Python list of 5 non-negative numbers."
 csq_soln = [3, 4, 2, 0, 1]
 csq_explanation = "Draw out the graph on your own, and compare with the graph in the above image. The longest chain is c->d->f->e, which means that that must be 4->2->1->0."
 </question>
@@ -78,8 +78,8 @@ csq_prompt = "It's important to make sure that our subproblems are acyclic. That
 csq_renderer = "checkbox"
 csq_soln = [1, 1, 0, 0, 1]
 csq_options = ["$X(i) = X(i-1)$",
-"$X(i) = \\sum^{\\forall j < i} X(j)$ for all $j < i$",
-"$X(i) = \\sum^{\\forall j < i, j > i} X(j)$ for all $j < i$ and $j > i$",
+"$X(i) = \\sum X(j)$ for all $j < i$",
+"$X(i) = \\sum X(j)$ for all $j < i$ and $j > i$",
 "$X(i) = \\sum X(j)$ for all integer divisors $j$ of $i$",
 "$X(i) = \\sum X(j)$ for all primes $j < i$"]
 csq_explanation = "In the third case, we can see that $X(3)$ depends on $X(2)$, and $X(2)$ depends on $X(3)$, which creates a cycle of dependencies. In the fourth case, $i$ is also an integer divisor of itself which makes the dependencies graph cyclic."
@@ -102,6 +102,6 @@ csq_options =  ['The shortest path to $x$ does not necessarily includes the shor
 'It works, but it would take an exponential amount of time to run this algorithm.',
 'If there are cycles in the graph, there will be cyclic dependencies.',
 'Because it is not true that $D(x) = \\min_y \\left(D(y) + w(y,x) \\right)$']
-csq_explanation = "The shortest path from $s$ to $x$, if it goes through some node $u$, will always include the shortest path from $s$ to $u$. The reason why this algorithm doesn't work is because there may be cyclic dependencies if we define our subproblems this way: if we have the graph $x \\rightarrow y, y \\rightarrow x$, then we need to calculate $D(x)$ to calculate $D(y)$, which we need to calculate $D(x)$, and so on.'
+csq_explanation = "The shortest path from $s$ to $x$, if it goes through some node $u$, will always include the shortest path from $s$ to $u$. The reason why this algorithm doesn't work is because there may be cyclic dependencies if we define our subproblems this way: if we have the graph $x \\rightarrow y, y \\rightarrow x$, then we need to calculate $D(x)$ to calculate $D(y)$, which we need to calculate $D(x)$, and so on."
 </question>
 
