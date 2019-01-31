@@ -105,7 +105,7 @@ csq_prompt = """Wumpus is trying to solve the shortest path problem by using dyn
 
 In Wumpus's first attempt, Wumpus defines the following recursion:
 
-The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node $$y+$$ the edge weight connecting $y$ and $x$] over all $y$ such that $y$ has an edge to $x$.
+The shortest path to a node $x$, $D(x)$, is the minimum of [the shortest path to node $y+$ the edge weight connecting $y$ and $x$] over all $y$ such that $y$ has an edge to $x$.
 
 $$D(x) = \\min_{\\text{$y$, where $y$ has an edge to $x$}} \\left(D(y) + w(y,x) \\right)$$ 
 
