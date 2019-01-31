@@ -3,6 +3,9 @@ LOL good luck. Just search around the world wide pipes.
 
 <python>
 csq_npoints = 0
+csq_nsubmits = None
+csq_allow_submit_after_answer_viewed = False
+
 </python>
 # Prim's algorithm
 Prim's algorithm is a **greedy** algorithm that generates a minimum spanning tree in an undirected graph with positive weights. A minimum spanning tree is a subset of edges of minimum total cost 
@@ -63,7 +66,7 @@ csq_nsubmits = None
 TODO one day prove that it works
 
 
-Write coding question to generate maze.
+TODO Write coding question to generate maze.
 
 # Quick sort
 Do you wanna sort things quickly? So let's talk about quick sort.
@@ -154,7 +157,7 @@ csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
 csq_soln = ["O(log(n))","theta(log(n))", "O(log(n),w)","theta(log(n),w)"]
-csq_explanation = "log"
+csq_explanation = "O(1) per recursion, and the depth is log(n)"
 csq_nsubmits = None
 </question>
 
@@ -201,7 +204,7 @@ $$ B(n)  =  \sum_{k=1}^{n-1} \frac{2(k-1)}{k(k+1)} =  \sum_{k=1}^{n-1} \left( \f
 
 $$ B(n)  = \sum_{k=2}^{n} \frac{2}{k} - \sum_{k=1}^{n-1} \frac{1}{k(k+1)}$$
 
-We know that $ \ln(n) < \sum_{k=1}^{n} \frac{1}{k}< \ln(n)+1$, by bounding above and below by using $\int_1^n \frac{1}{x}$. We also know that $\frac{1}{x}- \frac{1}{x+1} = \frac{1}{(x)+(x+1)}$, which telescopes. So:
+We know that $ \ln(n) < \sum_{k=1}^{n} \frac{1}{k}< \ln(n)+1$, by bounding above and below by using $\int_1^n \frac{1}{x}$ and $1+ \int_1^n \frac{1}{x}$ (draw the graph). We also know that $\frac{1}{x}- \frac{1}{x+1} = \frac{1}{(x)+(x+1)}$, which telescopes. So:
 
 $$ \sum_{k=1}^{n-1} \frac{1}{k(k+1)} = \frac{1}{1} - \frac{1}{n} $$
 
@@ -232,7 +235,10 @@ The information theoretica lower bound is $\log_2(n!) \approx n\log_2(n) -n \app
 
 <question pythoncode>
 csq_interface = 'ace'
-csq_prompt = "Implement quick sort using Hoare partition scheme! (In practice any sorting algorithm will pass this test, but implement quick sort!) `quicksort(A) -> sorts A, returns None`"
+csq_prompt = """Implement quick sort using Hoare partition scheme! (In practice any sorting algorithm will pass this test, but implement quick sort!) `quicksort(A) -> sorts A, returns None`
+
+Take a look at the solution after you are finished.
+"""
 
 ## Define solution that will be printed to student.
 csq_soln = """
@@ -327,15 +333,30 @@ In quick select we solve the following problem: given an array A, return the $k$
 
 On quick sort, we chose a pivot, partitioned the data, and then recursed on both halves. In quick select we will only recurse in one of the halves.
 
+We will use harmonic sum approximation as well as $\ln(n!) = n\ln(n) + O(n)$ approximation
+
+<checkyourself>
+Why is the harmonc sum $\sum_{k=1}^{n} \frac{1}{k}< \ln(n)+1$, and $\sum_{k=1}^{n} \frac{1}{k}> \ln(n)$ ?
+
+Draw a curve whose area under the curve is $\sum_{k=1}^{n} \frac{1}{k}$ and another whose area under the curve is $\int_1^n \frac{1}{x} dx$ and at last one that is $1+ \int_1^n \frac{1}{x} dx$. How do they compare?
+<showhide>
+The harmonic sum wil be the upper riemman sum of one of the integrals and the lower riemman sum of the other one (with rectangles of base 1) 
+</showhide>
+</checkyourself>
+
+
 ## Not in place quickselect (Bad)
 This particular implementation uses, in the worst case, O(n^2) extra space, so it is quite bad. It is better to write an in place implementation, similarly to quicksort.
 
 ```python
+from random import randint
 def quickselect(A,k):
     if len(A) == 1:
         return A[0]
     else:
-        pivot =  A[0]
+        random_index = randint(0,len(A)-1)
+        A[0], A[random_index] = A[random_index], A[0]
+        pivot = A[0]
         smaller = [x for x in A[1:] if x <= pivot] 
         larger = [x for x in A[1:] if x > pivot]
         if len(smaller) == k:
@@ -346,8 +367,275 @@ def quickselect(A,k):
             return quickselect(larger, k-len(smaller)-1)
 ```
 
-# Run time analysis
+## Run time analysis
 The runtime analysis of quickselect will be done in a different way than the runtime analysis of quick sort. It will be based (on this page)[http://www.cs.cmu.edu/afs/cs/academic/class/15451-s99/www/lectures/lect0121].
+
+First we define $X_{i,j}$ to be an indicator variable, it is 1 if element $i$th smallest element is compared with element $j$th smallest element, or 0 otherwise, defined for $i < j$
+
+The expected number number of comparisons done by quickselect, will be, therefore:
+
+$$ E[\text{Comparisons}] = E\left[\sum_{0 \le i < j < n} X_{i,j}\right] $$ $$= \sum_{0 \le i < j < n} P\left( X_{i,j} = 1 \right) $$
+
+Therefore we just need to find the probability of 2 elements being compared with each other.
+
+### When are 2 elements compared?
+
+2 elements are compared with each other if they are in the same partition, they are in the partition we are recursing on, and we randomly choose one of them to be our pivot.
+
+In other words, 2 elements are compared if we choose one of those 2 elements before choosing one of the elements that would split them into separate partitions or would put them in the partition where we'd ignore them.
+
+This naturally leads to 3 base cases: both $i$ and $j$ are smaller or equal to $k$, both $i$ and $j$ are greater or equal to $k$, or $i$ is smaller than $k$ and $j$ is greater than $k$.
+
+#### Case $i< j \le k$
+
+<question expression>
+csq_prompt = """Suppose $i< j \le k$
+
+For many different values of the pivot would it result in $i$ and $j$ either being put in different partitions, or both of them being put in the opposite partition as $k$?
+
+In other words, for how many different values of the pivot would $i$ and $j$ never be compared with one another if those values were chose before $i$ or $j$? 
+<showhide>
+Hint: That is the same number of pivot values that would cause $i$ to be in a separate partition as $k$, including $k$ or $i$ being chosen; -2 element, since $j$ and $i$ are between $i$ and $k$ inclusive. 
+</showhide>
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["k-i-1"]
+csq_explanation = "there are k-i+1 elements inclusive between $k$ and $i$, but $i$ and $j$ don't count."
+csq_nsubmits = None
+</question>
+
+
+<question expression>
+csq_prompt = """
+What is the probability of $i$ or $j$ being chosen as a pivot before any of the elements above being chosen to be a pivot? 
+
+In other words, what is the probability of $i$ and $j$ being compared?
+
+Notice that there is symmetry, the probability of choosing any element is the same.
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = ["2/(k-i+1)"]
+csq_explanation = "there are k-i+1 elements inclusive between $k$ and $i$, and we want the probablity of choosing 2 of them."
+csq_nsubmits = None
+</question>
+
+Therefore we have calculated  $P\left( X_{i,j} = 1 \right)$
+
+<question multiexpression>
+csq_prompt = """
+Supposing $i < j \le k$, the expected number of collisions for those elements is:
+
+$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\sum_{j=c}^{d}  P\\left( X_{i,j} = 1 \\right)$$
+
+What are the summation bounds? I.e. what is a,b,c,d?
+"""
+csq_expressions = [
+("$a = $", "0"),
+("$b = $", "k-1"),
+("$c = $", "i+1"),
+("$d = $", "k")]
+csq_explanation = ""
+</question>
+
+
+<question expression>
+csq_prompt = """
+Supposing you did everything correct so far, the inner sum should be independent from $j$, therefore you can expand the double sum to:
+
+$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\text{ expression }$$
+
+What is the value of expression?
+"""
+csq_soln = ["2 (k-i-1)/(k-i+1)"]
+csq_explanation = ""
+</question>
+
+<question expression>
+csq_prompt = """
+The expression above can be rewritten as
+
+$$2 (1 - \\text{ expression2})$$
+
+What is the value of expression2?
+"""
+csq_soln = ["2/(k-i+1)"]
+csq_explanation = ""
+</question>
+
+Therefore the sum will be approximately
+
+$$2k - 4 \ln(k-1) + O(1)$$
+
+We will only consider the higher order terms, so $$\sum_{0 \le i < j \le k} P\left( X_{i,j}\right) \le 2k$$
+
+#### Case $k \le i< j$
+This case is exactly analogous to the previous one.
+<question expression>
+csq_prompt = """Suppose $k \le i< j$
+
+For many different values of the pivot would it result in $i$ and $j$ either being put in different partitions, or both of them being put in the opposite partition as $k$?
+
+In other words, for how many different values of the pivot would $i$ and $j$ never be compared with one another if those values were chose before $i$ or $j$? 
+<showhide>
+Hint: That is the same number of pivot values that would cause $j$ to be in a separate partition as $k$, including $k$ or $j$ being chosen; -2 element, since $i$ and $j$ are between $k$ and $j$ inclusive. 
+</showhide>
+"""
+csq_soln = "j-k-1"
+csq_explanation = "there are j-k+1 elements inclusive between $k$ and $j$, but $i$ and $j$ don't count."
+csq_nsubmits = None
+</question>
+
+
+<question expression>
+csq_prompt = """
+What is the probability of $i$ or $j$ being chosen as a pivot before any of the elements above being chosen to be a pivot? 
+
+In other words, what is the probability of $i$ and $j$ being compared?
+
+Notice that there is symmetry, the probability of choosing any element is the same.
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "2/(j-k+1)"
+csq_explanation = "there are j-k+1 elements inclusive between $k$ and $j$, and we want the probablity of choosing 2 of them."
+csq_nsubmits = None
+</question>
+
+Therefore we have calculated  $P\left( X_{i,j} = 1 \right)$ for this case
+
+<question multiexpression>
+csq_prompt = """
+Supposing $i < j \le k$, the expected number of collisions for those elements is:
+
+$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{j=a}^{b} \\sum_{i=c}^{d}  P\\left( X_{i,j} = 1 \\right)$$
+
+What are the summation bounds? I.e. what is a,b,c,d?
+"""
+csq_expressions = [
+("$a = $", "k+1"),
+("$b = $", "n"),
+("$c = $", "k"),
+("$d = $", "j-1")]
+csq_explanation = ""
+</question>
+
+
+<question expression>
+csq_prompt = """
+Supposing you did everything correct so far, the inner sum should be independent from $i$, therefore you can expand the double sum to:
+
+$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{j=a}^{b} \\text{ expression }$$
+
+What is the value of expression?
+"""
+csq_soln = ["2 (j-k-1)/(j-k+1)"]
+csq_explanation = "just multiply by the number of elements in the sum"
+</question>
+
+<question expression>
+csq_prompt = """
+The expression above can be rewritten as
+
+$$2 (1 - \\text{ expression2})$$
+
+What is the value of expression2?
+"""
+csq_soln = "2/(j-k+1)"
+csq_explanation = ""
+</question>
+
+Therefore the sum will be approximately
+
+$$2(n-k) - 4 \ln(n-k) + O(1)$$
+
+We will only consider the higher order terms, so $$\sum_{k \le i < j < n } P\left( X_{i,j}\right) \le 2(n-k)$$
+
+#### Case $ i < k < j$
+This is the hardest case
+
+<question expression>
+csq_prompt = """Suppose $ i < k < j$
+
+For many different values of the pivot would it result in $i$ and $j$ either being put in different partitions, or both of them being put in the opposite partition as $k$?
+
+In other words, for how many different values of the pivot would $i$ and $j$ never be compared with one another if those values were chosen before $i$ or $j$? 
+<showhide>
+Hint: That is the same number of pivot values that would cause $j$ to be in a separate partition as $i$, including $i$ or $j$ being chosen; -2 element, since $i$ and $j$ are between $i$ and $j$ inclusive. 
+</showhide>
+"""
+csq_soln = "j-i-1"
+csq_explanation = "there are j-i-1 elements inclusive between $i$ and $j$, but $i$ and $j$ don't count."
+csq_nsubmits = None
+</question>
+
+
+<question expression>
+csq_prompt = """
+What is the probability of $i$ or $j$ being chosen as a pivot before any of the elements above being chosen to be a pivot? 
+
+In other words, what is the probability of $i$ and $j$ being compared?
+
+Notice that there is symmetry, the probability of choosing any element is the same.
+"""
+csq_show_check = True
+csq_allow_check = True
+csq_allow_submit = True
+csq_allow_submit_after_answer_viewed = False
+csq_soln = "2/(j-i+1)"
+csq_explanation = "there are j-i+1 elements inclusive between $k$ and $j$, and we want the probablity of choosing 2 of them."
+csq_nsubmits = None
+</question>
+
+Therefore we have calculated  $P\left( X_{i,j} = 1 \right)$ for this case
+
+<question multiexpression>
+csq_prompt = """
+Supposing $i < j \le k$, the expected number of collisions for those elements is:
+
+$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\sum_{j=c}^{d}  P\\left( X_{i,j} = 1 \\right)$$
+
+What are the summation bounds? I.e. what is a,b,c,d?
+"""
+csq_expressions = [
+("$a = $", "k+1"),
+("$b = $", "n"),
+("$c = $", "k"),
+("$d = $", "j-1")]
+csq_explanation = ""
+</question>
+
+
+<question expression>
+csq_prompt = """
+Supposing you did everything correct so far, the inner sum should be independent from $i$, therefore you can expand the double sum to:
+
+$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{j=a}^{b} \\text{ expression }$$
+
+What is the value of expression?
+"""
+csq_soln = ["2 (j-k-1)/(j-k+1)"]
+csq_explanation = "just multiply by the number of elements in the sum"
+</question>
+
+<question expression>
+csq_prompt = """
+The expression above can be rewritten as
+
+$$2 (1 - \\text{ expression2})$$
+
+What is the value of expression2?
+"""
+csq_soln = "2/(j-k+1)"
+csq_explanation = ""
+</question>
 
 # Flajolet-Martin 
 Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?
