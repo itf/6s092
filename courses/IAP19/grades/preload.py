@@ -9,6 +9,11 @@ from collections import defaultdict
 #     return context['cs_now'] < context['csm_time'].realize_time(context, '2018-02-17:23:00')
 
 
+def _real_name(username):
+    return (
+        csm_cslog.most_recent("_extra_info", [], username, None) or {}
+    ).get("name", "")
+
 def generate_page_dispatcher():
     '''
     Decides what to do. Show all info, only show a single user infor, show summary, etc.
@@ -165,7 +170,8 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
         a = soup.new_tag(
             "a", href="?user={}".format(name)
         )
-        a.string = name # link to user info
+        a.string = name + " " + _real_name(name)
+ # link to user info
 
         td.append(a)
         td["class"] = "text-left"
