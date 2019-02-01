@@ -69,16 +69,15 @@ def get_usernames():
 
 def get_students():
     usernames = csm_util.list_all_users(globals(), cs_course)
-    users = [
+    users = (
         csm_util.read_user_file(globals(), cs_course, username, {})
         for username in usernames
-    ]
-    no_section = globals().get("cs_whdw_no_section", False) 
-    students = [
+    )
+    students = (
         user.get('username')
         for user in users
         if user.get("role", None) in ["Student", "SLA"]
-    ]
+    )
     return students
 
 
@@ -148,10 +147,10 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
     #get total user score:
     users_total = defaultdict(lambda: 0)
     for user, problemsets in users_scores_problemset.items():
-        users_total[user] = sum([score for problemset,score in problemsets.items()])
+        users_total[user] = sum((score for problemset,score in problemsets.items()))
 
     #get total score of psets
-    total = sum([score for problemset_name, score in pset_full_scores.items()])
+    total = sum((score for problemset_name, score in pset_full_scores.items()))
 
     #Now we have to print the info. First
     soup = BeautifulSoup("", "html.parser")
@@ -164,9 +163,9 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
         header.append(th)
     table.append(header)
 
-    for name, score in sorted(users_total.items(), key= lambda x: x[1], reverse=True):
+    for name, score in users_total.items():
         real_name = _real_name(name)
-        if not real_name and score == 0:
+        if False and not real_name and score == 0:
             pass
         else:
             tr = soup.new_tag("tr")
@@ -284,8 +283,8 @@ def print_user_table(username, pset_full_scores, user_score_problemset):
         spoof = '?as={username}'.format(username=username)
 
 
-    user_total = sum([score for problemset,score in user_score_problemset.items()])
-    pset_total = sum([score for problemset, score in pset_full_scores.items()])
+    user_total = sum((score for problemset,score in user_score_problemset.items()))
+    pset_total = sum((score for problemset, score in pset_full_scores.items()))
 
 
 
