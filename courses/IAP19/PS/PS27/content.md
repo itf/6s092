@@ -63,10 +63,10 @@ csq_explanation = ""
 csq_nsubmits = None
 </question>
 
-TODO one day prove that it works
+TODO one day write the proof that it works here. But for now, just check the [wikipedia page](https://en.wikipedia.org/wiki/Prim%27s_algorithm).
 
 
-TODO Write coding question to generate maze.
+TODO One day write coding question to generate maze. For now, just look at the [maze animation on wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/MAZE_30x20_Prim.ogv/220px--MAZE_30x20_Prim.ogv.jpg)
 
 # Quick sort
 Do you wanna sort things quickly? So let's talk about quick sort.
@@ -368,7 +368,7 @@ def quickselect(A,k):
 ```
 
 ## Run time analysis
-The runtime analysis of quickselect will be done in a different way than the runtime analysis of quick sort. It will be based (on this page)[http://www.cs.cmu.edu/afs/cs/academic/class/15451-s99/www/lectures/lect0121].
+The runtime analysis of quickselect will be done in a different way than the runtime analysis of quick sort. It will be based [on this page](http://www.cs.cmu.edu/afs/cs/academic/class/15451-s99/www/lectures/lect0121).
 
 First we define $X_{i,j}$ to be an indicator variable, it is 1 if element $i$th smallest element is compared with element $j$th smallest element, or 0 otherwise, defined for $i < j$
 
@@ -715,9 +715,8 @@ csq_explanation = ""
 If you did it all right, you should have found approximately 2.7.
 
 <checkyourself>
-Try implementing in place quickselect.
+Try implementing in place quickselect.  
 </checkyourself>
 
 # Flajolet-Martin 
-Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?
-
+Read this algorithm. It is really cool. Here are [Ankur Moitra's 6.854 notes](http://people.csail.mit.edu/moitra/docs/6854lec4.pdf). I didn't have time to write the questions.
