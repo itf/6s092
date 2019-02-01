@@ -52,13 +52,13 @@ In other words, the algorithm is:
 
 
 <question expression>
-csq_prompt = """ What is the run-time of Prim's algorithm if we use a binary heap as our priority queue?
+csq_prompt = """ What is the run-time of Prim's algorithm if we use a binary heap as our priority queue? In terms of E and V. Write it as O(f(V, E))
 """
 csq_show_check = True
 csq_allow_check = True
 csq_allow_submit = True
 csq_allow_submit_after_answer_viewed = False
-csq_soln = ["O((E+V)*log(v))","theta((E+V)*log(v))", "O((E+V)*log(v),w)","theta((E+V)*log(v),w)"]
+csq_soln = ["O((E+V)*log(V))", "O((e+v)*log(v))", "O((E+V)*log(v))","theta((E+V)*log(V))", "O((E+V)*log(V),w)","theta((E+V)*log(V),w)"]
 csq_explanation = ""
 csq_nsubmits = None
 </question>
