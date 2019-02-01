@@ -681,7 +681,7 @@ The previous result has a maximum when $k = n/2$.
 
 What is the maximum of the previous question, in terms of $n$?
 """
-csq_soln = "n*ln(2)"
+csq_soln = "2*n*ln(2)"
 csq_explanation = ""
 </question>
 
@@ -703,16 +703,15 @@ csq_explanation = ""
 csq_prompt = """
 What is a tight upperbound on $$ \\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) $$ in terms of $n$?
 
- Sum the result from the previous 3 parts and assume $k1/2$, since this value maximizes the previous result.
+ Sum the result from the previous 3 parts and assume $k =n/2$, since this value maximizes the previous result.
 
-This
-
+This will be the upperbound.
 """
-csq_soln = "n*(2+ln(2))"
+csq_soln = "n*(2+2ln(2))"
 csq_explanation = ""
 </question>
 
-If you did it all right, you should have found approximately 2.7.
+If you did it all right, you should have found approximately 3.4.
 
 <checkyourself>
 Try implementing in place quickselect.  
