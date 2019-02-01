@@ -2,7 +2,7 @@
 LOL good luck. Just search around the world wide pipes.
 
 <python>
-csq_npoints = 0
+csq_npoints = 1/250
 csq_nsubmits = None
 csq_allow_submit_after_answer_viewed = False
 
