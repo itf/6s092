@@ -163,7 +163,7 @@ def print_user_summary_table(pset_full_scores, users_scores_problemset):
         header.append(th)
     table.append(header)
 
-    for name, score in users_total.items():
+    for name, score in sorted(users_total.items(), key = lambda x: x[1], reverse = True):
         real_name = _real_name(name)
         if False and not real_name and score == 0:
             pass
