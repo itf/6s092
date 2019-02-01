@@ -448,7 +448,7 @@ csq_explanation = ""
 csq_prompt = """
 Supposing you did everything correct so far, the inner sum should be independent from $j$, therefore you can expand the double sum to:
 
-$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\text{ expression }$$
+$$\\sum_{0 \\le i < j \le k} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\text{ expression }$$
 
 What is the value of expression?
 """
@@ -532,7 +532,7 @@ csq_explanation = ""
 csq_prompt = """
 Supposing you did everything correct so far, the inner sum should be independent from $i$, therefore you can expand the double sum to:
 
-$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{j=a}^{b} \\text{ expression }$$
+$$\\sum_{k \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{j=a}^{b} \\text{ expression }$$
 
 What is the value of expression?
 """
@@ -600,42 +600,123 @@ Therefore we have calculated  $P\left( X_{i,j} = 1 \right)$ for this case
 csq_prompt = """
 Supposing $i < j \le k$, the expected number of collisions for those elements is:
 
-$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\sum_{j=c}^{d}  P\\left( X_{i,j} = 1 \\right)$$
+$$\\sum_{0 \\le i < k < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\sum_{j=c}^{d}  P\\left( X_{i,j} = 1 \\right)$$
 
 What are the summation bounds? I.e. what is a,b,c,d?
 """
 csq_expressions = [
-("$a = $", "k+1"),
-("$b = $", "n"),
-("$c = $", "k"),
-("$d = $", "j-1")]
+("$a = $", "0"),
+("$b = $", "k-1"),
+("$c = $", "k+1"),
+("$d = $", "n")]
 csq_explanation = ""
 </question>
 
 
 <question expression>
 csq_prompt = """
-Supposing you did everything correct so far, the inner sum should be independent from $i$, therefore you can expand the double sum to:
+Supposing you did everything correct so far, the inner sum should be dependent on both $i$ and $j$ 
 
-$$\\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) = \\sum_{j=a}^{b} \\text{ expression }$$
+Using the approximation the harmonic sum approximation.
 
-What is the value of expression?
+$$ \\sum_{k=a}^{b} \\frac{1}{k} \\approx \\ln(a) - \\ln(b) $$
+
+What is the result of expanding the inner sum?
+
+$$\\sum_{i=a}^{b} \\sum_{j=c}^{d}  P\\left( X_{i,j} = 1 \\right) = \\sum_{i=a}^{b} \\text{expression}$$
+
+i.e. what is expression?
+
+use ln(x) for natural log of x
 """
-csq_soln = ["2 (j-k-1)/(j-k+1)"]
-csq_explanation = "just multiply by the number of elements in the sum"
+csq_soln = "2*(ln(n-i+1) - ln(k-i+2))"
+csq_explanation = "Using the harmonic sum approximation"
 </question>
 
 <question expression>
 csq_prompt = """
-The expression above can be rewritten as
+Now, remembering that $$\\ln(a) + \\ln(b) = \\ln(a\\cdot b)$$
 
-$$2 (1 - \\text{ expression2})$$
+We can write:
 
-What is the value of expression2?
+$$ \\sum_{i=a}^{b} \\ln(i) = \\ln\\left(\\frac{a!}{b!}\\right)$$  
+
+So fully expand the sum above.
+
+To write $a!$ write $fact(a)$
+
+if you dop the expansion correct you should have a $+ \\ln(2!)$$ term.
 """
-csq_soln = "2/(j-k+1)"
+csq_soln = "2*(ln(fact(n+1)/fact(n-k+2))-ln(fact(k+2)/fact(2)))"
 csq_explanation = ""
 </question>
+
+
+
+<question expression>
+csq_prompt = """
+Now, let's throw away all the non-multiplicative contants, i.e. $$2x + 1 \\approx 2x$$, since the error as $n \\to \\infty $ is negligible.
+
+What is the result from this simplification on the above result?
+"""
+csq_soln = "2*(ln(fact(n)/fact(n-k))-ln(fact(k)))"
+csq_explanation = ""
+</question>
+
+<question expression>
+csq_prompt = """
+By using Sterling's approximation, $$\\ln(n!) = n\\ln(n) -O(n)$$, and using that $$n\\ln(n) >> O(n) \\text{ as $n\\to \\infty$}$$ 
+
+What is the result of using this simplification in the above formula?
+
+Please write it as $(n-k) \\cdot (\\text{expression} + k \\cdot  (\\text{expression 2})$  You will need to substitute $n = (n-k) + k$. If you can't write it in this form, please click view answer after getting an equivlent result.
+"""
+csq_soln = "2*((n-k)*ln(n/(n-k)) + (k)*ln(n/(k)))"
+csq_explanation = ""
+</question>
+
+<question expression>
+csq_prompt = """
+The previous result has a maximum when $k = n/2$.
+
+What is the maximum of the previous question, in terms of $n$?
+"""
+csq_soln = "n*ln(2)"
+csq_explanation = ""
+</question>
+
+
+### Putting it all together. 
+
+<question expression>
+csq_prompt = """
+What is $$ \\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) $$ ?
+
+Write it in terms of $k$ and $n$. Sum the result from the previous 3 parts.
+
+"""
+csq_soln = "2*n + 2*((n-k)*ln(n/(n-k)) + (k)*ln(n/(k)))"
+csq_explanation = ""
+</question>
+
+<question expression>
+csq_prompt = """
+What is a tight upperbound on $$ \\sum_{0 \\le i < j < n} P\\left( X_{i,j} = 1 \\right) $$ in terms of $n$?
+
+ Sum the result from the previous 3 parts and assume $k1/2$, since this value maximizes the previous result.
+
+This
+
+"""
+csq_soln = "n*(2+ln(2))"
+csq_explanation = ""
+</question>
+
+If you did it all right, you should have found approximately 2.7.
+
+<checkyourself>
+Try implementing in place quickselect.
+</checkyourself>
 
 # Flajolet-Martin 
 Suppose we choose N random numbers between 0 and 1. What is the expected value of the smallest number?

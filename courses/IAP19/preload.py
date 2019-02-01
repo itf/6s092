@@ -219,6 +219,13 @@ def _draw_log(x):
         return out, "log takes at most 2 arguments"
     return out
 
+def _draw_ln(x):
+    if len(x) == 0:
+        return "\ln"
+    elif len(x) == 1:
+        return f"\\ln\\left({x[0]}\\right)"
+    else:
+        return f"\\ln\\left({x[0]}\\right)", "log takes at most 2 arguments"
 
 def _draw_assymptotics(letter, x):
     if len(x) == 0:
@@ -269,7 +276,8 @@ csq_funcs = {"T": (lambda c: c**3*0.6006+c**2, lambda c:  f"T\\left({c[0]}\\righ
 "theta": (_calc_assymptotics("Theta"), lambda c:  _draw_assymptotics("\\Theta", c)),
 "Theta": (_calc_assymptotics("Theta"), lambda c:  _draw_assymptotics("\\Theta", c)),
 "log": (cmath.log, _draw_log ),
-"fact": (math.factorial, lambda  c:  r"%s%s" % (", ".join(c), "!" )),
+"ln": (cmath.log, _draw_ln ),
+"fact": (math.factorial, lambda  c:  r"%s%s%s%s" % ("\\left(", ", ".join(c), "\\right)", "!" )),
 "Omega": (_calc_assymptotics("Omega"), lambda c:  _draw_assymptotics("\\Omega", c) ),
 }
 
