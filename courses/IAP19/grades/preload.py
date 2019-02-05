@@ -540,7 +540,7 @@ def generate_page_for_pset(pset):
 def generate_users_psets_no_score(name):
     ## Get list of problems.
     pset_paths = get_pset_paths()
-    psets = [get_pset_from_path(path) for path in pset_paths]
+    psets = (get_pset_from_path(path) for path in pset_paths)
     ## Get list of students / usernames if debugging
     students = get_usernames() #get_usernames() #
 
