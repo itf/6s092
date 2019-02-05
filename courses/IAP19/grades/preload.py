@@ -31,9 +31,12 @@ def generate_page_dispatcher():
             pset = cs_form['pset']
             print("{pset} progress page \n".format(pset=pset))
             generate_page_for_pset(pset)
-        else:
+        elif "all" in cs_form:
+            print("printing full summary")
             generate_summary_page_for_us()
-
+        else:
+            generate_top_links()
+            generate_users_psets_no_score(cs_username)
 
 
 
@@ -273,13 +276,82 @@ def print_pset_summary_table(pset_full_scores, users_scores_problemset):
     soup.append(table)
     print(str(soup))
 
+def print_userlist_table(studentlist):
+
+    #Now we have to print the info. First
+    soup = BeautifulSoup("", "html.parser")
+    table = soup.new_tag("table")
+    table["class"] = "table table-bordered"
+    header = soup.new_tag("tr")
+    for heading in ["user"]:
+        th = soup.new_tag("th")
+        th.string = heading
+        header.append(th)
+    table.append(header)
+
+    for name in studentlist:
+        tr = soup.new_tag("tr")
+        td = soup.new_tag("td")
+        a = soup.new_tag(
+            "a", href="?user={}".format(name)
+        )
+        a.string = name + " " + _real_name(name)
+ # link to user info
+
+        td.append(a)
+        td["class"] = "text-left"
+        tr.append(td)
+        table.append(tr)
+
+    soup.append(table)
+    print(str(soup))
+
+def print_psetlist_table(psetlist):
+    #First get max_pset_score, i.e sum of points users could get
+
+
+    soup = BeautifulSoup("", "html.parser")
+    table = soup.new_tag("table")
+    table["class"] = "table table-bordered"
+    header = soup.new_tag("tr")
+    for heading in ["impersonate pset", "direct link"]:
+        th = soup.new_tag("th")
+        th.string = heading
+        header.append(th)
+    table.append(header)
+
+    for name in sorted(psetlist):
+        tr = soup.new_tag("tr")
+        td = soup.new_tag("td")
+        a = soup.new_tag(
+            "a", href="?pset={}".format(name)
+        )
+        a.string = get_name_from_pset(name) 
+        td.append(a)
+        td["class"] = "text-left"
+        tr.append(td)
+
+        td = soup.new_tag("td")
+        a = soup.new_tag(
+            "a", href="COURSE/{path}".format(path=name)
+        )
+        a.string = name # link to user info
+
+        td.append(a)
+        td["class"] = "text-left"
+        tr.append(td)
+        table.append(tr)
+
+    soup.append(table)
+    print(str(soup))
+
 
 
 
 def print_user_table(username, pset_full_scores, user_score_problemset):
     spoof = '' #To see the psets as if it was the student
     perms = cs_user_info.get("permissions", [])
-    if "whdw" in perms:
+    if "whdw" in perms and username != cs_username:
         spoof = '?as={username}'.format(username=username)
 
 
@@ -421,6 +493,9 @@ def print_pset_table(pset, pset_full_scores, user_score_problemset):
     soup.append(table)
     print(str(soup))
 
+
+
+
 def generate_summary_page_for_us():
 
     ## Get list of problems.
@@ -461,3 +536,29 @@ def generate_page_for_pset(pset):
         users_score_problemset[user] = user_scores[pset]
 
     print_pset_table(pset, pset_full_scores, users_score_problemset)
+
+def generate_users_psets_no_score(name):
+    ## Get list of problems.
+    pset_paths = get_pset_paths()
+    psets = [get_pset_from_path(path) for path in pset_paths]
+    ## Get list of students / usernames if debugging
+    students = get_usernames() #get_usernames() #
+
+
+    print_psetlist_table(psets)
+    print_userlist_table(students)
+
+def generate_top_links():
+    soup = BeautifulSoup("", "html.parser")
+    a = soup.new_tag(
+        "a", href="?all={}".format("students")
+    )
+    a.string = " Summary Page"
+    print("To access the scores summary page, access" + str(a))
+
+    print("\n")
+    a = soup.new_tag(
+        "a", href="?user={}".format(cs_username)
+    )
+    a.string = " Self score page"
+    print("To access your score page, access" + str(a))
