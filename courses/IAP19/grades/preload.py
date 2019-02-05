@@ -554,7 +554,7 @@ def generate_top_links():
         "a", href="?all={}".format("students")
     )
     a.string = " Summary Page"
-    print("To access the scores summary page, access" + str(a))
+    print("To access the students scores summary page, access" + str(a))
 
     print("\n")
     a = soup.new_tag(
