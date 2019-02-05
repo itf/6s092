@@ -62,11 +62,12 @@ cs_top_menu = [
 # AUTHENTICATION
 
 if 's092.xvm.mit.edu' in cs_url_root:
+    cs_auth_type = 'login'
     # on the server.  use openid_connect
-    cs_auth_type = 'openid_connect'
-    cs_openid_server = 'https://oidc.mit.edu'
-    cs_openid_client_id = 'f0caacbf-a7fc-46a1-88f4-eed2a81db898'
-    cs_openid_client_secret = 'AILZB5M0PEx7NXrB2vgiMxo7ZM5RJJH4Tl2O15Ff4N07b1z-QmrOF_NYlJNBeUlzps5gMI23lfQOLUzaqWGdUOY'
+    # cs_auth_type = 'openid_connect'
+    # cs_openid_server = 'https://oidc.mit.edu'
+    # cs_openid_client_id = 'f0caacbf-a7fc-46a1-88f4-eed2a81db898'
+    # cs_openid_client_secret = 'AILZB5M0PEx7NXrB2vgiMxo7ZM5RJJH4Tl2O15Ff4N07b1z-QmrOF_NYlJNBeUlzps5gMI23lfQOLUzaqWGdUOY'
     def cs_openid_email_generator(idtoken, userinfo):
         if 'email' in userinfo:
             return userinfo['email']
