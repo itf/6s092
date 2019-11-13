@@ -1,0 +1,143 @@
+account email, name, lastname, firstname, role, email, registration status, year, blocked
+aroot222@mit.edu,Alexander J Root,Root,Alexander,Guest,aroot222@mit.edu,,2,no
+austein@mit.edu,Matthew S Goldstein,Goldstein,Matthew,Guest,austein@mit.edu,,,no
+ckonicki@mit.edu,Christine J Konicki,Konicki,Christine,Guest,ckonicki@mit.edu,,G,no
+damianb@mit.edu,Damian S Barabonkov,Barabonkov,Damian,Guest,damianb@mit.edu,,3,no
+darnellg@mit.edu,Darnell S Granberry,Granberry,Darnell,Guest,darnellg@mit.edu,,3,no
+digalaki@mit.edu,Korina Digalaki,Digalaki,Korina,Guest,digalaki@mit.edu,,2,no
+dudo@mit.edu,Jeremy M Dudo,Dudo,Jeremy,Guest,dudo@mit.edu,,2,no
+edwardf@mit.edu,Edward Z Fan,Fan,Edward,Guest,edwardf@mit.edu,,4,no
+himawan@mit.edu,Jenna M Himawan,Himawan,Jenna,Guest,himawan@mit.edu,,2,no
+ikdc@mit.edu,Lily K Chung,Chung,Lily,Guest,ikdc@mit.edu,,4,no
+linx3@mit.edu,Xin Yu Lin,Lin,Xin Yu,Guest,linx3@mit.edu,,1,no
+mzarate@mit.edu,Marcos R Zarate,Zarate,Marcos,Guest,mzarate@mit.edu,,2,no
+skandera@mit.edu,Abraham Skandera,Skandera,Abraham,Guest,skandera@mit.edu,,1,no
+skarnik@mit.edu,Sathwik V Karnik,Karnik,Sathwik,Guest,skarnik@mit.edu,,1,no
+vilhelm@mit.edu,Vilhelm L Andersen Woltz,Andersen Woltz,Vilhelm,Guest,vilhelm@mit.edu,,3,no
+xmzhou@mit.edu,Xinhe Zhou,Zhou,Xinhe,Guest,xmzhou@mit.edu,,2,no
+y_liu@g.harvard.edu,Yingtong Liu,Liu,Yingtong,Guest,y_liu@g.harvard.edu,,,no
+zanderso@mit.edu,Zoe E Anderson,Anderson,Zoe,Guest,zanderso@mit.edu,,2,no
+efjepsen@mit.edu,Eric Fisher Jepsen,Jepsen,Eric,Learner,efjepsen@mit.edu,,4,no
+hoseasiu@mit.edu,Ho Chit Siu,Siu,Ho Chit,Learner,hoseasiu@mit.edu,,G,no
+yingtong@mit.edu,Yingtong Liu,Liu,Yingtong,Learner,yingtong@mit.edu,,G,no
+abilal@mit.edu,Ahmed Bilal,Bilal,Ahmed,Student,abilal@mit.edu,Pre-registered,G,no
+abilashp@mit.edu,Abilash Prabhakaran,Prabhakaran,Abilash,Student,abilashp@mit.edu,Pre-registered,1,no
+acetiff@mit.edu,Tiffany Trinh,Trinh,Tiffany,Student,acetiff@mit.edu,Pre-registered,1,no
+adedokun@mit.edu,Adedolapo Adedokun,Adedokun,Adedolapo,Student,adedokun@mit.edu,Pre-registered,1,no
+afarahva@mit.edu,Ardavan Farahvash,Farahvash,Ardavan,Student,afarahva@mit.edu,Pre-registered,G,no
+agidey@mit.edu,Amanuael Gidey,Gidey,Amanuael,Student,agidey@mit.edu,Pre-registered,4,no
+ajcav@mit.edu,AJ Cavallaro,Cavallaro,AJ,Student,ajcav@mit.edu,Pre-registered,1,no
+alomk@mit.edu,Kazi Alom,Alom,Kazi,Student,alomk@mit.edu,Pre-registered,1,no
+amaini@mit.edu,Anmol Maini,Maini,Anmol,Student,amaini@mit.edu,Pre-registered,2,no
+ambzheng@mit.edu,Amber Zheng,Zheng,Amber,Student,ambzheng@mit.edu,Pre-registered,1,no
+amli@mit.edu,Amber M Li,Li,Amber,Student,amli@mit.edu,Pre-registered,1,no
+amman@mit.edu,Emmanuel B Woldegebriel,Woldegebriel,Emmanuel,Student,amman@mit.edu,Pre-registered,4,no
+annieyun@mit.edu,Annie T Yun,Yun,Annie,Student,annieyun@mit.edu,Pre-registered,2,no
+aserio@mit.edu,Allison N Serio,Serio,Allison,Student,aserio@mit.edu,Pre-registered,2,no
+azez@mit.edu,Abdulazeez Mohammed Salim,Mohammed Salim,Abdulazeez,Student,azez@mit.edu,Pre-registered,2,no
+bdouglas@mit.edu,Briana A Douglas,Douglas,Briana,Student,bdouglas@mit.edu,Pre-registered,2,no
+beryce@mit.edu,Beryce Kenlyn Garcia,Garcia,Beryce Kenlyn,Student,beryce@mit.edu,Pre-registered,2,no
+boomzaza@mit.edu,Krittamate Tiankanon,Tiankanon,Krittamate,Student,boomzaza@mit.edu,Pre-registered,1,no
+byue@mit.edu,Brandon W Yue,Yue,Brandon,Student,byue@mit.edu,Pre-registered,1,no
+c3141592@mit.edu,Cannon M Vogel,Vogel,Cannon,Student,c3141592@mit.edu,Pre-registered,4,no
+cdelano@mit.edu,Christian T Williams,Williams,Christian,Student,cdelano@mit.edu,Pre-registered,1,no
+cewarren@mit.edu,Christina E Warren,Warren,Christina,Student,cewarren@mit.edu,Pre-registered,2,no
+charvig@mit.edu,Charvi Gopal,Gopal,Charvi,Student,charvig@mit.edu,Pre-registered,2,no
+chuang2@mit.edu,Chuyan Huang,Huang,Chuyan,Student,chuang2@mit.edu,Pre-registered,G,no
+dannygel@mit.edu,Danny Gelman,Gelman,Danny,Student,dannygel@mit.edu,Pre-registered,3,no
+diana96@mit.edu,Diana Wofk,Wofk,Diana,Student,diana96@mit.edu,Pre-registered,G,no
+djvelez@mit.edu,Derek J Velez,Velez,Derek,Student,djvelez@mit.edu,Pre-registered,1,no
+dmejorad@mit.edu,David Mejorado,Mejorado,David,Student,dmejorad@mit.edu,Pre-registered,3,no
+emalison@mit.edu,Emily M Malison,Malison,Emily,Student,emalison@mit.edu,Pre-registered,3,no
+esr@mit.edu,Edward S Rivera,Rivera,Edward,Student,esr@mit.edu,Pre-registered,1,no
+fkhalif@mit.edu,Faduma B Khalif,Khalif,Faduma,Student,fkhalif@mit.edu,Pre-registered,1,no
+fus@mit.edu,Stephanie Fu,Fu,Stephanie,Student,fus@mit.edu,Pre-registered,1,no
+geeticka@mit.edu,Geeticka Chauhan,Chauhan,Geeticka,Student,geeticka@mit.edu,Pre-registered,G,no
+graceh@mit.edu,Grace W Hu,Hu,Grace,Student,graceh@mit.edu,Pre-registered,1,no
+gustxsr@mit.edu,Gustavo X Santiago-Reyes,Santiago-Reyes,Gustavo,Student,gustxsr@mit.edu,Pre-registered,1,no
+hkw@mit.edu,Harrison K Wang,Wang,Harrison,Student,hkw@mit.edu,Pre-registered,2,no
+hsb@mit.edu,Haixin Sarah Bi,Bi,Haixin,Student,hsb@mit.edu,Pre-registered,G,no
+hwangp@mit.edu,Peter G Hwang,Hwang,Peter,Student,hwangp@mit.edu,Pre-registered,1,no
+iquaye@mit.edu,Isabelle A Quaye,Quaye,Isabelle,Student,iquaye@mit.edu,Pre-registered,1,no
+ivyw@mit.edu,Ivy A Wang,Wang,Ivy,Student,ivyw@mit.edu,Pre-registered,1,no
+jameslin@mit.edu,James H Lin,Lin,James,Student,jameslin@mit.edu,Pre-registered,1,no
+jbseby@mit.edu,Jean-Baptiste Seby,Seby,Jean-Baptiste,Student,jbseby@mit.edu,Pre-registered,G,no
+jcruzmen@mit.edu,Jose A Cruz Mendoza,Cruz Mendoza,Jose,Student,jcruzmen@mit.edu,Pre-registered,2,no
+je25371@mit.edu,Jessamyn J. Liu,Liu,Jessamyn,Student,je25371@mit.edu,Pre-registered,G,no
+jiangs@mit.edu,Sharon Jiang,Jiang,Sharon,Student,jiangs@mit.edu,Pre-registered,1,no
+jkusters@mit.edu,Joseph M Kusters,Kusters,Joseph,Student,jkusters@mit.edu,Pre-registered,G,no
+joceshen@mit.edu,Jocelyn J Shen,Shen,Jocelyn,Student,joceshen@mit.edu,Pre-registered,1,no
+johanc@mit.edu,Johan Cervantes,Cervantes,Johan,Student,johanc@mit.edu,Pre-registered,2,no
+joiele@mit.edu,Joie Y Le,Le,Joie,Student,joiele@mit.edu,Pre-registered,1,no
+jover@mit.edu,Joshua Verdejo,Verdejo,Joshua,Student,jover@mit.edu,Pre-registered,2,no
+jquaye@mit.edu,Jessica A Quaye,Quaye,Jessica,Student,jquaye@mit.edu,Pre-registered,3,no
+jschu99@mit.edu,Jung Soo V Chu,Chu,Jung Soo,Student,jschu99@mit.edu,Pre-registered,1,no
+justinyu@mit.edu,Justin S Yu,Yu,Justin,Student,justinyu@mit.edu,Pre-registered,1,no
+jwlw2022@mit.edu,Julia J Wang,Wang,Julia,Student,jwlw2022@mit.edu,Pre-registered,1,no
+kellyhe@mit.edu,Kelly He,He,Kelly,Student,kellyhe@mit.edu,Pre-registered,1,no
+kellyho7@mit.edu,Kelly P Ho,Ho,Kelly,Student,kellyho7@mit.edu,Pre-registered,1,no
+kev129x@mit.edu,Kevin Avila,Avila,Kevin,Student,kev129x@mit.edu,Pre-registered,2,no
+kevinv19@mit.edu,Kevin A Villalta,Villalta,Kevin,Student,kevinv19@mit.edu,Pre-registered,3,no
+koemmpel@mit.edu,Laura J Koemmpel,Koemmpel,Laura,Student,koemmpel@mit.edu,Pre-registered,4,no
+kzayas@mit.edu,Kevin M Zayas,Zayas,Kevin,Student,kzayas@mit.edu,Pre-registered,2,no
+leonc@mit.edu,Leon Cheng,Cheng,Leon,Student,leonc@mit.edu,Pre-registered,3,no
+lgal1009@mit.edu,Luis A Gallegos,Gallegos,Luis,Student,lgal1009@mit.edu,Pre-registered,2,no
+lindland@mit.edu,Robert K Lindland,Lindland,Robert,Student,lindland@mit.edu,Pre-registered,2,no
+liuzy@mit.edu,Zhaoyuan Liu,Liu,Zhaoyuan,Student,liuzy@mit.edu,Pre-registered,G,no
+luisgonz@mit.edu,Luis J Gonzalez,Gonzalez,Luis,Student,luisgonz@mit.edu,Pre-registered,1,no
+marcof@mit.edu,Marco A Fleming,Fleming,Marco,Student,marcof@mit.edu,Pre-registered,1,no
+marlenag@mit.edu,Marlena C Gomez,Gomez,Marlena,Student,marlenag@mit.edu,Pre-registered,1,no
+maxaug@mit.edu,Max Augustine,Augustine,Max,Student,maxaug@mit.edu,Pre-registered,3,no
+maxw@mit.edu,Max X Williamson,Williamson,Max,Student,maxw@mit.edu,Pre-registered,1,no
+meganwei@mit.edu,Megan J Wei,Wei,Megan,Student,meganwei@mit.edu,Pre-registered,1,no
+midenyoc@mit.edu,Charity M Midenyo,Midenyo,Charity,Student,midenyoc@mit.edu,Pre-registered,2,no
+mingfeid@mit.edu,Mingfei P Duan,Duan,Mingfei,Student,mingfeid@mit.edu,Pre-registered,1,no
+mkphuthi@mit.edu,Mgcini Keith Phuthi,Phuthi,Mgcini,Student,mkphuthi@mit.edu,Pre-registered,4,no
+mlykes@mit.edu,Mason T Lykes,Lykes,Mason,Student,mlykes@mit.edu,Pre-registered,2,no
+mnreda@mit.edu,Michal N Reda,Reda,Michal,Student,mnreda@mit.edu,Pre-registered,2,no
+mohamedm@mit.edu,Mohamed A Mohamed,Mohamed,Mohamed,Student,mohamedm@mit.edu,Pre-registered,1,no
+mondavey@mit.edu,Monique Claire Davey,Davey,Monique,Student,mondavey@mit.edu,Pre-registered,G,no
+montseg@mit.edu,Montserrat Garza,Garza,Montserrat,Student,montseg@mit.edu,Pre-registered,1,no
+mxwang@mit.edu,Margaret X Wang,Wang,Margaret,Student,mxwang@mit.edu,Pre-registered,1,no
+natj@mit.edu,Natasha N Joglekar,Joglekar,Natasha,Student,natj@mit.edu,Pre-registered,2,no
+nava@mit.edu,Nava Haghighi,Haghighi,Nava,Student,nava@mit.edu,Pre-registered,G,no
+nenright@mit.edu,Nora J Enright,Enright,Nora,Student,nenright@mit.edu,Pre-registered,4,no
+nhulkund@mit.edu,Neha S Hulkund,Hulkund,Neha,Student,nhulkund@mit.edu,Pre-registered,1,no
+ningleow@mit.edu,Yi-Ning Leow,Leow,Yi-Ning,Student,ningleow@mit.edu,Pre-registered,G,no
+ntga@mit.edu,Nicolas Amato,Amato,Nicolas,Student,ntga@mit.edu,Pre-registered,3,no
+nwaltman@mit.edu,Nicholas W Waltman,Waltman,Nicholas,Student,nwaltman@mit.edu,Pre-registered,G,no
+paultwij@mit.edu,Paul R Twijukye,Twijukye,Paul,Student,paultwij@mit.edu,Pre-registered,4,no
+pinzon@mit.edu,Carla N Pinzon,Pinzon,Carla,Student,pinzon@mit.edu,Pre-registered,G,no
+pshields@mit.edu,Peyton D Shields,Shields,Peyton,Student,pshields@mit.edu,Pre-registered,1,no
+racheng@mit.edu,Rachel Cheng,Cheng,Rachel,Student,racheng@mit.edu,Pre-registered,1,no
+rpasetes@mit.edu,Russell A Pasetes,Pasetes,Russell,Student,rpasetes@mit.edu,Pre-registered,3,no
+rposada@mit.edu,Rodrigo A Vasquez,Vasquez,Rodrigo,Student,rposada@mit.edu,Pre-registered,1,no
+saracola@mit.edu,Sarah W Acolatse,Acolatse,Sarah,Student,saracola@mit.edu,Pre-registered,1,no
+sfang22@mit.edu,Shushu Fang,Fang,Shushu,Student,sfang22@mit.edu,Pre-registered,1,no
+shikharj@mit.edu,Shikhar Jagadeesh,Jagadeesh,Shikhar,Student,shikharj@mit.edu,Pre-registered,2,no
+shinghos@mit.edu,Shinjini Ghosh,Ghosh,Shinjini,Student,shinghos@mit.edu,Pre-registered,1,no
+sir0064@mit.edu,Sebastian I Rodriguez,Rodriguez,Sebastian,Student,sir0064@mit.edu,Pre-registered,1,no
+sisam@mit.edu,Sisam Bhandari,Bhandari,Sisam,Student,sisam@mit.edu,Pre-registered,2,no
+sjeanc99@mit.edu,Sandy Jean-Charles,Jean-Charles,Sandy,Student,sjeanc99@mit.edu,Pre-registered,2,no
+songela@mit.edu,Songela W Chen,Chen,Songela,Student,songela@mit.edu,Pre-registered,4,no
+sulek@mit.edu,Sule Kahraman,Kahraman,Sule,Student,sulek@mit.edu,Pre-registered,3,no
+tanyang@mit.edu,Tanya Yang,Yang,Tanya,Student,tanyang@mit.edu,Pre-registered,1,no
+td3@mit.edu,Tyrone Davis,Davis,Tyrone,Student,td3@mit.edu,Pre-registered,1,no
+temio@mit.edu,Temiloluwa O Omitoogun,Omitoogun,Temiloluwa,Student,temio@mit.edu,Pre-registered,1,no
+tfelisca@mit.edu,Tahina C Felisca,Felisca,Tahina,Student,tfelisca@mit.edu,Pre-registered,4,no
+thotran9@mit.edu,Tho Tran,Tran,Tho,Student,thotran9@mit.edu,Pre-registered,4,no
+tranf@mit.edu,Felix Tran,Tran,Felix,Student,tranf@mit.edu,Pre-registered,1,no
+vayun@mit.edu,Vayun Alapati,Alapati,Vayun,Student,vayun@mit.edu,Pre-registered,1,no
+vsilkin@mit.edu,Veronika Silkin,Silkin,Veronika,Student,vsilkin@mit.edu,Pre-registered,1,no
+wangx19@mit.edu,Xiaoxi Wang,Wang,Xiaoxi,Student,wangx19@mit.edu,Pre-registered,4,no
+wendycwc@mit.edu,Wendy Chiang,Chiang,Wendy,Student,wendycwc@mit.edu,Pre-registered,G,no
+wertheis@mit.edu,Sarah R Wertheimer,Wertheimer,Sarah,Student,wertheis@mit.edu,Pre-registered,1,no
+yc_huang@mit.edu,Yu-Chien Huang,Huang,Yu-Chien,Student,yc_huang@mit.edu,,,no
+yujing6@mit.edu,Yu Jing Chen,Chen,Yu Jing,Student,yujing6@mit.edu,Pre-registered,1,no
+yunfeim@mit.edu,Yunfei Ma,Ma,Yunfei,Student,yunfeim@mit.edu,Pre-registered,1,no
+zhangyue@mit.edu,Yue Zhang,Zhang,Yue,Student,zhangyue@mit.edu,Pre-registered,4,no
+zoyafan@mit.edu,Zoya Y Fan,Fan,Zoya,Student,zoyafan@mit.edu,Pre-registered,4,no
+doronh@mit.edu,Doron Hazan,Hazan,Doron,Student,doronh@mit.edu,Pre-registered,2,no
+huhelen@mit.edu,Helen Hu,Hu,Helen,Student,huhelen@mit.edu,,,no
+jessamyn.liu@ll.mit.edu,Jessamyn J. Liu,Liu,Jessamyn,Student,jessamyn.liu@ll.mit.edu,Pre-registered,G,no
+emanuelp@mit.edu, Emanuel Perez,Perez,Emanuel,Student,emanuelp@mit.edu,,,no
