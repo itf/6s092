@@ -16,8 +16,8 @@ cs_base_color = "#4286f4"  # the base color
 cs_header = '6.s092 Code'  # the upper-left corner
 cs_icon_url = 'COURSE/favicon_local.gif'  # the favicon, if any
 # the 'header' text for the page
-cs_long_name = cs_content_header = "Crash course in Algorithms (IAP 2019)"
-cs_title = '6.s092 psets IAP 2019'  # the browser's title bar
+cs_long_name = cs_content_header = "Crash course in Algorithms (IAP 2020)"
+cs_title = '6.s092 psets IAP 2020'  # the browser's title bar
 
 # don't try to parse markdown inside of these tags
 cs_markdown_ignore_tags = ('script', 'svg', 'textarea')
