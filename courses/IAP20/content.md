@@ -45,7 +45,7 @@ This class is not a substitute for 6.006. if you enjoy it, and do well on it, yo
 
 ## Schedule and Lectures
 
-The class will meet on Monday and Wednesdays from 7-9 at 1-190. The dates are: W 01/09, M 01/14, W 01/16, W 01/23, M 01/28, and W 01/30.
+The class will meet on Monday and Wednesdays from 7-9 at 1-190. The dates are: W 01/08, M 01/13, W 01/15, W 01/22, M 01/27, and W 01/29.
 
 In the lectures we will very quickly cover an overview of the material, but you will be expected to read notes before and after lectures.
 
