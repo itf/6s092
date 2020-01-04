@@ -2,7 +2,7 @@
 if cs_user_info.get('role') == 'Admin':
     cs_print('-----')
     cs_print(f'Thanks for the help, instructor {cs_user_info.get("name")}')
-    cs_print('\n[Spreadsheet link](https://docs.google.com/spreadsheets/d/1maqwzCU-fZ2zkW5ygfOdAKmC4PZA0DMtWjPlLTyyeRk/edit#gid=1123195996)')
+    cs_print('\n[Spreadsheet link](https://docs.google.com/spreadsheets/d/1GWWiszDQuBBHlHVgy95bNB8cgoFw19jLKdRP_6yNssY/edit?usp=sharing)')
     cs_print('\n[Slack](https://6s092.slack.com)')
     cs_print('\n[Github link](https://github.mit.edu/s092)')
     cs_print('\n-----')
@@ -14,6 +14,8 @@ elif cs_user_info.get('role') == 'Cool':
     cs_print('\n-----')
 elif cs_user_info.get('role') == 'Student':
     cs_print(f'Welcome back, {cs_user_info.get("name")}')
+else:
+    cs_print(f'Please register using your email, and make your username your kerberos')
 
 
 
