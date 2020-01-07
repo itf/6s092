@@ -12,7 +12,7 @@ It is common to write $f(n) = O(g(n))$ instead of $f(n) \in O(g(n))$. Both expre
 
 If $f(n) = O(g(n))$, then $g(n)$ is an **assymptotic upper bound** on $f(n)$
 
-That is the same as saying that $\limsup_{x\to a} \left|\frac{f(x)}{g(x)}\right| < \infty.$, i.e. this limit is either 0 or a constant.
+That is the same as saying that $\limsup_{x\to \infty} \left|\frac{f(x)}{g(x)}\right| < \infty.$, i.e. this limit is either 0 or a constant.
 
 Order the following functions such that if f is to the left of g, then $f(n) = O(g(n))$. Select all orderings that are correct (there may be more than one).
 
@@ -60,7 +60,7 @@ We say that $f(n) \in \Omega(g(n)$ if there exists $n_0$ and c such that for all
 
 If $f(n) = \Omega(g(n))$, then $g(n)$ is an **assymptotic lower bound** on $f(n)$
 
-That is the same as saying that $\limsup_{x\to a} \left|\frac{g(x)}{f(x)}\right| < \infty.$
+That is the same as saying that $\limsup_{x\to \infty} \left|\frac{g(x)}{f(x)}\right| < \infty.$, i.e. this limit is either 0 or a constant.
 
 Order the following functions such that if f is to the left of g, then $f(n) \in \Omega(g(n))$. Select all orderings that are correct.
 
