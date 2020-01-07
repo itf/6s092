@@ -33,7 +33,7 @@ Websites for this course include:
 * [Grades](https://s092.xvm.mit.edu/IAP20/grades)
 
 
-This class is an overview of topics covered in 6.006, taught by experienced TAs, geared toward people who have some proofs knowledge. This might help you prepare to take the class in the Spring, review the material if you have already taken it, get some experience for algorithm questions in interviews, or satisfy your curiosity about what all the hype is around algorithms. 
+This class is an overview of topics covered in 6.006, geared toward people who have some proofs knowledge. This might help you prepare to take the class in the Spring, review the material if you have already taken it, get some experience for algorithm questions in interviews, or satisfy your curiosity about what all the hype is around algorithms. 
 
 6.006 is an introductory course in algorithms and data structures. It covers
 elementary data structures (dynamic arrays, heaps, balanced binary search trees,
