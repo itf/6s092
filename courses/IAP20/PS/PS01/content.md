@@ -10,6 +10,10 @@ We say that $f(n) \in O(g(n)$ if there exists $n_0$ and c such that for all $n>n
 
 It is common to write $f(n) = O(g(n))$ instead of $f(n) \in O(g(n))$. Both expressions have the same meaning.
 
+If $f(n) = O(g(n))$, then $g(n)$ is an **assymptotic upper bound** on $f(n)$
+
+That is the same as saying that $\limsup_{x\to a} \left|\frac{f(x)}{g(x)}\right| < \infty.$, i.e. this limit is either 0 or a constant.
+
 Order the following functions such that if f is to the left of g, then $f(n) = O(g(n))$. Select all orderings that are correct (there may be more than one).
 
 <question multiplechoice>
@@ -54,6 +58,10 @@ Is ${n \choose 3} \in O(n^3)$? What about  $n^3 \in O({n \choose 3})$
 
 We say that $f(n) \in \Omega(g(n)$ if there exists $n_0$ and c such that for all $n>n_0$, $cf(n) \ge g(n)$, where c is a positive constant.
 
+If $f(n) = \Omega(g(n))$, then $g(n)$ is an **assymptotic lower bound** on $f(n)$
+
+That is the same as saying that $\limsup_{x\to a} \left|\frac{g(x)}{f(x)}\right| < \infty.$
+
 Order the following functions such that if f is to the left of g, then $f(n) \in \Omega(g(n))$. Select all orderings that are correct.
 
 <question multiplechoice>
@@ -93,6 +101,8 @@ csq_options =  ['$(n\log(n)),\ (n^{1.01}),\ (n^2)$',
 ## $\Theta$
 
 We say that $f(n) \in \Theta(g(n)$ if $f(n) \in O(g(n))$ and $f(n) \in \Omega(g(n)$
+
+If $f(n) = \Theta(g(n))$, then $g(n)$ is an **assymptotic tight bound** on $f(n)$
 
 Choose the groups such that for any 2 functions in the groups, $f(n)$, $g(n)$, we have $f(n) \in \Theta(g(n)$
 
