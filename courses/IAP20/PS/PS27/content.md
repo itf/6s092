@@ -1,5 +1,5 @@
 # Readings 
-LOL good luck. Just search around the world wide pipes.
+Good luck! Just search around the world wide pipes.
 
 <python>
 csq_npoints = 1/250
