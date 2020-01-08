@@ -141,7 +141,7 @@ csq_error_on_unknown_variable = True
 <question expression>
 csq_prompt = """Let the amount of work done in the first level be $x$ and the amount of work in the $(i+1)_{th}$ level be $y$.
 
-What is $\\frac{y}{x}$ in terms of $a, b, c, n, i$?
+What is $\\frac{y}{x}$ in terms of $a, b, c, i$? Try to simplify the result.
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
