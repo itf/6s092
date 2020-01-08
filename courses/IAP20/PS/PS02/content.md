@@ -125,7 +125,7 @@ csq_nsubmits = None
 <question expression>
 csq_prompt = """Let the amount of work done in the first level be $x$ and the amount of work in the second level be $y$.
 
-What is $\\frac{y}{x}$ In terms of $a, b, c$?
+What is $\\frac{y}{x}$ In terms of $a, b, c$? Make sure to simplify the result.
 """
 csq_error_on_unknown_variable = True #make sure they get rid of n in the answer
 csq_show_check = True
