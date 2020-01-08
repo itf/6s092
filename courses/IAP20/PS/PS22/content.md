@@ -20,7 +20,7 @@ DFS pset here on cat-soop.
 
 
 
-# Topological Sort Relaxation
+# Topological Sort Relaxation.
 
 
 <question multiplechoice>
