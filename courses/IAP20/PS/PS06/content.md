@@ -1,5 +1,5 @@
 # Readings 
-[Recitation notes 3](https://learning-modules.mit.edu/service/materials/groups/238004/files/e6fa926e-a2c0-484f-80a0-c005f3b7f932/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Sorting, 6.006 Fall 2018 on stellar.
+[Recitation notes 3](https://learning-modules.mit.edu/service/materials/groups/278835/files/5141e55b-da1f-4944-a89c-3b70bbcd8133/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Sorting, 6.006 Fall 2018 on stellar.
 
 <python>
 csq_allow_check = True
