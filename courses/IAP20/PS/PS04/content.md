@@ -1,7 +1,7 @@
 # Readings 
-[Recitation notes 1](https://learning-modules.mit.edu/service/materials/groups/238004/files/586e0399-eb6a-4695-882d-918b42c8aaa5/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Algorithms, 6.006 Fall 2018 on stellar.
+[Recitation notes 1](https://learning-modules.mit.edu/service/materials/groups/278835/files/dc9d08c4-656d-475d-bec3-da37da14a115/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Algorithms, 6.006 Fall 2018 on stellar.
 
-Lecture notes [1](https://learning-modules.mit.edu/service/materials/groups/238004/files/9311a06c-25cc-46af-90de-70b7eff0b18b/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), [2](https://learning-modules.mit.edu/service/materials/groups/238004/files/3af97329-8071-4124-b629-5fe90f1f773b/link?errorRedirect=%2Fmaterials%2Findex.html&download=true),  6.006 Fall 2018 on stellar.
+Lecture notes [1](https://learning-modules.mit.edu/service/materials/groups/278835/files/70878927-7280-4b30-9ca6-d1af4cc9f55d/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), [2](https://learning-modules.mit.edu/service/materials/groups/278835/files/cc62971d-0289-429b-b38e-086716d52eda/link?errorRedirect=%2Fmaterials%2Findex.html&download=true),  6.006 Fall 2018 on stellar.
 
 [OCW algorithmic thinking](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec01.pdf)
 
