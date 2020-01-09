@@ -1,7 +1,7 @@
 # Readings 
-[Recitation notes 2](https://learning-modules.mit.edu/service/materials/groups/238004/files/e32bf8b0-6f52-4813-af38-5b1664dda1eb/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Master Theorem, 6.006 Fall 2018 on stellar.
+[Recitation notes 2](https://learning-modules.mit.edu/service/materials/groups/278835/files/f387e153-76f7-43be-b01a-9c09980b4b6c/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Master Theorem, 6.006 Fall 2018 on stellar.
 
-[Recursion and Recursion Trees problem set](https://s092.xvm.mit.edu/IAP19/PS/PS02)
+[Recursion and Recursion Trees problem set](https://s092.xvm.mit.edu/IAP20/PS/PS02)
 
 # Master Theorem
 
