@@ -1,5 +1,5 @@
 # Readings 
-[Recitation notes 8](https://learning-modules.mit.edu/service/materials/groups/238004/files/553c0282-3624-4bc3-aa99-c585e42d335a/link?errorRedirect=%2Fmaterials%2Findex.html&download=true) -- Linear Sorting, 6.006 Fall 2018 on stellar.
+[Recitation notes 8](https://learning-modules.mit.edu/service/materials/groups/278835/files/2a177237-a4c0-483c-9980-d45a0ae3c566/link?errorRedirect=%2Fmaterials%2Findex.html&download=true) -- Linear Sorting, 6.006 Fall 2018 on stellar.
 
 # Counting Sort
 
