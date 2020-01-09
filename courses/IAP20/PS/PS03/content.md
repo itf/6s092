@@ -1,6 +1,6 @@
 # Readings
 
-[Recitation notes 1](https://learning-modules.mit.edu/service/materials/groups/238004/files/586e0399-eb6a-4695-882d-918b42c8aaa5/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Model of Computation, 6.006 Fall 2018 on stellar.
+[Recitation notes 1](https://learning-modules.mit.edu/service/materials/groups/278835/files/dc9d08c4-656d-475d-bec3-da37da14a115/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Model of Computation, 6.006 Fall 2018 on stellar.
 
 [Lecture notes 2](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec02.pdf) on OCW
 
