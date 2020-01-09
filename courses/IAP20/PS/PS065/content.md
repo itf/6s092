@@ -1,5 +1,5 @@
 # Readings 
-[Recitation notes 7](https://learning-modules.mit.edu/service/materials/groups/238004/files/4ced90b7-63e9-453c-9f10-4e8c51a94d67/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Comparison Model, 6.006 Fall 2018 on stellar.
+[Recitation notes 7](https://learning-modules.mit.edu/service/materials/groups/278835/files/99f4474f-81bf-4faa-a94b-f9a429e162bb/link?errorRedirect=%2Fmaterials%2Findex.html&download=true), Section on Comparison Model, 6.006 Fall 2018 on stellar.
 
 <python>
 csq_allow_check = True
