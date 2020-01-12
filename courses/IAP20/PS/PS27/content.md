@@ -8,7 +8,7 @@ csq_allow_submit_after_answer_viewed = False
 
 </python>
 # Prim's algorithm
-Prim's algorithm is a **greedy** algorithm that generates a minimum spanning tree in an undirected graph with positive weights. A minimum spanning tree is a subset of edges of minimum total cost 
+Prim's algorithm is a **greedy** algorithm that generates a minimum spanning tree in an undirected graph with positive weights. A minimum spanning tree is a subset of edges of minimum total cost.
 
 It is implemented almost exactly like Dijkstra, but instead of relaxing nodes like:
 
